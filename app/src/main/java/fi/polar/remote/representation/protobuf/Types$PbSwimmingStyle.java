@@ -6,26 +6,26 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Types$PbSwimmingStyle implements ProtocolMessageEnum {
-   BACKSTROKE(13);
+   BACKSTROKE(13),
 
-   public static final int BACKSTROKE_VALUE = 13;
-   BREASTSTROKE(12);
+//   public static final int BACKSTROKE_VALUE = 13;
+   BREASTSTROKE(12),
 
-   public static final int BREASTSTROKE_VALUE = 12;
-   BUTTERFLY(14);
+//   public static final int BREASTSTROKE_VALUE = 12;
+   BUTTERFLY(14),
 
-   public static final int BUTTERFLY_VALUE = 14;
-   FREESTYLE(11);
+//   public static final int BUTTERFLY_VALUE = 14;
+   FREESTYLE(11),
 
-   public static final int FREESTYLE_VALUE = 11;
+//   public static final int FREESTYLE_VALUE = 11;
    OTHER(-1),
-   OTHER_SWIMMING(10);
+   OTHER_SWIMMING(10),
 
-   public static final int OTHER_SWIMMING_VALUE = 10;
-   public static final int OTHER_VALUE = -1;
+//   public static final int OTHER_SWIMMING_VALUE = 10;
+//   public static final int OTHER_VALUE = -1;
    TURN(0);
 
-   public static final int TURN_VALUE = 0;
+//   public static final int TURN_VALUE = 0;
    private static final Types$PbSwimmingStyle[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Types$PbSwimmingStyle$1();
    private final int value;

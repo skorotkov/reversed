@@ -6,11 +6,11 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Types$PbTimeSelection implements ProtocolMessageEnum {
-   TIME_1(1);
+   TIME_1(1),
 
-   public static final int TIME_1_VALUE = 1;
    TIME_2(2);
 
+   public static final int TIME_1_VALUE = 1;
    public static final int TIME_2_VALUE = 2;
    private static final Types$PbTimeSelection[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Types$PbTimeSelection$1();

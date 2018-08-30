@@ -6,11 +6,11 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum UserDeviceSettings$PbUserSafetyLightSettings$PbSafetyLightMode implements ProtocolMessageEnum {
-   SAFETY_LIGHT_AUTOMATIC(2);
+   SAFETY_LIGHT_AUTOMATIC(2),
 
-   public static final int SAFETY_LIGHT_AUTOMATIC_VALUE = 2;
    SAFETY_LIGHT_MANUAL(1);
 
+   public static final int SAFETY_LIGHT_AUTOMATIC_VALUE = 2;
    public static final int SAFETY_LIGHT_MANUAL_VALUE = 1;
    private static final UserDeviceSettings$PbUserSafetyLightSettings$PbSafetyLightMode[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new UserDeviceSettings$PbUserSafetyLightSettings$PbSafetyLightMode$1();

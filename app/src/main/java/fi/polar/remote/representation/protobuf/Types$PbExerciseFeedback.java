@@ -7,58 +7,58 @@ import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Types$PbExerciseFeedback implements ProtocolMessageEnum {
    FEEDBACK_1(2),
-   FEEDBACK_10(11);
+   FEEDBACK_10(11),
 
-   public static final int FEEDBACK_10_VALUE = 11;
-   FEEDBACK_11(12);
+//   public static final int FEEDBACK_10_VALUE = 11;
+   FEEDBACK_11(12),
 
-   public static final int FEEDBACK_11_VALUE = 12;
-   FEEDBACK_12(13);
+//   public static final int FEEDBACK_11_VALUE = 12;
+   FEEDBACK_12(13),
 
-   public static final int FEEDBACK_12_VALUE = 13;
-   FEEDBACK_13(14);
+//   public static final int FEEDBACK_12_VALUE = 13;
+   FEEDBACK_13(14),
 
-   public static final int FEEDBACK_13_VALUE = 14;
-   FEEDBACK_14(15);
+//   public static final int FEEDBACK_13_VALUE = 14;
+   FEEDBACK_14(15),
 
-   public static final int FEEDBACK_14_VALUE = 15;
-   FEEDBACK_15(16);
+//   public static final int FEEDBACK_14_VALUE = 15;
+   FEEDBACK_15(16),
 
-   public static final int FEEDBACK_15_VALUE = 16;
-   FEEDBACK_16(17);
+//   public static final int FEEDBACK_15_VALUE = 16;
+   FEEDBACK_16(17),
 
-   public static final int FEEDBACK_16_VALUE = 17;
-   FEEDBACK_17(18);
+//   public static final int FEEDBACK_16_VALUE = 17;
+   FEEDBACK_17(18),
 
-   public static final int FEEDBACK_17_VALUE = 18;
-   public static final int FEEDBACK_1_VALUE = 2;
-   FEEDBACK_2(3);
+//   public static final int FEEDBACK_17_VALUE = 18;
+//   public static final int FEEDBACK_1_VALUE = 2;
+   FEEDBACK_2(3),
 
-   public static final int FEEDBACK_2_VALUE = 3;
-   FEEDBACK_3(4);
+//   public static final int FEEDBACK_2_VALUE = 3;
+   FEEDBACK_3(4),
 
-   public static final int FEEDBACK_3_VALUE = 4;
-   FEEDBACK_4(5);
+//   public static final int FEEDBACK_3_VALUE = 4;
+   FEEDBACK_4(5),
 
-   public static final int FEEDBACK_4_VALUE = 5;
-   FEEDBACK_5(6);
+//   public static final int FEEDBACK_4_VALUE = 5;
+   FEEDBACK_5(6),
 
-   public static final int FEEDBACK_5_VALUE = 6;
-   FEEDBACK_6(7);
+//   public static final int FEEDBACK_5_VALUE = 6;
+   FEEDBACK_6(7),
 
-   public static final int FEEDBACK_6_VALUE = 7;
-   FEEDBACK_7(8);
+//   public static final int FEEDBACK_6_VALUE = 7;
+   FEEDBACK_7(8),
 
-   public static final int FEEDBACK_7_VALUE = 8;
-   FEEDBACK_8(9);
+//   public static final int FEEDBACK_7_VALUE = 8;
+   FEEDBACK_8(9),
 
-   public static final int FEEDBACK_8_VALUE = 9;
-   FEEDBACK_9(10);
+//   public static final int FEEDBACK_8_VALUE = 9;
+   FEEDBACK_9(10),
 
-   public static final int FEEDBACK_9_VALUE = 10;
+//   public static final int FEEDBACK_9_VALUE = 10;
    FEEDBACK_NONE(1);
 
-   public static final int FEEDBACK_NONE_VALUE = 1;
+//   public static final int FEEDBACK_NONE_VALUE = 1;
    private static final Types$PbExerciseFeedback[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Types$PbExerciseFeedback$1();
    private final int value;

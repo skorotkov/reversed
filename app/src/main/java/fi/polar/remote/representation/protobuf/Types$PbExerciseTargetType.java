@@ -6,26 +6,26 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Types$PbExerciseTargetType implements ProtocolMessageEnum {
-   EXERCISE_TARGET_TYPE_FREE(0);
+   EXERCISE_TARGET_TYPE_FREE(0),
 
-   public static final int EXERCISE_TARGET_TYPE_FREE_VALUE = 0;
-   EXERCISE_TARGET_TYPE_PHASED(2);
+//   public static final int EXERCISE_TARGET_TYPE_FREE_VALUE = 0;
+   EXERCISE_TARGET_TYPE_PHASED(2),
 
-   public static final int EXERCISE_TARGET_TYPE_PHASED_VALUE = 2;
+//   public static final int EXERCISE_TARGET_TYPE_PHASED_VALUE = 2;
    EXERCISE_TARGET_TYPE_ROUTE(3),
-   EXERCISE_TARGET_TYPE_ROUTE_RACE_PACE(5);
+   EXERCISE_TARGET_TYPE_ROUTE_RACE_PACE(5),
 
-   public static final int EXERCISE_TARGET_TYPE_ROUTE_RACE_PACE_VALUE = 5;
-   public static final int EXERCISE_TARGET_TYPE_ROUTE_VALUE = 3;
-   EXERCISE_TARGET_TYPE_STEADY_RACE_PACE(4);
+//   public static final int EXERCISE_TARGET_TYPE_ROUTE_RACE_PACE_VALUE = 5;
+//   public static final int EXERCISE_TARGET_TYPE_ROUTE_VALUE = 3;
+   EXERCISE_TARGET_TYPE_STEADY_RACE_PACE(4),
 
-   public static final int EXERCISE_TARGET_TYPE_STEADY_RACE_PACE_VALUE = 4;
-   EXERCISE_TARGET_TYPE_STRAVA_SEGMENT(6);
+//   public static final int EXERCISE_TARGET_TYPE_STEADY_RACE_PACE_VALUE = 4;
+   EXERCISE_TARGET_TYPE_STRAVA_SEGMENT(6),
 
-   public static final int EXERCISE_TARGET_TYPE_STRAVA_SEGMENT_VALUE = 6;
+//   public static final int EXERCISE_TARGET_TYPE_STRAVA_SEGMENT_VALUE = 6;
    EXERCISE_TARGET_TYPE_VOLUME(1);
 
-   public static final int EXERCISE_TARGET_TYPE_VOLUME_VALUE = 1;
+//   public static final int EXERCISE_TARGET_TYPE_VOLUME_VALUE = 1;
    private static final Types$PbExerciseTargetType[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Types$PbExerciseTargetType$1();
    private final int value;

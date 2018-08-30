@@ -6,18 +6,18 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum SportProfile$PbTrainingReminder$PbTrainingReminderType implements ProtocolMessageEnum {
-   TRAINING_REMINDER_CALORIES_BASED(2);
+   TRAINING_REMINDER_CALORIES_BASED(2),
 
-   public static final int TRAINING_REMINDER_CALORIES_BASED_VALUE = 2;
-   TRAINING_REMINDER_DISTANCE_BASED(3);
+   TRAINING_REMINDER_DISTANCE_BASED(3),
 
-   public static final int TRAINING_REMINDER_DISTANCE_BASED_VALUE = 3;
-   TRAINING_REMINDER_OFF(1);
+   TRAINING_REMINDER_OFF(1),
 
-   public static final int TRAINING_REMINDER_OFF_VALUE = 1;
    TRAINING_REMINDER_TIME_BASED(4);
 
    public static final int TRAINING_REMINDER_TIME_BASED_VALUE = 4;
+   public static final int TRAINING_REMINDER_CALORIES_BASED_VALUE = 2;
+   public static final int TRAINING_REMINDER_DISTANCE_BASED_VALUE = 3;
+   public static final int TRAINING_REMINDER_OFF_VALUE = 1;
    private static final SportProfile$PbTrainingReminder$PbTrainingReminderType[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new SportProfile$PbTrainingReminder$PbTrainingReminderType$1();
    private final int value;

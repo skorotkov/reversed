@@ -6,11 +6,10 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum ExercisePhase$PbPhase$PbPhaseChangeType implements ProtocolMessageEnum {
-   CHANGE_AUTOMATIC(1);
-
-   public static final int CHANGE_AUTOMATIC_VALUE = 1;
+   CHANGE_AUTOMATIC(1),
    CHANGE_MANUAL(0);
 
+   public static final int CHANGE_AUTOMATIC_VALUE = 1;
    public static final int CHANGE_MANUAL_VALUE = 0;
    private static final ExercisePhase$PbPhase$PbPhaseChangeType[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new ExercisePhase$PbPhase$PbPhaseChangeType$1();

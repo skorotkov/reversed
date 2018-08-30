@@ -6,14 +6,14 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum DailyActivityGoal$PbDailyActivityGoal$PbActivityGoalType implements ProtocolMessageEnum {
-   ACTIVITY_GOAL_DAILY_ACTIVITY(1);
+   ACTIVITY_GOAL_DAILY_ACTIVITY(1),
 
-   public static final int ACTIVITY_GOAL_DAILY_ACTIVITY_VALUE = 1;
-   ACTIVITY_GOAL_WEIGHT_LOSS(2);
+   ACTIVITY_GOAL_WEIGHT_LOSS(2),
 
-   public static final int ACTIVITY_GOAL_WEIGHT_LOSS_VALUE = 2;
    ACTIVITY_GOAL_WEIGHT_MAINTAIN(3);
 
+   public static final int ACTIVITY_GOAL_DAILY_ACTIVITY_VALUE = 1;
+   public static final int ACTIVITY_GOAL_WEIGHT_LOSS_VALUE = 2;
    public static final int ACTIVITY_GOAL_WEIGHT_MAINTAIN_VALUE = 3;
    private static final DailyActivityGoal$PbDailyActivityGoal$PbActivityGoalType[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new DailyActivityGoal$PbDailyActivityGoal$PbActivityGoalType$1();

@@ -6,21 +6,21 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum SleepanalysisResult$PbSleepUserRating implements ProtocolMessageEnum {
-   PB_SLEPT_NEITHER_POORLY_NOR_WELL(2);
+   PB_SLEPT_NEITHER_POORLY_NOR_WELL(2),
 
-   public static final int PB_SLEPT_NEITHER_POORLY_NOR_WELL_VALUE = 2;
-   PB_SLEPT_POORLY(0);
+   PB_SLEPT_POORLY(0),
 
-   public static final int PB_SLEPT_POORLY_VALUE = 0;
-   PB_SLEPT_SOMEWHAT_POORLY(1);
+   PB_SLEPT_SOMEWHAT_POORLY(1),
 
-   public static final int PB_SLEPT_SOMEWHAT_POORLY_VALUE = 1;
-   PB_SLEPT_SOMEWHAT_WELL(3);
+   PB_SLEPT_SOMEWHAT_WELL(3),
 
-   public static final int PB_SLEPT_SOMEWHAT_WELL_VALUE = 3;
    PB_SLEPT_WELL(4);
 
    public static final int PB_SLEPT_WELL_VALUE = 4;
+   public static final int PB_SLEPT_SOMEWHAT_WELL_VALUE = 3;
+   public static final int PB_SLEPT_SOMEWHAT_POORLY_VALUE = 1;
+   public static final int PB_SLEPT_NEITHER_POORLY_NOR_WELL_VALUE = 2;
+   public static final int PB_SLEPT_POORLY_VALUE = 0;
    private static final SleepanalysisResult$PbSleepUserRating[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new SleepanalysisResult$PbSleepUserRating$1();
    private final int value;

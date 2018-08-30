@@ -6,21 +6,21 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Types$Buttons implements ProtocolMessageEnum {
-   BUTTON_BACK(4);
+   BUTTON_BACK(4),
 
-   public static final int BUTTON_BACK_VALUE = 4;
-   BUTTON_LIGHT(3);
+   BUTTON_LIGHT(3),
 
-   public static final int BUTTON_LIGHT_VALUE = 3;
-   BUTTON_MINUS(1);
+   BUTTON_MINUS(1),
 
-   public static final int BUTTON_MINUS_VALUE = 1;
-   BUTTON_OK(2);
+   BUTTON_OK(2),
 
-   public static final int BUTTON_OK_VALUE = 2;
    BUTTON_PLUS(0);
 
    public static final int BUTTON_PLUS_VALUE = 0;
+   public static final int BUTTON_OK_VALUE = 2;
+   public static final int BUTTON_MINUS_VALUE = 1;
+   public static final int BUTTON_LIGHT_VALUE = 3;
+   public static final int BUTTON_BACK_VALUE = 4;
    private static final Types$Buttons[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Types$Buttons$1();
    private final int value;

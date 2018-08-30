@@ -6,11 +6,11 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum UserDeviceSettings$PbUserDeviceGeneralSettings$PbButtonLockMode implements ProtocolMessageEnum {
-   AUTO(2);
+   AUTO(2),
 
-   public static final int AUTO_VALUE = 2;
    MANUAL(1);
 
+   public static final int AUTO_VALUE = 2;
    public static final int MANUAL_VALUE = 1;
    private static final UserDeviceSettings$PbUserDeviceGeneralSettings$PbButtonLockMode[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new UserDeviceSettings$PbUserDeviceGeneralSettings$PbButtonLockMode$1();

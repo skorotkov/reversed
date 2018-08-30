@@ -6,11 +6,11 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Structures$PbStravaSegmentTarget$PbStravaSegmentType implements ProtocolMessageEnum {
-   STRAVA_SEGMENT_TYPE_RIDE(1);
+   STRAVA_SEGMENT_TYPE_RIDE(1),
 
-   public static final int STRAVA_SEGMENT_TYPE_RIDE_VALUE = 1;
    STRAVA_SEGMENT_TYPE_RUN(2);
 
+   public static final int STRAVA_SEGMENT_TYPE_RIDE_VALUE = 1;
    public static final int STRAVA_SEGMENT_TYPE_RUN_VALUE = 2;
    private static final Structures$PbStravaSegmentTarget$PbStravaSegmentType[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Structures$PbStravaSegmentTarget$PbStravaSegmentType$1();

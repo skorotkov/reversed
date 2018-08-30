@@ -6,14 +6,14 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Types$PbHeartRateView implements ProtocolMessageEnum {
-   HEART_RATE_VIEW_BPM(1);
+   HEART_RATE_VIEW_BPM(1),
 
-   public static final int HEART_RATE_VIEW_BPM_VALUE = 1;
-   HEART_RATE_VIEW_PERCENTS_OF_HR_RESERVE(2);
+   HEART_RATE_VIEW_PERCENTS_OF_HR_RESERVE(2),
 
-   public static final int HEART_RATE_VIEW_PERCENTS_OF_HR_RESERVE_VALUE = 2;
    HEART_RATE_VIEW_PERCENTS_OF_MAX_HR(3);
 
+   public static final int HEART_RATE_VIEW_BPM_VALUE = 1;
+   public static final int HEART_RATE_VIEW_PERCENTS_OF_HR_RESERVE_VALUE = 2;
    public static final int HEART_RATE_VIEW_PERCENTS_OF_MAX_HR_VALUE = 3;
    private static final Types$PbHeartRateView[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Types$PbHeartRateView$1();

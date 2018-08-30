@@ -6,15 +6,15 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum PftpNotification$PbPFtpSimulateTouchScreenParams$PbPFtpTouchState implements ProtocolMessageEnum {
-   TOUCH_STATE_END(2);
+   TOUCH_STATE_END(2),
 
-   public static final int TOUCH_STATE_END_VALUE = 2;
-   TOUCH_STATE_POSITION(1);
+   TOUCH_STATE_POSITION(1),
 
-   public static final int TOUCH_STATE_POSITION_VALUE = 1;
    TOUCH_STATE_START(0);
 
    public static final int TOUCH_STATE_START_VALUE = 0;
+   public static final int TOUCH_STATE_POSITION_VALUE = 1;
+   public static final int TOUCH_STATE_END_VALUE = 2;
    private static final PftpNotification$PbPFtpSimulateTouchScreenParams$PbPFtpTouchState[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new PftpNotification$PbPFtpSimulateTouchScreenParams$PbPFtpTouchState$1();
    private final int value;

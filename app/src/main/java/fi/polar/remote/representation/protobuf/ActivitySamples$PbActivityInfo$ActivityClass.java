@@ -6,28 +6,30 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum ActivitySamples$PbActivityInfo$ActivityClass implements ProtocolMessageEnum {
-   CONTINUOUS_MODERATE(4);
+   SLEEP(1), SEDENTARY(2), LIGHT(3), CONTINUOUS_MODERATE(4), INTERMITTENT_MODERATE(5),
+   CONTINUOUS_VIGOROUS(6), INTERMITTENT_VIGOROUS(7), NON_WEAR(8);
+//   CONTINUOUS_MODERATE(4);
 
    public static final int CONTINUOUS_MODERATE_VALUE = 4;
-   CONTINUOUS_VIGOROUS(6);
+//   CONTINUOUS_VIGOROUS(6);
 
    public static final int CONTINUOUS_VIGOROUS_VALUE = 6;
-   INTERMITTENT_MODERATE(5);
+//   INTERMITTENT_MODERATE(5);
 
    public static final int INTERMITTENT_MODERATE_VALUE = 5;
-   INTERMITTENT_VIGOROUS(7);
+//   INTERMITTENT_VIGOROUS(7);
 
    public static final int INTERMITTENT_VIGOROUS_VALUE = 7;
-   LIGHT(3);
+//   LIGHT(3);
 
    public static final int LIGHT_VALUE = 3;
-   NON_WEAR(8);
+//   NON_WEAR(8);
 
    public static final int NON_WEAR_VALUE = 8;
-   SEDENTARY(2);
+//   SEDENTARY(2);
 
    public static final int SEDENTARY_VALUE = 2;
-   SLEEP(1);
+//   SLEEP(1);
 
    public static final int SLEEP_VALUE = 1;
    private static final ActivitySamples$PbActivityInfo$ActivityClass[] VALUES = values();

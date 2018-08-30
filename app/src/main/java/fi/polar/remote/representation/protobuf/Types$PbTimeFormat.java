@@ -6,12 +6,12 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Types$PbTimeFormat implements ProtocolMessageEnum {
-   TIME_FORMAT_12H(2);
+   TIME_FORMAT_12H(2),
 
-   public static final int TIME_FORMAT_12H_VALUE = 2;
    TIME_FORMAT_24H(1);
 
    public static final int TIME_FORMAT_24H_VALUE = 1;
+   public static final int TIME_FORMAT_12H_VALUE = 2;
    private static final Types$PbTimeFormat[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Types$PbTimeFormat$1();
    private final int value;

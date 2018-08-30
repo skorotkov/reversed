@@ -6,36 +6,36 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum PftpNotification$PbPFtpDevToHostNotification implements ProtocolMessageEnum {
-   AUTOSYNC_STATUS(8);
+   AUTOSYNC_STATUS(8),
 
-   public static final int AUTOSYNC_STATUS_VALUE = 8;
-   BATTERY_STATUS(3);
+//   public static final int AUTOSYNC_STATUS_VALUE = 8;
+   BATTERY_STATUS(3),
 
-   public static final int BATTERY_STATUS_VALUE = 3;
-   FILESYSTEM_MODIFIED(0);
+//   public static final int BATTERY_STATUS_VALUE = 3;
+   FILESYSTEM_MODIFIED(0),
 
-   public static final int FILESYSTEM_MODIFIED_VALUE = 0;
-   IDLING(2);
+//   public static final int FILESYSTEM_MODIFIED_VALUE = 0;
+   IDLING(2),
 
-   public static final int IDLING_VALUE = 2;
-   INACTIVITY_ALERT(4);
+//   public static final int IDLING_VALUE = 2;
+   INACTIVITY_ALERT(4),
 
-   public static final int INACTIVITY_ALERT_VALUE = 4;
-   INTERNAL_TEST_EVENT(1);
+//   public static final int INACTIVITY_ALERT_VALUE = 4;
+   INTERNAL_TEST_EVENT(1),
 
-   public static final int INTERNAL_TEST_EVENT_VALUE = 1;
-   PNS_DH_NOTIFICATION_RESPONSE(9);
+//   public static final int INTERNAL_TEST_EVENT_VALUE = 1;
+   PNS_DH_NOTIFICATION_RESPONSE(9),
 
-   public static final int PNS_DH_NOTIFICATION_RESPONSE_VALUE = 9;
-   PNS_SETTINGS(10);
+//   public static final int PNS_DH_NOTIFICATION_RESPONSE_VALUE = 9;
+   PNS_SETTINGS(10),
 
-   public static final int PNS_SETTINGS_VALUE = 10;
-   SYNC_REQUIRED(7);
+//   public static final int PNS_SETTINGS_VALUE = 10;
+   SYNC_REQUIRED(7),
 
-   public static final int SYNC_REQUIRED_VALUE = 7;
+//   public static final int SYNC_REQUIRED_VALUE = 7;
    TRAINING_SESSION_STATUS(5);
 
-   public static final int TRAINING_SESSION_STATUS_VALUE = 5;
+//   public static final int TRAINING_SESSION_STATUS_VALUE = 5;
    private static final PftpNotification$PbPFtpDevToHostNotification[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new PftpNotification$PbPFtpDevToHostNotification$1();
    private final int value;

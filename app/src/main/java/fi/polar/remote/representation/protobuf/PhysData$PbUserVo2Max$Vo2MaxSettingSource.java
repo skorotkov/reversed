@@ -6,17 +6,17 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum PhysData$PbUserVo2Max$Vo2MaxSettingSource implements ProtocolMessageEnum {
-   SOURCE_DEFAULT(0);
+   SOURCE_DEFAULT(0),
 
-   public static final int SOURCE_DEFAULT_VALUE = 0;
-   SOURCE_ESTIMATE(1);
+   SOURCE_ESTIMATE(1),
 
-   public static final int SOURCE_ESTIMATE_VALUE = 1;
-   SOURCE_FITNESSTEST(3);
+   SOURCE_FITNESSTEST(3),
 
-   public static final int SOURCE_FITNESSTEST_VALUE = 3;
    SOURCE_USER(2);
 
+   public static final int SOURCE_DEFAULT_VALUE = 0;
+   public static final int SOURCE_ESTIMATE_VALUE = 1;
+   public static final int SOURCE_FITNESSTEST_VALUE = 3;
    public static final int SOURCE_USER_VALUE = 2;
    private static final PhysData$PbUserVo2Max$Vo2MaxSettingSource[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new PhysData$PbUserVo2Max$Vo2MaxSettingSource$1();

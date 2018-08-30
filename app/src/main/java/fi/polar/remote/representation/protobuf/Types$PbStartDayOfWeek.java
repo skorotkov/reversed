@@ -6,15 +6,15 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Types$PbStartDayOfWeek implements ProtocolMessageEnum {
-   MONDAY(1);
+   MONDAY(1),
 
-   public static final int MONDAY_VALUE = 1;
-   SATURDAY(2);
+   SATURDAY(2),
 
-   public static final int SATURDAY_VALUE = 2;
    SUNDAY(3);
 
    public static final int SUNDAY_VALUE = 3;
+   public static final int SATURDAY_VALUE = 2;
+   public static final int MONDAY_VALUE = 1;
    private static final Types$PbStartDayOfWeek[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Types$PbStartDayOfWeek$1();
    private final int value;

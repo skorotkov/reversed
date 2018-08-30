@@ -6,17 +6,17 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum PftpNotification$PbPftpPnsDHAttributeType implements ProtocolMessageEnum {
-   CLEAR_ACTION(4);
+   CLEAR_ACTION(4),
 
-   public static final int CLEAR_ACTION_VALUE = 4;
-   NEGATIVE_ACTION(3);
+   NEGATIVE_ACTION(3),
 
-   public static final int NEGATIVE_ACTION_VALUE = 3;
-   POSITIVE_ACTION(2);
+   POSITIVE_ACTION(2),
 
-   public static final int POSITIVE_ACTION_VALUE = 2;
    UNKNOWN_ACTION(1);
 
+   public static final int POSITIVE_ACTION_VALUE = 2;
+   public static final int NEGATIVE_ACTION_VALUE = 3;
+   public static final int CLEAR_ACTION_VALUE = 4;
    public static final int UNKNOWN_ACTION_VALUE = 1;
    private static final PftpNotification$PbPftpPnsDHAttributeType[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new PftpNotification$PbPftpPnsDHAttributeType$1();

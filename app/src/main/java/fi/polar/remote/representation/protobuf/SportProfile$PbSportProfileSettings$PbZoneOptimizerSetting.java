@@ -6,18 +6,19 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum SportProfile$PbSportProfileSettings$PbZoneOptimizerSetting implements ProtocolMessageEnum {
-   private static final SportProfile$PbSportProfileSettings$PbZoneOptimizerSetting[] VALUES = values();
-   ZONEOPTIMIZER_DEFAULT(3);
+   ZONEOPTIMIZER_DEFAULT(3),
 
-   public static final int ZONEOPTIMIZER_DEFAULT_VALUE = 3;
    ZONEOPTIMIZER_MODIFIED(4),
-   ZONEOPTIMIZER_MODIFIED_OFF(2);
+   ZONEOPTIMIZER_MODIFIED_OFF(2),
 
-   public static final int ZONEOPTIMIZER_MODIFIED_OFF_VALUE = 2;
-   public static final int ZONEOPTIMIZER_MODIFIED_VALUE = 4;
    ZONEOPTIMIZER_OFF(1);
 
+   private static final SportProfile$PbSportProfileSettings$PbZoneOptimizerSetting[] VALUES = values();
+
    public static final int ZONEOPTIMIZER_OFF_VALUE = 1;
+   public static final int ZONEOPTIMIZER_DEFAULT_VALUE = 3;
+   public static final int ZONEOPTIMIZER_MODIFIED_OFF_VALUE = 2;
+   public static final int ZONEOPTIMIZER_MODIFIED_VALUE = 4;
    private static final EnumLiteMap internalValueMap = new SportProfile$PbSportProfileSettings$PbZoneOptimizerSetting$1();
    private final int value;
 

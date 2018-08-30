@@ -6,11 +6,11 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum UserDeviceSettings$PbUserDeviceDoNotDisturbSettings$PbDoNotDisturbSettingSource implements ProtocolMessageEnum {
-   SOURCE_TIMED(1);
+   SOURCE_TIMED(1),
 
-   public static final int SOURCE_TIMED_VALUE = 1;
    SOURCE_USER(0);
 
+   public static final int SOURCE_TIMED_VALUE = 1;
    public static final int SOURCE_USER_VALUE = 0;
    private static final UserDeviceSettings$PbUserDeviceDoNotDisturbSettings$PbDoNotDisturbSettingSource[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new UserDeviceSettings$PbUserDeviceDoNotDisturbSettings$PbDoNotDisturbSettingSource$1();

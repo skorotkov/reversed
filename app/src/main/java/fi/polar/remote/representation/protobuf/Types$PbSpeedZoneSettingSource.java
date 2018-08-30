@@ -6,11 +6,11 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Types$PbSpeedZoneSettingSource implements ProtocolMessageEnum {
-   SPEED_ZONE_SETTING_SOURCE_DEFAULT(0);
+   SPEED_ZONE_SETTING_SOURCE_DEFAULT(0),
 
-   public static final int SPEED_ZONE_SETTING_SOURCE_DEFAULT_VALUE = 0;
    SPEED_ZONE_SETTING_SOURCE_FREE(1);
 
+   public static final int SPEED_ZONE_SETTING_SOURCE_DEFAULT_VALUE = 0;
    public static final int SPEED_ZONE_SETTING_SOURCE_FREE_VALUE = 1;
    private static final Types$PbSpeedZoneSettingSource[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Types$PbSpeedZoneSettingSource$1();

@@ -7,40 +7,40 @@ import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum UserDeviceSettings$PbUserDeviceGeneralSettings$PbWatchFace implements ProtocolMessageEnum {
    ACTIVITY(7),
-   ACTIVITY_CIRCLE(12);
+   ACTIVITY_CIRCLE(12),
 
-   public static final int ACTIVITY_CIRCLE_VALUE = 12;
-   public static final int ACTIVITY_VALUE = 7;
-   ANALOG(5);
+//   public static final int ACTIVITY_CIRCLE_VALUE = 12;
+//   public static final int ACTIVITY_VALUE = 7;
+   ANALOG(5),
 
-   public static final int ANALOG_VALUE = 5;
-   AWARD(2);
+//   public static final int ANALOG_VALUE = 5;
+   AWARD(2),
 
-   public static final int AWARD_VALUE = 2;
-   BASIC(1);
+//   public static final int AWARD_VALUE = 2;
+   BASIC(1),
 
-   public static final int BASIC_VALUE = 1;
+//   public static final int BASIC_VALUE = 1;
    BIG(6),
-   BIG_ANALOG(8);
+   BIG_ANALOG(8),
 
-   public static final int BIG_ANALOG_VALUE = 8;
-   BIG_DIGITS(11);
+//   public static final int BIG_ANALOG_VALUE = 8;
+   BIG_DIGITS(11),
 
-   public static final int BIG_DIGITS_VALUE = 11;
-   public static final int BIG_VALUE = 6;
-   EVENT(4);
+//   public static final int BIG_DIGITS_VALUE = 11;
+//   public static final int BIG_VALUE = 6;
+   EVENT(4),
 
-   public static final int EVENT_VALUE = 4;
-   JUMBO(10);
+//   public static final int EVENT_VALUE = 4;
+   JUMBO(10),
 
-   public static final int JUMBO_VALUE = 10;
-   USER_NAME(3);
+//   public static final int JUMBO_VALUE = 10;
+   USER_NAME(3),
 
-   public static final int USER_NAME_VALUE = 3;
-   private static final UserDeviceSettings$PbUserDeviceGeneralSettings$PbWatchFace[] VALUES = values();
+//   public static final int USER_NAME_VALUE = 3;
    WHITE_ANALOG(9);
 
-   public static final int WHITE_ANALOG_VALUE = 9;
+//   public static final int WHITE_ANALOG_VALUE = 9;
+   private static final UserDeviceSettings$PbUserDeviceGeneralSettings$PbWatchFace[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new UserDeviceSettings$PbUserDeviceGeneralSettings$PbWatchFace$1();
    private final int value;
 

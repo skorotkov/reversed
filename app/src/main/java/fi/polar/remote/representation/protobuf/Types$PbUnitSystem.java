@@ -6,11 +6,11 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Types$PbUnitSystem implements ProtocolMessageEnum {
-   IMPERIAL(2);
+   IMPERIAL(2),
 
-   public static final int IMPERIAL_VALUE = 2;
    METRIC(1);
 
+   public static final int IMPERIAL_VALUE = 2;
    public static final int METRIC_VALUE = 1;
    private static final Types$PbUnitSystem[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Types$PbUnitSystem$1();

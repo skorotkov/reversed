@@ -6,12 +6,12 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum SportProfile$PbSportProfileSettings$PbPowerView implements ProtocolMessageEnum {
-   POWER_VIEW_FTP_PERCENT(3);
+   POWER_VIEW_FTP_PERCENT(3),
 
-   public static final int POWER_VIEW_FTP_PERCENT_VALUE = 3;
    POWER_VIEW_WATT(1),
    POWER_VIEW_WATT_PER_KG(2);
 
+   public static final int POWER_VIEW_FTP_PERCENT_VALUE = 3;
    public static final int POWER_VIEW_WATT_PER_KG_VALUE = 2;
    public static final int POWER_VIEW_WATT_VALUE = 1;
    private static final SportProfile$PbSportProfileSettings$PbPowerView[] VALUES = values();

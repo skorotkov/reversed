@@ -6,11 +6,11 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum SportProfile$PbSportProfileSettings$PbSpeedView implements ProtocolMessageEnum {
-   SPEED_VIEW_PACE(1);
+   SPEED_VIEW_PACE(1),
 
-   public static final int SPEED_VIEW_PACE_VALUE = 1;
    SPEED_VIEW_SPEED(2);
 
+   public static final int SPEED_VIEW_PACE_VALUE = 1;
    public static final int SPEED_VIEW_SPEED_VALUE = 2;
    private static final SportProfile$PbSportProfileSettings$PbSpeedView[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new SportProfile$PbSportProfileSettings$PbSpeedView$1();

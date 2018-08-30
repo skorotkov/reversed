@@ -6,18 +6,18 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Sport$PbSport$PbSportType implements ProtocolMessageEnum {
-   SPORT_TYPE_FREE_MULTI_SPORT(4);
+   SPORT_TYPE_FREE_MULTI_SPORT(4),
 
-   public static final int SPORT_TYPE_FREE_MULTI_SPORT_VALUE = 4;
-   SPORT_TYPE_MULTI_SPORT(2);
+   SPORT_TYPE_MULTI_SPORT(2),
 
-   public static final int SPORT_TYPE_MULTI_SPORT_VALUE = 2;
-   SPORT_TYPE_SINGLE_SPORT(1);
+   SPORT_TYPE_SINGLE_SPORT(1),
 
-   public static final int SPORT_TYPE_SINGLE_SPORT_VALUE = 1;
    SPORT_TYPE_SUB_SPORT(3);
 
    public static final int SPORT_TYPE_SUB_SPORT_VALUE = 3;
+   public static final int SPORT_TYPE_SINGLE_SPORT_VALUE = 1;
+   public static final int SPORT_TYPE_FREE_MULTI_SPORT_VALUE = 4;
+   public static final int SPORT_TYPE_MULTI_SPORT_VALUE = 2;
    private static final Sport$PbSport$PbSportType[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Sport$PbSport$PbSportType$1();
    private final int value;

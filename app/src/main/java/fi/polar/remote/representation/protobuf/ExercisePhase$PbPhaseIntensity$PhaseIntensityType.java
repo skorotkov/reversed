@@ -6,17 +6,17 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum ExercisePhase$PbPhaseIntensity$PhaseIntensityType implements ProtocolMessageEnum {
-   PHASE_INTENSITY_FREE(0);
+   PHASE_INTENSITY_FREE(0),
 
-   public static final int PHASE_INTENSITY_FREE_VALUE = 0;
-   PHASE_INTENSITY_POWER_ZONE(3);
+   PHASE_INTENSITY_POWER_ZONE(3),
 
-   public static final int PHASE_INTENSITY_POWER_ZONE_VALUE = 3;
-   PHASE_INTENSITY_SPEED_ZONE(2);
+   PHASE_INTENSITY_SPEED_ZONE(2),
 
-   public static final int PHASE_INTENSITY_SPEED_ZONE_VALUE = 2;
    PHASE_INTENSITY_SPORTZONE(1);
 
+   public static final int PHASE_INTENSITY_FREE_VALUE = 0;
+   public static final int PHASE_INTENSITY_POWER_ZONE_VALUE = 3;
+   public static final int PHASE_INTENSITY_SPEED_ZONE_VALUE = 2;
    public static final int PHASE_INTENSITY_SPORTZONE_VALUE = 1;
    private static final ExercisePhase$PbPhaseIntensity$PhaseIntensityType[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new ExercisePhase$PbPhaseIntensity$PhaseIntensityType$1();

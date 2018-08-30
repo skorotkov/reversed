@@ -6,48 +6,48 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum PftpRequest$PbPFtpQuery implements ProtocolMessageEnum {
-   CLEANUP_DISK_SPACE(10);
+   CLEANUP_DISK_SPACE(10),
 
-   public static final int CLEANUP_DISK_SPACE_VALUE = 10;
-   GENERATE_CHALLENGE_TOKEN(6);
+//   public static final int CLEANUP_DISK_SPACE_VALUE = 10;
+   GENERATE_CHALLENGE_TOKEN(6),
 
-   public static final int GENERATE_CHALLENGE_TOKEN_VALUE = 6;
-   GET_BATTERY_STATUS(8);
+//   public static final int GENERATE_CHALLENGE_TOKEN_VALUE = 6;
+   GET_BATTERY_STATUS(8),
 
-   public static final int GET_BATTERY_STATUS_VALUE = 8;
-   GET_DISK_SPACE(5);
+//   public static final int GET_BATTERY_STATUS_VALUE = 8;
+   GET_DISK_SPACE(5),
 
-   public static final int GET_DISK_SPACE_VALUE = 5;
-   GET_INACTIVITY_PRE_ALERT(11);
+//   public static final int GET_DISK_SPACE_VALUE = 5;
+   GET_INACTIVITY_PRE_ALERT(11),
 
-   public static final int GET_INACTIVITY_PRE_ALERT_VALUE = 11;
-   GET_LOCAL_TIME(4);
+//   public static final int GET_INACTIVITY_PRE_ALERT_VALUE = 11;
+   GET_LOCAL_TIME(4),
 
-   public static final int GET_LOCAL_TIME_VALUE = 4;
-   GET_SYSTEM_TIME(2);
+//   public static final int GET_LOCAL_TIME_VALUE = 4;
+   GET_SYSTEM_TIME(2),
 
-   public static final int GET_SYSTEM_TIME_VALUE = 2;
-   IDENTIFY_DEVICE(0);
+//   public static final int GET_SYSTEM_TIME_VALUE = 2;
+   IDENTIFY_DEVICE(0),
 
-   public static final int IDENTIFY_DEVICE_VALUE = 0;
-   PREPARE_FIRMWARE_UPDATE(12);
+//   public static final int IDENTIFY_DEVICE_VALUE = 0;
+   PREPARE_FIRMWARE_UPDATE(12),
 
-   public static final int PREPARE_FIRMWARE_UPDATE_VALUE = 12;
-   REQUEST_SYNCHRONIZATION(13);
+//   public static final int PREPARE_FIRMWARE_UPDATE_VALUE = 12;
+   REQUEST_SYNCHRONIZATION(13),
 
-   public static final int REQUEST_SYNCHRONIZATION_VALUE = 13;
-   SET_ADB_MODE(9);
+//   public static final int REQUEST_SYNCHRONIZATION_VALUE = 13;
+   SET_ADB_MODE(9),
 
-   public static final int SET_ADB_MODE_VALUE = 9;
-   SET_INTERNAL_TEST(7);
+//   public static final int SET_ADB_MODE_VALUE = 9;
+   SET_INTERNAL_TEST(7),
 
-   public static final int SET_INTERNAL_TEST_VALUE = 7;
-   SET_LOCAL_TIME(3);
+//   public static final int SET_INTERNAL_TEST_VALUE = 7;
+   SET_LOCAL_TIME(3),
 
-   public static final int SET_LOCAL_TIME_VALUE = 3;
+//   public static final int SET_LOCAL_TIME_VALUE = 3;
    SET_SYSTEM_TIME(1);
 
-   public static final int SET_SYSTEM_TIME_VALUE = 1;
+//   public static final int SET_SYSTEM_TIME_VALUE = 1;
    private static final PftpRequest$PbPFtpQuery[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new PftpRequest$PbPFtpQuery$1();
    private final int value;

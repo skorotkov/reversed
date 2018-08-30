@@ -6,11 +6,11 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum SportProfile$PbSportProfileSettings$PbSwimmingUnits implements ProtocolMessageEnum {
-   SWIMMING_METERS(0);
+   SWIMMING_METERS(0),
 
-   public static final int SWIMMING_METERS_VALUE = 0;
    SWIMMING_YARDS(1);
 
+   public static final int SWIMMING_METERS_VALUE = 0;
    public static final int SWIMMING_YARDS_VALUE = 1;
    private static final SportProfile$PbSportProfileSettings$PbSwimmingUnits[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new SportProfile$PbSportProfileSettings$PbSwimmingUnits$1();

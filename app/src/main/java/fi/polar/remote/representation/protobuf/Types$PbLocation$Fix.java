@@ -6,15 +6,15 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Types$PbLocation$Fix implements ProtocolMessageEnum {
-   FIX_2D(1);
+   FIX_2D(1),
 
-   public static final int FIX_2D_VALUE = 1;
-   FIX_3D(2);
+   FIX_3D(2),
 
-   public static final int FIX_3D_VALUE = 2;
    FIX_NONE(0);
 
    public static final int FIX_NONE_VALUE = 0;
+   public static final int FIX_3D_VALUE = 2;
+   public static final int FIX_2D_VALUE = 1;
    private static final Types$PbLocation$Fix[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Types$PbLocation$Fix$1();
    private final int value;

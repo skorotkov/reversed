@@ -6,11 +6,11 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum UserDeviceSettings$PbUserMapSettings$PbMapTopDirection implements ProtocolMessageEnum {
-   TOP_DIRECTION_HEADING(2);
+   TOP_DIRECTION_HEADING(2),
 
-   public static final int TOP_DIRECTION_HEADING_VALUE = 2;
    TOP_DIRECTION_NORTH(1);
 
+   public static final int TOP_DIRECTION_HEADING_VALUE = 2;
    public static final int TOP_DIRECTION_NORTH_VALUE = 1;
    private static final UserDeviceSettings$PbUserMapSettings$PbMapTopDirection[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new UserDeviceSettings$PbUserMapSettings$PbMapTopDirection$1();

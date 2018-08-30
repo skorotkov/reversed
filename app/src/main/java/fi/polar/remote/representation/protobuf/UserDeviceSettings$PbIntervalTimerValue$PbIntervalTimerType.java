@@ -6,12 +6,12 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum UserDeviceSettings$PbIntervalTimerValue$PbIntervalTimerType implements ProtocolMessageEnum {
-   INTERVAL_TIMER_TYPE_DISTANCE(2);
+   INTERVAL_TIMER_TYPE_DISTANCE(2),
 
-   public static final int INTERVAL_TIMER_TYPE_DISTANCE_VALUE = 2;
    INTERVAL_TIMER_TYPE_DURATION(1);
 
    public static final int INTERVAL_TIMER_TYPE_DURATION_VALUE = 1;
+   public static final int INTERVAL_TIMER_TYPE_DISTANCE_VALUE = 2;
    private static final UserDeviceSettings$PbIntervalTimerValue$PbIntervalTimerType[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new UserDeviceSettings$PbIntervalTimerValue$PbIntervalTimerType$1();
    private final int value;

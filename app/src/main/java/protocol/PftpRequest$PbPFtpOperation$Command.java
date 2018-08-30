@@ -6,18 +6,18 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum PftpRequest$PbPFtpOperation$Command implements ProtocolMessageEnum {
-   GET(0);
+   GET(0),
 
-   public static final int GET_VALUE = 0;
-   MERGE(2);
+   MERGE(2),
 
-   public static final int MERGE_VALUE = 2;
-   PUT(1);
+   PUT(1),
 
-   public static final int PUT_VALUE = 1;
    REMOVE(3);
 
    public static final int REMOVE_VALUE = 3;
+   public static final int PUT_VALUE = 1;
+   public static final int MERGE_VALUE = 2;
+   public static final int GET_VALUE = 0;
    private static final PftpRequest$PbPFtpOperation$Command[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new PftpRequest$PbPFtpOperation$Command$1();
    private final int value;

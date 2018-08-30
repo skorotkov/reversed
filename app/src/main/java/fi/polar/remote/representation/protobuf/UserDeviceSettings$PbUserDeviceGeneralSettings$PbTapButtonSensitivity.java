@@ -6,21 +6,21 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum UserDeviceSettings$PbUserDeviceGeneralSettings$PbTapButtonSensitivity implements ProtocolMessageEnum {
-   TAP_BUTTON_SENSITIVITY_HIGH(4);
+   TAP_BUTTON_SENSITIVITY_HIGH(4),
 
-   public static final int TAP_BUTTON_SENSITIVITY_HIGH_VALUE = 4;
-   TAP_BUTTON_SENSITIVITY_LOW(2);
+//   public static final int TAP_BUTTON_SENSITIVITY_HIGH_VALUE = 4;
+   TAP_BUTTON_SENSITIVITY_LOW(2),
 
-   public static final int TAP_BUTTON_SENSITIVITY_LOW_VALUE = 2;
-   TAP_BUTTON_SENSITIVITY_MEDIUM(3);
+//   public static final int TAP_BUTTON_SENSITIVITY_LOW_VALUE = 2;
+   TAP_BUTTON_SENSITIVITY_MEDIUM(3),
 
-   public static final int TAP_BUTTON_SENSITIVITY_MEDIUM_VALUE = 3;
-   TAP_BUTTON_SENSITIVITY_OFF(1);
+//   public static final int TAP_BUTTON_SENSITIVITY_MEDIUM_VALUE = 3;
+   TAP_BUTTON_SENSITIVITY_OFF(1),
 
-   public static final int TAP_BUTTON_SENSITIVITY_OFF_VALUE = 1;
+//   public static final int TAP_BUTTON_SENSITIVITY_OFF_VALUE = 1;
    TAP_BUTTON_SENSITIVITY_VERY_LOW(5);
 
-   public static final int TAP_BUTTON_SENSITIVITY_VERY_LOW_VALUE = 5;
+//   public static final int TAP_BUTTON_SENSITIVITY_VERY_LOW_VALUE = 5;
    private static final UserDeviceSettings$PbUserDeviceGeneralSettings$PbTapButtonSensitivity[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new UserDeviceSettings$PbUserDeviceGeneralSettings$PbTapButtonSensitivity$1();
    private final int value;

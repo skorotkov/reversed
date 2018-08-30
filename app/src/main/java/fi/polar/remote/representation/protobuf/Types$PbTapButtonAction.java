@@ -6,18 +6,18 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Types$PbTapButtonAction implements ProtocolMessageEnum {
-   TAP_BUTTON_ACTIVATE_BACKLIGHT(4);
+   TAP_BUTTON_ACTIVATE_BACKLIGHT(4),
 
-   public static final int TAP_BUTTON_ACTIVATE_BACKLIGHT_VALUE = 4;
-   TAP_BUTTON_CHANGE_TRAINING_VIEW(3);
+//   public static final int TAP_BUTTON_ACTIVATE_BACKLIGHT_VALUE = 4;
+   TAP_BUTTON_CHANGE_TRAINING_VIEW(3),
 
-   public static final int TAP_BUTTON_CHANGE_TRAINING_VIEW_VALUE = 3;
-   TAP_BUTTON_OFF(1);
+//   public static final int TAP_BUTTON_CHANGE_TRAINING_VIEW_VALUE = 3;
+   TAP_BUTTON_OFF(1),
 
-   public static final int TAP_BUTTON_OFF_VALUE = 1;
+//   public static final int TAP_BUTTON_OFF_VALUE = 1;
    TAP_BUTTON_TAKE_LAP(2);
 
-   public static final int TAP_BUTTON_TAKE_LAP_VALUE = 2;
+//   public static final int TAP_BUTTON_TAKE_LAP_VALUE = 2;
    private static final Types$PbTapButtonAction[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Types$PbTapButtonAction$1();
    private final int value;

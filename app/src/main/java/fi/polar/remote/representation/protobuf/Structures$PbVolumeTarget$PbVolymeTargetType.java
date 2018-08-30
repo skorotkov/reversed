@@ -6,16 +6,16 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Structures$PbVolumeTarget$PbVolymeTargetType implements ProtocolMessageEnum {
-   private static final Structures$PbVolumeTarget$PbVolymeTargetType[] VALUES = values();
-   VOLUME_TARGET_TYPE_CALORIES(2);
+   VOLUME_TARGET_TYPE_CALORIES(2),
 
-   public static final int VOLUME_TARGET_TYPE_CALORIES_VALUE = 2;
-   VOLUME_TARGET_TYPE_DISTANCE(1);
+   VOLUME_TARGET_TYPE_DISTANCE(1),
 
-   public static final int VOLUME_TARGET_TYPE_DISTANCE_VALUE = 1;
    VOLUME_TARGET_TYPE_DURATION(0);
 
    public static final int VOLUME_TARGET_TYPE_DURATION_VALUE = 0;
+   public static final int VOLUME_TARGET_TYPE_DISTANCE_VALUE = 1;
+   public static final int VOLUME_TARGET_TYPE_CALORIES_VALUE = 2;
+   private static final Structures$PbVolumeTarget$PbVolymeTargetType[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Structures$PbVolumeTarget$PbVolymeTargetType$1();
    private final int value;
 

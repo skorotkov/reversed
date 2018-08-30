@@ -6,18 +6,18 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum UserDeviceSettings$PbUserDeviceAlarmSettings$PbAlarmMode implements ProtocolMessageEnum {
-   ALARM_MODE_EVERY_DAY(4);
+   ALARM_MODE_EVERY_DAY(4),
 
-   public static final int ALARM_MODE_EVERY_DAY_VALUE = 4;
-   ALARM_MODE_MON_TO_FRI(3);
+   ALARM_MODE_MON_TO_FRI(3),
 
-   public static final int ALARM_MODE_MON_TO_FRI_VALUE = 3;
-   ALARM_MODE_OFF(1);
+   ALARM_MODE_OFF(1),
 
-   public static final int ALARM_MODE_OFF_VALUE = 1;
    ALARM_MODE_ONCE(2);
 
    public static final int ALARM_MODE_ONCE_VALUE = 2;
+   public static final int ALARM_MODE_OFF_VALUE = 1;
+   public static final int ALARM_MODE_MON_TO_FRI_VALUE = 3;
+   public static final int ALARM_MODE_EVERY_DAY_VALUE = 4;
    private static final UserDeviceSettings$PbUserDeviceAlarmSettings$PbAlarmMode[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new UserDeviceSettings$PbUserDeviceAlarmSettings$PbAlarmMode$1();
    private final int value;

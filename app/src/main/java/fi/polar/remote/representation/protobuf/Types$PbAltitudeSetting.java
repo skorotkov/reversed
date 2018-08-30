@@ -6,11 +6,11 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Types$PbAltitudeSetting implements ProtocolMessageEnum {
-   ALTITUDE_OFF(0);
+   ALTITUDE_OFF(0),
 
-   public static final int ALTITUDE_OFF_VALUE = 0;
    ALTITUDE_ON(1);
 
+   public static final int ALTITUDE_OFF_VALUE = 0;
    public static final int ALTITUDE_ON_VALUE = 1;
    private static final Types$PbAltitudeSetting[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Types$PbAltitudeSetting$1();

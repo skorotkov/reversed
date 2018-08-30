@@ -6,16 +6,16 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Types$PbDateFormat implements ProtocolMessageEnum {
-   DD_MM_YYYY(1);
+   DD_MM_YYYY(1),
 
-   public static final int DD_MM_YYYY_VALUE = 1;
-   MM_DD_YYYY(2);
+   MM_DD_YYYY(2),
 
-   public static final int MM_DD_YYYY_VALUE = 2;
-   private static final Types$PbDateFormat[] VALUES = values();
    YYYY_MM_DD(3);
 
+   public static final int DD_MM_YYYY_VALUE = 1;
+   public static final int MM_DD_YYYY_VALUE = 2;
    public static final int YYYY_MM_DD_VALUE = 3;
+   private static final Types$PbDateFormat[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Types$PbDateFormat$1();
    private final int value;
 

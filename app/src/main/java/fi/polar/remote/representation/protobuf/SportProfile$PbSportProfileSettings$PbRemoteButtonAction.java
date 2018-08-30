@@ -6,27 +6,27 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum SportProfile$PbSportProfileSettings$PbRemoteButtonAction implements ProtocolMessageEnum {
-   REMOTE_BUTTON_ACTIVATE_BACKLIGHT(2);
+   REMOTE_BUTTON_ACTIVATE_BACKLIGHT(2),
 
-   public static final int REMOTE_BUTTON_ACTIVATE_BACKLIGHT_VALUE = 2;
-   REMOTE_BUTTON_ACTIVATE_SAFETY_LIGHT(5);
+   REMOTE_BUTTON_ACTIVATE_SAFETY_LIGHT(5),
 
-   public static final int REMOTE_BUTTON_ACTIVATE_SAFETY_LIGHT_VALUE = 5;
-   REMOTE_BUTTON_BROWSE_DOWN(7);
+   REMOTE_BUTTON_BROWSE_DOWN(7),
 
-   public static final int REMOTE_BUTTON_BROWSE_DOWN_VALUE = 7;
-   REMOTE_BUTTON_BROWSE_UP(6);
+   REMOTE_BUTTON_BROWSE_UP(6),
 
-   public static final int REMOTE_BUTTON_BROWSE_UP_VALUE = 6;
-   REMOTE_BUTTON_CHANGE_TRAINING_VIEW(3);
+   REMOTE_BUTTON_CHANGE_TRAINING_VIEW(3),
 
-   public static final int REMOTE_BUTTON_CHANGE_TRAINING_VIEW_VALUE = 3;
-   REMOTE_BUTTON_RING_BELL(1);
+   REMOTE_BUTTON_RING_BELL(1),
 
-   public static final int REMOTE_BUTTON_RING_BELL_VALUE = 1;
    REMOTE_BUTTON_TAKE_LAP(4);
 
    public static final int REMOTE_BUTTON_TAKE_LAP_VALUE = 4;
+   public static final int REMOTE_BUTTON_RING_BELL_VALUE = 1;
+   public static final int REMOTE_BUTTON_CHANGE_TRAINING_VIEW_VALUE = 3;
+   public static final int REMOTE_BUTTON_BROWSE_UP_VALUE = 6;
+   public static final int REMOTE_BUTTON_BROWSE_DOWN_VALUE = 7;
+   public static final int REMOTE_BUTTON_ACTIVATE_SAFETY_LIGHT_VALUE = 5;
+   public static final int REMOTE_BUTTON_ACTIVATE_BACKLIGHT_VALUE = 2;
    private static final SportProfile$PbSportProfileSettings$PbRemoteButtonAction[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new SportProfile$PbSportProfileSettings$PbRemoteButtonAction$1();
    private final int value;

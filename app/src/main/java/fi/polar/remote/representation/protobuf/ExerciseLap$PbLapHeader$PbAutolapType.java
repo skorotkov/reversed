@@ -6,14 +6,14 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum ExerciseLap$PbLapHeader$PbAutolapType implements ProtocolMessageEnum {
-   AUTOLAP_TYPE_DISTANCE(1);
+   AUTOLAP_TYPE_DISTANCE(1),
 
-   public static final int AUTOLAP_TYPE_DISTANCE_VALUE = 1;
-   AUTOLAP_TYPE_DURATION(2);
+   AUTOLAP_TYPE_DURATION(2),
 
-   public static final int AUTOLAP_TYPE_DURATION_VALUE = 2;
    AUTOLAP_TYPE_LOCATION(3);
 
+   public static final int AUTOLAP_TYPE_DISTANCE_VALUE = 1;
+   public static final int AUTOLAP_TYPE_DURATION_VALUE = 2;
    public static final int AUTOLAP_TYPE_LOCATION_VALUE = 3;
    private static final ExerciseLap$PbLapHeader$PbAutolapType[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new ExerciseLap$PbLapHeader$PbAutolapType$1();

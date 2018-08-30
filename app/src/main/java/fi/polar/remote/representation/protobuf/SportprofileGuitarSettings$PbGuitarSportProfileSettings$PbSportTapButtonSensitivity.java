@@ -6,20 +6,20 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum SportprofileGuitarSettings$PbGuitarSportProfileSettings$PbSportTapButtonSensitivity implements ProtocolMessageEnum {
-   SPORT_TAP_BUTTON_SENSITIVITY_HIGH(4);
+   SPORT_TAP_BUTTON_SENSITIVITY_HIGH(4),
 
-   public static final int SPORT_TAP_BUTTON_SENSITIVITY_HIGH_VALUE = 4;
-   SPORT_TAP_BUTTON_SENSITIVITY_LOW(2);
+   SPORT_TAP_BUTTON_SENSITIVITY_LOW(2),
 
-   public static final int SPORT_TAP_BUTTON_SENSITIVITY_LOW_VALUE = 2;
-   SPORT_TAP_BUTTON_SENSITIVITY_MEDIUM(3);
+   SPORT_TAP_BUTTON_SENSITIVITY_MEDIUM(3),
 
-   public static final int SPORT_TAP_BUTTON_SENSITIVITY_MEDIUM_VALUE = 3;
-   SPORT_TAP_BUTTON_SENSITIVITY_OFF(1);
+   SPORT_TAP_BUTTON_SENSITIVITY_OFF(1),
 
-   public static final int SPORT_TAP_BUTTON_SENSITIVITY_OFF_VALUE = 1;
    SPORT_TAP_BUTTON_SENSITIVITY_VERY_LOW(5);
 
+   public static final int SPORT_TAP_BUTTON_SENSITIVITY_OFF_VALUE = 1;
+   public static final int SPORT_TAP_BUTTON_SENSITIVITY_MEDIUM_VALUE = 3;
+   public static final int SPORT_TAP_BUTTON_SENSITIVITY_LOW_VALUE = 2;
+   public static final int SPORT_TAP_BUTTON_SENSITIVITY_HIGH_VALUE = 4;
    public static final int SPORT_TAP_BUTTON_SENSITIVITY_VERY_LOW_VALUE = 5;
    private static final SportprofileGuitarSettings$PbGuitarSportProfileSettings$PbSportTapButtonSensitivity[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new SportprofileGuitarSettings$PbGuitarSportProfileSettings$PbSportTapButtonSensitivity$1();

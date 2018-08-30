@@ -6,14 +6,14 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum PhysData$PbUserTypicalDay$TypicalDay implements ProtocolMessageEnum {
-   MOSTLY_MOVING(3);
+   MOSTLY_MOVING(3),
 
-   public static final int MOSTLY_MOVING_VALUE = 3;
-   MOSTLY_SITTING(1);
+   MOSTLY_SITTING(1),
 
-   public static final int MOSTLY_SITTING_VALUE = 1;
    MOSTLY_STANDING(2);
 
+   public static final int MOSTLY_MOVING_VALUE = 3;
+   public static final int MOSTLY_SITTING_VALUE = 1;
    public static final int MOSTLY_STANDING_VALUE = 2;
    private static final PhysData$PbUserTypicalDay$TypicalDay[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new PhysData$PbUserTypicalDay$TypicalDay$1();

@@ -6,11 +6,10 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum PhysData$PbUserGender$Gender implements ProtocolMessageEnum {
-   FEMALE(2);
-
-   public static final int FEMALE_VALUE = 2;
+   FEMALE(2),
    MALE(1);
 
+   public static final int FEMALE_VALUE = 2;
    public static final int MALE_VALUE = 1;
    private static final PhysData$PbUserGender$Gender[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new PhysData$PbUserGender$Gender$1();

@@ -6,60 +6,60 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum PftpNotification$PbPftpPnsHDCategoryID implements ProtocolMessageEnum {
-   CATEGORY_ID_ALARM(13);
+   CATEGORY_ID_ALARM(13),
 
-   public static final int CATEGORY_ID_ALARM_VALUE = 13;
-   CATEGORY_ID_BUSINESSANDFINANCE(10);
+//   public static final int CATEGORY_ID_ALARM_VALUE = 13;
+   CATEGORY_ID_BUSINESSANDFINANCE(10),
 
-   public static final int CATEGORY_ID_BUSINESSANDFINANCE_VALUE = 10;
-   CATEGORY_ID_EMAIL(7);
+//   public static final int CATEGORY_ID_BUSINESSANDFINANCE_VALUE = 10;
+   CATEGORY_ID_EMAIL(7),
 
-   public static final int CATEGORY_ID_EMAIL_VALUE = 7;
-   CATEGORY_ID_ENTERTAINMENT(12);
+//   public static final int CATEGORY_ID_EMAIL_VALUE = 7;
+   CATEGORY_ID_ENTERTAINMENT(12),
 
-   public static final int CATEGORY_ID_ENTERTAINMENT_VALUE = 12;
-   CATEGORY_ID_HEALTHANDFITNESS(9);
+//   public static final int CATEGORY_ID_ENTERTAINMENT_VALUE = 12;
+   CATEGORY_ID_HEALTHANDFITNESS(9),
 
-   public static final int CATEGORY_ID_HEALTHANDFITNESS_VALUE = 9;
-   CATEGORY_ID_INCOMINGCALL(2);
+//   public static final int CATEGORY_ID_HEALTHANDFITNESS_VALUE = 9;
+   CATEGORY_ID_INCOMINGCALL(2),
 
-   public static final int CATEGORY_ID_INCOMINGCALL_VALUE = 2;
-   CATEGORY_ID_LOCATION(11);
+//   public static final int CATEGORY_ID_INCOMINGCALL_VALUE = 2;
+   CATEGORY_ID_LOCATION(11),
 
-   public static final int CATEGORY_ID_LOCATION_VALUE = 11;
-   CATEGORY_ID_MISSEDCALL(3);
+//   public static final int CATEGORY_ID_LOCATION_VALUE = 11;
+   CATEGORY_ID_MISSEDCALL(3),
 
-   public static final int CATEGORY_ID_MISSEDCALL_VALUE = 3;
-   CATEGORY_ID_NEWS(8);
+//   public static final int CATEGORY_ID_MISSEDCALL_VALUE = 3;
+   CATEGORY_ID_NEWS(8),
 
-   public static final int CATEGORY_ID_NEWS_VALUE = 8;
-   CATEGORY_ID_OTHER(0);
+//   public static final int CATEGORY_ID_NEWS_VALUE = 8;
+   CATEGORY_ID_OTHER(0),
 
-   public static final int CATEGORY_ID_OTHER_VALUE = 0;
-   CATEGORY_ID_POLAR(1);
+//   public static final int CATEGORY_ID_OTHER_VALUE = 0;
+   CATEGORY_ID_POLAR(1),
 
-   public static final int CATEGORY_ID_POLAR_VALUE = 1;
-   CATEGORY_ID_PROMO(14);
+//   public static final int CATEGORY_ID_POLAR_VALUE = 1;
+   CATEGORY_ID_PROMO(14),
 
-   public static final int CATEGORY_ID_PROMO_VALUE = 14;
-   CATEGORY_ID_RECOMMENDATION(15);
+//   public static final int CATEGORY_ID_PROMO_VALUE = 14;
+   CATEGORY_ID_RECOMMENDATION(15),
 
-   public static final int CATEGORY_ID_RECOMMENDATION_VALUE = 15;
-   CATEGORY_ID_SCHEDULE(6);
+//   public static final int CATEGORY_ID_RECOMMENDATION_VALUE = 15;
+   CATEGORY_ID_SCHEDULE(6),
 
-   public static final int CATEGORY_ID_SCHEDULE_VALUE = 6;
-   CATEGORY_ID_SOCIAL(5);
+//   public static final int CATEGORY_ID_SCHEDULE_VALUE = 6;
+   CATEGORY_ID_SOCIAL(5),
 
-   public static final int CATEGORY_ID_SOCIAL_VALUE = 5;
-   CATEGORY_ID_STATUS(16);
+//   public static final int CATEGORY_ID_SOCIAL_VALUE = 5;
+   CATEGORY_ID_STATUS(16),
 
-   public static final int CATEGORY_ID_STATUS_VALUE = 16;
-   CATEGORY_ID_TRANSPORT(17);
+//   public static final int CATEGORY_ID_STATUS_VALUE = 16;
+   CATEGORY_ID_TRANSPORT(17),
 
-   public static final int CATEGORY_ID_TRANSPORT_VALUE = 17;
+//   public static final int CATEGORY_ID_TRANSPORT_VALUE = 17;
    CATEGORY_ID_VOICEMAIL(4);
 
-   public static final int CATEGORY_ID_VOICEMAIL_VALUE = 4;
+//   public static final int CATEGORY_ID_VOICEMAIL_VALUE = 4;
    private static final PftpNotification$PbPftpPnsHDCategoryID[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new PftpNotification$PbPftpPnsHDCategoryID$1();
    private final int value;

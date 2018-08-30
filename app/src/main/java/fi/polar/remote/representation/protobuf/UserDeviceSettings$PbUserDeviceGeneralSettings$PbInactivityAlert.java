@@ -6,11 +6,11 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum UserDeviceSettings$PbUserDeviceGeneralSettings$PbInactivityAlert implements ProtocolMessageEnum {
-   INACTIVITY_ALERT_OFF(1);
+   INACTIVITY_ALERT_OFF(1),
 
-   public static final int INACTIVITY_ALERT_OFF_VALUE = 1;
    INACTIVITY_ALERT_ON(2);
 
+   public static final int INACTIVITY_ALERT_OFF_VALUE = 1;
    public static final int INACTIVITY_ALERT_ON_VALUE = 2;
    private static final UserDeviceSettings$PbUserDeviceGeneralSettings$PbInactivityAlert[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new UserDeviceSettings$PbUserDeviceGeneralSettings$PbInactivityAlert$1();

@@ -6,313 +6,314 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum SportprofileDisplays$PbTrainingDisplayItem implements ProtocolMessageEnum {
-   ALTITUDE(10);
+   ALTITUDE(10),
 
-   public static final int ALTITUDE_VALUE = 10;
-   ASCENT(11);
+//   public static final int ALTITUDE_VALUE = 10;
+   ASCENT(11),
 
-   public static final int ASCENT_VALUE = 11;
-   AVERAGE_CADENCE(50);
+//   public static final int ASCENT_VALUE = 11;
+   AVERAGE_CADENCE(50),
 
-   public static final int AVERAGE_CADENCE_VALUE = 50;
-   AVERAGE_HEART_RATE(21);
+//   public static final int AVERAGE_CADENCE_VALUE = 50;
+   AVERAGE_HEART_RATE(21),
 
-   public static final int AVERAGE_HEART_RATE_VALUE = 21;
+//   public static final int AVERAGE_HEART_RATE_VALUE = 21;
    AVERAGE_POWER(60),
-   AVERAGE_POWER_LEFT_RIGHT_BALANCE(62);
+   AVERAGE_POWER_LEFT_RIGHT_BALANCE(62),
 
-   public static final int AVERAGE_POWER_LEFT_RIGHT_BALANCE_VALUE = 62;
-   public static final int AVERAGE_POWER_VALUE = 60;
-   AVERAGE_STRIDE_LENGTH(55);
+//   public static final int AVERAGE_POWER_LEFT_RIGHT_BALANCE_VALUE = 62;
+//   public static final int AVERAGE_POWER_VALUE = 60;
+   AVERAGE_STRIDE_LENGTH(55),
 
-   public static final int AVERAGE_STRIDE_LENGTH_VALUE = 55;
-   CADENCE(49);
+//   public static final int AVERAGE_STRIDE_LENGTH_VALUE = 55;
+   CADENCE(49),
 
-   public static final int CADENCE_VALUE = 49;
-   CALORIES(27);
+//   public static final int CADENCE_VALUE = 49;
+   CALORIES(27),
 
-   public static final int CALORIES_VALUE = 27;
-   COOPER_DISTANCE_ESTIMATE(107);
+//   public static final int CALORIES_VALUE = 27;
+   COOPER_DISTANCE_ESTIMATE(107),
 
-   public static final int COOPER_DISTANCE_ESTIMATE_VALUE = 107;
-   CURRENT_ALAP_ASCENT(206);
+//   public static final int COOPER_DISTANCE_ESTIMATE_VALUE = 107;
+   CURRENT_ALAP_ASCENT(206),
 
-   public static final int CURRENT_ALAP_ASCENT_VALUE = 206;
-   CURRENT_ALAP_AVERAGE_HEART_RATE(200);
+//   public static final int CURRENT_ALAP_ASCENT_VALUE = 206;
+   CURRENT_ALAP_AVERAGE_HEART_RATE(200),
 
-   public static final int CURRENT_ALAP_AVERAGE_HEART_RATE_VALUE = 200;
+//   public static final int CURRENT_ALAP_AVERAGE_HEART_RATE_VALUE = 200;
    CURRENT_ALAP_AVERAGE_POWER(202),
-   CURRENT_ALAP_AVERAGE_POWER_LR_BALANCE(209);
+   CURRENT_ALAP_AVERAGE_POWER_LR_BALANCE(209),
 
-   public static final int CURRENT_ALAP_AVERAGE_POWER_LR_BALANCE_VALUE = 209;
-   public static final int CURRENT_ALAP_AVERAGE_POWER_VALUE = 202;
-   CURRENT_ALAP_CADENCE(208);
+//   public static final int CURRENT_ALAP_AVERAGE_POWER_LR_BALANCE_VALUE = 209;
+//   public static final int CURRENT_ALAP_AVERAGE_POWER_VALUE = 202;
+   CURRENT_ALAP_CADENCE(208),
 
-   public static final int CURRENT_ALAP_CADENCE_VALUE = 208;
-   CURRENT_ALAP_DESCENT(207);
+//   public static final int CURRENT_ALAP_CADENCE_VALUE = 208;
+   CURRENT_ALAP_DESCENT(207),
 
-   public static final int CURRENT_ALAP_DESCENT_VALUE = 207;
-   CURRENT_ALAP_DISTANCE(205);
+//   public static final int CURRENT_ALAP_DESCENT_VALUE = 207;
+   CURRENT_ALAP_DISTANCE(205),
 
-   public static final int CURRENT_ALAP_DISTANCE_VALUE = 205;
-   CURRENT_ALAP_MAXIMUM_POWER(203);
+//   public static final int CURRENT_ALAP_DISTANCE_VALUE = 205;
+   CURRENT_ALAP_MAXIMUM_POWER(203),
 
-   public static final int CURRENT_ALAP_MAXIMUM_POWER_VALUE = 203;
-   CURRENT_ALAP_MAX_CADENCE(212);
+//   public static final int CURRENT_ALAP_MAXIMUM_POWER_VALUE = 203;
+   CURRENT_ALAP_MAX_CADENCE(212),
 
-   public static final int CURRENT_ALAP_MAX_CADENCE_VALUE = 212;
-   CURRENT_ALAP_MAX_HEART_RATE(210);
+//   public static final int CURRENT_ALAP_MAX_CADENCE_VALUE = 212;
+   CURRENT_ALAP_MAX_HEART_RATE(210),
 
-   public static final int CURRENT_ALAP_MAX_HEART_RATE_VALUE = 210;
-   CURRENT_ALAP_MAX_SPEED(211);
+//   public static final int CURRENT_ALAP_MAX_HEART_RATE_VALUE = 210;
+   CURRENT_ALAP_MAX_SPEED(211),
 
-   public static final int CURRENT_ALAP_MAX_SPEED_VALUE = 211;
-   CURRENT_ALAP_NORMALIZED_POWER(213);
+//   public static final int CURRENT_ALAP_MAX_SPEED_VALUE = 211;
+   CURRENT_ALAP_NORMALIZED_POWER(213),
 
-   public static final int CURRENT_ALAP_NORMALIZED_POWER_VALUE = 213;
-   CURRENT_ALAP_POWER_INTENSITY_FACTOR(214);
+//   public static final int CURRENT_ALAP_NORMALIZED_POWER_VALUE = 213;
+   CURRENT_ALAP_POWER_INTENSITY_FACTOR(214),
 
-   public static final int CURRENT_ALAP_POWER_INTENSITY_FACTOR_VALUE = 214;
-   CURRENT_ALAP_POWER_TRAINING_STRESS_SCORE(222);
+//   public static final int CURRENT_ALAP_POWER_INTENSITY_FACTOR_VALUE = 214;
+   CURRENT_ALAP_POWER_TRAINING_STRESS_SCORE(222),
 
-   public static final int CURRENT_ALAP_POWER_TRAINING_STRESS_SCORE_VALUE = 222;
-   CURRENT_ALAP_SPEED_OR_PACE(204);
+//   public static final int CURRENT_ALAP_POWER_TRAINING_STRESS_SCORE_VALUE = 222;
+   CURRENT_ALAP_SPEED_OR_PACE(204),
 
-   public static final int CURRENT_ALAP_SPEED_OR_PACE_VALUE = 204;
-   CURRENT_ALAP_TIME(201);
+//   public static final int CURRENT_ALAP_SPEED_OR_PACE_VALUE = 204;
+   CURRENT_ALAP_TIME(201),
 
-   public static final int CURRENT_ALAP_TIME_VALUE = 201;
-   CURRENT_HEART_RATE(20);
+//   public static final int CURRENT_ALAP_TIME_VALUE = 201;
+   CURRENT_HEART_RATE(20),
 
-   public static final int CURRENT_HEART_RATE_VALUE = 20;
-   CURRENT_LAP_ASCENT(16);
+//   public static final int CURRENT_HEART_RATE_VALUE = 20;
+   CURRENT_LAP_ASCENT(16),
 
-   public static final int CURRENT_LAP_ASCENT_VALUE = 16;
-   CURRENT_LAP_AVERAGE_HEART_RATE(24);
+//   public static final int CURRENT_LAP_ASCENT_VALUE = 16;
+   CURRENT_LAP_AVERAGE_HEART_RATE(24),
 
-   public static final int CURRENT_LAP_AVERAGE_HEART_RATE_VALUE = 24;
+//   public static final int CURRENT_LAP_AVERAGE_HEART_RATE_VALUE = 24;
    CURRENT_LAP_AVERAGE_POWER(63),
-   CURRENT_LAP_AVERAGE_POWER_LR_BALANCE(65);
+   CURRENT_LAP_AVERAGE_POWER_LR_BALANCE(65),
 
-   public static final int CURRENT_LAP_AVERAGE_POWER_LR_BALANCE_VALUE = 65;
-   public static final int CURRENT_LAP_AVERAGE_POWER_VALUE = 63;
-   CURRENT_LAP_CADENCE(51);
+//   public static final int CURRENT_LAP_AVERAGE_POWER_LR_BALANCE_VALUE = 65;
+//   public static final int CURRENT_LAP_AVERAGE_POWER_VALUE = 63;
+   CURRENT_LAP_CADENCE(51),
 
-   public static final int CURRENT_LAP_CADENCE_VALUE = 51;
-   CURRENT_LAP_DESCENT(17);
+//   public static final int CURRENT_LAP_CADENCE_VALUE = 51;
+   CURRENT_LAP_DESCENT(17),
 
-   public static final int CURRENT_LAP_DESCENT_VALUE = 17;
-   CURRENT_LAP_DISTANCE(38);
+//   public static final int CURRENT_LAP_DESCENT_VALUE = 17;
+   CURRENT_LAP_DISTANCE(38),
 
-   public static final int CURRENT_LAP_DISTANCE_VALUE = 38;
-   CURRENT_LAP_MAXIMUM_POWER(64);
+//   public static final int CURRENT_LAP_DISTANCE_VALUE = 38;
+   CURRENT_LAP_MAXIMUM_POWER(64),
 
-   public static final int CURRENT_LAP_MAXIMUM_POWER_VALUE = 64;
-   CURRENT_LAP_MAX_CADENCE(52);
+//   public static final int CURRENT_LAP_MAXIMUM_POWER_VALUE = 64;
+   CURRENT_LAP_MAX_CADENCE(52),
 
-   public static final int CURRENT_LAP_MAX_CADENCE_VALUE = 52;
-   CURRENT_LAP_MAX_HEART_RATE(25);
+//   public static final int CURRENT_LAP_MAX_CADENCE_VALUE = 52;
+   CURRENT_LAP_MAX_HEART_RATE(25),
 
-   public static final int CURRENT_LAP_MAX_HEART_RATE_VALUE = 25;
-   CURRENT_LAP_MAX_PACE_OR_SPEED(47);
+//   public static final int CURRENT_LAP_MAX_HEART_RATE_VALUE = 25;
+   CURRENT_LAP_MAX_PACE_OR_SPEED(47),
 
-   public static final int CURRENT_LAP_MAX_PACE_OR_SPEED_VALUE = 47;
-   CURRENT_LAP_NORMALIZED_POWER(234);
+//   public static final int CURRENT_LAP_MAX_PACE_OR_SPEED_VALUE = 47;
+   CURRENT_LAP_NORMALIZED_POWER(234),
 
-   public static final int CURRENT_LAP_NORMALIZED_POWER_VALUE = 234;
-   CURRENT_LAP_POWER_INTENSITY_FACTOR(235);
+//   public static final int CURRENT_LAP_NORMALIZED_POWER_VALUE = 234;
+   CURRENT_LAP_POWER_INTENSITY_FACTOR(235),
 
-   public static final int CURRENT_LAP_POWER_INTENSITY_FACTOR_VALUE = 235;
-   CURRENT_LAP_POWER_TRAINING_STRESS_SCORE(236);
+//   public static final int CURRENT_LAP_POWER_INTENSITY_FACTOR_VALUE = 235;
+   CURRENT_LAP_POWER_TRAINING_STRESS_SCORE(236),
 
-   public static final int CURRENT_LAP_POWER_TRAINING_STRESS_SCORE_VALUE = 236;
-   CURRENT_LAP_SPEED_OR_PACE(44);
+//   public static final int CURRENT_LAP_POWER_TRAINING_STRESS_SCORE_VALUE = 236;
+   CURRENT_LAP_SPEED_OR_PACE(44),
 
-   public static final int CURRENT_LAP_SPEED_OR_PACE_VALUE = 44;
-   CURRENT_LAP_TIME(6);
+//   public static final int CURRENT_LAP_SPEED_OR_PACE_VALUE = 44;
+   CURRENT_LAP_TIME(6),
 
-   public static final int CURRENT_LAP_TIME_VALUE = 6;
-   CURRENT_LAP_VAM(18);
+//   public static final int CURRENT_LAP_TIME_VALUE = 6;
+   CURRENT_LAP_VAM(18),
 
-   public static final int CURRENT_LAP_VAM_VALUE = 18;
-   CURRENT_NORMALIZED_POWER(231);
+//   public static final int CURRENT_LAP_VAM_VALUE = 18;
+   CURRENT_NORMALIZED_POWER(231),
 
-   public static final int CURRENT_NORMALIZED_POWER_VALUE = 231;
+//   public static final int CURRENT_NORMALIZED_POWER_VALUE = 231;
    CURRENT_POWER(56),
-   CURRENT_POWER_INTENSITY_FACTOR(232);
+   CURRENT_POWER_INTENSITY_FACTOR(232),
 
-   public static final int CURRENT_POWER_INTENSITY_FACTOR_VALUE = 232;
-   CURRENT_POWER_LEFT_RIGHT_BALANCE(57);
+//   public static final int CURRENT_POWER_INTENSITY_FACTOR_VALUE = 232;
+   CURRENT_POWER_LEFT_RIGHT_BALANCE(57),
 
-   public static final int CURRENT_POWER_LEFT_RIGHT_BALANCE_VALUE = 57;
-   CURRENT_POWER_TRAINING_STRESS_SCORE(233);
+//   public static final int CURRENT_POWER_LEFT_RIGHT_BALANCE_VALUE = 57;
+   CURRENT_POWER_TRAINING_STRESS_SCORE(233),
 
-   public static final int CURRENT_POWER_TRAINING_STRESS_SCORE_VALUE = 233;
-   public static final int CURRENT_POWER_VALUE = 56;
-   DESCENT(12);
+//   public static final int CURRENT_POWER_TRAINING_STRESS_SCORE_VALUE = 233;
+//   public static final int CURRENT_POWER_VALUE = 56;
+   DESCENT(12),
 
-   public static final int DESCENT_VALUE = 12;
-   DIFFERENCE_TO_MARATHON_WR(106);
+//   public static final int DESCENT_VALUE = 12;
+   DIFFERENCE_TO_MARATHON_WR(106),
 
-   public static final int DIFFERENCE_TO_MARATHON_WR_VALUE = 106;
-   DISTANCE(37);
+//   public static final int DIFFERENCE_TO_MARATHON_WR_VALUE = 106;
+   DISTANCE(37),
 
-   public static final int DISTANCE_VALUE = 37;
-   FORCE_GRAPH(104);
+//   public static final int DISTANCE_VALUE = 37;
+   FORCE_GRAPH(104),
 
-   public static final int FORCE_GRAPH_VALUE = 104;
-   HEART_RATE_ZONES(100);
+//   public static final int FORCE_GRAPH_VALUE = 104;
+   HEART_RATE_ZONES(100),
 
-   public static final int HEART_RATE_ZONES_VALUE = 100;
-   INCLINOMETER(13);
+//   public static final int HEART_RATE_ZONES_VALUE = 100;
+   INCLINOMETER(13),
 
-   public static final int INCLINOMETER_VALUE = 13;
-   LAST_AUTOMATIC_LAP_TIME(8);
+//   public static final int INCLINOMETER_VALUE = 13;
+   LAST_AUTOMATIC_LAP_TIME(8),
 
-   public static final int LAST_AUTOMATIC_LAP_TIME_VALUE = 8;
-   LAST_LAP_TIME(7);
+//   public static final int LAST_AUTOMATIC_LAP_TIME_VALUE = 8;
+   LAST_LAP_TIME(7),
 
-   public static final int LAST_LAP_TIME_VALUE = 7;
-   LOCATION_GUIDE(102);
+//   public static final int LAST_LAP_TIME_VALUE = 7;
+   LOCATION_GUIDE(102),
 
-   public static final int LOCATION_GUIDE_VALUE = 102;
-   MAXIMUM_CADENCE(240);
+//   public static final int LOCATION_GUIDE_VALUE = 102;
+   MAXIMUM_CADENCE(240),
 
-   public static final int MAXIMUM_CADENCE_VALUE = 240;
-   MAXIMUM_FORCE(58);
+//   public static final int MAXIMUM_CADENCE_VALUE = 240;
+   MAXIMUM_FORCE(58),
 
-   public static final int MAXIMUM_FORCE_VALUE = 58;
-   MAXIMUM_HEART_RATE(22);
+//   public static final int MAXIMUM_FORCE_VALUE = 58;
+   MAXIMUM_HEART_RATE(22),
 
-   public static final int MAXIMUM_HEART_RATE_VALUE = 22;
-   MAXIMUM_POWER(61);
+//   public static final int MAXIMUM_HEART_RATE_VALUE = 22;
+   MAXIMUM_POWER(61),
 
-   public static final int MAXIMUM_POWER_VALUE = 61;
-   MULTISPORT_ASCENT(91);
+//   public static final int MAXIMUM_POWER_VALUE = 61;
+   MULTISPORT_ASCENT(91),
 
-   public static final int MULTISPORT_ASCENT_VALUE = 91;
-   MULTISPORT_CALORIES(90);
+//   public static final int MULTISPORT_ASCENT_VALUE = 91;
+   MULTISPORT_CALORIES(90),
 
-   public static final int MULTISPORT_CALORIES_VALUE = 90;
-   MULTISPORT_DESCENT(92);
+//   public static final int MULTISPORT_CALORIES_VALUE = 90;
+   MULTISPORT_DESCENT(92),
 
-   public static final int MULTISPORT_DESCENT_VALUE = 92;
-   MULTISPORT_DISTANCE(89);
+//   public static final int MULTISPORT_DESCENT_VALUE = 92;
+   MULTISPORT_DISTANCE(89),
 
-   public static final int MULTISPORT_DISTANCE_VALUE = 89;
-   MULTISPORT_DURATION(88);
+//   public static final int MULTISPORT_DISTANCE_VALUE = 89;
+   MULTISPORT_DURATION(88),
 
-   public static final int MULTISPORT_DURATION_VALUE = 88;
-   MULTISPORT_HEART_RATE_ZONES(101);
+//   public static final int MULTISPORT_DURATION_VALUE = 88;
+   MULTISPORT_HEART_RATE_ZONES(101),
 
-   public static final int MULTISPORT_HEART_RATE_ZONES_VALUE = 101;
-   POOL_COUNTER(70);
+//   public static final int MULTISPORT_HEART_RATE_ZONES_VALUE = 101;
+   POOL_COUNTER(70),
 
-   public static final int POOL_COUNTER_VALUE = 70;
-   POWER_ZONES(103);
+//   public static final int POOL_COUNTER_VALUE = 70;
+   POWER_ZONES(103),
 
-   public static final int POWER_ZONES_VALUE = 103;
-   POWER_ZONE_POINTER(59);
+//   public static final int POWER_ZONES_VALUE = 103;
+   POWER_ZONE_POINTER(59),
 
-   public static final int POWER_ZONE_POINTER_VALUE = 59;
-   PREVIOUS_ALAP_AVERAGE_HEART_RATE(218);
+//   public static final int POWER_ZONE_POINTER_VALUE = 59;
+   PREVIOUS_ALAP_AVERAGE_HEART_RATE(218),
 
-   public static final int PREVIOUS_ALAP_AVERAGE_HEART_RATE_VALUE = 218;
-   PREVIOUS_ALAP_DISTANCE(217);
+//   public static final int PREVIOUS_ALAP_AVERAGE_HEART_RATE_VALUE = 218;
+   PREVIOUS_ALAP_DISTANCE(217),
 
-   public static final int PREVIOUS_ALAP_DISTANCE_VALUE = 217;
-   PREVIOUS_ALAP_MAX_HEART_RATE(219);
+//   public static final int PREVIOUS_ALAP_DISTANCE_VALUE = 217;
+   PREVIOUS_ALAP_MAX_HEART_RATE(219),
 
-   public static final int PREVIOUS_ALAP_MAX_HEART_RATE_VALUE = 219;
-   PREVIOUS_ALAP_MAX_SPEED(216);
+//   public static final int PREVIOUS_ALAP_MAX_HEART_RATE_VALUE = 219;
+   PREVIOUS_ALAP_MAX_SPEED(216),
 
-   public static final int PREVIOUS_ALAP_MAX_SPEED_VALUE = 216;
-   PREVIOUS_ALAP_SPEED_OR_PACE(215);
+//   public static final int PREVIOUS_ALAP_MAX_SPEED_VALUE = 216;
+   PREVIOUS_ALAP_SPEED_OR_PACE(215),
 
-   public static final int PREVIOUS_ALAP_SPEED_OR_PACE_VALUE = 215;
-   PREVIOUS_LAP_AVERAGE_HEART_RATE(26);
+//   public static final int PREVIOUS_ALAP_SPEED_OR_PACE_VALUE = 215;
+   PREVIOUS_LAP_AVERAGE_HEART_RATE(26),
 
-   public static final int PREVIOUS_LAP_AVERAGE_HEART_RATE_VALUE = 26;
+//   public static final int PREVIOUS_LAP_AVERAGE_HEART_RATE_VALUE = 26;
    PREVIOUS_LAP_AVERAGE_POWER(67),
-   PREVIOUS_LAP_AVERAGE_POWER_LR_BALANCE(230);
+   PREVIOUS_LAP_AVERAGE_POWER_LR_BALANCE(230),
 
-   public static final int PREVIOUS_LAP_AVERAGE_POWER_LR_BALANCE_VALUE = 230;
-   public static final int PREVIOUS_LAP_AVERAGE_POWER_VALUE = 67;
-   PREVIOUS_LAP_CADENCE(53);
+//   public static final int PREVIOUS_LAP_AVERAGE_POWER_LR_BALANCE_VALUE = 230;
+//   public static final int PREVIOUS_LAP_AVERAGE_POWER_VALUE = 67;
+   PREVIOUS_LAP_CADENCE(53),
 
-   public static final int PREVIOUS_LAP_CADENCE_VALUE = 53;
-   PREVIOUS_LAP_DISTANCE(39);
+//   public static final int PREVIOUS_LAP_CADENCE_VALUE = 53;
+   PREVIOUS_LAP_DISTANCE(39),
 
-   public static final int PREVIOUS_LAP_DISTANCE_VALUE = 39;
-   PREVIOUS_LAP_MAXIMUM_POWER(68);
+//   public static final int PREVIOUS_LAP_DISTANCE_VALUE = 39;
+   PREVIOUS_LAP_MAXIMUM_POWER(68),
 
-   public static final int PREVIOUS_LAP_MAXIMUM_POWER_VALUE = 68;
-   PREVIOUS_LAP_MAX_HEART_RATE(28);
+//   public static final int PREVIOUS_LAP_MAXIMUM_POWER_VALUE = 68;
+   PREVIOUS_LAP_MAX_HEART_RATE(28),
 
-   public static final int PREVIOUS_LAP_MAX_HEART_RATE_VALUE = 28;
-   PREVIOUS_LAP_MAX_PACE_OR_SPEED(48);
+//   public static final int PREVIOUS_LAP_MAX_HEART_RATE_VALUE = 28;
+   PREVIOUS_LAP_MAX_PACE_OR_SPEED(48),
 
-   public static final int PREVIOUS_LAP_MAX_PACE_OR_SPEED_VALUE = 48;
-   PREVIOUS_LAP_NORMALIZED_POWER(237);
+//   public static final int PREVIOUS_LAP_MAX_PACE_OR_SPEED_VALUE = 48;
+   PREVIOUS_LAP_NORMALIZED_POWER(237),
 
-   public static final int PREVIOUS_LAP_NORMALIZED_POWER_VALUE = 237;
-   PREVIOUS_LAP_POWER_INTENSITY_FACTOR(238);
+//   public static final int PREVIOUS_LAP_NORMALIZED_POWER_VALUE = 237;
+   PREVIOUS_LAP_POWER_INTENSITY_FACTOR(238),
 
-   public static final int PREVIOUS_LAP_POWER_INTENSITY_FACTOR_VALUE = 238;
-   PREVIOUS_LAP_POWER_TRAINING_STRESS_SCORE(239);
+//   public static final int PREVIOUS_LAP_POWER_INTENSITY_FACTOR_VALUE = 238;
+   PREVIOUS_LAP_POWER_TRAINING_STRESS_SCORE(239),
 
-   public static final int PREVIOUS_LAP_POWER_TRAINING_STRESS_SCORE_VALUE = 239;
-   PREVIOUS_LAP_SPEED_OR_PACE(220);
+//   public static final int PREVIOUS_LAP_POWER_TRAINING_STRESS_SCORE_VALUE = 239;
+   PREVIOUS_LAP_SPEED_OR_PACE(220),
 
-   public static final int PREVIOUS_LAP_SPEED_OR_PACE_VALUE = 220;
-   REST_TIME(69);
+//   public static final int PREVIOUS_LAP_SPEED_OR_PACE_VALUE = 220;
+   REST_TIME(69),
 
-   public static final int REST_TIME_VALUE = 69;
-   RR_VARIATION(35);
+//   public static final int REST_TIME_VALUE = 69;
+   RR_VARIATION(35),
 
-   public static final int RR_VARIATION_VALUE = 35;
+//   public static final int RR_VARIATION_VALUE = 35;
    SPEED_OR_PACE(41),
-   SPEED_OR_PACE_AVERAGE(42);
+   SPEED_OR_PACE_AVERAGE(42),
 
-   public static final int SPEED_OR_PACE_AVERAGE_VALUE = 42;
-   SPEED_OR_PACE_MAXIMUM(43);
+//   public static final int SPEED_OR_PACE_AVERAGE_VALUE = 42;
+   SPEED_OR_PACE_MAXIMUM(43),
 
-   public static final int SPEED_OR_PACE_MAXIMUM_VALUE = 43;
-   public static final int SPEED_OR_PACE_VALUE = 41;
-   SPEED_ZONE_POINTER(45);
+//   public static final int SPEED_OR_PACE_MAXIMUM_VALUE = 43;
+//   public static final int SPEED_OR_PACE_VALUE = 41;
+   SPEED_ZONE_POINTER(45),
 
-   public static final int SPEED_ZONE_POINTER_VALUE = 45;
-   STOPWATCH(3);
+//   public static final int SPEED_ZONE_POINTER_VALUE = 45;
+   STOPWATCH(3),
 
-   public static final int STOPWATCH_VALUE = 3;
-   STRIDE_LENGTH(54);
+//   public static final int STOPWATCH_VALUE = 3;
+   STRIDE_LENGTH(54),
 
-   public static final int STRIDE_LENGTH_VALUE = 54;
-   TEMPERATURE(15);
+//   public static final int STRIDE_LENGTH_VALUE = 54;
+   TEMPERATURE(15),
 
-   public static final int TEMPERATURE_VALUE = 15;
-   TIME_BASED_SPEED_ZONES(105);
+//   public static final int TEMPERATURE_VALUE = 15;
+   TIME_BASED_SPEED_ZONES(105),
 
-   public static final int TIME_BASED_SPEED_ZONES_VALUE = 105;
-   TIME_IN_POWER_ZONE(66);
+//   public static final int TIME_BASED_SPEED_ZONES_VALUE = 105;
+   TIME_IN_POWER_ZONE(66),
 
-   public static final int TIME_IN_POWER_ZONE_VALUE = 66;
-   TIME_IN_SPEED_ZONE(46);
+//   public static final int TIME_IN_POWER_ZONE_VALUE = 66;
+   TIME_IN_SPEED_ZONE(46),
 
-   public static final int TIME_IN_SPEED_ZONE_VALUE = 46;
-   TIME_IN_ZONE(33);
+//   public static final int TIME_IN_SPEED_ZONE_VALUE = 46;
+   TIME_IN_ZONE(33),
 
-   public static final int TIME_IN_ZONE_VALUE = 33;
-   TIME_OF_DAY(2);
+//   public static final int TIME_IN_ZONE_VALUE = 33;
+   TIME_OF_DAY(2),
 
-   public static final int TIME_OF_DAY_VALUE = 2;
-   private static final SportprofileDisplays$PbTrainingDisplayItem[] VALUES = values();
-   VERTICAL_SPEED_MOVING_AVERAGE(221);
+//   public static final int TIME_OF_DAY_VALUE = 2;
+   VERTICAL_SPEED_MOVING_AVERAGE(221),
 
-   public static final int VERTICAL_SPEED_MOVING_AVERAGE_VALUE = 221;
+//   public static final int VERTICAL_SPEED_MOVING_AVERAGE_VALUE = 221;
    ZONE_POINTER(32);
 
-   public static final int ZONE_POINTER_VALUE = 32;
+//   public static final int ZONE_POINTER_VALUE = 32;
+
+   private static final SportprofileDisplays$PbTrainingDisplayItem[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new SportprofileDisplays$PbTrainingDisplayItem$1();
    private final int value;
 

@@ -6,21 +6,21 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Types$PbGPSSetting implements ProtocolMessageEnum {
-   GPS_OFF(0);
+   GPS_OFF(0),
 
-   public static final int GPS_OFF_VALUE = 0;
-   GPS_ON_10_HZ(3);
+//   public static final int GPS_OFF_VALUE = 0;
+   GPS_ON_10_HZ(3),
 
-   public static final int GPS_ON_10_HZ_VALUE = 3;
-   GPS_ON_LONG(2);
+//   public static final int GPS_ON_10_HZ_VALUE = 3;
+   GPS_ON_LONG(2),
 
-   public static final int GPS_ON_LONG_VALUE = 2;
-   GPS_ON_MEDIUM(4);
+//   public static final int GPS_ON_LONG_VALUE = 2;
+   GPS_ON_MEDIUM(4),
 
-   public static final int GPS_ON_MEDIUM_VALUE = 4;
+//   public static final int GPS_ON_MEDIUM_VALUE = 4;
    GPS_ON_NORMAL(1);
 
-   public static final int GPS_ON_NORMAL_VALUE = 1;
+//   public static final int GPS_ON_NORMAL_VALUE = 1;
    private static final Types$PbGPSSetting[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Types$PbGPSSetting$1();
    private final int value;

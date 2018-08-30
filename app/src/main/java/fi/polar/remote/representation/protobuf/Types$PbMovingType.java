@@ -6,16 +6,16 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Types$PbMovingType implements ProtocolMessageEnum {
-   RUNNING(1);
+   RUNNING(1),
 
-   public static final int RUNNING_VALUE = 1;
-   STANDING(2);
+   STANDING(2),
 
-   public static final int STANDING_VALUE = 2;
-   private static final Types$PbMovingType[] VALUES = values();
    WALKING(0);
 
+   public static final int STANDING_VALUE = 2;
+   public static final int RUNNING_VALUE = 1;
    public static final int WALKING_VALUE = 0;
+   private static final Types$PbMovingType[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Types$PbMovingType$1();
    private final int value;
 

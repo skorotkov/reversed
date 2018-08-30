@@ -6,22 +6,23 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum BleDevice$PbBleDevice$PbBleKeyType implements ProtocolMessageEnum {
-   BLE_LOCAL_ENCRYPTION_KEY(8);
+   BLE_LOCAL_ENCRYPTION_KEY(8), BLE_LOCAL_IDENTIFICATION_KEY(16), BLE_LOCAL_SIGNING_KEY(32),
+   BLE_PEER_ENCRYPTION_KEY(1), BLE_PEER_IDENTIFICATION_KEY(2), BLE_PEER_SIGNING_KEY(4);
 
    public static final int BLE_LOCAL_ENCRYPTION_KEY_VALUE = 8;
-   BLE_LOCAL_IDENTIFICATION_KEY(16);
+//   BLE_LOCAL_IDENTIFICATION_KEY(16);
 
    public static final int BLE_LOCAL_IDENTIFICATION_KEY_VALUE = 16;
-   BLE_LOCAL_SIGNING_KEY(32);
+//   BLE_LOCAL_SIGNING_KEY(32);
 
    public static final int BLE_LOCAL_SIGNING_KEY_VALUE = 32;
-   BLE_PEER_ENCRYPTION_KEY(1);
+//   BLE_PEER_ENCRYPTION_KEY(1);
 
    public static final int BLE_PEER_ENCRYPTION_KEY_VALUE = 1;
-   BLE_PEER_IDENTIFICATION_KEY(2);
+//   BLE_PEER_IDENTIFICATION_KEY(2);
 
    public static final int BLE_PEER_IDENTIFICATION_KEY_VALUE = 2;
-   BLE_PEER_SIGNING_KEY(4);
+//   BLE_PEER_SIGNING_KEY(4);
 
    public static final int BLE_PEER_SIGNING_KEY_VALUE = 4;
    private static final BleDevice$PbBleDevice$PbBleKeyType[] VALUES = values();

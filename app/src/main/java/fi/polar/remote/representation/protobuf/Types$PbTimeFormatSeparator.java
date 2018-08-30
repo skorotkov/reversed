@@ -6,11 +6,11 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Types$PbTimeFormatSeparator implements ProtocolMessageEnum {
-   TIME_FORMAT_SEPARATOR_COLON(2);
+   TIME_FORMAT_SEPARATOR_COLON(2),
 
-   public static final int TIME_FORMAT_SEPARATOR_COLON_VALUE = 2;
    TIME_FORMAT_SEPARATOR_DOT(1);
 
+   public static final int TIME_FORMAT_SEPARATOR_COLON_VALUE = 2;
    public static final int TIME_FORMAT_SEPARATOR_DOT_VALUE = 1;
    private static final Types$PbTimeFormatSeparator[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Types$PbTimeFormatSeparator$1();

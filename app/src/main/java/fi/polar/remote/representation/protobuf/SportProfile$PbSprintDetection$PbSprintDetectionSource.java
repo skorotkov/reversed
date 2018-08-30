@@ -6,14 +6,14 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum SportProfile$PbSprintDetection$PbSprintDetectionSource implements ProtocolMessageEnum {
-   SPRINT_DETECTION_OFF(0);
+   SPRINT_DETECTION_OFF(0),
 
-   public static final int SPRINT_DETECTION_OFF_VALUE = 0;
-   SPRINT_DETECTION_SOURCE_ACCELERATION(1);
+   SPRINT_DETECTION_SOURCE_ACCELERATION(1),
 
-   public static final int SPRINT_DETECTION_SOURCE_ACCELERATION_VALUE = 1;
    SPRINT_DETECTION_SOURCE_SPEED(2);
 
+   public static final int SPRINT_DETECTION_OFF_VALUE = 0;
+   public static final int SPRINT_DETECTION_SOURCE_ACCELERATION_VALUE = 1;
    public static final int SPRINT_DETECTION_SOURCE_SPEED_VALUE = 2;
    private static final SportProfile$PbSprintDetection$PbSprintDetectionSource[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new SportProfile$PbSprintDetection$PbSprintDetectionSource$1();

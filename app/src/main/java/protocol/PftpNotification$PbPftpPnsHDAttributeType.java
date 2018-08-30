@@ -6,27 +6,27 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum PftpNotification$PbPftpPnsHDAttributeType implements ProtocolMessageEnum {
-   APPLICATION_NAME(5);
+   APPLICATION_NAME(5),
 
-   public static final int APPLICATION_NAME_VALUE = 5;
-   CLEAR_ACTION_LABEL(6);
+//   public static final int APPLICATION_NAME_VALUE = 5;
+   CLEAR_ACTION_LABEL(6),
 
-   public static final int CLEAR_ACTION_LABEL_VALUE = 6;
-   MESSAGE(2);
+//   public static final int CLEAR_ACTION_LABEL_VALUE = 6;
+   MESSAGE(2),
 
-   public static final int MESSAGE_VALUE = 2;
-   NEGATIVE_ACTION_LABEL(4);
+//   public static final int MESSAGE_VALUE = 2;
+   NEGATIVE_ACTION_LABEL(4),
 
-   public static final int NEGATIVE_ACTION_LABEL_VALUE = 4;
-   POSITIVE_ACTION_LABEL(3);
+//   public static final int NEGATIVE_ACTION_LABEL_VALUE = 4;
+   POSITIVE_ACTION_LABEL(3),
 
-   public static final int POSITIVE_ACTION_LABEL_VALUE = 3;
-   SUBTITLE(1);
+//   public static final int POSITIVE_ACTION_LABEL_VALUE = 3;
+   SUBTITLE(1),
 
-   public static final int SUBTITLE_VALUE = 1;
+//   public static final int SUBTITLE_VALUE = 1;
    TITLE(0);
 
-   public static final int TITLE_VALUE = 0;
+//   public static final int TITLE_VALUE = 0;
    private static final PftpNotification$PbPftpPnsHDAttributeType[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new PftpNotification$PbPftpPnsHDAttributeType$1();
    private final int value;

@@ -6,11 +6,11 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Types$PbAutoPause$PbAutoPauseTrigger implements ProtocolMessageEnum {
-   AUTO_PAUSE_OFF(0);
+   AUTO_PAUSE_OFF(0),
 
-   public static final int AUTO_PAUSE_OFF_VALUE = 0;
    AUTO_PAUSE_TRIGGER_SPEED(1);
 
+   public static final int AUTO_PAUSE_OFF_VALUE = 0;
    public static final int AUTO_PAUSE_TRIGGER_SPEED_VALUE = 1;
    private static final Types$PbAutoPause$PbAutoPauseTrigger[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Types$PbAutoPause$PbAutoPauseTrigger$1();

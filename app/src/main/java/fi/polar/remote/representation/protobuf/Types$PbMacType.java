@@ -6,21 +6,21 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Types$PbMacType implements ProtocolMessageEnum {
-   MAC_TYPE_BT_CLASSIC(4);
+   MAC_TYPE_BT_CLASSIC(4),
 
-   public static final int MAC_TYPE_BT_CLASSIC_VALUE = 4;
-   MAC_TYPE_PRIVATE_NONRESOLVABLE(2);
+   MAC_TYPE_PRIVATE_NONRESOLVABLE(2),
 
-   public static final int MAC_TYPE_PRIVATE_NONRESOLVABLE_VALUE = 2;
-   MAC_TYPE_PRIVATE_RESOLVABLE(3);
+   MAC_TYPE_PRIVATE_RESOLVABLE(3),
 
-   public static final int MAC_TYPE_PRIVATE_RESOLVABLE_VALUE = 3;
-   MAC_TYPE_PUBLIC(0);
+   MAC_TYPE_PUBLIC(0),
 
-   public static final int MAC_TYPE_PUBLIC_VALUE = 0;
    MAC_TYPE_STATIC(1);
 
    public static final int MAC_TYPE_STATIC_VALUE = 1;
+   public static final int MAC_TYPE_PUBLIC_VALUE = 0;
+   public static final int MAC_TYPE_PRIVATE_RESOLVABLE_VALUE = 3;
+   public static final int MAC_TYPE_PRIVATE_NONRESOLVABLE_VALUE = 2;
+   public static final int MAC_TYPE_BT_CLASSIC_VALUE = 4;
    private static final Types$PbMacType[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Types$PbMacType$1();
    private final int value;

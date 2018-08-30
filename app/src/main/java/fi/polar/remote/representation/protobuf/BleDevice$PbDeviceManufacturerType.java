@@ -6,11 +6,10 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum BleDevice$PbDeviceManufacturerType implements ProtocolMessageEnum {
-   MANUFACTURER_OTHER(2);
-
-   public static final int MANUFACTURER_OTHER_VALUE = 2;
+   MANUFACTURER_OTHER(2),
    MANUFACTURER_POLAR(1);
 
+   public static final int MANUFACTURER_OTHER_VALUE = 2;
    public static final int MANUFACTURER_POLAR_VALUE = 1;
    private static final BleDevice$PbDeviceManufacturerType[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new BleDevice$PbDeviceManufacturerType$1();

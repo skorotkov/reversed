@@ -6,163 +6,163 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Types$PbDataType implements ProtocolMessageEnum {
-   ACCELERATION(69);
+   ACCELERATION(69),
 
-   public static final int ACCELERATION_VALUE = 69;
-   ACTIVITY(30);
+//   public static final int ACCELERATION_VALUE = 69;
+   ACTIVITY(30),
 
-   public static final int ACTIVITY_VALUE = 30;
-   ALTITUDE(25);
+//   public static final int ACTIVITY_VALUE = 30;
+   ALTITUDE(25),
 
-   public static final int ALTITUDE_VALUE = 25;
-   ANGLE_DEGREE(71);
+//   public static final int ALTITUDE_VALUE = 25;
+   ANGLE_DEGREE(71),
 
-   public static final int ANGLE_DEGREE_VALUE = 71;
-   ASCENT(55);
+//   public static final int ANGLE_DEGREE_VALUE = 71;
+   ASCENT(55),
 
-   public static final int ASCENT_VALUE = 55;
-   CADENCE(24);
+//   public static final int ASCENT_VALUE = 55;
+   CADENCE(24),
 
-   public static final int CADENCE_VALUE = 24;
-   CALORIES(74);
+//   public static final int CADENCE_VALUE = 24;
+   CALORIES(74),
 
-   public static final int CALORIES_VALUE = 74;
-   CRANK_LENGTH(70);
+//   public static final int CALORIES_VALUE = 74;
+   CRANK_LENGTH(70),
 
-   public static final int CRANK_LENGTH_VALUE = 70;
-   CUMULATED_ACTIVITY_DAY(61);
+//   public static final int CRANK_LENGTH_VALUE = 70;
+   CUMULATED_ACTIVITY_DAY(61),
 
-   public static final int CUMULATED_ACTIVITY_DAY_VALUE = 61;
-   DAY(8);
+//   public static final int CUMULATED_ACTIVITY_DAY_VALUE = 61;
+   DAY(8),
 
-   public static final int DAY_VALUE = 8;
-   DECLINE(33);
+//   public static final int DAY_VALUE = 8;
+   DECLINE(33),
 
-   public static final int DECLINE_VALUE = 33;
-   DESCENT(56);
+//   public static final int DECLINE_VALUE = 33;
+   DESCENT(56),
 
-   public static final int DESCENT_VALUE = 56;
-   DISTANCE(52);
+//   public static final int DESCENT_VALUE = 56;
+   DISTANCE(52),
 
-   public static final int DISTANCE_VALUE = 52;
-   ENERGY(53);
+//   public static final int DISTANCE_VALUE = 52;
+   ENERGY(53),
 
-   public static final int ENERGY_VALUE = 53;
-   ENUM(2);
+//   public static final int ENERGY_VALUE = 53;
+   ENUM(2),
 
-   public static final int ENUM_VALUE = 2;
-   EXERCISE_TARGET_INDEX(65);
+//   public static final int ENUM_VALUE = 2;
+   EXERCISE_TARGET_INDEX(65),
 
-   public static final int EXERCISE_TARGET_INDEX_VALUE = 65;
-   FAT_PERCENTS(54);
+//   public static final int EXERCISE_TARGET_INDEX_VALUE = 65;
+   FAT_PERCENTS(54),
 
-   public static final int FAT_PERCENTS_VALUE = 54;
-   FITNESS_CLASS(68);
+//   public static final int FAT_PERCENTS_VALUE = 54;
+   FITNESS_CLASS(68),
 
-   public static final int FITNESS_CLASS_VALUE = 68;
-   FUNCTIONAL_THRESHOLD_POWER(73);
+//   public static final int FITNESS_CLASS_VALUE = 68;
+   FUNCTIONAL_THRESHOLD_POWER(73),
 
-   public static final int FUNCTIONAL_THRESHOLD_POWER_VALUE = 73;
-   HEARTRATE(20);
+//   public static final int FUNCTIONAL_THRESHOLD_POWER_VALUE = 73;
+   HEARTRATE(20),
 
-   public static final int HEARTRATE_VALUE = 20;
-   HEIGHT(12);
+//   public static final int HEARTRATE_VALUE = 20;
+   HEIGHT(12),
 
-   public static final int HEIGHT_VALUE = 12;
-   HERTZ(59);
+//   public static final int HEIGHT_VALUE = 12;
+   HERTZ(59),
 
-   public static final int HERTZ_VALUE = 59;
+//   public static final int HERTZ_VALUE = 59;
    HOUR(6),
-   HOURS(7);
+   HOURS(7),
 
-   public static final int HOURS_VALUE = 7;
-   public static final int HOUR_VALUE = 6;
-   HR_PERCENT(21);
+//   public static final int HOURS_VALUE = 7;
+//   public static final int HOUR_VALUE = 6;
+   HR_PERCENT(21),
 
-   public static final int HR_PERCENT_VALUE = 21;
-   HR_RESERVE(22);
+//   public static final int HR_PERCENT_VALUE = 21;
+   HR_RESERVE(22),
 
-   public static final int HR_RESERVE_VALUE = 22;
-   INCLINE(32);
+//   public static final int HR_RESERVE_VALUE = 22;
+   INCLINE(32),
 
-   public static final int INCLINE_VALUE = 32;
-   INHERITED(1);
+//   public static final int INCLINE_VALUE = 32;
+   INHERITED(1),
 
-   public static final int INHERITED_VALUE = 1;
-   LATITUDE(57);
+//   public static final int INHERITED_VALUE = 1;
+   LATITUDE(57),
 
-   public static final int LATITUDE_VALUE = 57;
-   LONGITUDE(58);
+//   public static final int LATITUDE_VALUE = 57;
+   LONGITUDE(58),
 
-   public static final int LONGITUDE_VALUE = 58;
-   MILLIS(3);
+//   public static final int LONGITUDE_VALUE = 58;
+   MILLIS(3),
 
-   public static final int MILLIS_VALUE = 3;
-   MINUTE(5);
+//   public static final int MILLIS_VALUE = 3;
+   MINUTE(5),
 
-   public static final int MINUTE_VALUE = 5;
-   MONTH(9);
+//   public static final int MINUTE_VALUE = 5;
+   MONTH(9),
 
-   public static final int MONTH_VALUE = 9;
-   NEWTON(72);
+//   public static final int MONTH_VALUE = 9;
+   NEWTON(72),
 
-   public static final int NEWTON_VALUE = 72;
-   PERCENT(60);
+//   public static final int NEWTON_VALUE = 72;
+   PERCENT(60),
 
-   public static final int PERCENT_VALUE = 60;
+//   public static final int PERCENT_VALUE = 60;
    POWER(26),
-   POWER_LRB(27);
+   POWER_LRB(27),
 
-   public static final int POWER_LRB_VALUE = 27;
-   POWER_PI(28);
+//   public static final int POWER_LRB_VALUE = 27;
+   POWER_PI(28),
 
-   public static final int POWER_PI_VALUE = 28;
-   public static final int POWER_VALUE = 26;
-   RR_INTERVAL(63);
+//   public static final int POWER_PI_VALUE = 28;
+//   public static final int POWER_VALUE = 26;
+   RR_INTERVAL(63),
 
-   public static final int RR_INTERVAL_VALUE = 63;
-   RUNNING_INDEX(62);
+//   public static final int RR_INTERVAL_VALUE = 63;
+   RUNNING_INDEX(62),
 
-   public static final int RUNNING_INDEX_VALUE = 62;
-   SECOND(4);
+//   public static final int RUNNING_INDEX_VALUE = 62;
+   SECOND(4),
 
-   public static final int SECOND_VALUE = 4;
+//   public static final int SECOND_VALUE = 4;
    SPEED(23),
-   SPEED_CALIBRATION_OFFSET(75);
+   SPEED_CALIBRATION_OFFSET(75),
 
-   public static final int SPEED_CALIBRATION_OFFSET_VALUE = 75;
-   public static final int SPEED_VALUE = 23;
-   STRIDE_LENGTH(31);
+//   public static final int SPEED_CALIBRATION_OFFSET_VALUE = 75;
+//   public static final int SPEED_VALUE = 23;
+   STRIDE_LENGTH(31),
 
-   public static final int STRIDE_LENGTH_VALUE = 31;
-   TEMPERATURE(29);
+//   public static final int STRIDE_LENGTH_VALUE = 31;
+   TEMPERATURE(29),
 
-   public static final int TEMPERATURE_VALUE = 29;
-   TIME_ZONE_OFFSET(66);
+//   public static final int TEMPERATURE_VALUE = 29;
+   TIME_ZONE_OFFSET(66),
 
-   public static final int TIME_ZONE_OFFSET_VALUE = 66;
-   UNDEFINED(0);
+//   public static final int TIME_ZONE_OFFSET_VALUE = 66;
+   UNDEFINED(0),
 
-   public static final int UNDEFINED_VALUE = 0;
-   private static final Types$PbDataType[] VALUES = values();
-   VO2MAX(13);
+//   public static final int UNDEFINED_VALUE = 0;
+   VO2MAX(13),
 
-   public static final int VO2MAX_VALUE = 13;
-   WEEK(76);
+//   public static final int VO2MAX_VALUE = 13;
+   WEEK(76),
 
-   public static final int WEEK_VALUE = 76;
-   WEIGHT(11);
+//   public static final int WEEK_VALUE = 76;
+   WEIGHT(11),
 
-   public static final int WEIGHT_VALUE = 11;
-   WHEEL_SIZE(67);
+//   public static final int WEIGHT_VALUE = 11;
+   WHEEL_SIZE(67),
 
-   public static final int WHEEL_SIZE_VALUE = 67;
-   YEAR(10);
+//   public static final int WHEEL_SIZE_VALUE = 67;
+   YEAR(10),
 
-   public static final int YEAR_VALUE = 10;
+//   public static final int YEAR_VALUE = 10;
    Z_INDEX(64);
 
-   public static final int Z_INDEX_VALUE = 64;
+//   public static final int Z_INDEX_VALUE = 64;
+private static final Types$PbDataType[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Types$PbDataType$1();
    private final int value;
 

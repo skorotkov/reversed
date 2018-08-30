@@ -6,20 +6,20 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum SleepanalysisResult$PbSleepWakeState implements ProtocolMessageEnum {
-   PB_NONREM1(-4);
+   PB_NONREM1(-4),
 
-   public static final int PB_NONREM1_VALUE = -4;
-   PB_NONREM2(-5);
+   PB_NONREM2(-5),
 
-   public static final int PB_NONREM2_VALUE = -5;
-   PB_NONREM3(-6);
+   PB_NONREM3(-6),
 
-   public static final int PB_NONREM3_VALUE = -6;
-   PB_REM(-3);
+   PB_REM(-3),
 
-   public static final int PB_REM_VALUE = -3;
    PB_WAKE(-2);
 
+   public static final int PB_REM_VALUE = -3;
+   public static final int PB_NONREM1_VALUE = -4;
+   public static final int PB_NONREM2_VALUE = -5;
+   public static final int PB_NONREM3_VALUE = -6;
    public static final int PB_WAKE_VALUE = -2;
    private static final SleepanalysisResult$PbSleepWakeState[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new SleepanalysisResult$PbSleepWakeState$1();

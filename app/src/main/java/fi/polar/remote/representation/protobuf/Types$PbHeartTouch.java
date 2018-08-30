@@ -6,18 +6,18 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Types$PbHeartTouch implements ProtocolMessageEnum {
-   HEART_TOUCH_ACTIVATE_BACKLIGHT(2);
+   HEART_TOUCH_ACTIVATE_BACKLIGHT(2),
 
-   public static final int HEART_TOUCH_ACTIVATE_BACKLIGHT_VALUE = 2;
-   HEART_TOUCH_OFF(1);
+   HEART_TOUCH_OFF(1),
 
-   public static final int HEART_TOUCH_OFF_VALUE = 1;
-   HEART_TOUCH_SHOW_PREVIOUS_LAP(3);
+   HEART_TOUCH_SHOW_PREVIOUS_LAP(3),
 
-   public static final int HEART_TOUCH_SHOW_PREVIOUS_LAP_VALUE = 3;
    HEART_TOUCH_SHOW_TIME_OF_DAY(4);
 
    public static final int HEART_TOUCH_SHOW_TIME_OF_DAY_VALUE = 4;
+   public static final int HEART_TOUCH_SHOW_PREVIOUS_LAP_VALUE = 3;
+   public static final int HEART_TOUCH_OFF_VALUE = 1;
+   public static final int HEART_TOUCH_ACTIVATE_BACKLIGHT_VALUE = 2;
    private static final Types$PbHeartTouch[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Types$PbHeartTouch$1();
    private final int value;

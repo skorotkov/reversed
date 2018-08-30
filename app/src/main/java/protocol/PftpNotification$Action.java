@@ -6,15 +6,15 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum PftpNotification$Action implements ProtocolMessageEnum {
-   CREATED(0);
+   CREATED(0),
 
-   public static final int CREATED_VALUE = 0;
-   REMOVED(2);
+//   public static final int CREATED_VALUE = 0;
+   REMOVED(2),
 
-   public static final int REMOVED_VALUE = 2;
+//   public static final int REMOVED_VALUE = 2;
    UPDATED(1);
 
-   public static final int UPDATED_VALUE = 1;
+//   public static final int UPDATED_VALUE = 1;
    private static final PftpNotification$Action[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new PftpNotification$Action$1();
    private final int value;

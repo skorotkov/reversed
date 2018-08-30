@@ -6,16 +6,16 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Types$PbHandedness implements ProtocolMessageEnum {
-   private static final Types$PbHandedness[] VALUES = values();
-   WU_IN_LEFT_HAND(1);
+   WU_IN_LEFT_HAND(1),
 
-   public static final int WU_IN_LEFT_HAND_VALUE = 1;
-   WU_IN_NECKLACE(3);
+   WU_IN_NECKLACE(3),
 
-   public static final int WU_IN_NECKLACE_VALUE = 3;
    WU_IN_RIGHT_HAND(2);
 
    public static final int WU_IN_RIGHT_HAND_VALUE = 2;
+   public static final int WU_IN_NECKLACE_VALUE = 3;
+   public static final int WU_IN_LEFT_HAND_VALUE = 1;
+   private static final Types$PbHandedness[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Types$PbHandedness$1();
    private final int value;
 

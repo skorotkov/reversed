@@ -6,23 +6,23 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum ExercisePhase$PbPhaseGoal$PhaseGoalType implements ProtocolMessageEnum {
-   PHASE_GOAL_DECREASING_HR(4);
+   PHASE_GOAL_DECREASING_HR(4),
 
-   public static final int PHASE_GOAL_DECREASING_HR_VALUE = 4;
-   PHASE_GOAL_DISTANCE(2);
+   PHASE_GOAL_DISTANCE(2),
 
-   public static final int PHASE_GOAL_DISTANCE_VALUE = 2;
-   PHASE_GOAL_INCREASING_HR(3);
+   PHASE_GOAL_INCREASING_HR(3),
 
-   public static final int PHASE_GOAL_INCREASING_HR_VALUE = 3;
-   PHASE_GOAL_OFF(0);
+   PHASE_GOAL_OFF(0),
 
-   public static final int PHASE_GOAL_OFF_VALUE = 0;
-   PHASE_GOAL_RACE_PACE(5);
+   PHASE_GOAL_RACE_PACE(5),
 
-   public static final int PHASE_GOAL_RACE_PACE_VALUE = 5;
    PHASE_GOAL_TIME(1);
 
+   public static final int PHASE_GOAL_RACE_PACE_VALUE = 5;
+   public static final int PHASE_GOAL_DECREASING_HR_VALUE = 4;
+   public static final int PHASE_GOAL_DISTANCE_VALUE = 2;
+   public static final int PHASE_GOAL_INCREASING_HR_VALUE = 3;
+   public static final int PHASE_GOAL_OFF_VALUE = 0;
    public static final int PHASE_GOAL_TIME_VALUE = 1;
    private static final ExercisePhase$PbPhaseGoal$PhaseGoalType[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new ExercisePhase$PbPhaseGoal$PhaseGoalType$1();

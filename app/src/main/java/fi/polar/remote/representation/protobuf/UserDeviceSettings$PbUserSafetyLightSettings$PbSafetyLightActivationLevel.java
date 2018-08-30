@@ -6,15 +6,15 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum UserDeviceSettings$PbUserSafetyLightSettings$PbSafetyLightActivationLevel implements ProtocolMessageEnum {
-   ACTIVATION_LEVEL_DARK(1);
+   ACTIVATION_LEVEL_DARK(1),
 
-   public static final int ACTIVATION_LEVEL_DARK_VALUE = 1;
-   ACTIVATION_LEVEL_DUSK(2);
+   ACTIVATION_LEVEL_DUSK(2),
 
-   public static final int ACTIVATION_LEVEL_DUSK_VALUE = 2;
    ACTIVATION_LEVEL_LIGHT(3);
 
    public static final int ACTIVATION_LEVEL_LIGHT_VALUE = 3;
+   public static final int ACTIVATION_LEVEL_DUSK_VALUE = 2;
+   public static final int ACTIVATION_LEVEL_DARK_VALUE = 1;
    private static final UserDeviceSettings$PbUserSafetyLightSettings$PbSafetyLightActivationLevel[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new UserDeviceSettings$PbUserSafetyLightSettings$PbSafetyLightActivationLevel$1();
    private final int value;

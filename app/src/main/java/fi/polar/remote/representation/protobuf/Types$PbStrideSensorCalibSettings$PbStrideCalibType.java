@@ -6,11 +6,11 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Types$PbStrideSensorCalibSettings$PbStrideCalibType implements ProtocolMessageEnum {
-   STRIDE_CALIB_AUTO(1);
+   STRIDE_CALIB_AUTO(1),
 
-   public static final int STRIDE_CALIB_AUTO_VALUE = 1;
    STRIDE_CALIB_MANUAL(0);
 
+   public static final int STRIDE_CALIB_AUTO_VALUE = 1;
    public static final int STRIDE_CALIB_MANUAL_VALUE = 0;
    private static final Types$PbStrideSensorCalibSettings$PbStrideCalibType[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Types$PbStrideSensorCalibSettings$PbStrideCalibType$1();

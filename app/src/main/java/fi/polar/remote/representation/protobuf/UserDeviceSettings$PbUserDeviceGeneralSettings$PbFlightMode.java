@@ -6,11 +6,11 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum UserDeviceSettings$PbUserDeviceGeneralSettings$PbFlightMode implements ProtocolMessageEnum {
-   FLIGHTMODE_OFF(1);
+   FLIGHTMODE_OFF(1),
 
-   public static final int FLIGHTMODE_OFF_VALUE = 1;
    FLIGHTMODE_ON(2);
 
+   public static final int FLIGHTMODE_OFF_VALUE = 1;
    public static final int FLIGHTMODE_ON_VALUE = 2;
    private static final UserDeviceSettings$PbUserDeviceGeneralSettings$PbFlightMode[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new UserDeviceSettings$PbUserDeviceGeneralSettings$PbFlightMode$1();

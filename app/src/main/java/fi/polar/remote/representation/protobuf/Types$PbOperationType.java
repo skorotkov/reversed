@@ -6,11 +6,11 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Types$PbOperationType implements ProtocolMessageEnum {
-   MULTIPLY(1);
+   MULTIPLY(1),
 
-   public static final int MULTIPLY_VALUE = 1;
    SUM(2);
 
+   public static final int MULTIPLY_VALUE = 1;
    public static final int SUM_VALUE = 2;
    private static final Types$PbOperationType[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Types$PbOperationType$1();

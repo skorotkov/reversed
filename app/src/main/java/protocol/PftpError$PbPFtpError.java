@@ -6,74 +6,74 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum PftpError$PbPFtpError implements ProtocolMessageEnum {
-   BATTERY_TOO_LOW(209);
+   BATTERY_TOO_LOW(209),
 
-   public static final int BATTERY_TOO_LOW_VALUE = 209;
-   CHECKSUM_FAILURE(204);
+//   public static final int BATTERY_TOO_LOW_VALUE = 209;
+   CHECKSUM_FAILURE(204),
 
-   public static final int CHECKSUM_FAILURE_VALUE = 204;
-   DIRECTORY_EXISTS(104);
+//   public static final int CHECKSUM_FAILURE_VALUE = 204;
+   DIRECTORY_EXISTS(104),
 
-   public static final int DIRECTORY_EXISTS_VALUE = 104;
-   DISK_FULL(205);
+//   public static final int DIRECTORY_EXISTS_VALUE = 104;
+   DISK_FULL(205),
 
-   public static final int DISK_FULL_VALUE = 205;
-   FILE_EXISTS(105);
+//   public static final int DISK_FULL_VALUE = 205;
+   FILE_EXISTS(105),
 
-   public static final int FILE_EXISTS_VALUE = 105;
-   INSUFFICIENT_BUFFER(207);
+//   public static final int FILE_EXISTS_VALUE = 105;
+   INSUFFICIENT_BUFFER(207),
 
-   public static final int INSUFFICIENT_BUFFER_VALUE = 207;
-   INVALID_COMMAND(101);
+//   public static final int INSUFFICIENT_BUFFER_VALUE = 207;
+   INVALID_COMMAND(101),
 
-   public static final int INVALID_COMMAND_VALUE = 101;
-   INVALID_CONTENT(203);
+//   public static final int INVALID_COMMAND_VALUE = 101;
+   INVALID_CONTENT(203),
 
-   public static final int INVALID_CONTENT_VALUE = 203;
-   INVALID_PARAMETER(102);
+//   public static final int INVALID_CONTENT_VALUE = 203;
+   INVALID_PARAMETER(102),
 
-   public static final int INVALID_PARAMETER_VALUE = 102;
-   NOT_IMPLEMENTED(201);
+//   public static final int INVALID_PARAMETER_VALUE = 102;
+   NOT_IMPLEMENTED(201),
 
-   public static final int NOT_IMPLEMENTED_VALUE = 201;
-   NO_SUCH_FILE_OR_DIRECTORY(103);
+//   public static final int NOT_IMPLEMENTED_VALUE = 201;
+   NO_SUCH_FILE_OR_DIRECTORY(103),
 
-   public static final int NO_SUCH_FILE_OR_DIRECTORY_VALUE = 103;
-   NO_SUCH_USER(107);
+//   public static final int NO_SUCH_FILE_OR_DIRECTORY_VALUE = 103;
+   NO_SUCH_USER(107),
 
-   public static final int NO_SUCH_USER_VALUE = 107;
-   OPERATION_NOT_PERMITTED(106);
+//   public static final int NO_SUCH_USER_VALUE = 107;
+   OPERATION_NOT_PERMITTED(106),
 
-   public static final int OPERATION_NOT_PERMITTED_VALUE = 106;
-   OPERATION_SUCCEEDED(0);
+//   public static final int OPERATION_NOT_PERMITTED_VALUE = 106;
+   OPERATION_SUCCEEDED(0),
 
-   public static final int OPERATION_SUCCEEDED_VALUE = 0;
-   PREREQUISITE_NOT_MET(206);
+//   public static final int OPERATION_SUCCEEDED_VALUE = 0;
+   PREREQUISITE_NOT_MET(206),
 
-   public static final int PREREQUISITE_NOT_MET_VALUE = 206;
-   REBOOTING(1);
+//   public static final int PREREQUISITE_NOT_MET_VALUE = 206;
+   REBOOTING(1),
 
-   public static final int REBOOTING_VALUE = 1;
-   SYSTEM_BUSY(202);
+//   public static final int REBOOTING_VALUE = 1;
+   SYSTEM_BUSY(202),
 
-   public static final int SYSTEM_BUSY_VALUE = 202;
-   TIMEOUT(108);
+//   public static final int SYSTEM_BUSY_VALUE = 202;
+   TIMEOUT(108),
 
-   public static final int TIMEOUT_VALUE = 108;
-   TRY_AGAIN(2);
+//   public static final int TIMEOUT_VALUE = 108;
+   TRY_AGAIN(2),
 
-   public static final int TRY_AGAIN_VALUE = 2;
-   UNIDENTIFIED_DEVICE_ERROR(200);
+//   public static final int TRY_AGAIN_VALUE = 2;
+   UNIDENTIFIED_DEVICE_ERROR(200),
 
-   public static final int UNIDENTIFIED_DEVICE_ERROR_VALUE = 200;
-   UNIDENTIFIED_HOST_ERROR(100);
+//   public static final int UNIDENTIFIED_DEVICE_ERROR_VALUE = 200;
+   UNIDENTIFIED_HOST_ERROR(100),
 
-   public static final int UNIDENTIFIED_HOST_ERROR_VALUE = 100;
-   private static final PftpError$PbPFtpError[] VALUES = values();
+//   public static final int UNIDENTIFIED_HOST_ERROR_VALUE = 100;
    WAIT_FOR_IDLING(208);
 
-   public static final int WAIT_FOR_IDLING_VALUE = 208;
+//   public static final int WAIT_FOR_IDLING_VALUE = 208;
    private static final EnumLiteMap internalValueMap = new PftpError$PbPFtpError$1();
+   private static final PftpError$PbPFtpError[] VALUES = values();
    private final int value;
 
    private PftpError$PbPFtpError(int var3) {

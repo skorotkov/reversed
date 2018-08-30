@@ -6,15 +6,15 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Types$PbStrideSensorCalibSettings$PbRunningFactorSource implements ProtocolMessageEnum {
-   RUNNING_FACTOR_SOURCE_AUTO_CALIBRATION(1);
+   RUNNING_FACTOR_SOURCE_AUTO_CALIBRATION(1),
 
-   public static final int RUNNING_FACTOR_SOURCE_AUTO_CALIBRATION_VALUE = 1;
-   RUNNING_FACTOR_SOURCE_DEFAULT(0);
+   RUNNING_FACTOR_SOURCE_DEFAULT(0),
 
-   public static final int RUNNING_FACTOR_SOURCE_DEFAULT_VALUE = 0;
    RUNNING_FACTOR_SOURCE_MANUAL_CALIBRATION(2);
 
    public static final int RUNNING_FACTOR_SOURCE_MANUAL_CALIBRATION_VALUE = 2;
+   public static final int RUNNING_FACTOR_SOURCE_DEFAULT_VALUE = 0;
+   public static final int RUNNING_FACTOR_SOURCE_AUTO_CALIBRATION_VALUE = 1;
    private static final Types$PbStrideSensorCalibSettings$PbRunningFactorSource[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Types$PbStrideSensorCalibSettings$PbRunningFactorSource$1();
    private final int value;

@@ -6,14 +6,12 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum PhysData$PbUserFunctionalThresholdPower$FTPSettingSource implements ProtocolMessageEnum {
-   SOURCE_DEFAULT(0);
-
-   public static final int SOURCE_DEFAULT_VALUE = 0;
-   SOURCE_ESTIMATE(1);
-
-   public static final int SOURCE_ESTIMATE_VALUE = 1;
+   SOURCE_DEFAULT(0),
+   SOURCE_ESTIMATE(1),
    SOURCE_USER(2);
 
+   public static final int SOURCE_DEFAULT_VALUE = 0;
+   public static final int SOURCE_ESTIMATE_VALUE = 1;
    public static final int SOURCE_USER_VALUE = 2;
    private static final PhysData$PbUserFunctionalThresholdPower$FTPSettingSource[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new PhysData$PbUserFunctionalThresholdPower$FTPSettingSource$1();

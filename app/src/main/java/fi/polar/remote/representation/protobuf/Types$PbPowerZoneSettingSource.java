@@ -6,11 +6,11 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Types$PbPowerZoneSettingSource implements ProtocolMessageEnum {
-   POWER_ZONE_SETTING_SOURCE_DEFAULT(0);
+   POWER_ZONE_SETTING_SOURCE_DEFAULT(0),
 
-   public static final int POWER_ZONE_SETTING_SOURCE_DEFAULT_VALUE = 0;
    POWER_ZONE_SETTING_SOURCE_FREE(1);
 
+   public static final int POWER_ZONE_SETTING_SOURCE_DEFAULT_VALUE = 0;
    public static final int POWER_ZONE_SETTING_SOURCE_FREE_VALUE = 1;
    private static final Types$PbPowerZoneSettingSource[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Types$PbPowerZoneSettingSource$1();

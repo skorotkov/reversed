@@ -6,18 +6,18 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum UserDeviceSettings$PbUserSafetyLightSettings$PbSafetyLightBlinkRate implements ProtocolMessageEnum {
-   BLINK_RATE_FAST(3);
+   BLINK_RATE_FAST(3),
 
-   public static final int BLINK_RATE_FAST_VALUE = 3;
-   BLINK_RATE_OFF(1);
+//   public static final int BLINK_RATE_FAST_VALUE = 3;
+   BLINK_RATE_OFF(1),
 
-   public static final int BLINK_RATE_OFF_VALUE = 1;
-   BLINK_RATE_SLOW(2);
+//   public static final int BLINK_RATE_OFF_VALUE = 1;
+   BLINK_RATE_SLOW(2),
 
-   public static final int BLINK_RATE_SLOW_VALUE = 2;
+//   public static final int BLINK_RATE_SLOW_VALUE = 2;
    BLINK_RATE_VERY_FAST(4);
 
-   public static final int BLINK_RATE_VERY_FAST_VALUE = 4;
+//   public static final int BLINK_RATE_VERY_FAST_VALUE = 4;
    private static final UserDeviceSettings$PbUserSafetyLightSettings$PbSafetyLightBlinkRate[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new UserDeviceSettings$PbUserSafetyLightSettings$PbSafetyLightBlinkRate$1();
    private final int value;

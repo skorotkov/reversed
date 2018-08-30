@@ -6,23 +6,23 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum PhysData$PbUserTrainingBackground$TrainingBackground implements ProtocolMessageEnum {
-   FREQUENT(30);
+   FREQUENT(30),
 
-   public static final int FREQUENT_VALUE = 30;
-   HEAVY(40);
+   HEAVY(40),
 
-   public static final int HEAVY_VALUE = 40;
-   OCCASIONAL(10);
+   OCCASIONAL(10),
 
-   public static final int OCCASIONAL_VALUE = 10;
-   PRO(60);
+   PRO(60),
 
-   public static final int PRO_VALUE = 60;
-   REGULAR(20);
+   REGULAR(20),
 
-   public static final int REGULAR_VALUE = 20;
    SEMI_PRO(50);
 
+   public static final int REGULAR_VALUE = 20;
+   public static final int PRO_VALUE = 60;
+   public static final int OCCASIONAL_VALUE = 10;
+   public static final int FREQUENT_VALUE = 30;
+   public static final int HEAVY_VALUE = 40;
    public static final int SEMI_PRO_VALUE = 50;
    private static final PhysData$PbUserTrainingBackground$TrainingBackground[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new PhysData$PbUserTrainingBackground$TrainingBackground$1();

@@ -6,15 +6,15 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum Types$PbHeartRateZoneSettingSource implements ProtocolMessageEnum {
-   HEART_RATE_ZONE_SETTING_SOURCE_DEFAULT(0);
+   HEART_RATE_ZONE_SETTING_SOURCE_DEFAULT(0),
 
-   public static final int HEART_RATE_ZONE_SETTING_SOURCE_DEFAULT_VALUE = 0;
-   HEART_RATE_ZONE_SETTING_SOURCE_FREE(2);
+   HEART_RATE_ZONE_SETTING_SOURCE_FREE(2),
 
-   public static final int HEART_RATE_ZONE_SETTING_SOURCE_FREE_VALUE = 2;
    HEART_RATE_ZONE_SETTING_SOURCE_THRESHOLD(1);
 
    public static final int HEART_RATE_ZONE_SETTING_SOURCE_THRESHOLD_VALUE = 1;
+   public static final int HEART_RATE_ZONE_SETTING_SOURCE_FREE_VALUE = 2;
+   public static final int HEART_RATE_ZONE_SETTING_SOURCE_DEFAULT_VALUE = 0;
    private static final Types$PbHeartRateZoneSettingSource[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new Types$PbHeartRateZoneSettingSource$1();
    private final int value;

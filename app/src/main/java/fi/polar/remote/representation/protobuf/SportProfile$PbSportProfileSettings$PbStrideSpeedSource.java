@@ -6,11 +6,11 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Internal.EnumLiteMap;
 
 public enum SportProfile$PbSportProfileSettings$PbStrideSpeedSource implements ProtocolMessageEnum {
-   STRIDE_SPEED_SOURCE_GPS(2);
+   STRIDE_SPEED_SOURCE_GPS(2),
 
-   public static final int STRIDE_SPEED_SOURCE_GPS_VALUE = 2;
    STRIDE_SPEED_SOURCE_STRIDE(1);
 
+   public static final int STRIDE_SPEED_SOURCE_GPS_VALUE = 2;
    public static final int STRIDE_SPEED_SOURCE_STRIDE_VALUE = 1;
    private static final SportProfile$PbSportProfileSettings$PbStrideSpeedSource[] VALUES = values();
    private static final EnumLiteMap internalValueMap = new SportProfile$PbSportProfileSettings$PbStrideSpeedSource$1();
