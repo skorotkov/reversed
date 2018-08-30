@@ -4,7 +4,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.os.Handler;
 
-class o extends fi.polar.polarflow.c.d {
+class o extends fi.polar.polarflow.c_package.d_package {
    // $FF: synthetic field
    final DailyActivityService a;
 

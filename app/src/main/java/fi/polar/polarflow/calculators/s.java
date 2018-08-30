@@ -9,7 +9,7 @@ class s extends aj implements ak, y {
    private int d = -1;
 
    static {
-      a.add(fi.polar.polarflow.c.n.b);
+      a.add(fi.polar.polarflow.c_package.n.b);
    }
 
    s() {

@@ -16,7 +16,7 @@ class aa extends ai {
       this.e = -1.0F;
    }
 
-   aa(int var1, long var2, fi.polar.polarflow.c.f var4) {
+   aa(int var1, long var2, fi.polar.polarflow.c_package.f var4) {
       float var5 = Float.NaN;
       float var6 = -1.0F;
       boolean var7;

@@ -54,7 +54,7 @@ class d extends BroadcastReceiver {
          ExeWaitActivity.b(this.a, var2.getStringExtra("fi.polar.polarflow.KEY_BLUETOOTH_DEVICE_NAME"));
          break;
       case 1:
-         if ((fi.polar.polarflow.c.m)var2.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE") == fi.polar.polarflow.c.m.d && !ExeWaitActivity.a(this.a)) {
+         if ((fi.polar.polarflow.c_package.m)var2.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE") == fi.polar.polarflow.c_package.m.d && !ExeWaitActivity.a(this.a)) {
             fi.polar.polarflow.ui.o.a(this.a.getApplicationContext(), fi.polar.polarflow.util.b.a);
             ExeWaitActivity.a(this.a, true);
          }

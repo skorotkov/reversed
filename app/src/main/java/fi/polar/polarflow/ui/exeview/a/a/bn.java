@@ -180,7 +180,7 @@ class bn extends br {
       super.a(var1);
       if (var1.getAction().equals("fi.polar.polarflow.ACTION_HR_DATA")) {
          this.b(var1.getIntExtra("fi.polar.polarflow.KEY_SENSOR_HR_MEASUREMENT_VALUE", 0));
-      } else if ("fi.polar.polarflow.SENSOR_HR_STATE_CHANGED".equals(var1.getAction()) && (fi.polar.polarflow.c.m)var1.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE") != fi.polar.polarflow.c.m.d) {
+      } else if ("fi.polar.polarflow.SENSOR_HR_STATE_CHANGED".equals(var1.getAction()) && (fi.polar.polarflow.c_package.m)var1.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE") != fi.polar.polarflow.c_package.m.d) {
          if (this.j != -1) {
             this.W = true;
             this.j = -1;

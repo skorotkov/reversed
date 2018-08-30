@@ -125,7 +125,7 @@ class k extends BroadcastReceiver {
          ExeViewActivity.a(this.a, var9, var4);
          break;
       case 8:
-         if (((fi.polar.polarflow.c.m)var2.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE")).equals(fi.polar.polarflow.c.m.a)) {
+         if (((fi.polar.polarflow.c_package.m)var2.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE")).equals(fi.polar.polarflow.c_package.m.a)) {
             if (ExeViewActivity.i(this.a).a()) {
                ExeViewActivity.j(this.a);
             }

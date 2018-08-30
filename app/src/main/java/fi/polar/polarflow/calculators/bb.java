@@ -14,8 +14,8 @@ import java.util.Iterator;
 import java.util.List;
 
 public class bb implements ae, ah {
-   private final fi.polar.polarflow.c.c.a a;
-   private final fi.polar.polarflow.c.a.a b;
+   private final fi.polar.polarflow.c_package.c_package.a a;
+   private final fi.polar.polarflow.c_package.a_package.a b;
    private PoolSwimmingAlgorithmAndroidImpl c;
    private af d;
    private Handedness e;
@@ -30,9 +30,9 @@ public class bb implements ae, ah {
    private boolean n;
    private int o;
    private int p;
-   private final fi.polar.polarflow.c.e q;
+   private final fi.polar.polarflow.c_package.e q;
 
-   public bb(fi.polar.polarflow.c.c.a var1, fi.polar.polarflow.c.a.a var2, long var3) {
+   public bb(fi.polar.polarflow.c_package.c_package.a var1, fi.polar.polarflow.c_package.a_package.a var2, long var3) {
       this.k = SwimmingType.NO_SWIMMING.getValue();
       this.l = SwimmingType.NO_SWIMMING.getValue();
       this.m = SwimmingType.NO_SWIMMING.getValue();
@@ -114,7 +114,7 @@ public class bb implements ae, ah {
          float[] var6 = new float[var2];
 
          for(var3 = 0; var3 < var2; ++var3) {
-            fi.polar.polarflow.c.b var7 = (fi.polar.polarflow.c.b)var1.get(var3);
+            fi.polar.polarflow.c_package.b var7 = (fi.polar.polarflow.c_package.b)var1.get(var3);
             var4[var3] = var7.a[0];
             var5[var3] = var7.a[1];
             var6[var3] = var7.a[2];
@@ -157,7 +157,7 @@ public class bb implements ae, ah {
    }
 
    public SwimmingStatistics a() {
-      this.b.a((fi.polar.polarflow.c.l)null);
+      this.b.a((fi.polar.polarflow.c_package.l)null);
       this.f.a("SwimmingMetricsProvider.ACTION_POOL_SWIMMING_OUTPUT_DATA");
       this.f.a("SwimmingMetricsProvider.ACTION_POOL_SWIMMING_OUTPUT_REST_TIME_START");
       if (this.d != null) {
@@ -179,7 +179,7 @@ public class bb implements ae, ah {
       }
 
       this.c = new PoolSwimmingAlgorithmAndroidImpl(var1, this.e, var3);
-      this.b.a((fi.polar.polarflow.c.l)this.q);
+      this.b.a((fi.polar.polarflow.c_package.l)this.q);
       this.j = this.g();
       this.a(this.j);
    }
@@ -189,7 +189,7 @@ public class bb implements ae, ah {
       this.j = 0L;
       this.m = SwimmingType.NO_SWIMMING.getValue();
       this.l = SwimmingType.NO_SWIMMING.getValue();
-      this.b.a((fi.polar.polarflow.c.l)null);
+      this.b.a((fi.polar.polarflow.c_package.l)null);
       this.n = true;
    }
 
@@ -198,7 +198,7 @@ public class bb implements ae, ah {
       this.i = 0L;
       this.j = this.g();
       this.a(this.j);
-      this.b.a((fi.polar.polarflow.c.l)this.q);
+      this.b.a((fi.polar.polarflow.c_package.l)this.q);
       this.n = false;
    }
 

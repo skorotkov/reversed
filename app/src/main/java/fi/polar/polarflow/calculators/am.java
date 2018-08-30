@@ -25,9 +25,9 @@ public class am {
    private int C;
    private long D;
    private long E;
-   private final fi.polar.polarflow.c.e F;
-   private final fi.polar.polarflow.c.e G;
-   private final fi.polar.polarflow.c.l H;
+   private final fi.polar.polarflow.c_package.e F;
+   private final fi.polar.polarflow.c_package.e G;
+   private final fi.polar.polarflow.c_package.l H;
    private final Runnable I;
    private final af J;
    private final List b;
@@ -35,8 +35,8 @@ public class am {
    private final SparseLongArray d;
    private final SparseLongArray e;
    private final SparseLongArray f;
-   private fi.polar.polarflow.c.b g;
-   private fi.polar.polarflow.c.f h;
+   private fi.polar.polarflow.c_package.b g;
+   private fi.polar.polarflow.c_package.f h;
    private int i;
    private long j;
    private int k;
@@ -49,9 +49,9 @@ public class am {
    private final Training s;
    private fi.polar.polarflow.util.aa t;
    private final int[] u;
-   private fi.polar.polarflow.c.d.a v;
-   private fi.polar.polarflow.c.c.a w;
-   private fi.polar.polarflow.c.a.e x;
+   private fi.polar.polarflow.c_package.d_package.a v;
+   private fi.polar.polarflow.c_package.c_package.a w;
+   private fi.polar.polarflow.c_package.a_package.e x;
    private bb y;
    private SwimmingSamples z;
 
@@ -100,13 +100,13 @@ public class am {
    }
 
    // $FF: synthetic method
-   static fi.polar.polarflow.c.b a(am var0, fi.polar.polarflow.c.b var1) {
+   static fi.polar.polarflow.c_package.b a(am var0, fi.polar.polarflow.c_package.b var1) {
       var0.g = var1;
       return var1;
    }
 
    // $FF: synthetic method
-   static fi.polar.polarflow.c.f a(am var0, fi.polar.polarflow.c.f var1) {
+   static fi.polar.polarflow.c_package.f a(am var0, fi.polar.polarflow.c_package.f var1) {
       var0.h = var1;
       return var1;
    }
@@ -181,7 +181,7 @@ public class am {
    }
 
    // $FF: synthetic method
-   static fi.polar.polarflow.c.b d(am var0) {
+   static fi.polar.polarflow.c_package.b d(am var0) {
       return var0.g;
    }
 
@@ -285,7 +285,7 @@ public class am {
    }
 
    // $FF: synthetic method
-   static fi.polar.polarflow.c.f p(am var0) {
+   static fi.polar.polarflow.c_package.f p(am var0) {
       return var0.h;
    }
 
@@ -337,7 +337,7 @@ public class am {
 
       this.o = true;
       if (this.w != null) {
-         this.w.a((fi.polar.polarflow.c.l)null);
+         this.w.a((fi.polar.polarflow.c_package.l)null);
          int var4;
          if (this.i != -1) {
             var4 = this.i;
@@ -353,12 +353,12 @@ public class am {
       }
 
       if (this.v != null) {
-         this.v.a((fi.polar.polarflow.c.l)null);
+         this.v.a((fi.polar.polarflow.c_package.l)null);
          this.j();
       }
 
       if (this.x != null) {
-         this.x.a((fi.polar.polarflow.c.l)null);
+         this.x.a((fi.polar.polarflow.c_package.l)null);
          this.a(this.k);
       }
 
@@ -410,7 +410,7 @@ public class am {
 
    }
 
-   void a(int var1, fi.polar.polarflow.c.f var2) {
+   void a(int var1, fi.polar.polarflow.c_package.f var2) {
       long var3 = this.e.get(this.B);
       if (this.o) {
          this.e.put(this.B, 0L);
@@ -435,14 +435,14 @@ public class am {
 
    }
 
-   public void a(fi.polar.polarflow.c.d.a var1, fi.polar.polarflow.c.c.a var2, fi.polar.polarflow.c.a.e var3, fi.polar.polarflow.c.a.a var4) {
+   public void a(fi.polar.polarflow.c_package.d_package.a var1, fi.polar.polarflow.c_package.c_package.a var2, fi.polar.polarflow.c_package.a_package.e var3, fi.polar.polarflow.c_package.a_package.a var4) {
       fi.polar.polarflow.util.d.c(a, "startSessionCalculators");
       this.b.clear();
       if (var1 != null) {
          this.v = var1;
          this.b.add(new s());
          this.b.add(new t());
-         if (this.v.e() == fi.polar.polarflow.c.m.d) {
+         if (this.v.e() == fi.polar.polarflow.c_package.m.d) {
             this.s.getStatistics().getSpeedStatistics().b(this.v.p());
          }
 
@@ -455,14 +455,14 @@ public class am {
       if (var2 != null) {
          this.w = var2;
          this.b.add(new q(this.c));
-         if (this.w.e() == fi.polar.polarflow.c.m.d) {
+         if (this.w.e() == fi.polar.polarflow.c_package.m.d) {
             this.s.getStatistics().getHeartrateStatistics().b((float)this.w.n());
             var5 = (float)this.w.n();
             var6 = this.t.c();
-            this.g = new fi.polar.polarflow.c.b(new float[]{var5}, var6, 3);
+            this.g = new fi.polar.polarflow.c_package.b(new float[]{var5}, var6, 3);
          } else {
             var6 = this.t.c();
-            this.g = new fi.polar.polarflow.c.b(new float[]{0.0F}, var6, -1);
+            this.g = new fi.polar.polarflow.c_package.b(new float[]{0.0F}, var6, -1);
          }
 
          this.w.a(this.F);

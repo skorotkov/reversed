@@ -1,6 +1,6 @@
 package fi.polar.polarflow.calculators;
 
-class ap implements fi.polar.polarflow.c.l {
+class ap implements fi.polar.polarflow.c_package.l {
    // $FF: synthetic field
    final am a;
 
@@ -12,6 +12,6 @@ class ap implements fi.polar.polarflow.c.l {
       // $FF: Couldn't be decompiled
    }
 
-   public void a(fi.polar.polarflow.c.m var1) {
+   public void a(fi.polar.polarflow.c_package.m var1) {
    }
 }

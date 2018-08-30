@@ -10,7 +10,7 @@ public class t extends aj {
    private long d = 0L;
 
    static {
-      b.add(fi.polar.polarflow.c.n.b);
+      b.add(fi.polar.polarflow.c_package.n.b);
    }
 
    public t() {

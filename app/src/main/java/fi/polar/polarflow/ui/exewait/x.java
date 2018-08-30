@@ -64,7 +64,7 @@ public class x extends a implements bd, bg, fi.polar.polarflow.ui.exewait.a.f {
       this.z.addAction("fi.polar.polarflow.ACTION_HR_DATA");
    }
 
-   private static int a(fi.polar.polarflow.c.m var0, boolean var1) {
+   private static int a(fi.polar.polarflow.c_package.m var0, boolean var1) {
       byte var2;
       switch(ac.a[var0.ordinal()]) {
       case 1:
@@ -206,7 +206,7 @@ public class x extends a implements bd, bg, fi.polar.polarflow.ui.exewait.a.f {
 
    private void b(Intent var1) {
       byte var2 = 0;
-      fi.polar.polarflow.c.m var3 = (fi.polar.polarflow.c.m)var1.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE");
+      fi.polar.polarflow.c_package.m var3 = (fi.polar.polarflow.c_package.m)var1.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE");
       boolean var4;
       if (var1.getStringExtra("fi.polar.polarflow.KEY_BLUETOOTH_DEVICE_ADDRESS") != null) {
          var4 = true;
@@ -216,7 +216,7 @@ public class x extends a implements bd, bg, fi.polar.polarflow.ui.exewait.a.f {
 
       String var5 = var1.getAction();
       fi.polar.polarflow.util.d.c("SportProfileFragment", var5 + ", state=" + var3);
-      if ("fi.polar.polarflow.SENSOR_HR_STATE_CHANGED".equals(var5) && var3 == fi.polar.polarflow.c.m.d && var4) {
+      if ("fi.polar.polarflow.SENSOR_HR_STATE_CHANGED".equals(var5) && var3 == fi.polar.polarflow.c_package.m.d && var4) {
          this.c(var1);
       }
 

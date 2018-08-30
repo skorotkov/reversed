@@ -31,9 +31,9 @@ public abstract class h extends aj implements ae, ah {
    private long t;
 
    static {
-      d.add(fi.polar.polarflow.c.n.b);
-      d.add(fi.polar.polarflow.c.n.d);
-      d.add(fi.polar.polarflow.c.n.e);
+      d.add(fi.polar.polarflow.c_package.n.b);
+      d.add(fi.polar.polarflow.c_package.n.d);
+      d.add(fi.polar.polarflow.c_package.n.e);
    }
 
    public h(Context var1, long var2) {
@@ -145,7 +145,7 @@ public abstract class h extends aj implements ae, ah {
       while(var1.hasNext()) {
          Intent var2 = (Intent)var1.next();
          boolean var3;
-         if (fi.polar.polarflow.c.m.d == var2.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE")) {
+         if (fi.polar.polarflow.c_package.m.d == var2.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE")) {
             var3 = true;
          } else {
             var3 = false;

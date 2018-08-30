@@ -91,7 +91,7 @@ public class g extends ah {
             this.c(var1.getIntExtra("fi.polar.polarflow.KEY_SENSOR_HR_MEASUREMENT_VALUE", 0));
             this.e();
          } else if ("fi.polar.polarflow.SENSOR_HR_STATE_CHANGED".equals(var1.getAction())) {
-            if ((fi.polar.polarflow.c.m)var1.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE") != fi.polar.polarflow.c.m.d) {
+            if ((fi.polar.polarflow.c_package.m)var1.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE") != fi.polar.polarflow.c_package.m.d) {
                this.f = -1;
                this.c(0);
                this.e();

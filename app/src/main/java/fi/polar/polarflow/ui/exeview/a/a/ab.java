@@ -34,7 +34,7 @@ public class ab extends fi.polar.polarflow.ui.a.k {
          int var2 = var1.getIntExtra("fi.polar.polarflow.KEY_SENSOR_HR_MEASUREMENT_VALUE", 0);
          this.b(var2);
          this.a(var2);
-      } else if ("fi.polar.polarflow.SENSOR_HR_STATE_CHANGED".equals(var1.getAction()) && (fi.polar.polarflow.c.m)var1.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE") != fi.polar.polarflow.c.m.d) {
+      } else if ("fi.polar.polarflow.SENSOR_HR_STATE_CHANGED".equals(var1.getAction()) && (fi.polar.polarflow.c_package.m)var1.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE") != fi.polar.polarflow.c_package.m.d) {
          this.b(0);
          this.a(0);
       }

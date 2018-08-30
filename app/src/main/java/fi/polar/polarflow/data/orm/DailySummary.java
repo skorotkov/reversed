@@ -2,11 +2,10 @@ package fi.polar.polarflow.data.orm;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.os.Parcelable.Creator;
 import android.text.TextUtils;
 import com.orm.dsl.NotNull;
 import com.orm.dsl.Unique;
-import fi.polar.polarflow.a.a;
+import fi.polar.polarflow.a_package.a;
 import fi.polar.polarflow.util.d;
 import fi.polar.polarflow.util.q;
 import fi.polar.remote.representation.protobuf.DailySummary$PbActivityClassTimes;

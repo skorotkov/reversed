@@ -8,7 +8,7 @@ public class o extends aj {
    private Training b = Training.getInstance();
 
    static {
-      a.add(fi.polar.polarflow.c.n.e);
+      a.add(fi.polar.polarflow.c_package.n.e);
    }
 
    public o() {

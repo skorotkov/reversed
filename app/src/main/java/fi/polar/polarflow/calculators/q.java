@@ -20,7 +20,7 @@ public class q extends aj implements ak, y {
    private Training e;
 
    static {
-      a.add(fi.polar.polarflow.c.n.d);
+      a.add(fi.polar.polarflow.c_package.n.d);
       d = new r(18);
    }
 

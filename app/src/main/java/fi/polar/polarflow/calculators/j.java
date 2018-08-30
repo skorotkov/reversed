@@ -53,9 +53,9 @@ public class j extends aj implements ae, ah, y {
    private String z;
 
    static {
-      k.add(fi.polar.polarflow.c.n.b);
-      k.add(fi.polar.polarflow.c.n.d);
-      k.add(fi.polar.polarflow.c.n.e);
+      k.add(fi.polar.polarflow.c_package.n.b);
+      k.add(fi.polar.polarflow.c_package.n.d);
+      k.add(fi.polar.polarflow.c_package.n.e);
    }
 
    public j(Context var1) {

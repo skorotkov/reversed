@@ -35,7 +35,7 @@ class ac implements ab {
 
    public void a(Intent var1) {
       if (var1 != null && "fi.polar.polarflow.ACTION_LOCATION_DATA".equals(var1.getAction()) && "fi.polar.polarflow.SENSOR_CALCULATOR_TYPE_POLAR".equals(var1.getStringExtra("fi.polar.polarflow.KEY_SENSOR_CALCULATOR_TYPE"))) {
-         if (!fi.polar.polarflow.c.m.d.equals(var1.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE"))) {
+         if (!fi.polar.polarflow.c_package.m.d.equals(var1.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE"))) {
             if (z.g(this.b).g != -1) {
                this.b.b(this.b.b(var1));
             } else {

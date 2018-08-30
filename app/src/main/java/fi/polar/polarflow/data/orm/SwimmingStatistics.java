@@ -1,6 +1,6 @@
 package fi.polar.polarflow.data.orm;
 
-import fi.polar.polarflow.a.a;
+import fi.polar.polarflow.a_package.a;
 import fi.polar.polarmathsmart.swimming.poolswimming.SwimmingPoolInformation;
 import fi.polar.remote.representation.protobuf.ExerciseStatistics$PbSwimmingStatistics;
 import fi.polar.remote.representation.protobuf.ExerciseStatistics$PbSwimmingStatistics$Builder;
