@@ -4,11 +4,11 @@ import android.os.Bundle;
 import android.view.View;
 
 class h extends e {
-   public android.support.v4.view.a.z a(Object var1, View var2) {
+   public android.support.v4.view.a_package.z a(Object var1, View var2) {
       var1 = n.a(var1, var2);
-      android.support.v4.view.a.z var3;
+      android.support.v4.view.a_package.z var3;
       if (var1 != null) {
-         var3 = new android.support.v4.view.a.z(var1);
+         var3 = new android.support.v4.view.a_package.z(var1);
       } else {
          var3 = null;
       }

@@ -17,7 +17,7 @@ class e extends j {
       k.a(var1, var2, var3);
    }
 
-   public void a(Object var1, View var2, android.support.v4.view.a.h var3) {
+   public void a(Object var1, View var2, android.support.v4.view.a_package.h var3) {
       k.a(var1, var2, var3.a());
    }
 

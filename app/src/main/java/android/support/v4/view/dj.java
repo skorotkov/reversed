@@ -21,7 +21,7 @@ class dj extends d {
       return var1;
    }
 
-   public void a(View var1, android.support.v4.view.a.h var2) {
+   public void a(View var1, android.support.v4.view.a_package.h var2) {
       super.a(var1, var2);
       var2.a((CharSequence)ViewPager.class.getName());
       var2.a(this.b());
@@ -64,7 +64,7 @@ class dj extends d {
    public void d(View var1, AccessibilityEvent var2) {
       super.d(var1, var2);
       var2.setClassName(ViewPager.class.getName());
-      android.support.v4.view.a.am var3 = android.support.v4.view.a.a.a(var2);
+      android.support.v4.view.a_package.am var3 = android.support.v4.view.a.a.a(var2);
       var3.a(this.b());
       if (var2.getEventType() == 4096 && this.b.b != null) {
          var3.a(this.b.b.a());

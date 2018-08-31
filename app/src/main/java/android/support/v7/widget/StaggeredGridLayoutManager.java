@@ -1536,7 +1536,7 @@ public class StaggeredGridLayoutManager extends ec implements eu {
       this.a((es)var4);
    }
 
-   public void a(em var1, ev var2, View var3, android.support.v4.view.a.h var4) {
+   public void a(em var1, ev var2, View var3, android.support.v4.view.a_package.h var4) {
       LayoutParams var7 = var3.getLayoutParams();
       if (!(var7 instanceof ft)) {
          super.a(var3, var4);
@@ -1586,7 +1586,7 @@ public class StaggeredGridLayoutManager extends ec implements eu {
    public void a(AccessibilityEvent var1) {
       super.a(var1);
       if (this.y() > 0) {
-         android.support.v4.view.a.am var6 = android.support.v4.view.a.a.a(var1);
+         android.support.v4.view.a_package.am var6 = android.support.v4.view.a.a.a(var1);
          View var2 = this.b(false);
          View var3 = this.e(false);
          if (var2 != null && var3 != null) {

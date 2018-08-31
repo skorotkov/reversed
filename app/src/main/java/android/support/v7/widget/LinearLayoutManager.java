@@ -1048,7 +1048,7 @@ public class LinearLayoutManager extends ec implements eu {
    public void a(AccessibilityEvent var1) {
       super.a(var1);
       if (this.y() > 0) {
-         android.support.v4.view.a.am var2 = android.support.v4.view.a.a.a(var1);
+         android.support.v4.view.a_package.am var2 = android.support.v4.view.a.a.a(var1);
          var2.b(this.l());
          var2.c(this.n());
       }

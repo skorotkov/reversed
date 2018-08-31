@@ -39,9 +39,9 @@ public class PercentRelativeLayout extends RelativeLayout {
    }
 
    // $FF: synthetic method
-   public android.widget.RelativeLayout.LayoutParams generateLayoutParams(AttributeSet var1) {
-      return this.a(var1);
-   }
+//   public android.widget.RelativeLayout.LayoutParams generateLayoutParams(AttributeSet var1) {
+//      return this.a(var1);
+//   }
 
    protected void onLayout(boolean var1, int var2, int var3, int var4, int var5) {
       super.onLayout(var1, var2, var3, var4, var5);

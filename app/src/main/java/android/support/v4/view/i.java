@@ -17,7 +17,7 @@ class i implements p {
    }
 
    public Object a(View var1) {
-      android.support.v4.view.a.z var2 = this.a.a(var1);
+      android.support.v4.view.a_package.z var2 = this.a.a(var1);
       Object var3;
       if (var2 != null) {
          var3 = var2.a();
@@ -33,7 +33,7 @@ class i implements p {
    }
 
    public void a(View var1, Object var2) {
-      this.a.a(var1, new android.support.v4.view.a.h(var2));
+      this.a.a(var1, new android.support.v4.view.a_package.h(var2));
    }
 
    public boolean a(View var1, int var2, Bundle var3) {

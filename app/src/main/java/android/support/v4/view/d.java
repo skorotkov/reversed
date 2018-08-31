@@ -27,7 +27,7 @@ public class d {
       this.a = b.a(this);
    }
 
-   public android.support.v4.view.a.z a(View var1) {
+   public android.support.v4.view.a_package.z a(View var1) {
       return b.a(c, var1);
    }
 
@@ -39,7 +39,7 @@ public class d {
       b.a(c, var1, var2);
    }
 
-   public void a(View var1, android.support.v4.view.a.h var2) {
+   public void a(View var1, android.support.v4.view.a_package.h var2) {
       b.a(c, var1, var2);
    }
 

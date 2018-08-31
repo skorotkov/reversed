@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 
 class j implements g {
-   public android.support.v4.view.a.z a(Object var1, View var2) {
+   public android.support.v4.view.a_package.z a(Object var1, View var2) {
       return null;
    }
 
@@ -21,7 +21,7 @@ class j implements g {
    public void a(Object var1, View var2, int var3) {
    }
 
-   public void a(Object var1, View var2, android.support.v4.view.a.h var3) {
+   public void a(Object var1, View var2, android.support.v4.view.a_package.h var3) {
    }
 
    public boolean a(Object var1, View var2, int var3, Bundle var4) {

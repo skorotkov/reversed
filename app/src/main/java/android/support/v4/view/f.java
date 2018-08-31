@@ -20,7 +20,7 @@ class f implements m {
    }
 
    public void a(View var1, Object var2) {
-      this.a.a(var1, new android.support.v4.view.a.h(var2));
+      this.a.a(var1, new android.support.v4.view.a_package.h(var2));
    }
 
    public boolean a(View var1, AccessibilityEvent var2) {

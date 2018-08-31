@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 
 interface g {
-   android.support.v4.view.a.z a(Object var1, View var2);
+   android.support.v4.view.a_package.z a(Object var1, View var2);
 
    Object a();
 
@@ -14,7 +14,7 @@ interface g {
 
    void a(Object var1, View var2, int var3);
 
-   void a(Object var1, View var2, android.support.v4.view.a.h var3);
+   void a(Object var1, View var2, android.support.v4.view.a_package.h var3);
 
    boolean a(Object var1, View var2, int var3, Bundle var4);
 

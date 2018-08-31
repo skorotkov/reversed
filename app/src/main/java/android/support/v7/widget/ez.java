@@ -12,7 +12,7 @@ public class ez extends android.support.v4.view.d {
       this.b = var1;
    }
 
-   public void a(View var1, android.support.v4.view.a.h var2) {
+   public void a(View var1, android.support.v4.view.a_package.h var2) {
       super.a(var1, var2);
       var2.a((CharSequence)dl.class.getName());
       if (!this.b() && this.b.getLayoutManager() != null) {

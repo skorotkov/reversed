@@ -475,7 +475,7 @@ public abstract class ec {
    public void a(Parcelable var1) {
    }
 
-   void a(android.support.v4.view.a.h var1) {
+   void a(android.support.v4.view.a_package.h var1) {
       this.a(this.q.d, this.q.A, var1);
    }
 
@@ -514,7 +514,7 @@ public abstract class ec {
       this.q.e(var3, var4);
    }
 
-   public void a(em var1, ev var2, android.support.v4.view.a.h var3) {
+   public void a(em var1, ev var2, android.support.v4.view.a_package.h var3) {
       if (android.support.v4.view.bz.b(this.q, -1) || android.support.v4.view.bz.a(this.q, -1)) {
          var3.a(8192);
          var3.a(true);
@@ -528,7 +528,7 @@ public abstract class ec {
       var3.a((Object)android.support.v4.view.a.t.a(this.a(var1, var2), this.b(var1, var2), this.e(var1, var2), this.d(var1, var2)));
    }
 
-   public void a(em var1, ev var2, View var3, android.support.v4.view.a.h var4) {
+   public void a(em var1, ev var2, View var3, android.support.v4.view.a_package.h var4) {
       int var5;
       if (this.e()) {
          var5 = this.d(var3);
@@ -548,7 +548,7 @@ public abstract class ec {
 
    public void a(em var1, ev var2, AccessibilityEvent var3) {
       boolean var4 = true;
-      android.support.v4.view.a.am var6 = android.support.v4.view.a.a.a(var3);
+      android.support.v4.view.a_package.am var6 = android.support.v4.view.a.a.a(var3);
       if (this.q != null && var6 != null) {
          boolean var5 = var4;
          if (!android.support.v4.view.bz.b(this.q, 1)) {
@@ -629,7 +629,7 @@ public abstract class ec {
       dl.a(var1, var2);
    }
 
-   void a(View var1, android.support.v4.view.a.h var2) {
+   void a(View var1, android.support.v4.view.a_package.h var2) {
       ey var3 = dl.e(var1);
       if (var3 != null && !var3.r() && !this.p.c(var3.a)) {
          this.a(this.q.d, this.q.A, var1, var2);

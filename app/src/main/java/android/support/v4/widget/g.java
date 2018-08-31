@@ -2,7 +2,7 @@ package android.support.v4.widget;
 
 import android.database.Cursor;
 import android.widget.Filter;
-import android.widget.Filter.FilterResults;
+//import android.widget.Filter.FilterResults;
 
 class g extends Filter {
    h a;

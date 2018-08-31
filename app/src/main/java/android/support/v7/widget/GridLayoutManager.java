@@ -785,10 +785,10 @@ public class GridLayoutManager extends LinearLayoutManager {
 
    }
 
-   public void a(em var1, ev var2, View var3, android.support.v4.view.a.h var4) {
+   public void a(em var1, ev var2, View var3, android.support.v4.view.a_package.h var4) {
       LayoutParams var5 = var3.getLayoutParams();
       if (!(var5 instanceof ci)) {
-         super.a((View)var3, (android.support.v4.view.a.h)var4);
+         super.a((View)var3, (android.support.v4.view.a_package.h)var4);
       } else {
          ci var10 = (ci)var5;
          int var6 = this.a(var1, var2, var10.f());

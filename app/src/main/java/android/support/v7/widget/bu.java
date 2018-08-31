@@ -95,8 +95,8 @@ public class bu {
                }
             }
          } else {
-            if (var0 instanceof android.support.v4.d.a.m) {
-               var1 = b(((android.support.v4.d.a.m)var0).a());
+            if (var0 instanceof android.support.v4.d.a_package.m) {
+               var1 = b(((android.support.v4.d.a_package.m)var0).a());
                return var1;
             }
 

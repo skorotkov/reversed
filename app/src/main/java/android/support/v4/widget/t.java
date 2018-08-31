@@ -1,13 +1,13 @@
 package android.support.v4.widget;
 
 import android.os.Bundle;
-import android.support.v4.view.a.am;
+import android.support.v4.view.a_package.am;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.ScrollView;
 
 class t extends android.support.v4.view.d {
-   public void a(View var1, android.support.v4.view.a.h var2) {
+   public void a(View var1, android.support.v4.view.a_package.h var2) {
       super.a(var1, var2);
       NestedScrollView var4 = (NestedScrollView)var1;
       var2.a((CharSequence)ScrollView.class.getName());
