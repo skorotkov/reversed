@@ -30,7 +30,7 @@ public class DailyActivityService extends k {
    private PresyncService D;
    private boolean E;
    private boolean F;
-   private fi.polar.polarflow.b.c G;
+   private fi.polar.polarflow.b_package.c G;
    private final fi.polar.polarflow.c_package.d H;
    private final Runnable I;
    private final ak J;
@@ -80,7 +80,7 @@ public class DailyActivityService extends k {
    }
 
    // $FF: synthetic method
-   static fi.polar.polarflow.b.c a(DailyActivityService var0, long var1) {
+   static fi.polar.polarflow.b_package.c a(DailyActivityService var0, long var1) {
       return var0.b(var1);
    }
 
@@ -102,7 +102,7 @@ public class DailyActivityService extends k {
    }
 
    private fi.polar.polarflow.service.activity.a.p a(ao var1) {
-      fi.polar.polarflow.b.c var2 = this.b(var1.b);
+      fi.polar.polarflow.b_package.c var2 = this.b(var1.b);
       if (var2 != null) {
          var2.a(var1.a, var1.b);
       }
@@ -264,7 +264,7 @@ public class DailyActivityService extends k {
       return var1;
    }
 
-   private fi.polar.polarflow.b.c b(long var1) {
+   private fi.polar.polarflow.b_package.c b(long var1) {
       return null;
    }
 

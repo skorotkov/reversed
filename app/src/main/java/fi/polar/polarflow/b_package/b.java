@@ -1,4 +1,4 @@
-package fi.polar.polarflow.b;
+package fi.polar.polarflow.b_package;
 
 class b {
    private final a a;

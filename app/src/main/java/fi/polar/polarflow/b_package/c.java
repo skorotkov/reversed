@@ -1,4 +1,4 @@
-package fi.polar.polarflow.b;
+package fi.polar.polarflow.b_package;
 
 public class c extends b {
    private static final String[] a = new String[]{"met", "timestamp"};

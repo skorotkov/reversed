@@ -1,4 +1,4 @@
-package fi.polar.polarflow.b;
+package fi.polar.polarflow.b_package;
 
 import java.io.IOException;
 import java.io.OutputStream;

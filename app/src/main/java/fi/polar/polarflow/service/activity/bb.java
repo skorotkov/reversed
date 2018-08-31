@@ -25,7 +25,7 @@ class bb {
    private boolean h;
    private DateTime i;
    private final Context j;
-   private fi.polar.polarflow.b.f k;
+   private fi.polar.polarflow.b_package.f k;
 
    public bb(Context var1) {
       this(var1, new fi.polar.polarflow.util.aa());
@@ -46,7 +46,7 @@ class bb {
       return var2;
    }
 
-   private fi.polar.polarflow.b.f a(long var1) {
+   private fi.polar.polarflow.b_package.f a(long var1) {
       return null;
    }
 
@@ -56,8 +56,8 @@ class bb {
 
    private void a(int var1, long var2) {
       if (var1 != this.g) {
-         this.a(fi.polar.polarflow.b.g.b[this.g] + " -> " + fi.polar.polarflow.b.g.b[var1], var2);
-         fi.polar.polarflow.b.f var4 = this.a(var2);
+         this.a(fi.polar.polarflow.b_package.g.b[this.g] + " -> " + fi.polar.polarflow.b_package.g.b[var1], var2);
+         fi.polar.polarflow.b_package.f var4 = this.a(var2);
          if (var4 != null) {
             var4.a(var1, var2);
          }
@@ -72,7 +72,7 @@ class bb {
    }
 
    private void a(String var1, long var2) {
-      fi.polar.polarflow.b.f var4 = this.a(var2);
+      fi.polar.polarflow.b_package.f var4 = this.a(var2);
       if (var4 != null) {
          var4.a(var1);
       }
@@ -138,7 +138,7 @@ class bb {
       this.h = false;
    }
 
-   private fi.polar.polarflow.b.f i() {
+   private fi.polar.polarflow.b_package.f i() {
       return this.a(this.k());
    }
 
@@ -169,7 +169,7 @@ class bb {
    }
 
    public void a(long var1, int var3, int var4, int var5, boolean var6) {
-      fi.polar.polarflow.b.f var7 = this.a(var1);
+      fi.polar.polarflow.b_package.f var7 = this.a(var1);
       if ((long)this.b(var1) > TimeUnit.DAYS.toSeconds(1L) && this.g == 1) {
          this.a("24h passed and no sleep detected", var1);
          this.g();
@@ -183,13 +183,13 @@ class bb {
       if (var6 != this.h) {
          if (var6) {
             if (var7 != null) {
-               var7.a(fi.polar.polarflow.b.e.a, var1);
+               var7.a(fi.polar.polarflow.b_package.e.a, var1);
             }
 
             this.b.startNonWear();
          } else {
             if (var7 != null) {
-               var7.a(fi.polar.polarflow.b.e.b, var1);
+               var7.a(fi.polar.polarflow.b_package.e.b, var1);
             }
 
             this.b.stopNonWear();
@@ -237,9 +237,9 @@ class bb {
             this.b(this.i, this.c.c());
          }
 
-         fi.polar.polarflow.b.f var1 = this.i();
+         fi.polar.polarflow.b_package.f var1 = this.i();
          if (var1 != null) {
-            var1.a(fi.polar.polarflow.b.e.c, this.k());
+            var1.a(fi.polar.polarflow.b_package.e.c, this.k());
          }
 
          SleepCalculatorResult var2 = this.b.forceEnd();
@@ -299,7 +299,7 @@ class bb {
    }
 
    public void f() {
-      fi.polar.polarflow.b.f var1 = this.i();
+      fi.polar.polarflow.b_package.f var1 = this.i();
       if (var1 != null) {
          var1.a();
       }

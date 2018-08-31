@@ -1,4 +1,4 @@
-package fi.polar.polarflow.calculators.a;
+package fi.polar.polarflow.calculators.a_package;
 
 abstract class a {
    protected int a = 0;

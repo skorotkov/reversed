@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-public abstract class a extends fi.polar.polarflow.c_package.a_package implements fi.polar.polarflow.c_package.i {
+public abstract class a extends fi.polar.polarflow.c_package.a implements fi.polar.polarflow.c_package.i {
    private fi.polar.polarflow.util.v g;
    private int h = 0;
 

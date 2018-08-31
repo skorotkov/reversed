@@ -1,4 +1,4 @@
-package fi.polar.polarflow.b;
+package fi.polar.polarflow.b_package;
 
 class h extends b {
    static final String[] a = new String[]{"std_x", "std_y", "std_z", "timestamp"};

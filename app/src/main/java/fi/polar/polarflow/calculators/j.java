@@ -48,7 +48,7 @@ public class j extends aj implements ae, ah, y {
    private long u;
    private boolean v;
    private boolean w;
-   private final fi.polar.polarflow.calculators.a.c x;
+   private final fi.polar.polarflow.calculators.a_package.c x;
    private final at y;
    private String z;
 
@@ -80,7 +80,7 @@ public class j extends aj implements ae, ah, y {
       this.u = 0L;
       this.v = false;
       this.w = false;
-      this.x = new fi.polar.polarflow.calculators.a.c();
+      this.x = new fi.polar.polarflow.calculators.a_package.c();
       this.y = new at(0.0F, 250.0F);
       this.z = "";
       this.C = -1;

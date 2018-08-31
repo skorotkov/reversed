@@ -1,4 +1,4 @@
-package fi.polar.polarflow.calculators.a;
+package fi.polar.polarflow.calculators.a_package;
 
 public class c extends b {
    public c() {

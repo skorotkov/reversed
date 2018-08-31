@@ -1,4 +1,4 @@
-package fi.polar.a.a;
+package fi.polar.a.a_package;
 
 public class e {
    public static void a(int var0, int[] var1) {

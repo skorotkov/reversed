@@ -4,7 +4,7 @@ import fi.polar.polarflow.calculators.a;
 import fi.polar.polarflow.calculators.as;
 import fi.polar.polarflow.calculators.at;
 import fi.polar.polarflow.calculators.bd;
-import fi.polar.polarflow.calculators.a.c;
+import fi.polar.polarflow.calculators.a_package.c;
 import fi.polar.polarflow.data.orm.Exercise;
 import fi.polar.polarflow.data.orm.ExerciseStatistics;
 import fi.polar.polarflow.data.orm.SwimmingStatistics;

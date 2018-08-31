@@ -133,7 +133,7 @@ public class BluetoothAdaptationService extends Service implements e {
          }
 
          if (!this.d.c()) {
-            this.d.a(fi.polar.a.a.a.b);
+            this.d.a(fi.polar.a.a_package.a.b);
          } else {
             this.d.b();
          }

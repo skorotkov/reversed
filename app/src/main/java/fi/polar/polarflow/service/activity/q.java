@@ -122,7 +122,7 @@ class q extends BroadcastReceiver {
          DailyActivityService.b(this.a, var2.getIntExtra("SyncJournalingService.extra.NUM_OF_ENTRIES", 0));
          break;
       case 6:
-         fi.polar.polarflow.b.c var9 = DailyActivityService.a(this.a, TimeUnit.MILLISECONDS.toNanos(DailyActivityService.k(this.a).b()));
+         fi.polar.polarflow.b_package.c var9 = DailyActivityService.a(this.a, TimeUnit.MILLISECONDS.toNanos(DailyActivityService.k(this.a).b()));
          if (var9 != null) {
             var9.a();
          }

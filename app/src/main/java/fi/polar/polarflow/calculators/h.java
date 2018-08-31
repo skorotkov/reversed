@@ -24,7 +24,7 @@ public abstract class h extends aj implements ae, ah {
    private final as m;
    private final bd n;
    private final aw o;
-   private final fi.polar.polarflow.calculators.a.c p;
+   private final fi.polar.polarflow.calculators.a_package.c p;
    private final at q;
    private long r;
    private long s;
@@ -55,7 +55,7 @@ public abstract class h extends aj implements ae, ah {
       this.j = -1.0F;
       this.k = 0.0F;
       this.l = 0L;
-      this.p = new fi.polar.polarflow.calculators.a.c();
+      this.p = new fi.polar.polarflow.calculators.a_package.c();
       this.q = new at(0.0F, 250.0F);
       this.r = 0L;
       this.s = 0L;

@@ -1,4 +1,4 @@
-package fi.polar.polarflow.b;
+package fi.polar.polarflow.b_package;
 
 public class d extends b {
    static final String[] a = new String[]{"event", "timestamp"};

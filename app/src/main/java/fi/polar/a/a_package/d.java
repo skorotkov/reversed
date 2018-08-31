@@ -1,4 +1,4 @@
-package fi.polar.a.a;
+package fi.polar.a.a_package;
 
 import android.util.SparseArray;
 
