@@ -2,7 +2,9 @@ package fi.polar.polarflow.calculators;
 
 import java.util.List;
 
-class bc implements fi.polar.polarflow.c_package.e {
+import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
+
+class bc implements fi.polar.polarflow.c_sensor_package.e {
    // $FF: synthetic field
    final bb a;
 
@@ -13,7 +15,7 @@ class bc implements fi.polar.polarflow.c_package.e {
    public void a(int var1) {
    }
 
-   public void a(fi.polar.polarflow.c_package.m var1) {
+   public void a(m_SENSOR_STATE var1) {
    }
 
    public void a(List var1) {

@@ -9,7 +9,7 @@ import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.SystemClock;
 
-import fi.polar.polarflow.c_package.n_SENSOR_TYPE;
+import fi.polar.polarflow.c_sensor_package.n_SENSOR_TYPE;
 import fi.polar.polarflow.data.Training;
 import fi.polar.polarflow.data.orm.ExercisePhase;
 import fi.polar.polarflow.data.orm.ExercisePhaseData;
@@ -55,9 +55,9 @@ public class j extends aj implements ae, ah, y {
    private String z;
 
    static {
-      k.add(n_SENSOR_TYPE.b);
-      k.add(n_SENSOR_TYPE.d);
-      k.add(n_SENSOR_TYPE.e);
+      k.add(n_SENSOR_TYPE.b_IN_DEVICE_GPS);
+      k.add(n_SENSOR_TYPE.d_HEART_RATE);
+      k.add(n_SENSOR_TYPE.e_RUNNING_CADENCE);
    }
 
    public j(Context var1) {

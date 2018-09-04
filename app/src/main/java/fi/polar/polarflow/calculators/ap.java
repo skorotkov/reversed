@@ -1,10 +1,12 @@
 package fi.polar.polarflow.calculators;
 
-class ap implements fi.polar.polarflow.c_package.l {
-   // $FF: synthetic field
-   final am a;
+import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
 
-   ap(am var1) {
+class ap implements fi.polar.polarflow.c_sensor_package.l {
+   // $FF: synthetic field
+   final am_SessionCalculators a;
+
+   ap(am_SessionCalculators var1) {
       this.a = var1;
    }
 
@@ -12,6 +14,6 @@ class ap implements fi.polar.polarflow.c_package.l {
       // $FF: Couldn't be decompiled
    }
 
-   public void a(fi.polar.polarflow.c_package.m var1) {
+   public void a(m_SENSOR_STATE var1) {
    }
 }

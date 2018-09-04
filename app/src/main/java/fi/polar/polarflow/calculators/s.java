@@ -1,6 +1,6 @@
 package fi.polar.polarflow.calculators;
 
-import fi.polar.polarflow.c_package.n_SENSOR_TYPE;
+import fi.polar.polarflow.c_sensor_package.n_SENSOR_TYPE;
 import fi.polar.polarflow.data.Training;
 import java.util.ArrayList;
 
@@ -10,7 +10,7 @@ class s extends aj implements ak, y {
    private int d = -1;
 
    static {
-      a.add(n_SENSOR_TYPE.b);
+      a.add(n_SENSOR_TYPE.b_IN_DEVICE_GPS);
    }
 
    s() {

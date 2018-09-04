@@ -7,6 +7,8 @@ import android.os.SystemClock;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
 import fi.polar.polarflow.data.orm.SportProfile;
 import fi.polar.polarflow.data.orm.Zones;
 import fi.polar.polarflow.ui.exeview.a_package.a_package.br;
@@ -151,7 +153,7 @@ class g extends br {
       super.a(var1);
       if (var1.getAction().equals("fi.polar.polarflow.ACTION_HR_DATA")) {
          this.a(var1.getIntExtra("fi.polar.polarflow.KEY_SENSOR_HR_MEASUREMENT_VALUE", 0));
-      } else if ("fi.polar.polarflow.SENSOR_HR_STATE_CHANGED".equals(var1.getAction()) && (fi.polar.polarflow.c_package.m)var1.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE") != fi.polar.polarflow.c_package.m.d) {
+      } else if ("fi.polar.polarflow.SENSOR_HR_STATE_CHANGED".equals(var1.getAction()) && (m_SENSOR_STATE)var1.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE") != m_SENSOR_STATE.d_READY) {
          this.i = -1;
       }
 

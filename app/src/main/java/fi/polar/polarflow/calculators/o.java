@@ -1,6 +1,6 @@
 package fi.polar.polarflow.calculators;
 
-import fi.polar.polarflow.c_package.n_SENSOR_TYPE;
+import fi.polar.polarflow.c_sensor_package.n_SENSOR_TYPE;
 import fi.polar.polarflow.data.Training;
 import java.util.ArrayList;
 
@@ -9,7 +9,7 @@ public class o extends aj {
    private Training b = Training.getInstance();
 
    static {
-      a.add(n_SENSOR_TYPE.e);
+      a.add(n_SENSOR_TYPE.e_RUNNING_CADENCE);
    }
 
    public o() {

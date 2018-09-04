@@ -2,18 +2,20 @@ package fi.polar.polarflow.calculators;
 
 import java.util.List;
 
-class ao implements fi.polar.polarflow.c_package.e {
-   // $FF: synthetic field
-   final am a;
+import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
 
-   ao(am var1) {
+class ao implements fi.polar.polarflow.c_sensor_package.e {
+   // $FF: synthetic field
+   final am_SessionCalculators a;
+
+   ao(am_SessionCalculators var1) {
       this.a = var1;
    }
 
    public void a(int var1) {
    }
 
-   public void a(fi.polar.polarflow.c_package.m var1) {
+   public void a(m_SENSOR_STATE var1) {
    }
 
    public void a(List param1) {

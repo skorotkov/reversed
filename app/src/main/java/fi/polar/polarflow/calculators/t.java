@@ -2,7 +2,7 @@ package fi.polar.polarflow.calculators;
 
 import android.os.SystemClock;
 
-import fi.polar.polarflow.c_package.n_SENSOR_TYPE;
+import fi.polar.polarflow.c_sensor_package.n_SENSOR_TYPE;
 import fi.polar.polarflow.data.Training;
 import java.util.ArrayList;
 
@@ -12,7 +12,7 @@ public class t extends aj {
    private long d = 0L;
 
    static {
-      b.add(n_SENSOR_TYPE.b);
+      b.add(n_SENSOR_TYPE.b_IN_DEVICE_GPS);
    }
 
    public t() {

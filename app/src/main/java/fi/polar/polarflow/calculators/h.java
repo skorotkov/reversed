@@ -4,7 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.SystemClock;
 
-import fi.polar.polarflow.c_package.n_SENSOR_TYPE;
+import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
+import fi.polar.polarflow.c_sensor_package.n_SENSOR_TYPE;
 import fi.polar.polarflow.data.Lap;
 import fi.polar.polarflow.data.Lap$LapBuilder;
 import fi.polar.polarmathsmart.swimming.poolswimming.SwimmingLapStatistics;
@@ -33,9 +34,9 @@ public abstract class h extends aj implements ae, ah {
    private long t;
 
    static {
-      d.add(n_SENSOR_TYPE.b);
-      d.add(n_SENSOR_TYPE.d);
-      d.add(n_SENSOR_TYPE.e);
+      d.add(n_SENSOR_TYPE.b_IN_DEVICE_GPS);
+      d.add(n_SENSOR_TYPE.d_HEART_RATE);
+      d.add(n_SENSOR_TYPE.e_RUNNING_CADENCE);
    }
 
    public h(Context var1, long var2) {
@@ -147,7 +148,7 @@ public abstract class h extends aj implements ae, ah {
       while(var1.hasNext()) {
          Intent var2 = (Intent)var1.next();
          boolean var3;
-         if (fi.polar.polarflow.c_package.m.d == var2.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE")) {
+         if (m_SENSOR_STATE.d_READY == var2.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE")) {
             var3 = true;
          } else {
             var3 = false;

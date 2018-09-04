@@ -3,6 +3,8 @@ package fi.polar.polarflow.ui.exeview;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+
+import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
 import fi.polar.polarflow.data.Lap;
 import java.util.List;
 
@@ -125,7 +127,7 @@ class k extends BroadcastReceiver {
          ExeViewActivity.a(this.a, var9, var4);
          break;
       case 8:
-         if (((fi.polar.polarflow.c_package.m)var2.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE")).equals(fi.polar.polarflow.c_package.m.a)) {
+         if (((m_SENSOR_STATE)var2.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE")).equals(m_SENSOR_STATE.a_DISABLED)) {
             if (ExeViewActivity.i(this.a).a()) {
                ExeViewActivity.j(this.a);
             }

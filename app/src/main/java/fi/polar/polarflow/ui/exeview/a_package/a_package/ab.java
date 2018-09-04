@@ -2,6 +2,8 @@ package fi.polar.polarflow.ui.exeview.a_package.a_package;
 
 import android.content.Intent;
 import android.view.View;
+
+import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
 import fi.polar.polarflow.data.orm.SportProfile;
 import fi.polar.polarflow.data.orm.Zones;
 import java.util.Collection;
@@ -34,7 +36,7 @@ public class ab extends fi.polar.polarflow.ui.a_package.k {
          int var2 = var1.getIntExtra("fi.polar.polarflow.KEY_SENSOR_HR_MEASUREMENT_VALUE", 0);
          this.b(var2);
          this.a(var2);
-      } else if ("fi.polar.polarflow.SENSOR_HR_STATE_CHANGED".equals(var1.getAction()) && (fi.polar.polarflow.c_package.m)var1.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE") != fi.polar.polarflow.c_package.m.d) {
+      } else if ("fi.polar.polarflow.SENSOR_HR_STATE_CHANGED".equals(var1.getAction()) && (m_SENSOR_STATE)var1.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE") != m_SENSOR_STATE.d_READY) {
          this.b(0);
          this.a(0);
       }

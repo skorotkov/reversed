@@ -2,11 +2,13 @@ package fi.polar.polarflow.calculators;
 
 import java.util.List;
 
-class an implements fi.polar.polarflow.c_package.e {
-   // $FF: synthetic field
-   final am a;
+import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
 
-   an(am var1) {
+class an implements fi.polar.polarflow.c_sensor_package.e {
+   // $FF: synthetic field
+   final am_SessionCalculators a;
+
+   an(am_SessionCalculators var1) {
       this.a = var1;
    }
 
@@ -14,7 +16,7 @@ class an implements fi.polar.polarflow.c_package.e {
       // $FF: Couldn't be decompiled
    }
 
-   public void a(fi.polar.polarflow.c_package.m var1) {
+   public void a(m_SENSOR_STATE var1) {
    }
 
    public void a(List param1) {

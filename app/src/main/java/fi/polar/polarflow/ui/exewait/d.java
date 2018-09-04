@@ -4,6 +4,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
+import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
+
 class d extends BroadcastReceiver {
    // $FF: synthetic field
    final ExeWaitActivity a;
@@ -54,7 +56,7 @@ class d extends BroadcastReceiver {
          ExeWaitActivity.b(this.a, var2.getStringExtra("fi.polar.polarflow.KEY_BLUETOOTH_DEVICE_NAME"));
          break;
       case 1:
-         if ((fi.polar.polarflow.c_package.m)var2.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE") == fi.polar.polarflow.c_package.m.d && !ExeWaitActivity.a(this.a)) {
+         if ((m_SENSOR_STATE)var2.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE") == m_SENSOR_STATE.d_READY && !ExeWaitActivity.a(this.a)) {
             fi.polar.polarflow.ui.o.a(this.a.getApplicationContext(), fi.polar.polarflow.util.b.a);
             ExeWaitActivity.a(this.a, true);
          }

@@ -26,7 +26,7 @@ public class TrainingService extends Service {
    private final Runnable c = new r(this);
    private final IBinder d = new v(this);
    private final Handler e = new Handler();
-   private fi.polar.polarflow.c_package.o f;
+   private fi.polar.polarflow.c_sensor_package.o f;
    private a g;
    private w h;
    private Training i;
@@ -341,7 +341,7 @@ public class TrainingService extends Service {
             this.h = null;
          }
 
-         this.f.a((fi.polar.polarflow.c_package.k)(new s(this)));
+         this.f.a((fi.polar.polarflow.c_sensor_package.k)(new s(this)));
       }
 
    }
@@ -390,7 +390,7 @@ public class TrainingService extends Service {
    public void onCreate() {
       fi.polar.polarflow.util.d.c("TrainingService", "onCreate()");
       this.j = android.support.v4.c.g.a(this);
-      this.f = new fi.polar.polarflow.c_package.o(this);
+      this.f = new fi.polar.polarflow.c_sensor_package.o(this);
       this.g = new a(this);
       this.g.a(this.b);
       IntentFilter var1 = new IntentFilter();

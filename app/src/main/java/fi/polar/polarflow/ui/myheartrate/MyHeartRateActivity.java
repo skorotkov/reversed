@@ -17,9 +17,11 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import fi.polar.polarflow.c_package.l;
-import fi.polar.polarflow.c_package.m;
-import fi.polar.polarflow.c_package.c_package.s;
+
+import fi.polar.polarflow.c_sensor_package.b_PolarSensorEvent;
+import fi.polar.polarflow.c_sensor_package.l;
+import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
+import fi.polar.polarflow.c_sensor_package.c_heartrate_package.s;
 import fi.polar.polarflow.data.Training;
 import fi.polar.polarflow.ui.p;
 import fi.polar.polarflow.ui.q;
@@ -33,7 +35,7 @@ import fi.polar.polarflow.util.v;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class MyHeartRateActivity extends android.support.wearable.activity.a implements fi.polar.polarflow.c_package.e, u {
+public class MyHeartRateActivity extends android.support.wearable.activity.a implements fi.polar.polarflow.c_sensor_package.e, u {
    private static final long a;
    private AlarmManager A;
    private PendingIntent B;
@@ -46,7 +48,7 @@ public class MyHeartRateActivity extends android.support.wearable.activity.a imp
    private final BroadcastReceiver I = new e(this);
    private final Runnable J = new f(this);
    private s b;
-   private m c;
+   private m_SENSOR_STATE c;
    private Handler d;
    private boolean e;
    private TextView f;
@@ -81,12 +83,12 @@ public class MyHeartRateActivity extends android.support.wearable.activity.a imp
    }
 
    private void a(Intent var1) {
-      m var2 = (m)var1.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE");
+      m_SENSOR_STATE var2 = (m_SENSOR_STATE)var1.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE");
       if (this.c != var2) {
          this.a(var2);
       }
 
-      if (this.c == fi.polar.polarflow.c_package.m.d) {
+      if (this.c == m_SENSOR_STATE.d_READY) {
          this.c(true);
          this.b(var1.getIntExtra("fi.polar.polarflow.KEY_SENSOR_HR_MEASUREMENT_VALUE", -1));
       } else {
@@ -102,7 +104,7 @@ public class MyHeartRateActivity extends android.support.wearable.activity.a imp
    private static void a(s var0) {
       if (var0 != null) {
          var0.a((l)null);
-         var0.c();
+         var0.c_stop();
       }
 
    }
@@ -110,7 +112,7 @@ public class MyHeartRateActivity extends android.support.wearable.activity.a imp
    private static void a(s var0, l var1) {
       if (var0 != null) {
          var0.a(var1);
-         var0.b();
+         var0.b_start();
       }
 
    }
@@ -403,7 +405,7 @@ public class MyHeartRateActivity extends android.support.wearable.activity.a imp
       this.k();
    }
 
-   public void a(m var1) {
+   public void a(m_SENSOR_STATE var1) {
       this.c = var1;
    }
 
@@ -418,9 +420,9 @@ public class MyHeartRateActivity extends android.support.wearable.activity.a imp
    }
 
    public void a(List var1) {
-      if (var1 != null && this.c == fi.polar.polarflow.c_package.m.d) {
+      if (var1 != null && this.c == m_SENSOR_STATE.d_READY) {
          this.c(true);
-         fi.polar.polarflow.c_package.b var2 = (fi.polar.polarflow.c_package.b)var1.get(var1.size() - 1);
+         b_PolarSensorEvent var2 = (b_PolarSensorEvent)var1.get(var1.size() - 1);
          if (var2.a != null && var2.a.length > 0) {
             this.b(Math.round(var2.a[0]));
          } else {
@@ -454,7 +456,7 @@ public class MyHeartRateActivity extends android.support.wearable.activity.a imp
       this.k.setVisibility(8);
       this.j.setVisibility(0);
       this.i.setVisibility(0);
-      if (this.c != fi.polar.polarflow.c_package.m.d) {
+      if (this.c != m_SENSOR_STATE.d_READY) {
          var1 = false;
       }
 
@@ -568,7 +570,7 @@ public class MyHeartRateActivity extends android.support.wearable.activity.a imp
       this.setIntent(var1);
       if ("MyHeartRateActivity.action.AMBIENT_UPDATE".equals(var1.getAction())) {
          boolean var2;
-         if (this.c == fi.polar.polarflow.c_package.m.d) {
+         if (this.c == m_SENSOR_STATE.d_READY) {
             var2 = true;
          } else {
             var2 = false;

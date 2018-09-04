@@ -7,18 +7,18 @@ import java.util.List;
 
 class ar implements af {
    // $FF: synthetic field
-   final am a;
+   final am_SessionCalculators a;
 
-   ar(am var1) {
+   ar(am_SessionCalculators var1) {
       this.a = var1;
    }
 
    public void a(PoolSwimmingOutput var1) {
       ag var2 = new ag(var1);
-      am.r(this.a).getStatistics().getSwimmingSpeedStatistics().a(var2);
-      am.r(this.a).setTotalDistance(var2.a(), true);
-      am.r(this.a).setCurrentSpeedInKmPerHour(var2.b());
-      Iterator var3 = am.v(this.a).iterator();
+      am_SessionCalculators.r(this.a).getStatistics().getSwimmingSpeedStatistics().a(var2);
+      am_SessionCalculators.r(this.a).setTotalDistance(var2.a(), true);
+      am_SessionCalculators.r(this.a).setCurrentSpeedInKmPerHour(var2.b());
+      Iterator var3 = am_SessionCalculators.v(this.a).iterator();
 
       while(var3.hasNext()) {
          al var4 = (al)var3.next();
@@ -35,7 +35,7 @@ class ar implements af {
 
          while(var7.hasNext()) {
             PoolInformation var6 = (PoolInformation)var7.next();
-            am.w(this.a).addPoolMetric(var6);
+            am_SessionCalculators.w(this.a).addPoolMetric(var6);
          }
       }
 

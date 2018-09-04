@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.SparseIntArray;
 
-import fi.polar.polarflow.c_package.n_SENSOR_TYPE;
+import fi.polar.polarflow.c_sensor_package.n_SENSOR_TYPE;
 import fi.polar.polarflow.data.Training;
 import fi.polar.polarflow.data.TrainingStatistics;
 import fi.polar.polarflow.data.orm.PhysData;
@@ -22,7 +22,7 @@ public class q extends aj implements ak, y {
    private Training e;
 
    static {
-      a.add(n_SENSOR_TYPE.d);
+      a.add(n_SENSOR_TYPE.d_HEART_RATE);
       d = new r(18);
    }
 
