@@ -1,7 +1,7 @@
 package fi.polar.polarflow.c_package.d_package;
 
 import android.content.Context;
-import fi.polar.polarflow.c_package.n;
+import fi.polar.polarflow.c_package.n_SENSOR_TYPE;
 
 public abstract class a extends fi.polar.polarflow.c_package.a implements fi.polar.polarflow.c_package.i {
    protected double g = 0.0D;
@@ -21,7 +21,7 @@ public abstract class a extends fi.polar.polarflow.c_package.a implements fi.pol
    protected boolean u = false;
    protected final Object v = new Object();
 
-   protected a(Context var1, n var2) {
+   protected a(Context var1, n_SENSOR_TYPE var2) {
       super(var1, var2);
    }
 

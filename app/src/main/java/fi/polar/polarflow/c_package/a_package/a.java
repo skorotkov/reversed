@@ -9,7 +9,8 @@ import android.os.HandlerThread;
 import fi.polar.polarflow.c_package.i;
 import fi.polar.polarflow.c_package.l;
 import fi.polar.polarflow.c_package.m;
-import fi.polar.polarflow.c_package.n;
+import fi.polar.polarflow.c_package.n_SENSOR_TYPE;
+
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -30,10 +31,10 @@ public class a extends fi.polar.polarflow.c_package.a implements i {
    private final SensorEventListener t;
 
    public a(Context var1) {
-      this(var1, fi.polar.polarflow.c_package.n.f, 50, 800);
+      this(var1, n_SENSOR_TYPE.f, 50, 800);
    }
 
-   public a(Context var1, n var2, int var3, int var4) {
+   public a(Context var1, n_SENSOR_TYPE var2, int var3, int var4) {
       super(var1, var2);
       this.s = 0L;
       this.t = new b(this);

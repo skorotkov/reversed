@@ -3,6 +3,8 @@ package fi.polar.polarflow.calculators;
 import android.content.Context;
 import android.content.Intent;
 import android.os.SystemClock;
+
+import fi.polar.polarflow.c_package.n_SENSOR_TYPE;
 import fi.polar.polarflow.data.Lap;
 import fi.polar.polarflow.data.Lap$LapBuilder;
 import fi.polar.polarmathsmart.swimming.poolswimming.SwimmingLapStatistics;
@@ -31,9 +33,9 @@ public abstract class h extends aj implements ae, ah {
    private long t;
 
    static {
-      d.add(fi.polar.polarflow.c_package.n.b);
-      d.add(fi.polar.polarflow.c_package.n.d);
-      d.add(fi.polar.polarflow.c_package.n.e);
+      d.add(n_SENSOR_TYPE.b);
+      d.add(n_SENSOR_TYPE.d);
+      d.add(n_SENSOR_TYPE.e);
    }
 
    public h(Context var1, long var2) {

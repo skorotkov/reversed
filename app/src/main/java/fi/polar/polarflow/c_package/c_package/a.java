@@ -4,12 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import fi.polar.polarflow.c_package.n_SENSOR_TYPE;
+
 public abstract class a extends fi.polar.polarflow.c_package.a implements fi.polar.polarflow.c_package.i {
    private fi.polar.polarflow.util.v g;
    private int h = 0;
 
    protected a(Context var1) {
-      super(var1, fi.polar.polarflow.c_package.n.d);
+      super(var1, n_SENSOR_TYPE.d);
    }
 
    protected void a() {

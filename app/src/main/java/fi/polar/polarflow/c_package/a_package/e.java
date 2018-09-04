@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import fi.polar.polarflow.c_package.i;
 import fi.polar.polarflow.c_package.l;
+import fi.polar.polarflow.c_package.n_SENSOR_TYPE;
 import fi.polar.polarflow.data.orm.PhysData;
 import fi.polar.polarflow.util.k;
 import fi.polar.polarflow.util.v;
@@ -24,7 +25,7 @@ public class e extends a implements i {
    }
 
    public e(Context var1) {
-      super(var1, fi.polar.polarflow.c_package.n.e, 50, 500);
+      super(var1, n_SENSOR_TYPE.e, 50, 500);
       this.i = v.a(var1);
    }
 

@@ -6,6 +6,7 @@ import android.content.IntentFilter;
 import android.os.Handler;
 import fi.polar.polarflow.c_package.l;
 import fi.polar.polarflow.c_package.m;
+import fi.polar.polarflow.c_package.n_SENSOR_TYPE;
 import fi.polar.polarflow.util.aa;
 import fi.polar.polarflow.util.n;
 import fi.polar.polarmathsmart.ascentdescent.AscentDescentCalculatorAndroidImpl;
@@ -34,7 +35,7 @@ public class b extends a {
    }
 
    b(Context var1, LocationDataCalculatorAndroidImpl var2) {
-      super(var1, fi.polar.polarflow.c_package.n.b);
+      super(var1, n_SENSOR_TYPE.b);
       this.y = null;
       this.A = null;
       this.C = new Handler();
@@ -180,7 +181,7 @@ public class b extends a {
    }
 
    // $FF: synthetic method
-   static fi.polar.polarflow.c_package.n o(b var0) {
+   static n_SENSOR_TYPE o(b var0) {
       return var0.c;
    }
 

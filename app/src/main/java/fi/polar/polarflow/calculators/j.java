@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.SystemClock;
+
+import fi.polar.polarflow.c_package.n_SENSOR_TYPE;
 import fi.polar.polarflow.data.Training;
 import fi.polar.polarflow.data.orm.ExercisePhase;
 import fi.polar.polarflow.data.orm.ExercisePhaseData;
@@ -53,9 +55,9 @@ public class j extends aj implements ae, ah, y {
    private String z;
 
    static {
-      k.add(fi.polar.polarflow.c_package.n.b);
-      k.add(fi.polar.polarflow.c_package.n.d);
-      k.add(fi.polar.polarflow.c_package.n.e);
+      k.add(n_SENSOR_TYPE.b);
+      k.add(n_SENSOR_TYPE.d);
+      k.add(n_SENSOR_TYPE.e);
    }
 
    public j(Context var1) {

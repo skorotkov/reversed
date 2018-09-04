@@ -6,12 +6,12 @@ import fi.polar.polarflow.data.ExerciseSensor;
 public abstract class a {
    protected final Context a;
    protected m b;
-   protected final n c;
+   protected final n_SENSOR_TYPE c;
    protected boolean d;
    protected boolean e;
    protected boolean f;
 
-   protected a(Context var1, n var2) {
+   protected a(Context var1, n_SENSOR_TYPE var2) {
       this.b = m.b;
       this.d = false;
       this.e = false;
