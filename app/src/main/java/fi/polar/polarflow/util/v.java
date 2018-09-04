@@ -29,6 +29,7 @@ public class v {
 
    public static v a(Context param0) {
       // $FF: Couldn't be decompiled
+      return null;
    }
 
    public Intent a(BroadcastReceiver var1, String var2) {

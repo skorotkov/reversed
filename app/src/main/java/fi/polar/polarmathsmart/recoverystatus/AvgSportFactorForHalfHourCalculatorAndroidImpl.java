@@ -6,7 +6,7 @@ import java.util.List;
 public class AvgSportFactorForHalfHourCalculatorAndroidImpl implements AvgSportFactorForHalfHourCalculator {
    private native double native_calculateAvgSportFactorForHalfHour(byte[] var1, byte[] var2, int var3);
 
-   public double calculateAvgSportFactorForHalfHour(List var1, List var2) {
+   public double calculateAvgSportFactorForHalfHour(List var1, List var2) throws InvalidNumberOfDataPointsException {
       if (var1.size() != 60) {
          throw new InvalidNumberOfDataPointsException("sportFactors-list needs to have exactly 60 items! (30mins)");
       } else if (var2.size() != 60) {

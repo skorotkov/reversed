@@ -9,6 +9,7 @@ public final class s {
 
    public static Typeface a(Context param0) {
       // $FF: Couldn't be decompiled
+      return null;
    }
 
    public static String a(long var0) {

@@ -34,12 +34,12 @@ public class j extends c {
    }
 
    private void a(TextView var1, int var2) {
-      var2 = fi.polar.polarflow.a.a.a(7, var2);
+      var2 = fi.polar.polarflow.a_package.a.a(7, var2);
       var1.setText(o.d(this.i, var2));
    }
 
    private void a(TextView var1, int var2, float var3) {
-      String var4 = o.a(var2, fi.polar.polarflow.a.a.a(1, var3));
+      String var4 = o.a(var2, fi.polar.polarflow.a_package.a.a(1, var3));
       String var5 = o.a(var4);
       if (var5.length() != 4) {
          var5 = var4;

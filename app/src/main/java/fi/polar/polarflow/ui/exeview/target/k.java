@@ -59,8 +59,8 @@ public class k {
       return var1;
    }
 
-   public static fi.polar.polarflow.ui.exeview.target.a.n a(Training var0, h var1, List var2, int var3) {
-      fi.polar.polarflow.ui.exeview.target.a.p var4 = new fi.polar.polarflow.ui.exeview.target.a.p();
+   public static fi.polar.polarflow.ui.exeview.target.a_package.n a(Training var0, h var1, List var2, int var3) {
+      fi.polar.polarflow.ui.exeview.target.a_package.p var4 = new fi.polar.polarflow.ui.exeview.target.a_package.p();
       var4.a(var1);
       var4.a(var2, var3);
       var4.a(var0);

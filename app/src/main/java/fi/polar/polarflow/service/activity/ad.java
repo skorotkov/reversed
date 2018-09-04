@@ -57,7 +57,7 @@ class ad {
    }
 
    public int a() {
-      return fi.polar.polarflow.a.a.a(7, (int)this.c);
+      return fi.polar.polarflow.a_package.a.a(7, (int)this.c);
    }
 
    public void a(float var1, float var2) {

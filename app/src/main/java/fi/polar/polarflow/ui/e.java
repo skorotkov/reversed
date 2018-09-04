@@ -29,7 +29,8 @@ final class e extends fi.polar.polarflow.ui.custom.c {
       return this.c(var1, var2);
    }
 
-   public void a(f var1, int var2) {
+   public void a(ey var, int var2) {
+      f var1 = (f)var;
       MenuItem var3 = this.b.getItem(var2);
       f.a(var1).setTag(var3.getItemId());
    }

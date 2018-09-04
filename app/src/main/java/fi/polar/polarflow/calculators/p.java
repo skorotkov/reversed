@@ -38,6 +38,7 @@ public class p implements al, y {
 
    private static ExerciseRunningIndexResult b(TrainingSamples param0) {
       // $FF: Couldn't be decompiled
+      return null;
    }
 
    public void d() {

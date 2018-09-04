@@ -113,6 +113,7 @@ public class m extends fi.polar.a.l implements p {
 
    public int a(String param1, byte[] param2) {
       // $FF: Couldn't be decompiled
+      return 0;
    }
 
    public fi.polar.a.m a(int var1, byte[] var2) {
@@ -131,6 +132,7 @@ public class m extends fi.polar.a.l implements p {
 
    public fi.polar.a.m a(String param1) {
       // $FF: Couldn't be decompiled
+      return null;
    }
 
    public void a() {
@@ -189,6 +191,7 @@ public class m extends fi.polar.a.l implements p {
 
    public fi.polar.a.m d(String param1) {
       // $FF: Couldn't be decompiled
+      return null;
    }
 
    public int e(String var1) {

@@ -27,7 +27,7 @@ class f extends BluetoothGattCallback {
    }
 
    public void onCharacteristicChanged(BluetoothGatt var1, BluetoothGattCharacteristic var2) {
-      if (fi.polar.polarflow.c_package.b.i.i.equals(var2.getUuid())) {
+      if (fi.polar.polarflow.c_package.b_package.i.i.equals(var2.getUuid())) {
          b.a(this.a, var2);
       }
 
@@ -35,15 +35,15 @@ class f extends BluetoothGattCallback {
 
    public void onCharacteristicRead(BluetoothGatt var1, BluetoothGattCharacteristic var2, int var3) {
       fi.polar.polarflow.util.d.c("BleHeartRateSensor", "onCharacteristicRead(uuid=" + var2.getUuid() + ", status=" + var3 + ")");
-      if (fi.polar.polarflow.c_package.b.i.h.equals(var2.getUuid())) {
+      if (fi.polar.polarflow.c_package.b_package.i.h.equals(var2.getUuid())) {
          b.a(this.a, var2, var3);
-      } else if (fi.polar.polarflow.c_package.b.i.d.equals(var2.getUuid())) {
+      } else if (fi.polar.polarflow.c_package.b_package.i.d.equals(var2.getUuid())) {
          b.b(this.a, var2, var3);
-      } else if (fi.polar.polarflow.c_package.b.i.e.equals(var2.getUuid())) {
+      } else if (fi.polar.polarflow.c_package.b_package.i.e.equals(var2.getUuid())) {
          b.c(this.a, var2, var3);
-      } else if (fi.polar.polarflow.c_package.b.i.f.equals(var2.getUuid())) {
+      } else if (fi.polar.polarflow.c_package.b_package.i.f.equals(var2.getUuid())) {
          b.d(this.a, var2, var3);
-      } else if (fi.polar.polarflow.c_package.b.i.g.equals(var2.getUuid())) {
+      } else if (fi.polar.polarflow.c_package.b_package.i.g.equals(var2.getUuid())) {
          b.e(this.a, var2, var3);
       }
 

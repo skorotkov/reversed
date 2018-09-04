@@ -100,12 +100,12 @@ public class LapNotificationView extends FrameLayout {
    private void b(boolean var1) {
       Object var2;
       if (this.i.getAutoLapType() != -1) {
-         var2 = new fi.polar.polarflow.ui.exeview.laps.a.c(this.i, this.h);
+         var2 = new fi.polar.polarflow.ui.exeview.laps.a_package.c(this.i, this.h);
          if (var1) {
             ((n)var2).a_((Bundle)null);
          }
       } else {
-         var2 = new fi.polar.polarflow.ui.exeview.laps.b.c(this.i, this.h);
+         var2 = new fi.polar.polarflow.ui.exeview.laps.b_package.c(this.i, this.h);
       }
 
       ViewGroup var3 = (ViewGroup)this.findViewById(2131755180);

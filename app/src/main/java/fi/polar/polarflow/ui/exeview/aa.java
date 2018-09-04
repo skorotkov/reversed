@@ -24,10 +24,10 @@ public class aa extends android.support.wearable.view.u {
    static {
       HashMap var0 = new HashMap();
       var0.put(ak.a, ab.class);
-      var0.put(ak.b, fi.polar.polarflow.ui.exeview.a.b.class);
+      var0.put(ak.b, fi.polar.polarflow.ui.exeview.a_package.b.class);
       var0.put(ak.c, fi.polar.polarflow.ui.exeview.target.g.class);
-      var0.put(ak.d, fi.polar.polarflow.ui.exeview.laps.b.b.class);
-      var0.put(ak.e, fi.polar.polarflow.ui.exeview.laps.a.a.class);
+      var0.put(ak.d, fi.polar.polarflow.ui.exeview.laps.b_package.b.class);
+      var0.put(ak.e, fi.polar.polarflow.ui.exeview.laps.a_package.a.class);
       var0.put(ak.f, fi.polar.polarflow.ui.exeview.summary.d.class);
       i = Collections.unmodifiableMap(var0);
    }

@@ -4,22 +4,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum SleepStates {
-   NONREM1,
-   NONREM2,
-   NONREM3,
-   REM,
-   WAKE;
+   NONREM1(0),
+   NONREM2(1),
+   NONREM3(2),
+   REM(3),
+   WAKE(4);
 
    private static Map map;
    private final int value;
 
    static {
       int var0 = 0;
-      WAKE = new SleepStates("WAKE", 0, -2);
-      REM = new SleepStates("REM", 1, -3);
-      NONREM1 = new SleepStates("NONREM1", 2, -4);
-      NONREM2 = new SleepStates("NONREM2", 3, -5);
-      NONREM3 = new SleepStates("NONREM3", 4, -6);
+//      WAKE = new SleepStates("WAKE", 0, -2);
+//      REM = new SleepStates("REM", 1, -3);
+//      NONREM1 = new SleepStates("NONREM1", 2, -4);
+//      NONREM2 = new SleepStates("NONREM2", 3, -5);
+//      NONREM3 = new SleepStates("NONREM3", 4, -6);
       map = new HashMap();
       SleepStates[] var1 = values();
 

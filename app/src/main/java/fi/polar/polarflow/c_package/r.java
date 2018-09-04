@@ -175,6 +175,7 @@ class r extends HandlerThread implements Callback {
 
    ExerciseSensors a() {
       // $FF: Couldn't be decompiled
+      return null;
    }
 
    void a(int var1) {

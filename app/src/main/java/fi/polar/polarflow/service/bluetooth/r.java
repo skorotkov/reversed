@@ -37,7 +37,7 @@ class r implements o {
             if (this.b != null) {
                this.b.b(var5);
             }
-         } catch (InvalidProtocolBufferException var6) {
+         } catch (Exception /*InvalidProtocolBufferException*/ var6) {
             fi.polar.polarflow.util.d.a(a, "receiveNotification(Exception)", var6);
             var5 = false;
             return var5;

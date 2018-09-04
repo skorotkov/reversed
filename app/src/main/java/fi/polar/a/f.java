@@ -9,11 +9,11 @@ class f implements Runnable {
    }
 
    public void run() {
-      fi.polar.a.a.b.b(d.d(), "reconnect(...retry timer elapsed, state=" + d.b(this.a) + ", try to reconnect)");
+      fi.polar.a.a_package.b.b(d.d(), "reconnect(...retry timer elapsed, state=" + d.b(this.a) + ", try to reconnect)");
       if (d.b(this.a) != i.a) {
          d.m(this.a);
       } else {
-         fi.polar.a.a.b.d(d.d(), "reconnect(...retry timer elapsed, unexpected state=" + d.b(this.a) + ")");
+         fi.polar.a.a_package.b.d(d.d(), "reconnect(...retry timer elapsed, unexpected state=" + d.b(this.a) + ")");
       }
 
    }

@@ -3,7 +3,7 @@ package fi.polar.polarflow.ui.exeview;
 import android.media.MediaMetadata;
 import android.media.session.PlaybackState;
 
-class s implements fi.polar.polarflow.util.a.e {
+class s implements fi.polar.polarflow.util.a_package.e {
    // $FF: synthetic field
    final ExeViewActivity a;
 
@@ -27,7 +27,7 @@ class s implements fi.polar.polarflow.util.a.e {
 
    }
 
-   public void a(fi.polar.polarflow.util.a.a var1) {
+   public void a(fi.polar.polarflow.util.a_package.a var1) {
       fi.polar.polarflow.util.d.c("ExeViewActivity", "onActiveMediaSessionChanged " + var1);
       ExeViewActivity.w(this.a);
    }

@@ -25,7 +25,8 @@ final class i extends fi.polar.polarflow.ui.custom.c {
       return this.c(var1, var2);
    }
 
-   public void a(j var1, int var2) {
+   public void a(ey var, int var2) {
+      j var1 = (j)var;
       SportProfile var3 = (SportProfile)this.a.get(var2);
       j.a(var1).setGlyph(var3.getSport().getGlyph());
       j.a(var1).setTag(var3.getSport().getSportId());

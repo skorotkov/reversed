@@ -6,7 +6,7 @@ import java.util.List;
 public class HalfHourCaloriesCalculatorAndroidImpl implements HalfHourCaloriesCalculator {
    private native HalfHourCaloriesResults native_calculateHalfHourCalories(double[] var1, byte[] var2, byte[] var3, double var4, int var6);
 
-   public HalfHourCaloriesResults calculateHalfHourCalories(List var1, List var2, List var3, Double var4) {
+   public HalfHourCaloriesResults calculateHalfHourCalories(List var1, List var2, List var3, Double var4) throws InvalidNumberOfDataPointsException {
       if (var1.size() != 60) {
          throw new InvalidNumberOfDataPointsException("mets-list needs to have exactly 60 samples! (30min)");
       } else if (var2.size() != 60) {

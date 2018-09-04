@@ -10,12 +10,12 @@ class p implements bo {
       this.a = var1;
    }
 
-   public void a(fi.polar.polarflow.util.b.a var1) {
+   public void a(fi.polar.polarflow.util.b_package.a var1) {
       StopSleepActivity.a(this.a).setVisibility(8);
       if (var1 != null) {
          StopSleepActivity.a(this.a, true);
          StopSleepActivity.a(this.a, var1.c());
-         fi.polar.polarflow.ui.myday.a.a var2 = fi.polar.polarflow.ui.myday.a.a.a(Integer.MAX_VALUE);
+         fi.polar.polarflow.ui.myday.a_package.a var2 = fi.polar.polarflow.ui.myday.a_package.a.a(Integer.MAX_VALUE);
          var2.a(StopSleepActivity.b(this.a));
          this.a.getFragmentManager().beginTransaction().add(2131755520, var2).commit();
       } else {

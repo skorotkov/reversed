@@ -14,14 +14,14 @@ public class bd {
       if (Float.isInfinite(var1)) {
          var1 = -1.0F;
       } else {
-         var1 = fi.polar.polarflow.a.a.a(2, var1);
+         var1 = fi.polar.polarflow.a_package.a.a(2, var1);
       }
 
       return var1;
    }
 
    private float a(float var1, float var2) {
-      return Math.max(var2, fi.polar.polarflow.a.a.a(2, var1));
+      return Math.max(var2, fi.polar.polarflow.a_package.a.a(2, var1));
    }
 
    public float a() {

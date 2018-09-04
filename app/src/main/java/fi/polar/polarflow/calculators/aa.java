@@ -17,16 +17,16 @@ class aa extends ai {
    }
 
    aa(int var1, long var2, fi.polar.polarflow.c_package.f var4) {
+      super(var1, var2, (var4 != null && var4.n));
       float var5 = Float.NaN;
       float var6 = -1.0F;
-      boolean var7;
-      if (var4 != null && var4.n) {
-         var7 = true;
-      } else {
-         var7 = false;
-      }
+//      boolean var7;
+//      if (var4 != null && var4.n) {
+//         var7 = true;
+//      } else {
+//         var7 = false;
+//      }
 
-      super(var1, var2, var7);
       float var8;
       float var10;
       float var11;

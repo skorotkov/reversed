@@ -9,9 +9,11 @@ public class c {
 
    public static Sport a(Context param0, long param1) {
       // $FF: Couldn't be decompiled
+      return null;
    }
 
    public static List a(Context param0) {
       // $FF: Couldn't be decompiled
+      return null;
    }
 }

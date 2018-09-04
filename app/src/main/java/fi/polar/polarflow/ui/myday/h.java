@@ -67,7 +67,7 @@ public class h extends a implements bd {
                var4 = u.a(var1, fi.polar.polarflow.ui.myday.item.f.class);
                break;
             case -2:
-               var4 = u.a(var1, fi.polar.polarflow.ui.myday.item.a.e.class);
+               var4 = u.a(var1, fi.polar.polarflow.ui.myday.item.a_package.e.class);
                break;
             default:
                if (this.g >= 0 && this.g < var1.size()) {
@@ -86,7 +86,7 @@ public class h extends a implements bd {
 
       var4 = var3;
       if (var3 == -1) {
-         var4 = u.a(var1, fi.polar.polarflow.ui.myday.item.a.e.class);
+         var4 = u.a(var1, fi.polar.polarflow.ui.myday.item.a_package.e.class);
       }
 
       var3 = var4;
@@ -163,7 +163,7 @@ public class h extends a implements bd {
       return var0.f();
    }
 
-   private boolean a(fi.polar.polarflow.util.b.a var1) {
+   private boolean a(fi.polar.polarflow.util.b_package.a var1) {
       boolean var2;
       if (var1.b().isBefore(new LocalDate())) {
          var2 = false;
@@ -199,7 +199,7 @@ public class h extends a implements bd {
       if (var2 && var3 == null) {
          this.a((fi.polar.polarflow.ui.myday.item.c)(new fi.polar.polarflow.ui.myday.item.f()));
       } else if (!var2 && var3 != null) {
-         fi.polar.polarflow.util.b.a var6 = this.e();
+         fi.polar.polarflow.util.b_package.a var6 = this.e();
          if (var6 != null) {
             ArrayList var4 = new ArrayList();
             var4.add(new fi.polar.polarflow.ui.myday.item.g(var6, var6.c(), var6.b()));
@@ -249,7 +249,7 @@ public class h extends a implements bd {
          var1.add(new fi.polar.polarflow.ui.myday.item.f());
       }
 
-      var1.add(new fi.polar.polarflow.ui.myday.item.a.e());
+      var1.add(new fi.polar.polarflow.ui.myday.item.a_package.e());
       if (this.f == null) {
          this.f = new f(this.getActivity(), var1);
       }
@@ -287,11 +287,11 @@ public class h extends a implements bd {
       return var2;
    }
 
-   private fi.polar.polarflow.util.b.a e() {
+   private fi.polar.polarflow.util.b_package.a e() {
       Intent var1 = this.a("SleepTrackingService.action.SLEEP_ANALYSIS_RESULT");
-      fi.polar.polarflow.util.b.a var2;
+      fi.polar.polarflow.util.b_package.a var2;
       if (var1 != null) {
-         var2 = (fi.polar.polarflow.util.b.a)var1.getParcelableExtra("SleepTrackingService.extra.SLEEP_ANALYSIS");
+         var2 = (fi.polar.polarflow.util.b_package.a)var1.getParcelableExtra("SleepTrackingService.extra.SLEEP_ANALYSIS");
          if (this.a(var2)) {
             return var2;
          }
@@ -350,7 +350,7 @@ public class h extends a implements bd {
    public void onSaveInstanceState(Bundle var1) {
       super.onSaveInstanceState(var1);
       fi.polar.polarflow.ui.myday.item.c var2 = this.b();
-      if (var2 instanceof fi.polar.polarflow.ui.myday.item.a.e) {
+      if (var2 instanceof fi.polar.polarflow.ui.myday.item.a_package.e) {
          var1.putInt("MyDayFragment.extra.SAVED_SCROLL_POSITION", -2);
       } else if (var2 instanceof fi.polar.polarflow.ui.myday.item.f) {
          var1.putInt("MyDayFragment.extra.SAVED_SCROLL_POSITION", -3);

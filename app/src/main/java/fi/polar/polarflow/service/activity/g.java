@@ -66,7 +66,7 @@ public class g implements Runnable {
       if (!var1.isEmpty()) {
          fi.polar.polarflow.service.datalayer.t var8 = this.c.a(this.a);
          var8.a((fi.polar.polarflow.service.datalayer.at)this.d);
-         var8.execute(var1.toArray(new fi.polar.polarflow.service.datalayer.s[var1.size()]));
+         var8.execute((fi.polar.polarflow.service.datalayer.s[])var1.toArray(new fi.polar.polarflow.service.datalayer.s[var1.size()]));
 
          try {
             if (!this.b.await(10L, TimeUnit.SECONDS)) {

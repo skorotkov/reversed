@@ -12,14 +12,14 @@ public class as extends at {
 
    public float a(long var1, double var3) {
       float var5 = Math.max(0.0F, this.i());
-      return fi.polar.polarflow.a.a.a(2, this.e.calculateAverageSpeed((double)var5, var1, Math.max(0.0D, var3), this.h() - (double)var5, Math.max(0, this.f() - 1)).getSpeedAverage().floatValue());
+      return fi.polar.polarflow.a_package.a.a(2, this.e.calculateAverageSpeed((double)var5, var1, Math.max(0.0D, var3), this.h() - (double)var5, Math.max(0, this.f() - 1)).getSpeedAverage().floatValue());
    }
 
    public float b(long var1, double var3) {
-      return fi.polar.polarflow.a.a.a(2, (float)this.e.calculateFinalAverageSpeed(var1, Math.max(0.0D, var3)));
+      return fi.polar.polarflow.a_package.a.a(2, (float)this.e.calculateFinalAverageSpeed(var1, Math.max(0.0D, var3)));
    }
 
    public float c(long var1, double var3) {
-      return fi.polar.polarflow.a.a.a(2, Math.max(this.e(), this.b(var1, var3)));
+      return fi.polar.polarflow.a_package.a.a(2, Math.max(this.e(), this.b(var1, var3)));
    }
 }

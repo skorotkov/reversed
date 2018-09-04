@@ -5,7 +5,7 @@ import android.os.Bundle;
 import java.util.Collection;
 import java.util.Iterator;
 
-public abstract class i extends fi.polar.polarflow.ui.a.f implements h {
+public abstract class i extends fi.polar.polarflow.ui.a_package.f implements h {
    private boolean a;
 
    protected static Intent e(Collection var0, String var1) {

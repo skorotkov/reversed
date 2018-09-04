@@ -50,7 +50,8 @@ public class f extends fi.polar.polarflow.ui.custom.c {
       g.a(var1).d();
    }
 
-   public void a(g var1, int var2) {
+   public void a(ey var, int var2) {
+      g var1 = (g)var;
       g.a(var1, (fi.polar.polarflow.ui.myday.item.c)this.a.get(var2));
    }
 

@@ -28,7 +28,7 @@ public class PeriodicJobService extends JobService {
    }
 
    public static void a(Context var0) {
-      JobScheduler var1 = (JobScheduler)var0.getSystemService("jobscheduler");
+      JobScheduler var1 = (JobScheduler)var0.getSystemService(Context.JOB_SCHEDULER_SERVICE);
       long var2 = (new aa()).a();
       var2 = (new DateTime(var2)).plusDays(1).withTimeAtStartOfDay().plusMinutes(1).getMillis() - var2;
       fi.polar.polarflow.util.d.c("PeriodicJobService", "schedulePeriodicJob() in " + PeriodFormat.getDefault().print(new Period(var2)));

@@ -40,7 +40,7 @@ public class ExeViewActivity extends android.support.wearable.activity.a impleme
    private boolean E;
    private Training F;
    private final BroadcastReceiver G;
-   private final fi.polar.polarflow.util.a.e H;
+   private final fi.polar.polarflow.util.a_package.e H;
    private LapNotificationView b;
    private LapNotificationView c;
    private ExeViewGridPager d;
@@ -60,7 +60,7 @@ public class ExeViewActivity extends android.support.wearable.activity.a impleme
    private boolean r = false;
    private ak s;
    private ShaderContainerView t;
-   private fi.polar.polarflow.util.a.b u;
+   private fi.polar.polarflow.util.a_package.b u;
    private final f v;
    private SportProfile w;
    private float x;
@@ -868,7 +868,7 @@ public class ExeViewActivity extends android.support.wearable.activity.a impleme
       return this.m;
    }
 
-   public fi.polar.polarflow.util.a.b f() {
+   public fi.polar.polarflow.util.a_package.b f() {
       return this.u;
    }
 
@@ -937,7 +937,7 @@ public class ExeViewActivity extends android.support.wearable.activity.a impleme
       this.setContentView(2130968619);
       this.b(var1);
       this.D = new fi.polar.polarflow.util.n(this.getApplicationContext());
-      this.u = fi.polar.polarflow.util.a.b.a((Context)this, (fi.polar.polarflow.ui.p)(new fi.polar.polarflow.ui.p()));
+      this.u = fi.polar.polarflow.util.a_package.b.a((Context)this, (fi.polar.polarflow.ui.p)(new fi.polar.polarflow.ui.p()));
       this.C = new fi.polar.polarflow.util.aa();
       SportProfileSettings var7;
       if (this.A() != null) {

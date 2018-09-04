@@ -52,6 +52,6 @@ public abstract class b implements Runnable {
       var1.save();
       var2.add(var1.createDataLayerRequest());
       var2.add(fi.polar.polarflow.util.w.a(var1.getPath()));
-      this.c.a(this.a, this.e).execute(var2.toArray(new fi.polar.polarflow.service.datalayer.s[var2.size()]));
+      this.c.a(this.a, this.e).execute((fi.polar.polarflow.service.datalayer.s[])var2.toArray(new fi.polar.polarflow.service.datalayer.s[var2.size()]));
    }
 }

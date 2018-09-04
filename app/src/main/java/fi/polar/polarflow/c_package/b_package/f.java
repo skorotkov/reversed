@@ -11,8 +11,8 @@ class f implements Runnable {
    }
 
    public void run() {
-      if (this.a.b() && fi.polar.polarflow.c_package.b.b.b(this.a) != null) {
-         fi.polar.polarflow.c_package.b.b.b(this.a).a(this.b);
+      if (this.a.b() && fi.polar.polarflow.c_package.b_package.b.b(this.a) != null) {
+         fi.polar.polarflow.c_package.b_package.b.b(this.a).a(this.b);
       }
 
    }

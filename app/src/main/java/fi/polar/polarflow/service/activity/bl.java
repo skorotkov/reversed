@@ -16,7 +16,7 @@ class bl extends bk {
    public void run() {
       SleepTrackingService.a(this.b).b();
       this.a();
-      fi.polar.polarflow.util.b.a var1 = this.a(this.c, this.d);
+      fi.polar.polarflow.util.b_package.a var1 = this.a(this.c, this.d);
       if (!SleepTrackingService.b(this.b).isEmpty()) {
          SleepTrackingService.c(this.b).post(new bn(this.b, var1));
       }

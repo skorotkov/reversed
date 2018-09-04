@@ -2,7 +2,7 @@ package fi.polar.polarflow.service.activity;
 
 import android.content.Context;
 
-class n implements fi.polar.polarflow.service.activity.a.f {
+class n implements fi.polar.polarflow.service.activity.a_package.f {
    // $FF: synthetic field
    final DailyActivityService a;
 

@@ -23,7 +23,7 @@ public class StopSleepActivity extends Activity {
    private boolean i;
    private final bo j = new p(this);
    private final fi.polar.polarflow.ui.u k = new q(this);
-   private final fi.polar.polarflow.ui.myday.a.c l = new r(this);
+   private final fi.polar.polarflow.ui.myday.a_package.c l = new r(this);
    private final ServiceConnection m = new s(this);
 
    // $FF: synthetic method
@@ -57,7 +57,7 @@ public class StopSleepActivity extends Activity {
    }
 
    // $FF: synthetic method
-   static fi.polar.polarflow.ui.myday.a.c b(StopSleepActivity var0) {
+   static fi.polar.polarflow.ui.myday.a_package.c b(StopSleepActivity var0) {
       return var0.l;
    }
 

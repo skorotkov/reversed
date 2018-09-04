@@ -5,6 +5,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class g {
    private g() {
    }
 
-   public static InputStream a(File var0, String var1) {
+   public static InputStream a(File var0, String var1) throws FileNotFoundException {
       var0 = new File(var0, var1);
       BufferedInputStream var2;
       if (var0.exists()) {
@@ -26,7 +27,7 @@ public class g {
       return var2;
    }
 
-   public static void a(File var0, String var1, List var2) {
+   public static void a(File var0, String var1, List var2) throws FileNotFoundException {
       File var3 = new File(var0, var1);
       if (var3.isDirectory()) {
          File[] var6 = var3.listFiles();
@@ -42,9 +43,10 @@ public class g {
 
    public static boolean a(File param0, String param1, byte[] param2) {
       // $FF: Couldn't be decompiled
+      return false;
    }
 
-   public static byte[] a(InputStream var0) {
+   public static byte[] a(InputStream var0) throws IOException {
       byte[] var1 = new byte[16384];
       ByteArrayOutputStream var2 = new ByteArrayOutputStream();
 
@@ -59,7 +61,7 @@ public class g {
       }
    }
 
-   public static void b(File var0, String var1, List var2) {
+   public static void b(File var0, String var1, List var2) throws FileNotFoundException {
       File var3 = new File(var0, var1);
       if (var3.delete()) {
          if (var2 != null) {

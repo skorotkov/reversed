@@ -28,7 +28,7 @@ import fi.polar.polarflow.ui.custom.ai;
 import java.util.Iterator;
 import java.util.List;
 
-public class x extends a implements bd, bg, fi.polar.polarflow.ui.exewait.a.f {
+public class x extends a implements bd, bg, fi.polar.polarflow.ui.exewait.a_package.f {
    private final BroadcastReceiver A = new y(this);
    private final OnClickListener B = new ab(this);
    private View c;
@@ -135,7 +135,7 @@ public class x extends a implements bd, bg, fi.polar.polarflow.ui.exewait.a.f {
       this.g.setOnClickListener(this.B);
       this.k = (au)var1.findViewById(2131755173);
       this.k.setGreedyTouchMode(true);
-      this.k.a(this);
+      this.k.a((bg)this);
       this.k.setAdapter(new i(this.getContext(), this.l));
       this.k.a_(this.p);
    }

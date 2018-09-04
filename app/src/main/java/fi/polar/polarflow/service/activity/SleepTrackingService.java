@@ -103,7 +103,7 @@ public class SleepTrackingService extends a {
    }
 
    // $FF: synthetic method
-   static void a(SleepTrackingService var0, fi.polar.polarflow.util.b.a var1, boolean var2) {
+   static void a(SleepTrackingService var0, fi.polar.polarflow.util.b_package.a var1, boolean var2) {
       var0.a(var1, var2);
    }
 
@@ -113,7 +113,7 @@ public class SleepTrackingService extends a {
       this.c.b(var2);
    }
 
-   private void a(fi.polar.polarflow.util.b.a var1, boolean var2) {
+   private void a(fi.polar.polarflow.util.b_package.a var1, boolean var2) {
       Intent var3 = new Intent("SleepTrackingService.action.SLEEP_ANALYSIS_RESULT");
       var3.putExtra("SleepTrackingService.extra.SLEEP_ANALYSIS", var1);
       if (var2) {
@@ -137,11 +137,11 @@ public class SleepTrackingService extends a {
    }
 
    // $FF: synthetic method
-   static boolean a(SleepTrackingService var0, fi.polar.polarflow.util.b.a var1) {
+   static boolean a(SleepTrackingService var0, fi.polar.polarflow.util.b_package.a var1) {
       return var0.a(var1);
    }
 
-   private boolean a(fi.polar.polarflow.util.b.a var1) {
+   private boolean a(fi.polar.polarflow.util.b_package.a var1) {
       SleepAnalysisResult var2 = SleepAnalysisResult.findByPath(var1.c());
       boolean var3;
       if (var2 != null && var1.a() <= var2.getSleepLength()) {
@@ -169,11 +169,11 @@ public class SleepTrackingService extends a {
    }
 
    // $FF: synthetic method
-   static void b(SleepTrackingService var0, fi.polar.polarflow.util.b.a var1, boolean var2) {
+   static void b(SleepTrackingService var0, fi.polar.polarflow.util.b_package.a var1, boolean var2) {
       var0.b(var1, var2);
    }
 
-   private void b(fi.polar.polarflow.util.b.a var1, boolean var2) {
+   private void b(fi.polar.polarflow.util.b_package.a var1, boolean var2) {
       (new ba(this, this.l, this.d, var1, var2)).run();
    }
 
@@ -249,6 +249,7 @@ public class SleepTrackingService extends a {
 
    private long i() {
       // $FF: Couldn't be decompiled
+      return 0;
    }
 
    // $FF: synthetic method
@@ -313,9 +314,9 @@ public class SleepTrackingService extends a {
       if (this.n != bd.a) {
          this.m.b();
          if (this.m.d()) {
-            fi.polar.polarflow.util.b.a var1 = this.m.e();
+            fi.polar.polarflow.util.b_package.a var1 = this.m.e();
             if (var1 != null && this.a(var1)) {
-               fi.polar.polarflow.util.b.c var3 = new fi.polar.polarflow.util.b.c(var1);
+               fi.polar.polarflow.util.b_package.c var3 = new fi.polar.polarflow.util.b_package.c(var1);
                byte var2;
                if (this.h()) {
                   var2 = 1;

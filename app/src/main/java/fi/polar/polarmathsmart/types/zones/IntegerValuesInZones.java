@@ -5,27 +5,27 @@ public class IntegerValuesInZones extends ValuesInZones {
       super(var1);
    }
 
-   protected Integer add(Integer var1, Integer var2) {
+   protected Integer add(Number var1, Number var2) {
       int var3 = 0;
       int var4;
       if (var1 != null) {
-         var4 = var1;
+         var4 = (Integer)var1;
       } else {
          var4 = 0;
       }
 
       if (var2 != null) {
-         var3 = var2;
+         var3 = (Integer)var2;
       }
 
       return var3 + var4;
    }
 
-   public void addValue(int var1, Integer var2) {
-      this.setValue(var1, (Integer)this.getValue(var1) + var2);
+   public void addValue(int var1, Number var2) {
+      this.setValue(var1, (Integer)this.getValue(var1) + (Integer)var2);
    }
 
-   protected boolean areTwoValuesEqual(Integer var1, Integer var2) {
+   protected boolean areTwoValuesEqual(Number var1, Number var2) {
       boolean var3;
       if (var1 != null) {
          var3 = var1.equals(var2);

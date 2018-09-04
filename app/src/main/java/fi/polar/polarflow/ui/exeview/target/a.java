@@ -17,8 +17,8 @@ import android.widget.TextView.BufferType;
 import fi.polar.polarflow.data.Training;
 import fi.polar.polarflow.data.orm.ExercisePhase;
 import fi.polar.polarflow.ui.exeview.x;
-import fi.polar.polarflow.ui.exeview.a.a.ah;
-import fi.polar.polarflow.ui.exeview.a.a.z;
+import fi.polar.polarflow.ui.exeview.a_package.a_package.ah;
+import fi.polar.polarflow.ui.exeview.a_package.a_package.z;
 import java.util.Collection;
 
 public class a extends x implements fi.polar.polarflow.ui.exeview.h {
@@ -78,7 +78,7 @@ public class a extends x implements fi.polar.polarflow.ui.exeview.h {
 
    private static void a(View var0, float var1) {
       var0.setVisibility(0);
-      fi.polar.polarflow.ui.exeview.target.a.b var2 = new fi.polar.polarflow.ui.exeview.target.a.b();
+      fi.polar.polarflow.ui.exeview.target.a_package.b var2 = new fi.polar.polarflow.ui.exeview.target.a_package.b();
       Bundle var3 = new Bundle();
       var3.putFloat(ah.r, var1);
       var2.b(var3);

@@ -64,12 +64,12 @@ public class d {
       this.h = var1;
       this.d = new k();
       this.c = android.support.v4.c.g.a(this.h);
-      o var3 = new o(fi.polar.a.a.a.c, var2);
+      o var3 = new o(fi.polar.a.a_package.a.c, var2);
       var3.a(this.a);
-      this.g.put(fi.polar.a.a.a.c, var3);
-      n var4 = new n(fi.polar.a.a.a.d, var2);
+      this.g.put(fi.polar.a.a_package.a.c, var3);
+      n var4 = new n(fi.polar.a.a_package.a.d, var2);
       var4.a(this.a);
-      this.g.put(fi.polar.a.a.a.d, var4);
+      this.g.put(fi.polar.a.a_package.a.d, var4);
    }
 
    // $FF: synthetic method
@@ -89,20 +89,20 @@ public class d {
 
    private void a(int var1, byte[] var2) {
       boolean var3 = true;
-      fi.polar.a.a.b.c(b, "onDataMtuCharNotificationChanged(status=" + fi.polar.a.a.b.b(var1) + ")");
+      fi.polar.a.a_package.b.c(b, "onDataMtuCharNotificationChanged(status=" + fi.polar.a.a_package.b.b(var1) + ")");
       if (var1 == 0 && var2 != null && var2.length > 0) {
          if (var2[0] != 1) {
             var3 = false;
          }
 
-         fi.polar.a.a.b.c(b, "onDataMtuCharNotificationChanged(enabled=" + var3 + ")");
+         fi.polar.a.a_package.b.c(b, "onDataMtuCharNotificationChanged(enabled=" + var3 + ")");
          if (var3) {
             this.a(var3);
          } else if (!this.q()) {
             this.b(257, (byte[])null);
          }
       } else {
-         fi.polar.a.a.b.c(b, "onDataMtuCharNotificationChanged(failed, start disconnecting)");
+         fi.polar.a.a_package.b.c(b, "onDataMtuCharNotificationChanged(failed, start disconnecting)");
          if (!this.q()) {
             this.b(257, (byte[])null);
          }
@@ -125,18 +125,18 @@ public class d {
    }
 
    private void a(i var1) {
-      fi.polar.a.a.b.b(b, "setState(" + this.e + "->" + var1 + ")");
+      fi.polar.a.a_package.b.b(b, "setState(" + this.e + "->" + var1 + ")");
       this.e = var1;
    }
 
    private void a(boolean var1) {
-      fi.polar.a.a.b.c(b, "onNotificationsSubscribed(enabled=" + var1 + ")");
+      fi.polar.a.a_package.b.c(b, "onNotificationsSubscribed(enabled=" + var1 + ")");
       if (var1) {
          if (!this.r()) {
             this.c(257);
          }
       } else {
-         fi.polar.a.a.b.c(b, "onNotificationsSubscribed(final characteristic disabled, disconnect from GATT)");
+         fi.polar.a.a_package.b.c(b, "onNotificationsSubscribed(final characteristic disabled, disconnect from GATT)");
          this.t();
       }
 
@@ -156,7 +156,7 @@ public class d {
          var2 = false;
       }
 
-      fi.polar.a.a.b.c(b, "setCharacteristicNotification(success=" + var2 + ")");
+      fi.polar.a.a_package.b.c(b, "setCharacteristicNotification(success=" + var2 + ")");
       return var2;
    }
 
@@ -178,24 +178,24 @@ public class d {
          var3 = this.d.a(var4);
       }
 
-      fi.polar.a.a.b.c(b, "readCharacteristic(serviceId=" + var1 + ", characteristicId=" + var2 + ", success=" + var3 + ")");
+      fi.polar.a.a_package.b.c(b, "readCharacteristic(serviceId=" + var1 + ", characteristicId=" + var2 + ", success=" + var3 + ")");
       return var3;
    }
 
    private boolean a(UUID var1, UUID var2, boolean var3) {
       boolean var4 = false;
       BluetoothGattCharacteristic var5 = this.b(var1, var2);
-      fi.polar.a.a.b.c(b, "setCharacteristicNotification(serviceId=" + var1 + ", characteristicId=" + var2 + ", enable=" + var3 + ")");
+      fi.polar.a.a_package.b.c(b, "setCharacteristicNotification(serviceId=" + var1 + ", characteristicId=" + var2 + ", enable=" + var3 + ")");
       if (var5 != null) {
-         BluetoothGattDescriptor var6 = var5.getDescriptor(fi.polar.a.a.a.a);
+         BluetoothGattDescriptor var6 = var5.getDescriptor(fi.polar.a.a_package.a.a);
          if (var6 != null) {
             var3 = this.a(var6, var3);
          } else {
-            fi.polar.a.a.b.d(b, "setCharacteristicNotification(Could not find Client Characteristic Configuration descriptor)");
+            fi.polar.a.a_package.b.d(b, "setCharacteristicNotification(Could not find Client Characteristic Configuration descriptor)");
             var3 = var4;
          }
       } else {
-         fi.polar.a.a.b.d(b, "setCharacteristicNotification(Could not find characteristic)");
+         fi.polar.a.a_package.b.d(b, "setCharacteristicNotification(Could not find characteristic)");
          var3 = var4;
       }
 
@@ -204,11 +204,12 @@ public class d {
 
    private boolean a(UUID param1, UUID param2, byte[] param3) {
       // $FF: Couldn't be decompiled
+      return true;
    }
 
    private BluetoothGattCharacteristic b(UUID var1, UUID var2) {
       BluetoothGattService var3 = this.d.a(var1);
-      fi.polar.a.a.b.c(b, "findCharacteristic=" + var1 + ", characteristicId=" + var2 + ")");
+      fi.polar.a.a_package.b.c(b, "findCharacteristic=" + var1 + ", characteristicId=" + var2 + ")");
       BluetoothGattCharacteristic var4;
       if (var3 != null) {
          var4 = var3.getCharacteristic(var2);
@@ -241,7 +242,7 @@ public class d {
          }
       }
 
-      fi.polar.a.a.b.c(b, "getReconnectMode(gattStatus=" + var1 + ", connectionState=" + this.e + ", mConnectFailCount=" + this.i + ", reconnectMode=" + var3 + ")");
+      fi.polar.a.a_package.b.c(b, "getReconnectMode(gattStatus=" + var1 + ", connectionState=" + this.e + ", mConnectFailCount=" + this.i + ", reconnectMode=" + var3 + ")");
       return var3;
    }
 
@@ -252,16 +253,16 @@ public class d {
 
    private void b(int var1, byte[] var2) {
       boolean var3 = true;
-      fi.polar.a.a.b.c(b, "onH2DCharNotificationChanged(status=" + fi.polar.a.a.b.b(var1) + ")");
+      fi.polar.a.a_package.b.c(b, "onH2DCharNotificationChanged(status=" + fi.polar.a.a_package.b.b(var1) + ")");
       if (var1 == 0 && var2 != null && var2.length > 0) {
          if (var2[0] != 1) {
             var3 = false;
          }
 
-         fi.polar.a.a.b.c(b, "onH2DCharNotificationChanged(enabled=" + var3 + ")");
+         fi.polar.a.a_package.b.c(b, "onH2DCharNotificationChanged(enabled=" + var3 + ")");
          this.a(var3);
       } else {
-         fi.polar.a.a.b.c(b, "onH2DCharNotificationChanged(failed, disconnect)");
+         fi.polar.a.a_package.b.c(b, "onH2DCharNotificationChanged(failed, disconnect)");
          this.t();
       }
 
@@ -279,7 +280,7 @@ public class d {
    }
 
    private void c(int var1) {
-      fi.polar.a.a.b.c(b, "onDataMtuCharRead(status=" + fi.polar.a.a.b.b(var1) + ")");
+      fi.polar.a.a_package.b.c(b, "onDataMtuCharRead(status=" + fi.polar.a.a_package.b.b(var1) + ")");
       this.m();
       if (var1 == 0) {
          this.a(fi.polar.a.i.c);
@@ -343,12 +344,12 @@ public class d {
    }
 
    private void g() {
-      a var1 = (a)this.g.get(fi.polar.a.a.a.c);
+      a var1 = (a)this.g.get(fi.polar.a.a_package.a.c);
       if (!var1.c()) {
          var1.a();
       }
 
-      var1 = (a)this.g.get(fi.polar.a.a.a.d);
+      var1 = (a)this.g.get(fi.polar.a.a_package.a.d);
       if (!var1.c()) {
          var1.a();
       }
@@ -361,12 +362,12 @@ public class d {
    }
 
    private void h() {
-      a var1 = (a)this.g.get(fi.polar.a.a.a.c);
+      a var1 = (a)this.g.get(fi.polar.a.a_package.a.c);
       if (var1.c()) {
          var1.b();
       }
 
-      var1 = (a)this.g.get(fi.polar.a.a.a.d);
+      var1 = (a)this.g.get(fi.polar.a.a_package.a.d);
       if (var1.c()) {
          var1.b();
       }
@@ -381,7 +382,7 @@ public class d {
    @TargetApi(23)
    private void i() {
       this.a(this.j);
-      fi.polar.a.a.b.c(b, "connect(..attempt connectGatt)");
+      fi.polar.a.a_package.b.c(b, "connect(..attempt connectGatt)");
       this.a(this.o, this.h, true, this.v, 2);
    }
 
@@ -397,7 +398,7 @@ public class d {
 
    private boolean j() {
       this.a(this.j);
-      fi.polar.a.a.b.c(b, "reconnect(...attempt connect, gatt=" + this.d + ")");
+      fi.polar.a.a_package.b.c(b, "reconnect(...attempt connect, gatt=" + this.d + ")");
       return this.d.a();
    }
 
@@ -439,23 +440,23 @@ public class d {
    }
 
    private boolean o() {
-      fi.polar.a.a.b.c(b, "enableDataMtuCharNotification()");
-      return this.a(fi.polar.a.a.a.b, fi.polar.a.a.a.c, true);
+      fi.polar.a.a_package.b.c(b, "enableDataMtuCharNotification()");
+      return this.a(fi.polar.a.a_package.a.b, fi.polar.a.a_package.a.c, true);
    }
 
    private boolean p() {
-      fi.polar.a.a.b.c(b, "disableDataMtuCharNotification()");
-      return this.a(fi.polar.a.a.a.b, fi.polar.a.a.a.c, false);
+      fi.polar.a.a_package.b.c(b, "disableDataMtuCharNotification()");
+      return this.a(fi.polar.a.a_package.a.b, fi.polar.a.a_package.a.c, false);
    }
 
    private boolean q() {
-      fi.polar.a.a.b.c(b, "disableH2DCharNotification()");
-      return this.a(fi.polar.a.a.a.b, fi.polar.a.a.a.e, false);
+      fi.polar.a.a_package.b.c(b, "disableH2DCharNotification()");
+      return this.a(fi.polar.a.a_package.a.b, fi.polar.a.a_package.a.e, false);
    }
 
    private boolean r() {
-      fi.polar.a.a.b.c(b, "readDataMtuChar()");
-      return this.a(fi.polar.a.a.a.b, fi.polar.a.a.a.c);
+      fi.polar.a.a_package.b.c(b, "readDataMtuChar()");
+      return this.a(fi.polar.a.a_package.a.b, fi.polar.a.a_package.a.c);
    }
 
    private void s() {
@@ -474,7 +475,7 @@ public class d {
 
          var2.a(new Intent(var3));
       } else {
-         fi.polar.a.a.b.a(b, "handleDisconnect(unexpected state, disconnected)");
+         fi.polar.a.a_package.b.a(b, "handleDisconnect(unexpected state, disconnected)");
       }
 
    }
@@ -502,14 +503,14 @@ public class d {
             this.a(257, (byte[])null);
          }
       } else {
-         fi.polar.a.a.b.d(b, "Already disconnected");
+         fi.polar.a.a_package.b.d(b, "Already disconnected");
       }
 
    }
 
    public boolean a(BluetoothDevice var1) {
       boolean var2 = false;
-      fi.polar.a.a.b.b(b, "connect(name=\"" + var1.getName() + "\", addr=" + var1.getAddress() + ", connectionState=" + this.e + ")");
+      fi.polar.a.a_package.b.b(b, "connect(name=\"" + var1.getName() + "\", addr=" + var1.getAddress() + ", connectionState=" + this.e + ")");
       if (this.e == fi.polar.a.i.a) {
          this.a(fi.polar.a.i.b);
          this.o = var1;
@@ -519,7 +520,7 @@ public class d {
          this.i();
          var2 = true;
       } else {
-         fi.polar.a.a.b.b(b, "connect(failed, already connected/connecting)");
+         fi.polar.a.a_package.b.b(b, "connect(failed, already connected/connecting)");
       }
 
       return var2;

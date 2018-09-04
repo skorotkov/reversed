@@ -52,7 +52,7 @@ public class DailyActivityService extends k {
    private ai s;
    private d t;
    private f u;
-   private fi.polar.polarflow.service.activity.a.d v;
+   private fi.polar.polarflow.service.activity.a_package.d v;
    private aj w;
    private ad x;
    private bv y;
@@ -90,7 +90,7 @@ public class DailyActivityService extends k {
       return var1;
    }
 
-   private fi.polar.polarflow.service.activity.a.o a(am var1) {
+   private fi.polar.polarflow.service.activity.a_package.o a(am var1) {
       Object var2;
       if (var1 instanceof ao) {
          var2 = this.a((ao)var1);
@@ -98,10 +98,10 @@ public class DailyActivityService extends k {
          var2 = this.a((aq)var1);
       }
 
-      return (fi.polar.polarflow.service.activity.a.o)var2;
+      return (fi.polar.polarflow.service.activity.a_package.o)var2;
    }
 
-   private fi.polar.polarflow.service.activity.a.p a(ao var1) {
+   private fi.polar.polarflow.service.activity.a_package.p a(ao var1) {
       fi.polar.polarflow.b_package.c var2 = this.b(var1.b);
       if (var2 != null) {
          var2.a(var1.a, var1.b);
@@ -109,7 +109,7 @@ public class DailyActivityService extends k {
 
       ar var3 = this.c(var1.b);
       an var4 = this.a(var1.b, f);
-      fi.polar.polarflow.service.activity.a.p var12;
+      fi.polar.polarflow.service.activity.a_package.p var12;
       if (var4 == null && a(var3) && !this.d(var1.b) && this.j.size() < 30) {
          var12 = null;
       } else {
@@ -145,7 +145,7 @@ public class DailyActivityService extends k {
          int var10 = this.t.a(var9, var1.c, var7);
          var9 = this.t.c();
          (new StringBuilder()).append(var14).append(", FinalMet30s=").append(var9).toString();
-         var9 = fi.polar.polarflow.a.a.a(19, var9);
+         var9 = fi.polar.polarflow.a_package.a.a(19, var9);
          bv var11 = this.y;
          if (var11 != null) {
             if (var4 != null && var4.c != 0.0F) {
@@ -159,17 +159,17 @@ public class DailyActivityService extends k {
          this.w.a(var17, this.t.d(), this.t.a(), this.t.b());
          this.C = this.a(var17);
          this.z = var17;
-         var12 = new fi.polar.polarflow.service.activity.a.p(var17, var9, b(var3), var10);
+         var12 = new fi.polar.polarflow.service.activity.a_package.p(var17, var9, b(var3), var10);
       }
 
       return var12;
    }
 
-   private fi.polar.polarflow.service.activity.a.s a(aq var1) {
+   private fi.polar.polarflow.service.activity.a_package.s a(aq var1) {
       DateTime var2 = this.q.a(var1.b);
       this.u.a(var1.a, var2);
       this.z = var2;
-      return new fi.polar.polarflow.service.activity.a.s(var2, (float)var1.a);
+      return new fi.polar.polarflow.service.activity.a_package.s(var2, (float)var1.a);
    }
 
    // $FF: synthetic method
@@ -180,6 +180,7 @@ public class DailyActivityService extends k {
 
    private an a(long param1, long param3) {
       // $FF: Couldn't be decompiled
+      return null;
    }
 
    // $FF: synthetic method
@@ -275,6 +276,7 @@ public class DailyActivityService extends k {
 
    private List b(long param1, long param3) {
       // $FF: Couldn't be decompiled
+      return null;
    }
 
    public static void b(Context var0) {
@@ -298,6 +300,7 @@ public class DailyActivityService extends k {
 
    private ar c(long param1) {
       // $FF: Couldn't be decompiled
+      return null;
    }
 
    private void c(int var1) {
@@ -501,7 +504,7 @@ public class DailyActivityService extends k {
       if (this.B == fi.polar.polarflow.service.activity.y.a) {
          this.B = fi.polar.polarflow.service.activity.y.b;
          this.n();
-         this.v.a((fi.polar.polarflow.service.activity.a.f)(new n(this)));
+         this.v.a((fi.polar.polarflow.service.activity.a_package.f)(new n(this)));
          this.E = this.bindService(new Intent(this, PresyncService.class), this.M, 1);
       }
 
@@ -545,6 +548,7 @@ public class DailyActivityService extends k {
 
    protected int e() {
       // $FF: Couldn't be decompiled
+      return 0;
    }
 
    public void h() {
@@ -598,7 +602,7 @@ public class DailyActivityService extends k {
       }
 
       this.r = new z(this, this.d);
-      this.v = new fi.polar.polarflow.service.activity.a.d(this, this.c, this.q, this.r);
+      this.v = new fi.polar.polarflow.service.activity.a_package.d(this, this.c, this.q, this.r);
       this.s = new ai();
       this.t = new d();
       this.u = new f(this.c, this.q, this.r);

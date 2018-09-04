@@ -32,7 +32,7 @@ public class g extends fi.polar.polarflow.ui.exeview.a implements bd {
    }
 
    private void h() {
-      h var1 = ((fi.polar.polarflow.ui.exeview.target.a.n)this.h.get(0)).f();
+      h var1 = ((fi.polar.polarflow.ui.exeview.target.a_package.n)this.h.get(0)).f();
       if (var1 == fi.polar.polarflow.ui.exeview.target.h.d || var1 == fi.polar.polarflow.ui.exeview.target.h.e) {
          if (this.i.getCurrentPhase() != null) {
             int var2 = this.i.getCurrentPhase().getGoalType();
@@ -93,7 +93,7 @@ public class g extends fi.polar.polarflow.ui.exeview.a implements bd {
       Iterator var2 = this.h.iterator();
 
       while(var2.hasNext()) {
-         ((fi.polar.polarflow.ui.exeview.target.a.n)var2.next()).a((Intent)var1);
+         ((fi.polar.polarflow.ui.exeview.target.a_package.n)var2.next()).a((Intent)var1);
       }
 
    }
@@ -112,7 +112,7 @@ public class g extends fi.polar.polarflow.ui.exeview.a implements bd {
       Iterator var2 = this.h.iterator();
 
       while(var2.hasNext()) {
-         ((fi.polar.polarflow.ui.exeview.target.a.n)var2.next()).a((Collection)var1);
+         ((fi.polar.polarflow.ui.exeview.target.a_package.n)var2.next()).a((Collection)var1);
       }
 
    }
@@ -121,7 +121,7 @@ public class g extends fi.polar.polarflow.ui.exeview.a implements bd {
       Iterator var2 = this.h.iterator();
 
       while(var2.hasNext()) {
-         ((fi.polar.polarflow.ui.exeview.target.a.n)var2.next()).a_(var1);
+         ((fi.polar.polarflow.ui.exeview.target.a_package.n)var2.next()).a_(var1);
       }
 
       super.a_(var1);
@@ -132,7 +132,7 @@ public class g extends fi.polar.polarflow.ui.exeview.a implements bd {
       Iterator var1 = this.h.iterator();
 
       while(var1.hasNext()) {
-         ((fi.polar.polarflow.ui.exeview.target.a.n)var1.next()).d();
+         ((fi.polar.polarflow.ui.exeview.target.a_package.n)var1.next()).d();
       }
 
    }
@@ -141,7 +141,7 @@ public class g extends fi.polar.polarflow.ui.exeview.a implements bd {
       Iterator var1 = this.h.iterator();
 
       while(var1.hasNext()) {
-         ((fi.polar.polarflow.ui.exeview.target.a.n)var1.next()).d_();
+         ((fi.polar.polarflow.ui.exeview.target.a_package.n)var1.next()).d_();
       }
 
       super.d_();
@@ -177,7 +177,7 @@ public class g extends fi.polar.polarflow.ui.exeview.a implements bd {
       Iterator var1 = this.h.iterator();
 
       while(var1.hasNext()) {
-         ((fi.polar.polarflow.ui.exeview.target.a.n)var1.next()).b();
+         ((fi.polar.polarflow.ui.exeview.target.a_package.n)var1.next()).b();
       }
 
       super.onDestroyView();

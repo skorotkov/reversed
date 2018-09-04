@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 public abstract class a {
-   private final OutputStream a;
+   private final OutputStream a = null;
    private boolean b;
 
    private boolean c() {

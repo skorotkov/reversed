@@ -5,9 +5,9 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.LinearLayout.LayoutParams;
+
 import fi.polar.polarflow.ui.custom.PolarGlyphView;
-import fi.polar.polarflow.ui.myday.a.d;
+import fi.polar.polarflow.ui.myday.a_package.d;
 import java.util.Iterator;
 
 public class SleepRatingGlyphsView extends LinearLayout {

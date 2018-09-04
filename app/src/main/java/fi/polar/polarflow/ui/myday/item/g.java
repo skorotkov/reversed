@@ -19,14 +19,14 @@ import org.joda.time.Period;
 public class g extends c {
    private static final String c = g.class.getSimpleName();
    private static final SparseIntArray j = new h(5);
-   private final fi.polar.polarflow.util.b.a d;
+   private final fi.polar.polarflow.util.b_package.a d;
    private final LocalDate e;
    private Context f;
    private Handler g;
    private long h;
    private boolean i = false;
 
-   public g(fi.polar.polarflow.util.b.a var1, String var2, LocalDate var3) {
+   public g(fi.polar.polarflow.util.b_package.a var1, String var2, LocalDate var3) {
       super(var1.b.getMillis(), 0, var2, true);
       this.d = var1;
       this.e = var3;
@@ -58,8 +58,8 @@ public class g extends c {
       Period var2 = new Period(ab.a(TimeUnit.SECONDS.toMillis((long)this.d.d)));
       ((TextView)var1.findViewById(2131755423)).setText(String.valueOf(var2.getHours()));
       ((TextView)var1.findViewById(2131755425)).setText(String.valueOf(var2.getMinutes()));
-      ((TextView)var1.findViewById(2131755429)).setText(fi.polar.polarflow.a.a.a(20, this.d.i));
-      ((TextView)var1.findViewById(2131755421)).setText(fi.polar.polarflow.a.a.a(21, this.d.j));
+      ((TextView)var1.findViewById(2131755429)).setText(fi.polar.polarflow.a_package.a.a(20, this.d.i));
+      ((TextView)var1.findViewById(2131755421)).setText(fi.polar.polarflow.a_package.a.a(21, this.d.j));
       ((PolarGlyphView)var1.findViewById(2131755420)).setGlyph(this.f.getText(j.get(this.d.k, 2131231150)));
    }
 

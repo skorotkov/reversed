@@ -38,19 +38,19 @@ abstract class a implements PftpDeviceCallbacks {
       if (!this.d) {
          this.d = true;
          this.c.clear();
-         fi.polar.a.a.b.b("AbstractPftpHandler", "start(uuid=" + this.f + ")");
+         fi.polar.a.a_package.b.b("AbstractPftpHandler", "start(uuid=" + this.f + ")");
          this.g = new HandlerThread("AbstractPftpHandler.OPERATION_HANDLER_THREAD");
          this.g.start();
          this.h = new Handler(this.g.getLooper());
       } else {
-         fi.polar.a.a.b.d("AbstractPftpHandler", "start(already started, uuid=" + this.f + ")");
+         fi.polar.a.a_package.b.d("AbstractPftpHandler", "start(already started, uuid=" + this.f + ")");
          var1 = false;
       }
 
       return var1;
    }
 
-   byte[] a(int var1) {
+   byte[] a(int var1) throws InterruptedException {
       return (byte[])this.c.poll((long)var1, TimeUnit.MILLISECONDS);
    }
 
@@ -59,11 +59,11 @@ abstract class a implements PftpDeviceCallbacks {
    boolean b() {
       boolean var1 = false;
       if (this.d) {
-         fi.polar.a.a.b.b("AbstractPftpHandler", "stop(uuid=" + this.f + ")");
+         fi.polar.a.a_package.b.b("AbstractPftpHandler", "stop(uuid=" + this.f + ")");
          this.d = false;
          var1 = this.g.quitSafely();
       } else {
-         fi.polar.a.a.b.d("AbstractPftpHandler", "stop(already stopped, uuid=" + this.f + ")");
+         fi.polar.a.a_package.b.d("AbstractPftpHandler", "stop(already stopped, uuid=" + this.f + ")");
       }
 
       return var1;
@@ -80,7 +80,7 @@ abstract class a implements PftpDeviceCallbacks {
    abstract void d();
 
    public void deviceStreamFailure(int var1, boolean var2) {
-      fi.polar.a.a.b.d("AbstractPftpHandler", "deviceStreamFailure(error=" + var1 + ", notification=" + var2 + ")");
+      fi.polar.a.a_package.b.d("AbstractPftpHandler", "deviceStreamFailure(error=" + var1 + ", notification=" + var2 + ")");
    }
 
    boolean e() {
@@ -103,7 +103,7 @@ abstract class a implements PftpDeviceCallbacks {
    }
 
    public byte[] readNotificationPacket(int[] var1, int var2) {
-      fi.polar.a.a.b.c("AbstractPftpHandler", "readNotificationPacket()");
+      fi.polar.a.a_package.b.c("AbstractPftpHandler", "readNotificationPacket()");
       return this.readPacket(var1, var2);
    }
 
@@ -116,7 +116,7 @@ abstract class a implements PftpDeviceCallbacks {
          try {
             var4 = this.a(var2);
          } catch (InterruptedException var6) {
-            fi.polar.a.a.b.a("AbstractPftpHandler", "readPacket(interrupted)", var6);
+            fi.polar.a.a_package.b.a("AbstractPftpHandler", "readPacket(interrupted)", var6);
             var7 = 200;
             break label31;
          }
@@ -136,7 +136,7 @@ abstract class a implements PftpDeviceCallbacks {
          var5 = 208;
       }
 
-      fi.polar.a.a.e.a(var5, var1);
+      fi.polar.a.a_package.e.a(var5, var1);
       if (var7 == 207 && this.e != null) {
          this.e.a();
       }
@@ -149,11 +149,11 @@ abstract class a implements PftpDeviceCallbacks {
    }
 
    public void sendProgress(byte[] var1, long var2, long var4) {
-      fi.polar.a.a.b.c("AbstractPftpHandler", "sendProgress()");
+      fi.polar.a.a_package.b.c("AbstractPftpHandler", "sendProgress()");
    }
 
    public int writeNotificationPacket(byte[] var1, int var2) {
-      fi.polar.a.a.b.c("AbstractPftpHandler", "writeNotificationPacket()");
+      fi.polar.a.a_package.b.c("AbstractPftpHandler", "writeNotificationPacket()");
       return this.writePacket(var1, var2);
    }
 

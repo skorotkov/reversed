@@ -30,6 +30,7 @@ class al extends fi.polar.polarflow.service.a {
 
    private long k() {
       // $FF: Couldn't be decompiled
+      return 0;
    }
 
    public Boolean a(long var1) {

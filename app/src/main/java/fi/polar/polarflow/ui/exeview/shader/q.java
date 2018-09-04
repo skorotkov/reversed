@@ -21,7 +21,8 @@ public class q extends fi.polar.polarflow.ui.custom.p {
       super(var1, var2);
    }
 
-   protected Class a(p var1) {
+   protected Class a(Enum var) {
+      p var1 = (p)var;
       return (Class)d.get(var1);
    }
 }

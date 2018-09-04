@@ -36,7 +36,7 @@ public class RecoveryTimeCalculatorAndroidImpl implements RecoveryTimeCalculator
       return var2;
    }
 
-   public DailyTotalLoad calculateDailyTotalLoad(List var1, List var2, List var3, Gender var4, int var5, double var6, double var8, int var10, int var11, int var12, int var13, int var14, double var15, double var17, double var19, double var21, double var23, double var25, int var27) {
+   public DailyTotalLoad calculateDailyTotalLoad(List var1, List var2, List var3, Gender var4, int var5, double var6, double var8, int var10, int var11, int var12, int var13, int var14, double var15, double var17, double var19, double var21, double var23, double var25, int var27) throws InvalidNumberOfDataPointsException {
       if (var1.size() != var2.size()) {
          throw new InvalidNumberOfDataPointsException("mets and sportFactors need to be equal in size!");
       } else {

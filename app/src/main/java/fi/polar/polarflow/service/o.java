@@ -94,7 +94,7 @@ public class o {
       }
 
       var3.add(fi.polar.polarflow.util.w.a(var4));
-      (new fi.polar.polarflow.service.datalayer.t(var1, var2)).execute(var3.toArray(new fi.polar.polarflow.service.datalayer.s[var3.size()]));
+      (new fi.polar.polarflow.service.datalayer.t(var1, var2)).execute((fi.polar.polarflow.service.datalayer.s[])var3.toArray(new fi.polar.polarflow.service.datalayer.s[var3.size()]));
    }
 
    public void a(ExerciseSensors var1) {

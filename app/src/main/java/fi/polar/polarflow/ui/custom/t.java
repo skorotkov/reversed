@@ -1,5 +1,6 @@
 package fi.polar.polarflow.ui.custom;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.v7.widget.ey;
 import android.view.LayoutInflater;
@@ -44,7 +45,8 @@ public class t extends c {
       this.c();
    }
 
-   public void a(v var1, int var2) {
+   public void a(ey var, int var2) {
+      v var1 = (v)var;
       var1.n.setText((CharSequence)this.b.get(var2));
       var1.n.setAlpha(0.5F);
       if (this.c == var2) {

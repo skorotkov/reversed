@@ -3,5 +3,5 @@ package fi.polar.polarmathsmart.recoverystatus;
 import java.util.List;
 
 public interface AvgSportFactorForHalfHourCalculator {
-   double calculateAvgSportFactorForHalfHour(List var1, List var2);
+   double calculateAvgSportFactorForHalfHour(List var1, List var2) throws InvalidNumberOfDataPointsException;
 }

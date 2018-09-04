@@ -12,7 +12,7 @@ class ab implements OnClickListener {
    }
 
    public void onClick(View var1) {
-      fi.polar.polarflow.ui.exewait.a.e var2 = fi.polar.polarflow.ui.exewait.a.e.d();
+      fi.polar.polarflow.ui.exewait.a_package.e var2 = fi.polar.polarflow.ui.exewait.a_package.e.d();
       var2.a(this.a);
       var2.show(this.a.getChildFragmentManager(), "pool_selection_dialog");
    }

@@ -120,5 +120,6 @@ public class k {
 
    public boolean e() {
       // $FF: Couldn't be decompiled
+      return true;
    }
 }

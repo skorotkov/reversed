@@ -6,24 +6,24 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import fi.polar.polarflow.ui.NotificationReceiver;
 import fi.polar.polarflow.ui.o;
-import fi.polar.polarflow.ui.myday.sleep.a.f;
-import fi.polar.polarflow.ui.myday.sleep.a.g;
-import fi.polar.polarflow.ui.myday.sleep.a.j;
-import fi.polar.polarflow.ui.myday.sleep.a.k;
+import fi.polar.polarflow.ui.myday.sleep.a_package.f;
+import fi.polar.polarflow.ui.myday.sleep.a_package.g;
+import fi.polar.polarflow.ui.myday.sleep.a_package.j;
+import fi.polar.polarflow.ui.myday.sleep.a_package.k;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SleepResultActivity extends Activity {
    private List a() {
       ArrayList var1 = new ArrayList();
-      fi.polar.polarflow.util.b.a var2 = (fi.polar.polarflow.util.b.a)this.getIntent().getParcelableExtra("SleepResultActivity.sleep_analysis");
+      fi.polar.polarflow.util.b_package.a var2 = (fi.polar.polarflow.util.b_package.a)this.getIntent().getParcelableExtra("SleepResultActivity.sleep_analysis");
       if (var2 != null) {
          var1.add(new k(var2.d));
          var1.add(new j(var2.a, var2.b));
          var1.add(new f(var2.i, var2.e));
-         var1.add(new fi.polar.polarflow.ui.myday.sleep.a.c(var2.j, var2.k));
-         var1.add(new fi.polar.polarflow.ui.myday.sleep.a.a(var2));
-         var1.add(new fi.polar.polarflow.ui.myday.sleep.a.b(var2.e, var2.f));
+         var1.add(new fi.polar.polarflow.ui.myday.sleep.a_package.c(var2.j, var2.k));
+         var1.add(new fi.polar.polarflow.ui.myday.sleep.a_package.a(var2));
+         var1.add(new fi.polar.polarflow.ui.myday.sleep.a_package.b(var2.e, var2.f));
          var1.add(new g(var2.h));
       }
 

@@ -18,7 +18,7 @@ class n extends a {
    }
 
    void b(byte[] var1) {
-      fi.polar.a.a.b.d("D2HPftpHandler", "Host sending data to D2H characteristic, ignored");
+      fi.polar.a.a_package.b.d("D2HPftpHandler", "Host sending data to D2H characteristic, ignored");
    }
 
    void d() {
@@ -26,12 +26,12 @@ class n extends a {
    }
 
    public byte[] deviceProcessQueryRequest(int[] var1, int var2, byte[] var3) {
-      fi.polar.a.a.e.a(201, var1);
+      fi.polar.a.a_package.e.a(201, var1);
       return new byte[0];
    }
 
    public byte[] deviceProcessReadRequest(int[] var1, byte[] var2) {
-      fi.polar.a.a.e.a(201, var1);
+      fi.polar.a.a_package.e.a(201, var1);
       return new byte[0];
    }
 
@@ -43,7 +43,7 @@ class n extends a {
    }
 
    public byte[] deviceWaitForRequest(int[] var1) {
-      fi.polar.a.a.e.a(201, var1);
+      fi.polar.a.a_package.e.a(201, var1);
       return new byte[0];
    }
 

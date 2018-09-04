@@ -7,7 +7,7 @@ import fi.polar.polarflow.data.Training;
 import fi.polar.polarflow.data.orm.SportProfile;
 import fi.polar.polarflow.data.orm.SwimmingStyleStatistics;
 import fi.polar.polarflow.data.orm.Zones;
-import fi.polar.polarflow.ui.exeview.a.a.ah;
+import fi.polar.polarflow.ui.exeview.a_package.a_package.ah;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -180,7 +180,7 @@ public class h {
       ArrayList var3 = new ArrayList();
 
       for(int var4 = 0; var4 < var0.size(); ++var4) {
-         fi.polar.polarflow.ui.exeview.summary.a.f var5 = new fi.polar.polarflow.ui.exeview.summary.a.f();
+         fi.polar.polarflow.ui.exeview.summary.a_package.f var5 = new fi.polar.polarflow.ui.exeview.summary.a_package.f();
          var5.a((g)var0.get(var4));
          var5.a(var2);
          var5.a((List)var3);

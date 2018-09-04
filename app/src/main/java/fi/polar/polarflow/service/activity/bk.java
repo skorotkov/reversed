@@ -13,8 +13,8 @@ abstract class bk implements Runnable {
       this(var1);
    }
 
-   protected fi.polar.polarflow.util.b.a a(boolean var1, boolean var2) {
-      fi.polar.polarflow.util.b.a var3;
+   protected fi.polar.polarflow.util.b_package.a a(boolean var1, boolean var2) {
+      fi.polar.polarflow.util.b_package.a var3;
       if (SleepTrackingService.a(this.a).d()) {
          var3 = SleepTrackingService.a(this.a).e();
          if (var3 != null && SleepTrackingService.a(this.a, var3)) {

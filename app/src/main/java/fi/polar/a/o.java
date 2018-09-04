@@ -2,6 +2,8 @@ package fi.polar.a;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 import java.util.UUID;
+
+import protocol.PftpRequest;
 import protocol.PftpRequest$PbPFtpOperation;
 
 class o extends a {
@@ -12,7 +14,7 @@ class o extends a {
    private m a(PftpRequest$PbPFtpOperation var1, byte[] var2) {
       String var3 = var1.getPath();
       boolean var4 = var3.endsWith("/");
-      fi.polar.a.a.b.c("DataPftpHandler", "handleClientOperation: " + var1.getCommand().getNumber() + ", path: " + var3 + ", isDirectory: " + var4);
+      fi.polar.a.a_package.b.c("DataPftpHandler", "handleClientOperation: " + var1.getCommand().getNumber() + ", path: " + var3 + ", isDirectory: " + var4);
       m var5;
       switch(var1.getCommand().getNumber()) {
       case 0:
@@ -40,7 +42,7 @@ class o extends a {
          }
          break;
       default:
-         fi.polar.a.a.b.a("DataPftpHandler", "Unrecognized operation: " + var1.getCommand().getNumber());
+         fi.polar.a.a_package.b.a("DataPftpHandler", "Unrecognized operation: " + var1.getCommand().getNumber());
          var5 = new m(201, (byte[])null);
       }
 
@@ -74,7 +76,7 @@ class o extends a {
    }
 
    public byte[] deviceProcessQueryRequest(int[] var1, int var2, byte[] var3) {
-      fi.polar.a.a.b.c("DataPftpHandler", "deviceProcessQueryRequest(id=" + var2 + ")");
+      fi.polar.a.a_package.b.c("DataPftpHandler", "deviceProcessQueryRequest(id=" + var2 + ")");
       m var5 = this.a.a(var2, var3);
       if (var5 != null) {
          var2 = var5.a();
@@ -82,7 +84,7 @@ class o extends a {
          var2 = 200;
       }
 
-      fi.polar.a.a.e.a(var2, var1);
+      fi.polar.a.a_package.e.a(var2, var1);
       byte[] var4;
       if (var5 != null && var5.b() != null) {
          var4 = var5.b();
@@ -99,10 +101,13 @@ class o extends a {
       m var7;
       try {
          var7 = this.a(PftpRequest$PbPFtpOperation.parseFrom(var2), (byte[])null);
-      } catch (InvalidProtocolBufferException var5) {
-         var5.printStackTrace();
+      } catch (Exception ex) {
          var7 = (m)var3;
       }
+//      catch (InvalidProtocolBufferException var5) {
+//         var5.printStackTrace();
+//         var7 = (m)var3;
+//      }
 
       int var4;
       if (var7 != null) {
@@ -111,7 +116,7 @@ class o extends a {
          var4 = 200;
       }
 
-      fi.polar.a.a.e.a(var4, var1);
+      fi.polar.a.a_package.e.a(var4, var1);
       byte[] var6;
       if (var7 != null && var7.b() != null) {
          var6 = var7.b();
@@ -127,7 +132,7 @@ class o extends a {
    }
 
    public void deviceReadRequestCompleted(int var1) {
-      fi.polar.a.a.b.c("DataPftpHandler", "deviceReadRequestCompleted(error=" + var1 + ")");
+      fi.polar.a.a_package.b.c("DataPftpHandler", "deviceReadRequestCompleted(error=" + var1 + ")");
    }
 
    public byte[] deviceWaitForRequest(int[] var1) {
@@ -135,11 +140,11 @@ class o extends a {
    }
 
    public void deviceWriteRequestCompleted(int var1, byte[] var2, byte[] var3) {
-      fi.polar.a.a.b.c("DataPftpHandler", "deviceWriteRequestCompleted(error=" + var1 + ")");
+      fi.polar.a.a_package.b.c("DataPftpHandler", "deviceWriteRequestCompleted(error=" + var1 + ")");
 
       try {
          this.a(PftpRequest$PbPFtpOperation.parseFrom(var2), var3);
-      } catch (InvalidProtocolBufferException var4) {
+      } catch (/*InvalidProtocolBufferException*/ Exception var4) {
          var4.printStackTrace();
       }
 

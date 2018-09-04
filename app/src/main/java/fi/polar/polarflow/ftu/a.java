@@ -23,7 +23,7 @@ public class a {
          var1.add(var2);
          var1.add(var3);
          t var7 = new t(var0);
-         var7.execute(var1.toArray(new s[var1.size()]));
+         var7.execute((s[])var1.toArray(new s[var1.size()]));
          c(var0);
          var6 = SportProfile.listAllInOrder();
          SportProfile.setSport(var6, Sport.listAll(Sport.class));
@@ -36,6 +36,7 @@ public class a {
 
    public static List b(Context param0) {
       // $FF: Couldn't be decompiled
+      return null;
    }
 
    public static void c(Context var0) {
@@ -45,7 +46,7 @@ public class a {
          List var1 = b(var0);
          var1.add(w.a().createDataLayerRequest());
          t var2 = new t(var0);
-         var2.execute(var1.toArray(new s[var1.size()]));
+         var2.execute((s[])var1.toArray(new s[var1.size()]));
       } finally {
          ;
       }
@@ -54,5 +55,6 @@ public class a {
 
    private static List d(Context param0) {
       // $FF: Couldn't be decompiled
+      return null;
    }
 }

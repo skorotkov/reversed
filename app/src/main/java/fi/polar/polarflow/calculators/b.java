@@ -10,7 +10,7 @@ public class b extends ai {
 
    b(int var1, long var2, int var4) {
       super(var1, var2, true);
-      this.a = fi.polar.polarflow.a.a.a(9, var4);
+      this.a = fi.polar.polarflow.a_package.a.a(9, var4);
    }
 
    int a() {

@@ -3,7 +3,7 @@ package fi.polar.polarflow.ui.exeview.shader;
 import android.media.MediaMetadata;
 import android.media.session.PlaybackState;
 
-class i implements fi.polar.polarflow.util.a.e {
+class i implements fi.polar.polarflow.util.a_package.e {
    // $FF: synthetic field
    final e a;
 
@@ -19,6 +19,6 @@ class i implements fi.polar.polarflow.util.a.e {
       e.a(this.a, var1);
    }
 
-   public void a(fi.polar.polarflow.util.a.a var1) {
+   public void a(fi.polar.polarflow.util.a_package.a var1) {
    }
 }

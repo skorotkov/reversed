@@ -277,8 +277,8 @@ class bb {
       return var1;
    }
 
-   public fi.polar.polarflow.util.b.a e() {
-      fi.polar.polarflow.util.b.a var8;
+   public fi.polar.polarflow.util.b_package.a e() {
+      fi.polar.polarflow.util.b_package.a var8;
       if (this.d != null) {
          fi.polar.polarflow.util.k var1 = new fi.polar.polarflow.util.k(PhysData.getUserPhysData());
          SleepAnalyzerAndroidImpl var2 = new SleepAnalyzerAndroidImpl();
@@ -288,7 +288,7 @@ class bb {
          DateTime var6 = var5.plusSeconds(this.d.getSleepStartTime());
          DateTime var7 = var5.plusSeconds(this.d.getSleepEndTime());
          this.a(var5, var6, var7, this.d, var9, this.k());
-         var8 = (new fi.polar.polarflow.util.b.c()).a(var6).b(var7).c(new DateTime()).a((int)var9.getDuration()).b((int)var9.getSleepSpan()).c((int)var9.getTotalInterruptionDuration()).d(var1.D()).e(var9.getOneNightFeedback()).a(var9.getEfficiency()).b(var9.getContinuityIndex()).f((int)var9.getContinuityIndexClass()).a(this.j()).a();
+         var8 = (new fi.polar.polarflow.util.b_package.c()).a(var6).b(var7).c(new DateTime()).a((int)var9.getDuration()).b((int)var9.getSleepSpan()).c((int)var9.getTotalInterruptionDuration()).d(var1.D()).e(var9.getOneNightFeedback()).a(var9.getEfficiency()).b(var9.getContinuityIndex()).f((int)var9.getContinuityIndexClass()).a(this.j()).a();
          this.d = null;
          this.e = 0L;
       } else {

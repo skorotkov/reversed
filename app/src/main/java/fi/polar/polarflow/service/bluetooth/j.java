@@ -114,5 +114,6 @@ public class j {
 
    public boolean f() {
       // $FF: Couldn't be decompiled
+      return true;
    }
 }

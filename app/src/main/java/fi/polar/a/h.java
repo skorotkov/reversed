@@ -11,7 +11,7 @@ class h implements c {
    }
 
    public void a() {
-      fi.polar.a.a.b.d(d.d(), "timeoutTimer(timeout during sync)");
+      fi.polar.a.a_package.b.d(d.d(), "timeoutTimer(timeout during sync)");
       this.a.a();
    }
 
@@ -25,7 +25,7 @@ class h implements c {
          var5 = "null";
       }
 
-      fi.polar.a.a.b.c(var3, var4.append(var5).append(")").toString());
-      return d.a(this.a, fi.polar.a.a.a.b, var1, var2);
+      fi.polar.a.a_package.b.c(var3, var4.append(var5).append(")").toString());
+      return d.a(this.a, fi.polar.a.a_package.a.b, var1, var2);
    }
 }

@@ -69,7 +69,8 @@ final class g extends fi.polar.polarflow.ui.custom.c {
       h.a(var1).d();
    }
 
-   public void a(h var1, int var2) {
+   public void a(ey var, int var2) {
+      h var1 = (h)var;
       h.a(var1, (d)this.d.get(var2));
    }
 

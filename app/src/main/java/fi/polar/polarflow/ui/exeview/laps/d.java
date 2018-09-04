@@ -3,7 +3,7 @@ package fi.polar.polarflow.ui.exeview.laps;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import fi.polar.polarflow.ui.exeview.a.a.ah;
+import fi.polar.polarflow.ui.exeview.a_package.a_package.ah;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -36,7 +36,8 @@ abstract class d extends fi.polar.polarflow.ui.exeview.j {
       return var4;
    }
 
-   protected View a(View var1, ah var2) {
+   protected View a(View var1, fi.polar.polarflow.ui.exeview.i var) {
+      ah var2 = (ah)var;
       return var1.findViewById(a[var2.j()]);
    }
 

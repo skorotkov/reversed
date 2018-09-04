@@ -8,12 +8,11 @@ import android.view.View;
 import fi.polar.polarflow.service.datalayer.u;
 import fi.polar.polarflow.ui.NotificationReceiver;
 import fi.polar.polarflow.ui.myday.item.c;
-import fi.polar.polarflow.util.d;
 import fi.polar.polarflow.util.v;
 import fi.polar.polarflow.util.z;
 import org.joda.time.LocalDate;
 
-public class a extends c implements fi.polar.polarflow.ui.myday.a.c {
+public class a extends c implements fi.polar.polarflow.ui.myday.a_package.c {
    private final LocalDate c;
    private z d = new z();
    private u e = new u();
@@ -32,9 +31,9 @@ public class a extends c implements fi.polar.polarflow.ui.myday.a.c {
       if (this.g instanceof Activity) {
          Activity var1 = (Activity)this.g;
          Fragment var2 = var1.getFragmentManager().findFragmentByTag("sleep_rating_dialog");
-         if (var2 != null && var2 instanceof fi.polar.polarflow.ui.myday.a.a) {
-            fi.polar.polarflow.ui.myday.a.a var3 = (fi.polar.polarflow.ui.myday.a.a)var2;
-            var3.a((fi.polar.polarflow.ui.myday.a.c)null);
+         if (var2 != null && var2 instanceof fi.polar.polarflow.ui.myday.a_package.a) {
+            fi.polar.polarflow.ui.myday.a_package.a var3 = (fi.polar.polarflow.ui.myday.a_package.a)var2;
+            var3.a((fi.polar.polarflow.ui.myday.a_package.c)null);
             if (!var1.isDestroyed()) {
                var3.dismiss();
             }
@@ -49,8 +48,8 @@ public class a extends c implements fi.polar.polarflow.ui.myday.a.c {
       if (this.g instanceof Activity) {
          FragmentManager var1 = ((Activity)this.g).getFragmentManager();
          if (var1.findFragmentByTag("sleep_rating_dialog") == null) {
-            fi.polar.polarflow.ui.myday.a.a var2 = fi.polar.polarflow.ui.myday.a.a.a(this.i);
-            var2.a((fi.polar.polarflow.ui.myday.a.c)this);
+            fi.polar.polarflow.ui.myday.a_package.a var2 = fi.polar.polarflow.ui.myday.a_package.a.a(this.i);
+            var2.a((fi.polar.polarflow.ui.myday.a_package.c)this);
             var2.show(var1, "sleep_rating_dialog");
             NotificationReceiver.a(this.g, 7);
          }
@@ -74,10 +73,10 @@ public class a extends c implements fi.polar.polarflow.ui.myday.a.c {
 
    }
 
-   public void a(fi.polar.polarflow.ui.myday.a.a var1) {
+   public void a(fi.polar.polarflow.ui.myday.a_package.a var1) {
    }
 
-   public void a(fi.polar.polarflow.ui.myday.a.a var1, int var2) {
+   public void a(fi.polar.polarflow.ui.myday.a_package.a var1, int var2) {
       if (var2 != this.i) {
          this.h.setSelectedRating(var2);
          this.i = var2;

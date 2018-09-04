@@ -7,7 +7,7 @@ public class aw {
    private boolean d = false;
 
    public float a() {
-      return fi.polar.polarflow.a.a.a(1, this.a);
+      return fi.polar.polarflow.a_package.a.a(1, this.a);
    }
 
    public void a(ag var1) {
@@ -18,7 +18,7 @@ public class aw {
    }
 
    public float b() {
-      return fi.polar.polarflow.a.a.a(1, this.b);
+      return fi.polar.polarflow.a_package.a.a(1, this.b);
    }
 
    public boolean c() {

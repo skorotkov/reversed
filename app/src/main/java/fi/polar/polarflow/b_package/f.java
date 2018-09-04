@@ -1,14 +1,15 @@
 package fi.polar.polarflow.b_package;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 public class f {
-   private final List a;
-   private final h b;
-   private final g c;
-   private final d d;
-   private final b e;
+   private final List a = new ArrayList();
+   private final h b = new h();
+   private final g c = new g();
+   private final d d = new d();
+   private final b e = new b();
 
    public void a() {
       Iterator var1 = this.a.iterator();

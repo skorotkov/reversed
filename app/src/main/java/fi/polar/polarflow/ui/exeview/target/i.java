@@ -5,7 +5,7 @@ import android.support.v7.widget.ey;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import fi.polar.polarflow.ui.exeview.a.a.ah;
+import fi.polar.polarflow.ui.exeview.a_package.a_package.ah;
 import java.util.Iterator;
 import java.util.List;
 
@@ -20,7 +20,7 @@ public class i extends fi.polar.polarflow.ui.custom.c {
    }
 
    private j d(ViewGroup var1, int var2) {
-      fi.polar.polarflow.ui.exeview.target.a.n var3 = this.f(var2);
+      fi.polar.polarflow.ui.exeview.target.a_package.n var3 = this.f(var2);
       View var4 = this.c.inflate(var3.a(), var1, false);
       Iterator var5 = var3.g().iterator();
 
@@ -36,17 +36,17 @@ public class i extends fi.polar.polarflow.ui.custom.c {
       return var8;
    }
 
-   private fi.polar.polarflow.ui.exeview.target.a.n f(int var1) {
+   private fi.polar.polarflow.ui.exeview.target.a_package.n f(int var1) {
       Iterator var2 = this.b.iterator();
 
-      fi.polar.polarflow.ui.exeview.target.a.n var3;
+      fi.polar.polarflow.ui.exeview.target.a_package.n var3;
       do {
          if (!var2.hasNext()) {
             var3 = null;
             break;
          }
 
-         var3 = (fi.polar.polarflow.ui.exeview.target.a.n)var2.next();
+         var3 = (fi.polar.polarflow.ui.exeview.target.a_package.n)var2.next();
       } while(var3.f().ordinal() != var1);
 
       if (var3 == null) {
@@ -61,7 +61,7 @@ public class i extends fi.polar.polarflow.ui.custom.c {
    }
 
    public int a(int var1) {
-      return ((fi.polar.polarflow.ui.exeview.target.a.n)this.b.get(var1)).f().ordinal();
+      return ((fi.polar.polarflow.ui.exeview.target.a_package.n)this.b.get(var1)).f().ordinal();
    }
 
    // $FF: synthetic method
@@ -69,7 +69,7 @@ public class i extends fi.polar.polarflow.ui.custom.c {
       return this.c(var1, var2);
    }
 
-   public void a(int var1, fi.polar.polarflow.ui.exeview.target.a.n var2) {
+   public void a(int var1, fi.polar.polarflow.ui.exeview.target.a_package.n var2) {
       if (var1 < this.b.size()) {
          this.b.set(var1, var2);
          this.c();
@@ -86,8 +86,9 @@ public class i extends fi.polar.polarflow.ui.custom.c {
 
    }
 
-   public void a(j var1, int var2) {
-      j.a(var1, (fi.polar.polarflow.ui.exeview.target.a.n)this.b.get(var2));
+   public void a(ey var, int var2) {
+      j var1 = (j)var;
+      j.a(var1, (fi.polar.polarflow.ui.exeview.target.a_package.n)this.b.get(var2));
    }
 
    public void b(j var1) {

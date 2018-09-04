@@ -6,7 +6,7 @@ import java.util.List;
 public class WeightTrendCalculatorAndroidImpl implements WeightTrendCalculator {
    private native WeightTrend native_calculateWeightTrend(WeightPlotPoint[] var1, double var2, double var4);
 
-   public WeightTrend calculateWeightTrend(List var1, double var2, double var4) {
+   public WeightTrend calculateWeightTrend(List var1, double var2, double var4) throws NotEnoughKnownWeightMeasurementsToDetermineWeightTrendException {
       if (var1 != null && var1.size() >= 2) {
          WeightPlotPoint[] var7 = (WeightPlotPoint[])var1.toArray(new WeightPlotPoint[var1.size()]);
 

@@ -31,7 +31,7 @@ public class ExerciseTrainingLoadCalculatorAndroidImpl implements ExerciseTraini
       this.native_ExerciseTrainingLoadAlgorithmCtor(var15, var2, var4, var6, var7.ordinal(), var8, var9, var10, var11, var12, var13);
 
       for(var6 = 0; var6 < var1.size(); ++var6) {
-         this.native_ExerciseTrainingLoadUpdate(var15, (float)(Double)var1.get(var6), 0.0F);
+         this.native_ExerciseTrainingLoadUpdate(var15, (float)var1.get(var6), 0.0F);
       }
 
       return new ExerciseTrainingLoadResults((double)this.native_GetExerciseTrainingLoadRecoveryTime(var15), (double)this.native_GetExerciseTrainingLoadFatPercent(var15), (double)this.native_GetExerciseTrainingLoadTrainingLoad(var15));

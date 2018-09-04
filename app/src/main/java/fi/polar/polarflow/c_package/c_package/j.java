@@ -421,7 +421,7 @@ public class j extends a {
          this.m = null;
          this.n = false;
          this.h.a(2);
-         this.h.a(fi.polar.polarflow.c_package.b.i.b);
+         this.h.a(fi.polar.polarflow.c_package.b_package.i.b);
          this.h.a(fi.polar.polarflow.util.i.a(this.a, "PAIRING_RSSI_THRESHOLD_POLAR", -55), fi.polar.polarflow.util.i.a(this.a, "PAIRING_RSSI_THRESHOLD_OTHER", -55));
          this.h.a(this.t);
          b((fi.polar.polarflow.c_package.a)this.i, (fi.polar.polarflow.c_package.l)this.q);

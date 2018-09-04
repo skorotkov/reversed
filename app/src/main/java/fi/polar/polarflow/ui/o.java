@@ -328,7 +328,7 @@ public class o {
    }
 
    public static String d(float var0) {
-      return fi.polar.polarflow.a_package.a.a(8, (double)((int)((double)fi.polar.polarflow.a.a.a(4, var0) / 0.3048D)));
+      return fi.polar.polarflow.a_package.a.a(8, (double)((int)((double)fi.polar.polarflow.a_package.a.a(4, var0) / 0.3048D)));
    }
 
    public static String d(Context var0, float var1) {

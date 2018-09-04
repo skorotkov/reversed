@@ -65,6 +65,7 @@ public class NotificationReceiver extends BroadcastReceiver {
 
    private static List a() {
       // $FF: Couldn't be decompiled
+      return null;
    }
 
    public static void a(long var0) {
@@ -103,7 +104,7 @@ public class NotificationReceiver extends BroadcastReceiver {
 
    }
 
-   private void a(Context var1, int var2, int var3, fi.polar.polarflow.util.b.a var4) {
+   private void a(Context var1, int var2, int var3, fi.polar.polarflow.util.b_package.a var4) {
       Intent var5 = this.n(var1);
       var5.putExtra("MyDayFragment.extra.SCROLL_TO_MY_DAY_ITEM", var4.c());
       PendingIntent var7 = PendingIntent.getActivity(var1, 7, var5, 134217728);
@@ -274,7 +275,7 @@ public class NotificationReceiver extends BroadcastReceiver {
    }
 
    private void c(Context var1, Intent var2) {
-      fi.polar.polarflow.util.b.a var3 = (fi.polar.polarflow.util.b.a)var2.getParcelableExtra("SleepTrackingService.extra.SLEEP_ANALYSIS");
+      fi.polar.polarflow.util.b_package.a var3 = (fi.polar.polarflow.util.b_package.a)var2.getParcelableExtra("SleepTrackingService.extra.SLEEP_ANALYSIS");
       if (var3 != null) {
          Period var4 = new Period(fi.polar.polarflow.util.ab.a(TimeUnit.SECONDS.toMillis((long)var3.d)));
          this.a(var1, var4.getHours(), var4.getMinutes(), var3);

@@ -19,6 +19,7 @@ class i {
 
    public Boolean a(long param1) {
       // $FF: Couldn't be decompiled
+      return false;
    }
 
    public void a(long param1, boolean param3) {

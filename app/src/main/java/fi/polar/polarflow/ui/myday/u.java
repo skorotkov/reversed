@@ -323,13 +323,13 @@ public class u {
    }
 
    public static List c() {
-      fi.polar.polarflow.util.b.d var0 = new fi.polar.polarflow.util.b.d(PhysData.getUserPhysData());
+      fi.polar.polarflow.util.b_package.d var0 = new fi.polar.polarflow.util.b_package.d(PhysData.getUserPhysData());
       ArrayList var1 = new ArrayList();
       Iterator var2 = SleepAnalysisResult.findCurrentDayResults().iterator();
 
       while(var2.hasNext()) {
          SleepAnalysisResult var3 = (SleepAnalysisResult)var2.next();
-         fi.polar.polarflow.util.b.a var4 = var0.a(var3);
+         fi.polar.polarflow.util.b_package.a var4 = var0.a(var3);
          if (var4 != null) {
             LocalDate var5 = SleepAnalysisResult.getRecordingDate(var3.getEndTime());
             var1.add(new fi.polar.polarflow.ui.myday.item.g(var4, var3.getPath(), var5));

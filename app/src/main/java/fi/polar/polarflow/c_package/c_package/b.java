@@ -55,7 +55,7 @@ public class b extends a {
 
    public b(Context var1, BluetoothDevice var2, String var3) {
       super(var1);
-      this.i = ((BluetoothManager)var1.getSystemService("bluetooth")).getAdapter();
+      this.i = ((BluetoothManager)var1.getSystemService(Context.BLUETOOTH_SERVICE)).getAdapter();
       this.j = new fi.polar.polarflow.service.bluetooth.j();
       this.k = var2;
       this.l = var3;
@@ -100,35 +100,35 @@ public class b extends a {
    }
 
    private void F() {
-      if (!this.a(fi.polar.polarflow.c_package.b.i.a, fi.polar.polarflow.c_package.b.i.h)) {
+      if (!this.a(fi.polar.polarflow.c_package.b_package.i.a, fi.polar.polarflow.c_package.b_package.i.h)) {
          this.a((BluetoothGattCharacteristic)null, 257);
       }
 
    }
 
    private void G() {
-      if (!this.a(fi.polar.polarflow.c_package.b.i.a, fi.polar.polarflow.c_package.b.i.d)) {
+      if (!this.a(fi.polar.polarflow.c_package.b_package.i.a, fi.polar.polarflow.c_package.b_package.i.d)) {
          this.b((BluetoothGattCharacteristic)null, 257);
       }
 
    }
 
    private void H() {
-      if (!this.a(fi.polar.polarflow.c_package.b.i.a, fi.polar.polarflow.c_package.b.i.e)) {
+      if (!this.a(fi.polar.polarflow.c_package.b_package.i.a, fi.polar.polarflow.c_package.b_package.i.e)) {
          this.c((BluetoothGattCharacteristic)null, 257);
       }
 
    }
 
    private void I() {
-      if (!this.a(fi.polar.polarflow.c_package.b.i.a, fi.polar.polarflow.c_package.b.i.f)) {
+      if (!this.a(fi.polar.polarflow.c_package.b_package.i.a, fi.polar.polarflow.c_package.b_package.i.f)) {
          this.d((BluetoothGattCharacteristic)null, 257);
       }
 
    }
 
    private void J() {
-      if (!this.a(fi.polar.polarflow.c_package.b.i.a, fi.polar.polarflow.c_package.b.i.g)) {
+      if (!this.a(fi.polar.polarflow.c_package.b_package.i.a, fi.polar.polarflow.c_package.b_package.i.g)) {
          this.e((BluetoothGattCharacteristic)null, 257);
       }
 
@@ -222,9 +222,9 @@ public class b extends a {
    }
 
    private void a(boolean var1) {
-      BluetoothGattCharacteristic var2 = this.b(fi.polar.polarflow.c_package.b.i.b, fi.polar.polarflow.c_package.b.i.i);
+      BluetoothGattCharacteristic var2 = this.b(fi.polar.polarflow.c_package.b_package.i.b, fi.polar.polarflow.c_package.b_package.i.i);
       if (var2 != null) {
-         BluetoothGattDescriptor var3 = var2.getDescriptor(fi.polar.polarflow.c_package.b.i.j);
+         BluetoothGattDescriptor var3 = var2.getDescriptor(fi.polar.polarflow.c_package.b_package.i.j);
          if (var3 != null) {
             this.a(var3, var1);
          } else {
@@ -568,7 +568,7 @@ public class b extends a {
          var2.setManufacturerName(this.p);
          var2.setModelName(this.q);
          var2.addAvailableFeature(1);
-         if (this.j.a(fi.polar.polarflow.c_package.b.i.c) != null) {
+         if (this.j.a(fi.polar.polarflow.c_package.b_package.i.c) != null) {
             var2.addAvailableFeature(26);
          }
 

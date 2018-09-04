@@ -21,7 +21,7 @@ public class e extends a {
    private PolarGlyphView j;
    private am k;
    private int l = 0;
-   private final fi.polar.polarflow.util.a.e m = new i(this);
+   private final fi.polar.polarflow.util.a_package.e m = new i(this);
 
    public e() {
       super(p.b);
@@ -115,11 +115,11 @@ public class e extends a {
    }
 
    // $FF: synthetic method
-   static fi.polar.polarflow.util.a.b b(e var0) {
+   static fi.polar.polarflow.util.a_package.b b(e var0) {
       return var0.h();
    }
 
-   private fi.polar.polarflow.util.a.b h() {
+   private fi.polar.polarflow.util.a_package.b h() {
       return this.k.f();
    }
 
@@ -127,7 +127,7 @@ public class e extends a {
       this.h.setVisibility(var1);
    }
 
-   public fi.polar.polarflow.util.a.e g() {
+   public fi.polar.polarflow.util.a_package.e g() {
       return this.m;
    }
 

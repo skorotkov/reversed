@@ -227,6 +227,7 @@ class f implements bu {
 
    public boolean a(boolean param1) {
       // $FF: Couldn't be decompiled
+      return false;
    }
 
    public void b() {

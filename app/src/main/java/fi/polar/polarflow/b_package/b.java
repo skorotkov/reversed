@@ -1,7 +1,7 @@
 package fi.polar.polarflow.b_package;
 
 class b {
-   private final a a;
+   private final a a = null;
 
    public void a() {
       if (this.a != null) {

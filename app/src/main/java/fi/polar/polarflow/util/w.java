@@ -132,6 +132,7 @@ public class w {
 
    public static fi.polar.polarflow.service.datalayer.s b(List param0) {
       // $FF: Couldn't be decompiled
+      return null;
    }
 
    private static String b(String var0) {

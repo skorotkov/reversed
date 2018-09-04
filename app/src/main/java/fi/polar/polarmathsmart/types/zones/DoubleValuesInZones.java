@@ -10,35 +10,35 @@ public class DoubleValuesInZones extends ValuesInZones {
       this.acceptableDelta = var2;
    }
 
-   protected Double add(Double var1, Double var2) {
+   protected Double add(Number var1, Number var2) {
       double var3 = 0.0D;
       double var5;
       if (var1 != null) {
-         var5 = var1;
+         var5 = (Double)var1;
       } else {
          var5 = 0.0D;
       }
 
       if (var2 != null) {
-         var3 = var2;
+         var3 = (Double)var2;
       }
 
       return var3 + var5;
    }
 
-   public void addValue(int var1, Double var2) {
-      double var3 = var2;
+   public void addValue(int var1, Number var2) {
+      double var3 = (Double)var2;
       var2 = (Double)this.getValue(var1);
       if (var2 != null) {
-         var3 += var2;
+         var3 += (Double)var2;
       }
 
       this.setValue(var1, var3);
    }
 
-   protected boolean areTwoValuesEqual(Double var1, Double var2) {
+   protected boolean areTwoValuesEqual(Number var1, Number var2) {
       boolean var3;
-      if (AcceptableDeltaAwareDoubleComparator.INSTANCE.compareDoubles(var1, var2, this.acceptableDelta) == 0) {
+      if (AcceptableDeltaAwareDoubleComparator.INSTANCE.compareDoubles((Double)var1, (Double)var2, this.acceptableDelta) == 0) {
          var3 = true;
       } else {
          var3 = false;

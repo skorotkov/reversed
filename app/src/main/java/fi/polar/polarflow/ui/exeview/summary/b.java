@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import fi.polar.polarflow.ui.exeview.a.a.ah;
+import fi.polar.polarflow.ui.exeview.a_package.a_package.ah;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -22,7 +22,7 @@ public class b extends ds {
    }
 
    private View a(int var1, ViewGroup var2) {
-      fi.polar.polarflow.ui.exeview.summary.a.d var3 = (fi.polar.polarflow.ui.exeview.summary.a.d)this.a.get(var1);
+      fi.polar.polarflow.ui.exeview.summary.a_package.d var3 = (fi.polar.polarflow.ui.exeview.summary.a_package.d)this.a.get(var1);
       View var6 = this.b.inflate(var3.a(), var2, false);
       Iterator var4 = var3.f().iterator();
 
@@ -55,10 +55,11 @@ public class b extends ds {
       c.b(var1).d();
    }
 
-   public void a(c var1, int var2) {
-      c.a(var1, (fi.polar.polarflow.ui.exeview.summary.a.d)this.a.get(var2));
+   public void a(ey var, int var2) {
+      c var1 = (c)var;
+      c.a(var1, (fi.polar.polarflow.ui.exeview.summary.a_package.d)this.a.get(var2));
       if (c.a(var1) != null) {
-         String var3 = ((fi.polar.polarflow.ui.exeview.summary.a.d)this.a.get(var2)).g();
+         String var3 = ((fi.polar.polarflow.ui.exeview.summary.a_package.d)this.a.get(var2)).g();
          if (TextUtils.isEmpty(var3)) {
             c.a(var1).setVisibility(8);
          } else {
@@ -73,7 +74,7 @@ public class b extends ds {
          Iterator var2 = this.a.iterator();
 
          while(var2.hasNext()) {
-            ((fi.polar.polarflow.ui.exeview.summary.a.d)var2.next()).b();
+            ((fi.polar.polarflow.ui.exeview.summary.a_package.d)var2.next()).b();
          }
       }
 

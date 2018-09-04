@@ -62,6 +62,7 @@ public class q {
 
    public static Structures$PbVersion a(String param0, String param1) {
       // $FF: Couldn't be decompiled
+      return null;
    }
 
    public static Types$PbDate a(String var0) {
@@ -180,7 +181,7 @@ public class q {
       return new Date(b(var0));
    }
 
-   public static List a(JSONArray var0) {
+   public static List a(JSONArray var0) throws JSONException {
       ArrayList var1 = new ArrayList();
 
       for(int var2 = 0; var2 < var0.length(); ++var2) {
@@ -260,7 +261,7 @@ public class q {
       return var1;
    }
 
-   public static List b(JSONArray var0) {
+   public static List b(JSONArray var0) throws JSONException {
       ArrayList var1 = new ArrayList();
 
       for(int var2 = 0; var2 < var0.length(); ++var2) {
@@ -287,7 +288,7 @@ public class q {
    }
 
    public static Types$PbDuration c(long var0, int var2) {
-      var0 = fi.polar.polarflow.a.a.a(var2, var0);
+      var0 = fi.polar.polarflow.a_package.a.a(var2, var0);
       Calendar var3 = Calendar.getInstance();
       var3.clear();
       var3.setTimeZone(TimeZone.getTimeZone("UTC"));
@@ -326,7 +327,7 @@ public class q {
       return var4;
    }
 
-   public static List c(JSONArray var0) {
+   public static List c(JSONArray var0) throws JSONException {
       ArrayList var1 = new ArrayList();
 
       for(int var2 = 0; var2 < var0.length(); ++var2) {
@@ -375,7 +376,7 @@ public class q {
       return var4;
    }
 
-   public static List d(JSONArray var0) {
+   public static List d(JSONArray var0) throws JSONException {
       ArrayList var1 = new ArrayList();
 
       for(int var2 = 0; var2 < var0.length(); ++var2) {
@@ -387,6 +388,7 @@ public class q {
 
    public static List e(String param0) {
       // $FF: Couldn't be decompiled
+      return null;
    }
 
    public static String f(String var0) {

@@ -17,6 +17,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    lintOptions {
+        disable "ResourceType"
+    }
 }
 
 dependencies {
@@ -25,7 +28,10 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:26.+'
-    compile group: 'joda-time', name: 'joda-time', version: '2.3'
-    compile group: 'com.google.protobuf', name: 'protobuf-java', version: '3.6.1'
+    compile 'com.google.android.gms:play-services-wearable:15.0.1'
+//    compile group: 'joda-time', name: 'joda-time', version: '2.3'
+//    compile group: 'com.google.protobuf', name: 'protobuf-java', version: '3.0.0'
+//    provided 'com.google.android.wearable:wearable:2.0.2'
+//    compile 'com.google.android.support:wearable:2.0.2'
     testCompile 'junit:junit:4.12'
 }

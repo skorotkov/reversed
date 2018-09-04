@@ -30,7 +30,7 @@ public class WatchFaceMyDayActivity extends Activity {
 
    protected void onStart() {
       super.onStart();
-      this.a = new fi.polar.polarflow.ui.myday.item.a.e();
+      this.a = new fi.polar.polarflow.ui.myday.item.a_package.e();
       this.a.a(this.findViewById(2131755390));
       this.a.d();
    }

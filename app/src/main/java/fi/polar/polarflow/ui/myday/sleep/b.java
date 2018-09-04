@@ -5,7 +5,7 @@ import android.support.v7.widget.ey;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import fi.polar.polarflow.ui.myday.sleep.a.i;
+import fi.polar.polarflow.ui.myday.sleep.a_package.i;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,7 +42,8 @@ class b extends fi.polar.polarflow.ui.custom.c {
       c.a(var1).d();
    }
 
-   public void a(c var1, int var2) {
+   public void a(ey var, int var2) {
+      c var1 = (c)var;
       c.a(var1, (i)this.a.get(var2));
    }
 

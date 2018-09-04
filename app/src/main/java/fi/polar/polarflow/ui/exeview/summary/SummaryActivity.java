@@ -20,7 +20,7 @@ import fi.polar.polarflow.data.orm.TrainingSessionTarget;
 import fi.polar.polarflow.ui.MainMenuActivity;
 import fi.polar.polarflow.ui.o;
 import fi.polar.polarflow.ui.custom.BetterWearableListView;
-import fi.polar.polarflow.ui.exeview.a.a.ah;
+import fi.polar.polarflow.ui.exeview.a_package.a_package.ah;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -336,7 +336,7 @@ public class SummaryActivity extends Activity {
          Iterator var1 = this.e.iterator();
 
          while(var1.hasNext()) {
-            ((fi.polar.polarflow.ui.exeview.summary.a.d)var1.next()).b();
+            ((fi.polar.polarflow.ui.exeview.summary.a_package.d)var1.next()).b();
          }
       }
 

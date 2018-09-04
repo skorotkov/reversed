@@ -31,7 +31,8 @@ class k extends fi.polar.polarflow.ui.custom.p {
       return var1;
    }
 
-   protected Class a(e var1) {
+   protected Class a(Enum var) {
+      e var1 = (e)var;
       return (Class)d.get(var1);
    }
 }

@@ -2,7 +2,7 @@ package fi.polar.polarflow.ui.myday.sleep;
 
 import android.view.View;
 import fi.polar.polarflow.ui.custom.g;
-import fi.polar.polarflow.ui.myday.sleep.a.i;
+import fi.polar.polarflow.ui.myday.sleep.a_package.i;
 
 public class c extends g {
    private i n;
