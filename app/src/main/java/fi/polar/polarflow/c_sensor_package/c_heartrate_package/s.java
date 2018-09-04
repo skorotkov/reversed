@@ -7,6 +7,7 @@ import android.hardware.SensorManager;
 import android.os.Handler;
 import android.util.SparseArray;
 
+import fi.polar.polarflow.c_sensor_package.j_PolarSensorEventListener;
 import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
 
 public class s extends a_HeartRateSensor {
@@ -17,7 +18,7 @@ public class s extends a_HeartRateSensor {
    private boolean k;
    private fi.polar.polarflow.c_sensor_package.e l = null;
    private final Handler m = new Handler();
-   private final fi.polar.polarflow.c_sensor_package.j n = new u(this);
+   private final j_PolarSensorEventListener n = new u(this);
    private final SensorEventListener o;
 
    public s(Context var1) {

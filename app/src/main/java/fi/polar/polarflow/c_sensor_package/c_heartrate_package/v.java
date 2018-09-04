@@ -3,14 +3,15 @@ package fi.polar.polarflow.c_sensor_package.c_heartrate_package;
 import android.hardware.Sensor;
 import android.os.Handler;
 
-import fi.polar.polarflow.c_sensor_package.g_PolarSensorEventListener;
+import fi.polar.polarflow.c_sensor_package.g_AndroidSensorEventListener;
+import fi.polar.polarflow.c_sensor_package.j_PolarSensorEventListener;
 import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
 
-class v extends g_PolarSensorEventListener {
+class v extends g_AndroidSensorEventListener {
    // $FF: synthetic field
    final s a;
 
-   v(s var1, fi.polar.polarflow.c_sensor_package.j var2, Handler var3) {
+   v(s var1, j_PolarSensorEventListener var2, Handler var3) {
       super(var2, var3);
       this.a = var1;
    }

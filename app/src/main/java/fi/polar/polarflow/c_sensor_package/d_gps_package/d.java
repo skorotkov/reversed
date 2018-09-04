@@ -5,13 +5,14 @@ import android.hardware.SensorEvent;
 import android.os.Handler;
 
 import fi.polar.polarflow.c_sensor_package.b_PolarSensorEvent;
-import fi.polar.polarflow.c_sensor_package.g_PolarSensorEventListener;
+import fi.polar.polarflow.c_sensor_package.g_AndroidSensorEventListener;
+import fi.polar.polarflow.c_sensor_package.j_PolarSensorEventListener;
 
-class d extends g_PolarSensorEventListener {
+class d extends g_AndroidSensorEventListener {
    // $FF: synthetic field
    final b_GpsLocationProvider a;
 
-   d(b_GpsLocationProvider var1, fi.polar.polarflow.c_sensor_package.j var2, Handler var3) {
+   d(b_GpsLocationProvider var1, j_PolarSensorEventListener var2, Handler var3) {
       super(var2, var3);
       this.a = var1;
    }

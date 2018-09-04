@@ -5,7 +5,8 @@ import android.content.Context;
 import android.content.IntentFilter;
 import android.os.Handler;
 
-import fi.polar.polarflow.c_sensor_package.g_PolarSensorEventListener;
+import fi.polar.polarflow.c_sensor_package.g_AndroidSensorEventListener;
+import fi.polar.polarflow.c_sensor_package.j_PolarSensorEventListener;
 import fi.polar.polarflow.c_sensor_package.l;
 import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
 import fi.polar.polarflow.c_sensor_package.n_SENSOR_TYPE;
@@ -25,8 +26,8 @@ public class b_GpsLocationProvider extends a_GpsSensor {
    private long E;
    private aa F;
    private n G;
-   private final fi.polar.polarflow.c_sensor_package.j H;
-   private final g_PolarSensorEventListener I;
+   private final j_PolarSensorEventListener H;
+   private final g_AndroidSensorEventListener I;
    private final BroadcastReceiver J;
    private LocationDataCalculator x;
    private AscentDescentCalculatorAndroidImpl y;
@@ -133,7 +134,7 @@ public class b_GpsLocationProvider extends a_GpsSensor {
    }
 
    // $FF: synthetic method
-   static g_PolarSensorEventListener e(b_GpsLocationProvider var0) {
+   static g_AndroidSensorEventListener e(b_GpsLocationProvider var0) {
       return var0.I;
    }
 

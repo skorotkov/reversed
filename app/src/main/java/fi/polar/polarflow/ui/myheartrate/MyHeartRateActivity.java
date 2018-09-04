@@ -419,7 +419,7 @@ public class MyHeartRateActivity extends android.support.wearable.activity.a imp
 
    }
 
-   public void a(List var1) {
+   public void a_onPolarSensorEvents(List var1) {
       if (var1 != null && this.c == m_SENSOR_STATE.d_READY) {
          this.c(true);
          b_PolarSensorEvent var2 = (b_PolarSensorEvent)var1.get(var1.size() - 1);

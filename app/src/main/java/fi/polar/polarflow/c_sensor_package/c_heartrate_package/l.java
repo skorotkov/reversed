@@ -30,13 +30,13 @@ class l implements fi.polar.polarflow.c_sensor_package.e {
 
    }
 
-   public void a(List var1) {
+   public void a_onPolarSensorEvents(List var1) {
       if (j_HeartRateSensorManager.c(this.a) && !j_HeartRateSensorManager.d(this.a)) {
          b_PolarSensorEvent var2 = (b_PolarSensorEvent)var1.get(var1.size() - 1);
          this.a.a(Math.round(var2.a[0]));
          this.a.l();
          if (j_HeartRateSensorManager.h(this.a) != null) {
-            j_HeartRateSensorManager.h(this.a).a(var1);
+            j_HeartRateSensorManager.h(this.a).a_onPolarSensorEvents(var1);
          }
       }
 

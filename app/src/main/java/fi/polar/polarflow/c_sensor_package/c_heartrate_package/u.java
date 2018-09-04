@@ -3,8 +3,9 @@ package fi.polar.polarflow.c_sensor_package.c_heartrate_package;
 import java.util.List;
 
 import fi.polar.polarflow.c_sensor_package.b_PolarSensorEvent;
+import fi.polar.polarflow.c_sensor_package.j_PolarSensorEventListener;
 
-class u implements fi.polar.polarflow.c_sensor_package.j {
+class u implements j_PolarSensorEventListener {
    // $FF: synthetic field
    final s a;
 
@@ -12,7 +13,7 @@ class u implements fi.polar.polarflow.c_sensor_package.j {
       this.a = var1;
    }
 
-   public void a(List var1) {
+   public void a_onPolarSensorEvents(List var1) {
       b_PolarSensorEvent var2 = (b_PolarSensorEvent)var1.get(var1.size() - 1);
       s var3 = this.a;
       int var4;
@@ -24,7 +25,7 @@ class u implements fi.polar.polarflow.c_sensor_package.j {
 
       var3.a(var4);
       if (s.a(this.a) != null) {
-         s.a(this.a).a(var1);
+         s.a(this.a).a_onPolarSensorEvents(var1);
       }
 
    }

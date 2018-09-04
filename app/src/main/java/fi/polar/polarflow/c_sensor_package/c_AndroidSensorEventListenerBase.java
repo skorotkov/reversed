@@ -4,10 +4,10 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.os.Handler;
 
-public abstract class c_PolarSensorEventListenerBase implements SensorEventListener {
+public abstract class c_AndroidSensorEventListenerBase implements SensorEventListener {
    private final Handler a_handler;
 
-   public c_PolarSensorEventListenerBase(Handler var1) {
+   public c_AndroidSensorEventListenerBase(Handler var1) {
       this.a_handler = var1;
    }
 

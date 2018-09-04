@@ -18,7 +18,7 @@ class bc implements fi.polar.polarflow.c_sensor_package.e {
    public void a(m_SENSOR_STATE var1) {
    }
 
-   public void a(List var1) {
+   public void a_onPolarSensorEvents(List var1) {
       bb.a(this.a, var1);
    }
 }

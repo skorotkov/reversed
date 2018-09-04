@@ -2,7 +2,9 @@ package fi.polar.polarflow.c_sensor_package.d_gps_package;
 
 import java.util.List;
 
-class c implements fi.polar.polarflow.c_sensor_package.j {
+import fi.polar.polarflow.c_sensor_package.j_PolarSensorEventListener;
+
+class c implements j_PolarSensorEventListener {
    // $FF: synthetic field
    final b_GpsLocationProvider a;
 
@@ -10,9 +12,9 @@ class c implements fi.polar.polarflow.c_sensor_package.j {
       this.a = var1;
    }
 
-   public void a(List var1) {
+   public void a_onPolarSensorEvents(List var1) {
       if (b_GpsLocationProvider.a(this.a) != null) {
-         b_GpsLocationProvider.a(this.a).a(var1);
+         b_GpsLocationProvider.a(this.a).a_onPolarSensorEvents(var1);
       }
 
    }

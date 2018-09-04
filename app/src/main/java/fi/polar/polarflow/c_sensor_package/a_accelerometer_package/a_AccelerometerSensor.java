@@ -133,7 +133,7 @@ public class a_AccelerometerSensor extends a_Sensor implements i {
 
    protected void a(List var1) {
       if (this.r != null) {
-         this.r.a(var1);
+         this.r.a_onPolarSensorEvents(var1);
       }
 
    }

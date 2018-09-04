@@ -18,7 +18,7 @@ class ao implements fi.polar.polarflow.c_sensor_package.e {
    public void a(m_SENSOR_STATE var1) {
    }
 
-   public void a(List param1) {
+   public void a_onPolarSensorEvents(List param1) {
       // $FF: Couldn't be decompiled
    }
 }
