@@ -11,8 +11,11 @@ class ap implements l_PolarSensorListener {
       this.a = var1;
    }
 
-   public void a(int param1) {
+   public void a(int var1) {
       // $FF: Couldn't be decompiled
+      am_SessionCalculators.c(this.a);
+      am_SessionCalculators.b(this.a, am_SessionCalculators.q(this.a));
+      am_SessionCalculators.c(this.a, var1);
    }
 
    public void a(m_SENSOR_STATE var1) {

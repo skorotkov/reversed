@@ -76,7 +76,7 @@ public class am_SessionCalculators {
    public am_SessionCalculators(Context var1, Training var2, Handler var3) {
       this.m = 5;
       this.F_heartRatePolarSensorListener = new an(this);
-      this.G_gpsPolarSensorListener = new ao(this);
+      this.G_gpsPolarSensorListener = new ao_GpsPolarSensorListener(this);
       this.H_runningCadencePolarSensorListener = new ap(this);
       this.I = new aq(this);
       this.J = new ar(this);
