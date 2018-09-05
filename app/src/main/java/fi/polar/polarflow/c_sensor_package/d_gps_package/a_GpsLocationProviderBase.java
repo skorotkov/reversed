@@ -10,7 +10,7 @@ public abstract class a_GpsLocationProviderBase extends a_Sensor implements fi.p
    protected double h = 0.0D;
    protected double i = Double.NaN;
    protected double j = Double.NaN;
-   protected int k = 0;
+   protected int k_numberOfSatellites = 0;
    protected float l = 0.0F;
    protected float m = 0.0F;
    protected float n = 0.0F;
@@ -20,7 +20,7 @@ public abstract class a_GpsLocationProviderBase extends a_Sensor implements fi.p
    protected float r = 0.0F;
    protected float s = 0.0F;
    protected long t = 0L;
-   protected boolean u = false;
+   protected boolean u_fix = false;
    protected final Object v = new Object();
 
    protected a_GpsLocationProviderBase(Context var1, n_SENSOR_TYPE var2) {
@@ -31,7 +31,7 @@ public abstract class a_GpsLocationProviderBase extends a_Sensor implements fi.p
       this.i = Double.NaN;
       this.h = 0.0D;
       this.j = Double.NaN;
-      this.k = 0;
+      this.k_numberOfSatellites = 0;
       this.l = 0.0F;
       this.m = 0.0F;
       this.o = Float.NaN;
@@ -40,7 +40,7 @@ public abstract class a_GpsLocationProviderBase extends a_Sensor implements fi.p
       this.p = 0.0F;
       this.q = 0.0F;
       this.t = 0L;
-      this.u = false;
+      this.u_fix = false;
    }
 
    public fi.polar.polarflow.c_sensor_package.f k() {
@@ -48,7 +48,7 @@ public abstract class a_GpsLocationProviderBase extends a_Sensor implements fi.p
 
       // decompiled after remove of try ... catch
       Object var1 = this.v;
-      return new fi.polar.polarflow.c_sensor_package.f(this.t, this.u, this.o(), this.p(), this.g, this.h, this.n(), this.l(), this.m(), this.q(), this.r());
+      return new fi.polar.polarflow.c_sensor_package.f(this.t, this.u_fix, this.o(), this.p(), this.g, this.h, this.n(), this.l(), this.m(), this.q(), this.r());
    }
 
    public double l() {
@@ -60,7 +60,7 @@ public abstract class a_GpsLocationProviderBase extends a_Sensor implements fi.p
    }
 
    public int n() {
-      return this.k;
+      return this.k_numberOfSatellites;
    }
 
    public float o() {

@@ -20,7 +20,7 @@ class e extends BroadcastReceiver {
          fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s(), "onReceive: ACTION_POWER_SAVE_MODE_CHANGED, enabled= " + var3);
          if (var3) {
             this.a_gpsLocationProvider.t = b_GpsLocationProvider.d(this.a_gpsLocationProvider).b();
-            this.a_gpsLocationProvider.u = false;
+            this.a_gpsLocationProvider.u_fix = false;
             b_GpsLocationProvider.e(this.a_gpsLocationProvider).a((b_PolarSensorEvent)this.a_gpsLocationProvider.k());
             i_GpsSensor.c(b_GpsLocationProvider.f(this.a_gpsLocationProvider));
          } else {

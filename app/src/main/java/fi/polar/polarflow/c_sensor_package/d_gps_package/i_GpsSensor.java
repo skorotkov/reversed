@@ -45,8 +45,8 @@ class i_GpsSensor {
       // decompiled after remove of try ... catch
       Object var1 = this.a_gpsLocationProvider.v;
       this.a_gpsLocationProvider.t = fi.polar.polarflow.c_sensor_package.d_gps_package.b_GpsLocationProvider.i(this.a_gpsLocationProvider);
-      this.a_gpsLocationProvider.u = fi.polar.polarflow.c_sensor_package.d_gps_package.b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getFix();
-      this.a_gpsLocationProvider.k = fi.polar.polarflow.c_sensor_package.d_gps_package.b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getNumberOfSatellites();
+      this.a_gpsLocationProvider.u_fix = fi.polar.polarflow.c_sensor_package.d_gps_package.b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getFix();
+      this.a_gpsLocationProvider.k_numberOfSatellites = fi.polar.polarflow.c_sensor_package.d_gps_package.b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getNumberOfSatellites();
       this.a_gpsLocationProvider.i = fi.polar.polarflow.a_package.a.b(4, fi.polar.polarflow.c_sensor_package.d_gps_package.b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getAltitudeInMeters(true));
       this.a_gpsLocationProvider.j = fi.polar.polarflow.a_package.a.b(4, fi.polar.polarflow.c_sensor_package.d_gps_package.b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getAltitudeInMeters(false));
       this.a_gpsLocationProvider.o = (float)fi.polar.polarflow.c_sensor_package.d_gps_package.b_GpsLocationProvider.a(fi.polar.polarflow.c_sensor_package.d_gps_package.b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getSpeedInMetersPerSecond());
