@@ -17,21 +17,21 @@ import fi.polar.polarmathsmart.ascentdescent.AscentDescentOutput;
 import fi.polar.polarmathsmart.gps.LocationDataCalculator;
 import fi.polar.polarmathsmart.gps.LocationDataCalculatorAndroidImpl;
 
-public class b_GpsLocationProvider extends a_GpsSensor {
+public class b_GpsLocationProvider extends a_GpsLocationProviderBase {
    private static final String w = b_GpsLocationProvider.class.getSimpleName();
    private fi.polar.polarflow.c_sensor_package.e A;
    private boolean B;
-   private final Handler C;
+   private final Handler C_handler;
    private long D;
    private long E;
    private aa F;
    private n G;
-   private final j_PolarSensorEventListener H;
-   private final g_AndroidSensorEventListener I;
+   private final j_PolarSensorEventListener H_polarSensorEventListener;
+   private final g_AndroidSensorEventListener I_androidSensorEventListener;
    private final BroadcastReceiver J;
-   private LocationDataCalculator x;
+   private LocationDataCalculator x_locationDataCalculator;
    private AscentDescentCalculatorAndroidImpl y;
-   private final i z;
+   private final i_GpsSensor z_gpsSensor;
 
    public b_GpsLocationProvider(Context var1) {
       this(var1, new LocationDataCalculatorAndroidImpl(30, 10, 5));
@@ -41,15 +41,15 @@ public class b_GpsLocationProvider extends a_GpsSensor {
       super(var1, n_SENSOR_TYPE.b_IN_DEVICE_GPS);
       this.y = null;
       this.A = null;
-      this.C = new Handler();
+      this.C_handler = new Handler();
       this.D = 0L;
       this.E = 0L;
-      this.H = new c(this);
-      this.I = new d(this, this.H, this.C);
+      this.H_polarSensorEventListener = new c_GpsPolarSensorEventListener(this);
+      this.I_androidSensorEventListener = new d_GpsAndroidSensorEventListener(this, this.H_polarSensorEventListener, this.C_handler);
       this.J = new e(this);
       fi.polar.polarflow.util.d.c(w, "GpsLocationProvider");
-      this.z = new i(this, (c)null);
-      this.x = var2;
+      this.z_gpsSensor = new i_GpsSensor(this, (c_GpsPolarSensorEventListener)null);
+      this.x_locationDataCalculator = var2;
       this.F = new aa();
       this.G = new n(this.a_context);
    }
@@ -135,12 +135,12 @@ public class b_GpsLocationProvider extends a_GpsSensor {
 
    // $FF: synthetic method
    static g_AndroidSensorEventListener e(b_GpsLocationProvider var0) {
-      return var0.I;
+      return var0.I_androidSensorEventListener;
    }
 
    // $FF: synthetic method
-   static i f(b_GpsLocationProvider var0) {
-      return var0.z;
+   static i_GpsSensor f(b_GpsLocationProvider var0) {
+      return var0.z_gpsSensor;
    }
 
    // $FF: synthetic method
@@ -149,8 +149,8 @@ public class b_GpsLocationProvider extends a_GpsSensor {
    }
 
    // $FF: synthetic method
-   static LocationDataCalculator h(b_GpsLocationProvider var0) {
-      return var0.x;
+   static LocationDataCalculator h_getLocationDataCalculator(b_GpsLocationProvider var0) {
+      return var0.x_locationDataCalculator;
    }
 
    // $FF: synthetic method
@@ -174,27 +174,27 @@ public class b_GpsLocationProvider extends a_GpsSensor {
    }
 
    // $FF: synthetic method
-   static m_SENSOR_STATE m(b_GpsLocationProvider var0) {
+   static m_SENSOR_STATE m_getState(b_GpsLocationProvider var0) {
       return var0.b_sensorState;
    }
 
    // $FF: synthetic method
-   static m_SENSOR_STATE n(b_GpsLocationProvider var0) {
+   static m_SENSOR_STATE n_getState(b_GpsLocationProvider var0) {
       return var0.b_sensorState;
    }
 
    // $FF: synthetic method
-   static n_SENSOR_TYPE o(b_GpsLocationProvider var0) {
+   static n_SENSOR_TYPE o_getType(b_GpsLocationProvider var0) {
       return var0.c_sensorType;
    }
 
    // $FF: synthetic method
-   static Context p(b_GpsLocationProvider var0) {
+   static Context p_getContext(b_GpsLocationProvider var0) {
       return var0.a_context;
    }
 
    // $FF: synthetic method
-   static Context q(b_GpsLocationProvider var0) {
+   static Context q_getContext(b_GpsLocationProvider var0) {
       return var0.a_context;
    }
 
@@ -204,7 +204,7 @@ public class b_GpsLocationProvider extends a_GpsSensor {
    }
 
    // $FF: synthetic method
-   static m_SENSOR_STATE s(b_GpsLocationProvider var0) {
+   static m_SENSOR_STATE s_getState(b_GpsLocationProvider var0) {
       return var0.b_sensorState;
    }
 
@@ -215,8 +215,8 @@ public class b_GpsLocationProvider extends a_GpsSensor {
 
    protected void a() {
       super.a();
-      this.n = (float)this.x.getDistanceInMeters();
-      this.i = fi.polar.polarflow.a_package.a.b(4, this.x.getAltitudeInMeters(true));
+      this.n = (float)this.x_locationDataCalculator.getDistanceInMeters();
+      this.i = fi.polar.polarflow.a_package.a.b(4, this.x_locationDataCalculator.getAltitudeInMeters(true));
    }
 
    public void a(l var1) {
@@ -225,7 +225,7 @@ public class b_GpsLocationProvider extends a_GpsSensor {
 
    public void a_setState(m_SENSOR_STATE var1) {
       if (m_SENSOR_STATE.d_READY.equals(var1)) {
-         if (!this.x.getFix()) {
+         if (!this.x_locationDataCalculator.getFix()) {
             super.a_setState(m_SENSOR_STATE.c_SEARCHING, false);
          } else {
             super.a_setState(var1, false);
@@ -243,11 +243,11 @@ public class b_GpsLocationProvider extends a_GpsSensor {
          this.a_setState(m_SENSOR_STATE.a_DISABLED, true);
       } else if (!this.d) {
          this.d = true;
-         this.a_context.registerReceiver(this.J, new IntentFilter("android.os.action.POWER_SAVE_MODE_CHANGED"), (String)null, this.C);
+         this.a_context.registerReceiver(this.J, new IntentFilter("android.os.action.POWER_SAVE_MODE_CHANGED"), (String)null, this.C_handler);
          if (this.G.a()) {
             this.a_setState(m_SENSOR_STATE.a_DISABLED, true);
          } else if (!this.B) {
-            fi.polar.polarflow.c_sensor_package.d_gps_package.i.b(this.z);
+            i_GpsSensor.b(this.z_gpsSensor);
          }
       } else {
          this.d();
@@ -260,17 +260,17 @@ public class b_GpsLocationProvider extends a_GpsSensor {
       if (this.d) {
          this.d = false;
          this.a_context.unregisterReceiver(this.J);
-         fi.polar.polarflow.c_sensor_package.d_gps_package.i.c(this.z);
+         i_GpsSensor.c(this.z_gpsSensor);
       } else {
          this.d();
       }
 
-      this.C.removeCallbacksAndMessages((Object)null);
-      fi.polar.polarflow.c_sensor_package.d_gps_package.i.d(this.z);
+      this.C_handler.removeCallbacksAndMessages((Object)null);
+      i_GpsSensor.d(this.z_gpsSensor);
    }
 
    public void d() {
-      fi.polar.polarflow.c_sensor_package.d_gps_package.i.e(this.z);
+      i_GpsSensor.e(this.z_gpsSensor);
    }
 
    public void f() {
@@ -279,7 +279,7 @@ public class b_GpsLocationProvider extends a_GpsSensor {
    }
 
    public void g() {
-      this.m += (float)this.x.getDistanceInMeters() - this.l;
+      this.m += (float)this.x_locationDataCalculator.getDistanceInMeters() - this.l;
       if (this.y != null) {
          AscentDescentOutput var1 = this.y.addAltitude((float)this.i);
          this.p += var1.getAscent() - this.r;
@@ -295,7 +295,7 @@ public class b_GpsLocationProvider extends a_GpsSensor {
    public void h() {
       super.h();
       if (this.d && this.B) {
-         fi.polar.polarflow.c_sensor_package.d_gps_package.i.a(this.z);
+         i_GpsSensor.a(this.z_gpsSensor);
       }
 
    }

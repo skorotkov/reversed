@@ -8,7 +8,7 @@ import fi.polar.polarflow.c_sensor_package.a_accelerometer_package.a_Acceleromet
 import fi.polar.polarflow.c_sensor_package.a_accelerometer_package.e_RunningCadenceProvider;
 import fi.polar.polarflow.c_sensor_package.b_PolarSensorEvent;
 import fi.polar.polarflow.c_sensor_package.c_heartrate_package.a_HeartRateSensor;
-import fi.polar.polarflow.c_sensor_package.d_gps_package.a_GpsSensor;
+import fi.polar.polarflow.c_sensor_package.d_gps_package.a_GpsLocationProviderBase;
 import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
 import fi.polar.polarflow.data.Training;
 import fi.polar.polarflow.data.TrainingStatistics;
@@ -56,7 +56,7 @@ public class am_SessionCalculators {
    private final Training s;
    private fi.polar.polarflow.util.aa t;
    private final int[] u;
-   private a_GpsSensor v_gpsSensor;
+   private a_GpsLocationProviderBase v_gpsSensor;
    private a_HeartRateSensor w;
    private e_RunningCadenceProvider x;
    private bb y;
@@ -442,7 +442,7 @@ public class am_SessionCalculators {
 
    }
 
-   public void a(a_GpsSensor var1, a_HeartRateSensor var2, e_RunningCadenceProvider var3, a_AccelerometerSensor var4) {
+   public void a(a_GpsLocationProviderBase var1, a_HeartRateSensor var2, e_RunningCadenceProvider var3, a_AccelerometerSensor var4) {
       fi.polar.polarflow.util.d.c(a, "startSessionCalculators");
       this.b.clear();
       if (var1 != null) {

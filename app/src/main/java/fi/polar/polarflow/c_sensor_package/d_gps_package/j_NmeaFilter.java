@@ -18,19 +18,19 @@ public class j_NmeaFilter {
    private int m = -1;
    private int n = -1;
    private int o = -1;
-   private LocationDataCalculator p = null;
+   private LocationDataCalculator p_locationDataCalculator = null;
 
    private void b() {
-      if (this.p != null) {
-         this.p.handleNMEAMessage(this.k);
-         this.p.handleNMEAMessage(this.l);
+      if (this.p_locationDataCalculator != null) {
+         this.p_locationDataCalculator.handleNMEAMessage(this.k);
+         this.p_locationDataCalculator.handleNMEAMessage(this.l);
       }
 
       this.k = "";
       this.l = "";
    }
 
-   public void a() {
+   public void a_reset() {
       fi.polar.polarflow.util.d.c("NmeaFilter", "reset()");
       this.e = false;
       this.f = true;
@@ -45,8 +45,8 @@ public class j_NmeaFilter {
       this.o = -1;
    }
 
-   public void a(LocationDataCalculator var1) {
-      this.p = var1;
+   public void a_setLocationDataCalculator(LocationDataCalculator var1) {
+      this.p_locationDataCalculator = var1;
    }
 
    public boolean a(String var1) {

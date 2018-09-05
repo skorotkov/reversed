@@ -5,7 +5,7 @@ import android.content.Context;
 import fi.polar.polarflow.c_sensor_package.a_Sensor;
 import fi.polar.polarflow.c_sensor_package.n_SENSOR_TYPE;
 
-public abstract class a_GpsSensor extends a_Sensor implements fi.polar.polarflow.c_sensor_package.i {
+public abstract class a_GpsLocationProviderBase extends a_Sensor implements fi.polar.polarflow.c_sensor_package.i {
    protected double g = 0.0D;
    protected double h = 0.0D;
    protected double i = Double.NaN;
@@ -23,7 +23,7 @@ public abstract class a_GpsSensor extends a_Sensor implements fi.polar.polarflow
    protected boolean u = false;
    protected final Object v = new Object();
 
-   protected a_GpsSensor(Context var1, n_SENSOR_TYPE var2) {
+   protected a_GpsLocationProviderBase(Context var1, n_SENSOR_TYPE var2) {
       super(var1, var2);
    }
 
@@ -45,7 +45,10 @@ public abstract class a_GpsSensor extends a_Sensor implements fi.polar.polarflow
 
    public fi.polar.polarflow.c_sensor_package.f k() {
       // $FF: Couldn't be decompiled
-      return null;
+
+      // decompiled after remove of try ... catch
+      Object var1 = this.v;
+      return new fi.polar.polarflow.c_sensor_package.f(this.t, this.u, this.o(), this.p(), this.g, this.h, this.n(), this.l(), this.m(), this.q(), this.r());
    }
 
    public double l() {
