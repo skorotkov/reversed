@@ -6,9 +6,12 @@ import android.util.SparseLongArray;
 
 import fi.polar.polarflow.c_sensor_package.a_accelerometer_package.a_AccelerometerSensor;
 import fi.polar.polarflow.c_sensor_package.a_accelerometer_package.e_RunningCadenceProvider;
-import fi.polar.polarflow.c_sensor_package.b_PolarSensorEvent;
+import fi.polar.polarflow.c_sensor_package.b_PolarSensorEventBase;
 import fi.polar.polarflow.c_sensor_package.c_heartrate_package.a_HeartRateSensor;
 import fi.polar.polarflow.c_sensor_package.d_gps_package.a_GpsLocationProviderBase;
+import fi.polar.polarflow.c_sensor_package.e_PolarSensorListenerEx;
+import fi.polar.polarflow.c_sensor_package.f_PolarSensorEvent;
+import fi.polar.polarflow.c_sensor_package.l_PolarSensorListener;
 import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
 import fi.polar.polarflow.data.Training;
 import fi.polar.polarflow.data.TrainingStatistics;
@@ -32,18 +35,18 @@ public class am_SessionCalculators {
    private int C;
    private long D;
    private long E;
-   private final fi.polar.polarflow.c_sensor_package.e F;
-   private final fi.polar.polarflow.c_sensor_package.e G;
-   private final fi.polar.polarflow.c_sensor_package.l H;
+   private final e_PolarSensorListenerEx F_heartRatePolarSensorListener;
+   private final e_PolarSensorListenerEx G_gpsPolarSensorListener;
+   private final l_PolarSensorListener H_runningCadencePolarSensorListener;
    private final Runnable I;
    private final af J;
    private final List b;
-   private final Context c;
+   private final Context context;
    private final SparseLongArray d;
    private final SparseLongArray e;
    private final SparseLongArray f;
-   private b_PolarSensorEvent g;
-   private fi.polar.polarflow.c_sensor_package.f h;
+   private b_PolarSensorEventBase g;
+   private f_PolarSensorEvent h;
    private int i;
    private long j;
    private int k;
@@ -57,8 +60,8 @@ public class am_SessionCalculators {
    private fi.polar.polarflow.util.aa t;
    private final int[] u;
    private a_GpsLocationProviderBase v_gpsSensor;
-   private a_HeartRateSensor w;
-   private e_RunningCadenceProvider x;
+   private a_HeartRateSensor w_heartRateSensor;
+   private e_RunningCadenceProvider x_runningCadenceProvider;
    private bb y;
    private SwimmingSamples z;
 
@@ -72,12 +75,12 @@ public class am_SessionCalculators {
 
    public am_SessionCalculators(Context var1, Training var2, Handler var3) {
       this.m = 5;
-      this.F = new an(this);
-      this.G = new ao(this);
-      this.H = new ap(this);
+      this.F_heartRatePolarSensorListener = new an(this);
+      this.G_gpsPolarSensorListener = new ao(this);
+      this.H_runningCadencePolarSensorListener = new ap(this);
       this.I = new aq(this);
       this.J = new ar(this);
-      this.c = var1;
+      this.context = var1;
       this.b = new ArrayList();
       this.d = new SparseLongArray();
       this.e = new SparseLongArray();
@@ -107,13 +110,13 @@ public class am_SessionCalculators {
    }
 
    // $FF: synthetic method
-   static b_PolarSensorEvent a(am_SessionCalculators var0, b_PolarSensorEvent var1) {
+   static b_PolarSensorEventBase a(am_SessionCalculators var0, b_PolarSensorEventBase var1) {
       var0.g = var1;
       return var1;
    }
 
    // $FF: synthetic method
-   static fi.polar.polarflow.c_sensor_package.f a(am_SessionCalculators var0, fi.polar.polarflow.c_sensor_package.f var1) {
+   static f_PolarSensorEvent a(am_SessionCalculators var0, f_PolarSensorEvent var1) {
       var0.h = var1;
       return var1;
    }
@@ -188,7 +191,7 @@ public class am_SessionCalculators {
    }
 
    // $FF: synthetic method
-   static b_PolarSensorEvent d(am_SessionCalculators var0) {
+   static b_PolarSensorEventBase d(am_SessionCalculators var0) {
       return var0.g;
    }
 
@@ -292,7 +295,7 @@ public class am_SessionCalculators {
    }
 
    // $FF: synthetic method
-   static fi.polar.polarflow.c_sensor_package.f p(am_SessionCalculators var0) {
+   static f_PolarSensorEvent p(am_SessionCalculators var0) {
       return var0.h;
    }
 
@@ -343,8 +346,8 @@ public class am_SessionCalculators {
       }
 
       this.o = true;
-      if (this.w != null) {
-         this.w.a((fi.polar.polarflow.c_sensor_package.l)null);
+      if (this.w_heartRateSensor != null) {
+         this.w_heartRateSensor.a_setPolarSensorListener((l_PolarSensorListener)null);
          int var4;
          if (this.i != -1) {
             var4 = this.i;
@@ -360,12 +363,12 @@ public class am_SessionCalculators {
       }
 
       if (this.v_gpsSensor != null) {
-         this.v_gpsSensor.a((fi.polar.polarflow.c_sensor_package.l)null);
+         this.v_gpsSensor.a_setPolarSensorListener((l_PolarSensorListener)null);
          this.j();
       }
 
-      if (this.x != null) {
-         this.x.a((fi.polar.polarflow.c_sensor_package.l)null);
+      if (this.x_runningCadenceProvider != null) {
+         this.x_runningCadenceProvider.a_setPolarSensorListener((l_PolarSensorListener)null);
          this.a(this.k);
       }
 
@@ -417,7 +420,7 @@ public class am_SessionCalculators {
 
    }
 
-   void a(int var1, fi.polar.polarflow.c_sensor_package.f var2) {
+   void a(int var1, f_PolarSensorEvent var2) {
       long var3 = this.e.get(this.B);
       if (this.o) {
          this.e.put(this.B, 0L);
@@ -442,7 +445,7 @@ public class am_SessionCalculators {
 
    }
 
-   public void a(a_GpsLocationProviderBase var1, a_HeartRateSensor var2, e_RunningCadenceProvider var3, a_AccelerometerSensor var4) {
+   public void a_startSessionCalculators(a_GpsLocationProviderBase var1, a_HeartRateSensor var2, e_RunningCadenceProvider var3, a_AccelerometerSensor var4) {
       fi.polar.polarflow.util.d.c(a, "startSessionCalculators");
       this.b.clear();
       if (var1 != null) {
@@ -453,26 +456,26 @@ public class am_SessionCalculators {
             this.s.getStatistics().getSpeedStatistics().b(this.v_gpsSensor.p());
          }
 
-         this.v_gpsSensor.a(this.G);
+         this.v_gpsSensor.a_setPolarSensorListener(this.G_gpsPolarSensorListener);
          this.h = this.v_gpsSensor.k();
       }
 
       float var5;
       long var6;
       if (var2 != null) {
-         this.w = var2;
-         this.b.add(new q(this.c));
-         if (this.w.e_getState() == m_SENSOR_STATE.d_READY) {
-            this.s.getStatistics().getHeartrateStatistics().b((float)this.w.n());
-            var5 = (float)this.w.n();
+         this.w_heartRateSensor = var2;
+         this.b.add(new q(this.context));
+         if (this.w_heartRateSensor.e_getState() == m_SENSOR_STATE.d_READY) {
+            this.s.getStatistics().getHeartrateStatistics().b((float)this.w_heartRateSensor.n());
+            var5 = (float)this.w_heartRateSensor.n();
             var6 = this.t.c();
-            this.g = new b_PolarSensorEvent(new float[]{var5}, var6, 3);
+            this.g = new b_PolarSensorEventBase(new float[]{var5}, var6, 3);
          } else {
             var6 = this.t.c();
-            this.g = new b_PolarSensorEvent(new float[]{0.0F}, var6, -1);
+            this.g = new b_PolarSensorEventBase(new float[]{0.0F}, var6, -1);
          }
 
-         this.w.a(this.F);
+         this.w_heartRateSensor.a_setPolarSensorListener(this.F_heartRatePolarSensorListener);
       }
 
       SportProfile var8 = this.s.getSportProfile();
@@ -494,27 +497,27 @@ public class am_SessionCalculators {
 
             this.y.a(f(), UserDeviceSettings.getUsersDeviceLocation(), var5);
             this.y.a(this.J);
-            this.b.add(new az(this.c, var6, this.y));
+            this.b.add(new az(this.context, var6, this.y));
             if (var9 == 2) {
-               this.b.add(new av(this.c, var6, this.y));
+               this.b.add(new av(this.context, var6, this.y));
             } else if (var9 == 3) {
-               this.b.add(new ax(this.c, var8.getSettings().getAutomaticLapDuration(), var6, this.y));
+               this.b.add(new ax(this.context, var8.getSettings().getAutomaticLapDuration(), var6, this.y));
             }
          }
       } else if (var2 != null || var1 != null) {
-         this.b.add(new ab(this.c, var6));
+         this.b.add(new ab(this.context, var6));
          if (var9 == 2) {
-            this.b.add(new d(this.c, var8.getSettings().getAutomaticLapDistance(), var6));
+            this.b.add(new d(this.context, var8.getSettings().getAutomaticLapDistance(), var6));
          } else if (var9 == 3) {
-            this.b.add(new e(this.c, var8.getSettings().getAutomaticLapDuration(), var6));
+            this.b.add(new e(this.context, var8.getSettings().getAutomaticLapDuration(), var6));
          }
       }
 
       if (this.s.getTrainingSessionTarget() != null) {
          if (this.s.getTrainingSessionTarget().getExerciseTarget().getTargetType() == 2) {
-            this.b.add(new j(this.c));
+            this.b.add(new j(this.context));
          } else if (this.s.getTrainingSessionTarget().getExerciseTarget().getTargetType() == 1) {
-            this.b.add(new w(this.c));
+            this.b.add(new w(this.context));
          }
       }
 
@@ -531,8 +534,8 @@ public class am_SessionCalculators {
 
       if (var3 != null) {
          this.b.add(new o());
-         this.x = var3;
-         this.x.a(this.H);
+         this.x_runningCadenceProvider = var3;
+         this.x_runningCadenceProvider.a_setPolarSensorListener(this.H_runningCadencePolarSensorListener);
       }
 
       if (!this.b.isEmpty()) {

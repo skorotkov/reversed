@@ -4,7 +4,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.os.Handler;
 
-import fi.polar.polarflow.c_sensor_package.b_PolarSensorEvent;
+import fi.polar.polarflow.c_sensor_package.b_PolarSensorEventBase;
 import fi.polar.polarflow.c_sensor_package.g_AndroidSensorEventListener;
 import fi.polar.polarflow.c_sensor_package.j_PolarSensorEventListener;
 
@@ -17,7 +17,7 @@ class d_GpsAndroidSensorEventListener extends g_AndroidSensorEventListener {
       this.a_gpsLocationProvider = var1;
    }
 
-   public void a(b_PolarSensorEvent var1) {
+   public void a(b_PolarSensorEventBase var1) {
       if (b_GpsLocationProvider.b(this.a_gpsLocationProvider)) {
          super.a(var1);
       }

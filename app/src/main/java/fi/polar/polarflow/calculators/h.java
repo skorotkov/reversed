@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.SystemClock;
 
+import fi.polar.polarflow.a_package.a_DataTypes;
 import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
 import fi.polar.polarflow.c_sensor_package.n_SENSOR_TYPE;
 import fi.polar.polarflow.data.Lap;
@@ -345,11 +346,11 @@ public abstract class h extends aj implements ae, ah {
       }
 
       if (var4 != null) {
-         var5.setLapStrokes(fi.polar.polarflow.a_package.a.a(13, var4.getLapStrokes()));
-         var5.setPoolCount(fi.polar.polarflow.a_package.a.a(12, var4.getPoolCount()));
+         var5.setLapStrokes(a_DataTypes.a_adjust(13, var4.getLapStrokes()));
+         var5.setPoolCount(a_DataTypes.a_adjust(12, var4.getPoolCount()));
          float var6 = var4.getAvgDurationOfPool();
          if (!Float.isInfinite(var6) && !Float.isNaN(var6)) {
-            var5.setAvgDurationOfPool(fi.polar.polarflow.a_package.a.a(11, var6));
+            var5.setAvgDurationOfPool(a_DataTypes.a_adjust(11, var6));
          }
       }
 

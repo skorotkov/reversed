@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.widget.TextView;
 import java.util.Collection;
 
+import fi.polar.polarflow.a_package.a_DataTypes;
+
 class af implements ab {
    private int a;
    // $FF: synthetic field
@@ -23,7 +25,7 @@ class af implements ab {
       if (Float.isInfinite(var1)) {
          var1 = -1.0F;
       } else {
-         var1 = fi.polar.polarflow.a_package.a.a(2, var1);
+         var1 = a_DataTypes.a_adjust(2, var1);
       }
 
       return var1;

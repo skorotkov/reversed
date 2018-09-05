@@ -2,6 +2,8 @@ package fi.polar.polarflow.calculators;
 
 import android.content.Context;
 
+import fi.polar.polarflow.a_package.a_DataTypes;
+
 public class d extends h {
    private final float d;
    private boolean e;
@@ -12,7 +14,7 @@ public class d extends h {
 
    d(Context var1, float var2, long var3, as var5) {
       super(var1, var3, (fi.polar.polarflow.util.v)null, var5);
-      float var6 = fi.polar.polarflow.a_package.a.a(1, var2);
+      float var6 = a_DataTypes.a_adjust(1, var2);
       var2 = var6;
       if (var6 < 100.0F) {
          fi.polar.polarflow.util.d.f("DistanceLapCalc", "Distance should be >= 100 meters");

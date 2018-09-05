@@ -6,6 +6,8 @@ import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import fi.polar.polarflow.a_package.a_DataTypes;
 import fi.polar.polarflow.data.orm.SwimmingStyleStatistics;
 import fi.polar.polarflow.ui.custom.BetterWearableListView;
 import fi.polar.polarflow.ui.exeview.a_package.a_package.ah;
@@ -38,7 +40,7 @@ public class k extends fi.polar.polarflow.ui.g {
       var4.putLong(ah.q, var3.getSwimmingTimeTotal());
       var4.putFloat(ah.r, var3.getDistance());
       var4.putFloat(ah.M, var3.getAverageSwolf());
-      var4.putFloat(ah.y, fi.polar.polarflow.a_package.a.a(var3.getDistance(), (float)var3.getSwimmingTimeTotal()));
+      var4.putFloat(ah.y, a_DataTypes.a(var3.getDistance(), (float)var3.getSwimmingTimeTotal()));
       var4.putInt(ah.N, var3.getSwimmingStyle());
       return fi.polar.polarflow.ui.exeview.summary.h.a((List)var2, var1, var4);
    }

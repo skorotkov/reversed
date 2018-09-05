@@ -1,5 +1,6 @@
 package fi.polar.polarflow.service.activity;
 
+import fi.polar.polarflow.a_package.a_DataTypes;
 import fi.polar.polarflow.data.orm.PhysData;
 import fi.polar.polarmathsmart.calories.ExerciseCaloriesCalculator;
 import fi.polar.polarmathsmart.calories.ExerciseCaloriesCalculatorAndroidImpl;
@@ -57,7 +58,7 @@ class ad {
    }
 
    public int a() {
-      return fi.polar.polarflow.a_package.a.a(7, (int)this.c);
+      return a_DataTypes.a_adjust(7, (int)this.c);
    }
 
    public void a(float var1, float var2) {

@@ -1,5 +1,7 @@
 package fi.polar.polarflow.calculators;
 
+import fi.polar.polarflow.c_sensor_package.f_PolarSensorEvent;
+
 class aa extends ai {
    private final float a;
    private final float b;
@@ -16,7 +18,7 @@ class aa extends ai {
       this.e = -1.0F;
    }
 
-   aa(int var1, long var2, fi.polar.polarflow.c_sensor_package.f var4) {
+   aa(int var1, long var2, f_PolarSensorEvent var4) {
       super(var1, var2, (var4 != null && var4.n));
       float var5 = Float.NaN;
       float var6 = -1.0F;

@@ -1,8 +1,9 @@
 package fi.polar.polarflow.c_sensor_package.c_heartrate_package;
 
+import fi.polar.polarflow.c_sensor_package.l_PolarSensorListener;
 import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
 
-class m implements fi.polar.polarflow.c_sensor_package.l {
+class m implements l_PolarSensorListener {
    // $FF: synthetic field
    final j_HeartRateSensorManager a;
 

@@ -25,28 +25,28 @@ class f_GnssLocationListener implements LocationListener {
    }
 
    public void onProviderDisabled(String var1) {
-      fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s(), "mLocationListener onProviderDisabled: " + var1);
+      fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s_getClassName(), "mLocationListener onProviderDisabled: " + var1);
       this.a(m_SENSOR_STATE.a_DISABLED);
    }
 
    public void onProviderEnabled(String var1) {
-      fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s(), "mLocationListener onProviderEnabled: " + var1);
+      fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s_getClassName(), "mLocationListener onProviderEnabled: " + var1);
       this.a(m_SENSOR_STATE.c_SEARCHING);
    }
 
    public void onStatusChanged(String var1, int var2, Bundle var3) {
-      fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s(), "GnssLocationListener onStatusChanged, provider: " + var1);
+      fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s_getClassName(), "GnssLocationListener onStatusChanged, provider: " + var1);
       switch(var2) {
       case 0:
-         fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s(), "GnssLocationListener onStatusChanged: OUT_OF_SERVICE");
+         fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s_getClassName(), "GnssLocationListener onStatusChanged: OUT_OF_SERVICE");
          this.a(m_SENSOR_STATE.a_DISABLED);
          break;
       case 1:
-         fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s(), "GnssLocationListener onStatusChanged: TEMPORARILY_UNAVAILABLE");
+         fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s_getClassName(), "GnssLocationListener onStatusChanged: TEMPORARILY_UNAVAILABLE");
          this.a(m_SENSOR_STATE.c_SEARCHING);
          break;
       case 2:
-         fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s(), "GnssLocationListener onStatusChanged: AVAILABLE");
+         fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s_getClassName(), "GnssLocationListener onStatusChanged: AVAILABLE");
          this.a(m_SENSOR_STATE.d_READY);
       }
 

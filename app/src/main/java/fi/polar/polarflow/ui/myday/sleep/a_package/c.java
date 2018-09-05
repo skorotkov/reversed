@@ -4,6 +4,8 @@ import android.content.Context;
 import android.util.SparseIntArray;
 import android.view.View;
 import android.widget.TextView;
+
+import fi.polar.polarflow.a_package.a_DataTypes;
 import fi.polar.polarflow.ui.custom.PolarGlyphView;
 
 public class c extends i {
@@ -33,7 +35,7 @@ public class c extends i {
       super.a(var1);
       Context var2 = var1.getContext();
       ((PolarGlyphView)var1.findViewById(2131755146)).setGlyph(var2.getText(b(this.e)));
-      ((TextView)var1.findViewById(2131755421)).setText(fi.polar.polarflow.a_package.a.a(21, this.d));
+      ((TextView)var1.findViewById(2131755421)).setText(a_DataTypes.a_roundAndToString(21, this.d));
       ((TextView)var1.findViewById(2131755507)).setText(var1.getContext().getText(a(this.e)));
    }
 }

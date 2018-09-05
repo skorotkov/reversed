@@ -1,16 +1,16 @@
 package fi.polar.polarflow.a_package;
 
-class h extends i {
+class h_MinMaxDoubleConstraint extends i_DoubleConstraint {
    private final double b;
    private final double c;
 
-   public h(String var1, double var2, double var4) {
+   public h_MinMaxDoubleConstraint(String var1, double var2, double var4) {
       super(var1);
       this.b = var2;
       this.c = var4;
    }
 
-   public double a(double var1) {
+   public double a_adjust(double var1) {
       double var3;
       if (var1 < this.b) {
          fi.polar.polarflow.util.d.e("DataTypes", this.a + " is below minimum: " + var1);

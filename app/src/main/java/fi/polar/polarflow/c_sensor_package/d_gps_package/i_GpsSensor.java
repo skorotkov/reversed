@@ -7,7 +7,8 @@ import android.location.LocationManager;
 import android.location.OnNmeaMessageListener;
 import android.location.GnssStatus.Callback;
 
-import fi.polar.polarflow.c_sensor_package.b_PolarSensorEvent;
+import fi.polar.polarflow.a_package.a_DataTypes;
+import fi.polar.polarflow.c_sensor_package.b_PolarSensorEventBase;
 import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
 import fi.polar.polarflow.ui.o;
 import fi.polar.polarflow.util.v;
@@ -26,7 +27,7 @@ class i_GpsSensor {
 
    private i_GpsSensor(b_GpsLocationProvider var1) {
       this.a_gpsLocationProvider = var1;
-      fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s(), "GpsSensor");
+      fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s_getClassName(), "GpsSensor");
       this.b_systemLocationManager = (LocationManager) b_GpsLocationProvider.g(var1).getSystemService(Context.LOCATION_SERVICE);
       this.c_nmeaFilter = new j_NmeaFilter();
       this.f_nmeaMessageListener = new h_PolarNmeaMessageListener(var1);
@@ -44,24 +45,24 @@ class i_GpsSensor {
 
       // decompiled after remove of try ... catch
       Object var1 = this.a_gpsLocationProvider.v;
-      this.a_gpsLocationProvider.t = fi.polar.polarflow.c_sensor_package.d_gps_package.b_GpsLocationProvider.i(this.a_gpsLocationProvider);
-      this.a_gpsLocationProvider.u_fix = fi.polar.polarflow.c_sensor_package.d_gps_package.b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getFix();
-      this.a_gpsLocationProvider.k_numberOfSatellites = fi.polar.polarflow.c_sensor_package.d_gps_package.b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getNumberOfSatellites();
-      this.a_gpsLocationProvider.i = fi.polar.polarflow.a_package.a.b(4, fi.polar.polarflow.c_sensor_package.d_gps_package.b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getAltitudeInMeters(true));
-      this.a_gpsLocationProvider.j = fi.polar.polarflow.a_package.a.b(4, fi.polar.polarflow.c_sensor_package.d_gps_package.b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getAltitudeInMeters(false));
-      this.a_gpsLocationProvider.o = (float)fi.polar.polarflow.c_sensor_package.d_gps_package.b_GpsLocationProvider.a(fi.polar.polarflow.c_sensor_package.d_gps_package.b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getSpeedInMetersPerSecond());
-      this.a_gpsLocationProvider.g = fi.polar.polarflow.a_package.a.b(5, fi.polar.polarflow.c_sensor_package.d_gps_package.b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getLatitudeInDecimalDegrees());
-      this.a_gpsLocationProvider.h = fi.polar.polarflow.a_package.a.b(6, fi.polar.polarflow.c_sensor_package.d_gps_package.b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getLongitudeInDecimalDegrees());
+      this.a_gpsLocationProvider.t = b_GpsLocationProvider.i(this.a_gpsLocationProvider);
+      this.a_gpsLocationProvider.u_fix = b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getFix();
+      this.a_gpsLocationProvider.k_numberOfSatellites = b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getNumberOfSatellites();
+      this.a_gpsLocationProvider.i_altitudeInMetersChecked = a_DataTypes.b_adjust(4, b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getAltitudeInMeters(true));
+      this.a_gpsLocationProvider.j_altitudeInMeters = a_DataTypes.b_adjust(4, b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getAltitudeInMeters(false));
+      this.a_gpsLocationProvider.o_speedInMetersPerSecond = (float)b_GpsLocationProvider.a(b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getSpeedInMetersPerSecond());
+      this.a_gpsLocationProvider.g_latitudeInDecimalDegrees = a_DataTypes.b_adjust(5, b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getLatitudeInDecimalDegrees());
+      this.a_gpsLocationProvider.h_longitudeInDecimalDegrees = a_DataTypes.b_adjust(6, b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getLongitudeInDecimalDegrees());
       AscentDescentOutput var2 = null;
-      if (fi.polar.polarflow.c_sensor_package.d_gps_package.b_GpsLocationProvider.k(this.a_gpsLocationProvider) != null) {
-         var2 = fi.polar.polarflow.c_sensor_package.d_gps_package.b_GpsLocationProvider.k(this.a_gpsLocationProvider).addAltitude((float)this.a_gpsLocationProvider.i);
+      if (b_GpsLocationProvider.k_getAscentDescentCalculator(this.a_gpsLocationProvider) != null) {
+         var2 = b_GpsLocationProvider.k_getAscentDescentCalculator(this.a_gpsLocationProvider).addAltitude((float)this.a_gpsLocationProvider.i_altitudeInMetersChecked);
       }
 
       this.a_gpsLocationProvider.a_setState(m_SENSOR_STATE.d_READY);
       if (fi.polar.polarflow.c_sensor_package.d_gps_package.b_GpsLocationProvider.l(this.a_gpsLocationProvider)) {
          this.a_gpsLocationProvider.l = (float)fi.polar.polarflow.c_sensor_package.d_gps_package.b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getDistanceInMeters();
-         if (fi.polar.polarflow.c_sensor_package.d_gps_package.b_GpsLocationProvider.k(this.a_gpsLocationProvider) == null && !Double.isNaN(this.a_gpsLocationProvider.i)) {
-            fi.polar.polarflow.c_sensor_package.d_gps_package.b_GpsLocationProvider.a(this.a_gpsLocationProvider, new AscentDescentCalculatorAndroidImpl(1, (float)this.a_gpsLocationProvider.i));
+         if (fi.polar.polarflow.c_sensor_package.d_gps_package.b_GpsLocationProvider.k_getAscentDescentCalculator(this.a_gpsLocationProvider) == null && !Double.isNaN(this.a_gpsLocationProvider.i_altitudeInMetersChecked)) {
+            fi.polar.polarflow.c_sensor_package.d_gps_package.b_GpsLocationProvider.a_setAscentDescentCalculator(this.a_gpsLocationProvider, new AscentDescentCalculatorAndroidImpl(1, (float)this.a_gpsLocationProvider.i_altitudeInMetersChecked));
          } else if (var2 != null) {
             this.a_gpsLocationProvider.r = var2.getAscent();
             this.a_gpsLocationProvider.s = var2.getDescent();
@@ -99,7 +100,7 @@ class i_GpsSensor {
       if (this.c_nmeaFilter.a(var1)) {
          if (b_GpsLocationProvider.i(this.a_gpsLocationProvider) == 0L) {
             b_GpsLocationProvider.a(this.a_gpsLocationProvider, var2);
-            fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s(), "First NMEAs handled, diff to GPS start time(" + b_GpsLocationProvider.i(this.a_gpsLocationProvider) + " - " + b_GpsLocationProvider.j(this.a_gpsLocationProvider) + ") :" + (b_GpsLocationProvider.i(this.a_gpsLocationProvider) - b_GpsLocationProvider.j(this.a_gpsLocationProvider)));
+            fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s_getClassName(), "First NMEAs handled, diff to GPS start time(" + b_GpsLocationProvider.i(this.a_gpsLocationProvider) + " - " + b_GpsLocationProvider.j(this.a_gpsLocationProvider) + ") :" + (b_GpsLocationProvider.i(this.a_gpsLocationProvider) - b_GpsLocationProvider.j(this.a_gpsLocationProvider)));
          } else {
             b_GpsLocationProvider.a(this.a_gpsLocationProvider, b_GpsLocationProvider.i(this.a_gpsLocationProvider) + 1000L);
          }
@@ -109,12 +110,12 @@ class i_GpsSensor {
          }
 
          if (!var4 && b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getFix()) {
-            fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s(), "Fix changed to true. Saving new reference timestamp:" + var2 + " + (previous:" + b_GpsLocationProvider.i(this.a_gpsLocationProvider) + ")");
+            fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s_getClassName(), "Fix changed to true. Saving new reference timestamp:" + var2 + " + (previous:" + b_GpsLocationProvider.i(this.a_gpsLocationProvider) + ")");
             b_GpsLocationProvider.a(this.a_gpsLocationProvider, var2);
          }
 
          this.a();
-         b_GpsLocationProvider.e(this.a_gpsLocationProvider).a((b_PolarSensorEvent)this.a_gpsLocationProvider.k());
+         b_GpsLocationProvider.e(this.a_gpsLocationProvider).a((b_PolarSensorEventBase)this.a_gpsLocationProvider.k());
       }
 
    }
@@ -142,7 +143,7 @@ class i_GpsSensor {
 
    private void d() {
       b_GpsLocationProvider.a(this.a_gpsLocationProvider, true);
-      fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s(), "startListeningUpdates");
+      fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s_getClassName(), "startListeningUpdates");
       if (o.d(b_GpsLocationProvider.p_getContext(this.a_gpsLocationProvider), "android.permission.ACCESS_FINE_LOCATION")) {
          this.c_nmeaFilter.a_reset();
          this.c_nmeaFilter.a_setLocationDataCalculator(b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider));
@@ -178,7 +179,7 @@ class i_GpsSensor {
          this.b_systemLocationManager.removeUpdates(this.e_gnssLocationListener);
       }
 
-      fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s(), "PolarMath, stopListeningUpdates");
+      fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s_getClassName(), "PolarMath, stopListeningUpdates");
       b_GpsLocationProvider var1 = this.a_gpsLocationProvider;
       m_SENSOR_STATE var2;
       if (b_GpsLocationProvider.c(this.a_gpsLocationProvider).a()) {

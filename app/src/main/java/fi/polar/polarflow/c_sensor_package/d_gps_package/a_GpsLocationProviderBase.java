@@ -2,19 +2,22 @@ package fi.polar.polarflow.c_sensor_package.d_gps_package;
 
 import android.content.Context;
 
+import fi.polar.polarflow.a_package.a_DataTypes;
 import fi.polar.polarflow.c_sensor_package.a_Sensor;
+import fi.polar.polarflow.c_sensor_package.f_PolarSensorEvent;
+import fi.polar.polarflow.c_sensor_package.i_PolarSensorListenerSupport;
 import fi.polar.polarflow.c_sensor_package.n_SENSOR_TYPE;
 
-public abstract class a_GpsLocationProviderBase extends a_Sensor implements fi.polar.polarflow.c_sensor_package.i {
-   protected double g = 0.0D;
-   protected double h = 0.0D;
-   protected double i = Double.NaN;
-   protected double j = Double.NaN;
+public abstract class a_GpsLocationProviderBase extends a_Sensor implements i_PolarSensorListenerSupport {
+   protected double g_latitudeInDecimalDegrees = 0.0D;
+   protected double h_longitudeInDecimalDegrees = 0.0D;
+   protected double i_altitudeInMetersChecked = Double.NaN;
+   protected double j_altitudeInMeters = Double.NaN;
    protected int k_numberOfSatellites = 0;
    protected float l = 0.0F;
    protected float m = 0.0F;
    protected float n = 0.0F;
-   protected float o = Float.NaN;
+   protected float o_speedInMetersPerSecond = Float.NaN;
    protected float p = 0.0F;
    protected float q = 0.0F;
    protected float r = 0.0F;
@@ -28,13 +31,13 @@ public abstract class a_GpsLocationProviderBase extends a_Sensor implements fi.p
    }
 
    protected void a() {
-      this.i = Double.NaN;
-      this.h = 0.0D;
-      this.j = Double.NaN;
+      this.i_altitudeInMetersChecked = Double.NaN;
+      this.h_longitudeInDecimalDegrees = 0.0D;
+      this.j_altitudeInMeters = Double.NaN;
       this.k_numberOfSatellites = 0;
       this.l = 0.0F;
       this.m = 0.0F;
-      this.o = Float.NaN;
+      this.o_speedInMetersPerSecond = Float.NaN;
       this.r = 0.0F;
       this.s = 0.0F;
       this.p = 0.0F;
@@ -43,20 +46,20 @@ public abstract class a_GpsLocationProviderBase extends a_Sensor implements fi.p
       this.u_fix = false;
    }
 
-   public fi.polar.polarflow.c_sensor_package.f k() {
+   public f_PolarSensorEvent k() {
       // $FF: Couldn't be decompiled
 
       // decompiled after remove of try ... catch
       Object var1 = this.v;
-      return new fi.polar.polarflow.c_sensor_package.f(this.t, this.u_fix, this.o(), this.p(), this.g, this.h, this.n(), this.l(), this.m(), this.q(), this.r());
+      return new f_PolarSensorEvent(this.t, this.u_fix, this.o(), this.p(), this.g_latitudeInDecimalDegrees, this.h_longitudeInDecimalDegrees, this.n(), this.l(), this.m(), this.q(), this.r());
    }
 
    public double l() {
-      return this.i;
+      return this.i_altitudeInMetersChecked;
    }
 
    public double m() {
-      return this.j;
+      return this.j_altitudeInMeters;
    }
 
    public int n() {
@@ -64,11 +67,11 @@ public abstract class a_GpsLocationProviderBase extends a_Sensor implements fi.p
    }
 
    public float o() {
-      return fi.polar.polarflow.a_package.a.a(1, this.l - (this.n + this.m));
+      return a_DataTypes.a_adjust(1, this.l - (this.n + this.m));
    }
 
    public float p() {
-      return this.o;
+      return this.o_speedInMetersPerSecond;
    }
 
    public float q() {

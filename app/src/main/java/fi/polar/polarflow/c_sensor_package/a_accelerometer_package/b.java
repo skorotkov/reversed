@@ -4,7 +4,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 
-import fi.polar.polarflow.c_sensor_package.b_PolarSensorEvent;
+import fi.polar.polarflow.c_sensor_package.b_PolarSensorEventBase;
 
 class b implements SensorEventListener {
    // $FF: synthetic field
@@ -25,7 +25,7 @@ class b implements SensorEventListener {
          float var4 = var1.values[2];
          long var5 = var1.timestamp;
          int var7 = var1.accuracy;
-         b_PolarSensorEvent var8 = new b_PolarSensorEvent(new float[]{var2, var3, var4}, var5, var7);
+         b_PolarSensorEventBase var8 = new b_PolarSensorEventBase(new float[]{var2, var3, var4}, var5, var7);
          a_AccelerometerSensor.c(this.a).a(var8);
          if (a_AccelerometerSensor.d(this.a) == 0L) {
             a_AccelerometerSensor.b(this.a, a_AccelerometerSensor.a(this.a));

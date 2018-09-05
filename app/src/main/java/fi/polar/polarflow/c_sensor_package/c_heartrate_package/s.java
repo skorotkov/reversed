@@ -7,7 +7,9 @@ import android.hardware.SensorManager;
 import android.os.Handler;
 import android.util.SparseArray;
 
+import fi.polar.polarflow.c_sensor_package.e_PolarSensorListenerEx;
 import fi.polar.polarflow.c_sensor_package.j_PolarSensorEventListener;
+import fi.polar.polarflow.c_sensor_package.l_PolarSensorListener;
 import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
 
 public class s extends a_HeartRateSensor {
@@ -16,7 +18,7 @@ public class s extends a_HeartRateSensor {
    private SensorManager i;
    private Sensor j;
    private boolean k;
-   private fi.polar.polarflow.c_sensor_package.e l = null;
+   private e_PolarSensorListenerEx l = null;
    private final Handler m = new Handler();
    private final j_PolarSensorEventListener n = new u(this);
    private final SensorEventListener o;
@@ -28,7 +30,7 @@ public class s extends a_HeartRateSensor {
    }
 
    // $FF: synthetic method
-   static fi.polar.polarflow.c_sensor_package.e a(s var0) {
+   static e_PolarSensorListenerEx a(s var0) {
       return var0.l;
    }
 
@@ -75,8 +77,8 @@ public class s extends a_HeartRateSensor {
 
    }
 
-   public void a(fi.polar.polarflow.c_sensor_package.l var1) {
-      this.l = (fi.polar.polarflow.c_sensor_package.e)var1;
+   public void a_setPolarSensorListener(l_PolarSensorListener var1) {
+      this.l = (e_PolarSensorListenerEx)var1;
    }
 
    public void b_start() {

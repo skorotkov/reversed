@@ -5,9 +5,11 @@ import android.content.Context;
 import android.content.IntentFilter;
 import android.os.Handler;
 
+import fi.polar.polarflow.a_package.a_DataTypes;
+import fi.polar.polarflow.c_sensor_package.e_PolarSensorListenerEx;
 import fi.polar.polarflow.c_sensor_package.g_AndroidSensorEventListener;
 import fi.polar.polarflow.c_sensor_package.j_PolarSensorEventListener;
-import fi.polar.polarflow.c_sensor_package.l;
+import fi.polar.polarflow.c_sensor_package.l_PolarSensorListener;
 import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
 import fi.polar.polarflow.c_sensor_package.n_SENSOR_TYPE;
 import fi.polar.polarflow.util.aa;
@@ -18,8 +20,8 @@ import fi.polar.polarmathsmart.gps.LocationDataCalculator;
 import fi.polar.polarmathsmart.gps.LocationDataCalculatorAndroidImpl;
 
 public class b_GpsLocationProvider extends a_GpsLocationProviderBase {
-   private static final String w = b_GpsLocationProvider.class.getSimpleName();
-   private fi.polar.polarflow.c_sensor_package.e A;
+   private static final String w_className = b_GpsLocationProvider.class.getSimpleName();
+   private e_PolarSensorListenerEx A_polarSensorListener;
    private boolean B;
    private final Handler C_handler;
    private long D;
@@ -28,9 +30,9 @@ public class b_GpsLocationProvider extends a_GpsLocationProviderBase {
    private n G;
    private final j_PolarSensorEventListener H_polarSensorEventListener;
    private final g_AndroidSensorEventListener I_androidSensorEventListener;
-   private final BroadcastReceiver J;
+   private final BroadcastReceiver J_powerSaveModeBroadcastReceiver;
    private LocationDataCalculator x_locationDataCalculator;
-   private AscentDescentCalculatorAndroidImpl y;
+   private AscentDescentCalculatorAndroidImpl y_ascentDescentCalculator;
    private final i_GpsSensor z_gpsSensor;
 
    public b_GpsLocationProvider(Context var1) {
@@ -39,15 +41,15 @@ public class b_GpsLocationProvider extends a_GpsLocationProviderBase {
 
    b_GpsLocationProvider(Context var1, LocationDataCalculatorAndroidImpl var2) {
       super(var1, n_SENSOR_TYPE.b_IN_DEVICE_GPS);
-      this.y = null;
-      this.A = null;
+      this.y_ascentDescentCalculator = null;
+      this.A_polarSensorListener = null;
       this.C_handler = new Handler();
       this.D = 0L;
       this.E = 0L;
       this.H_polarSensorEventListener = new c_GpsPolarSensorEventListener(this);
       this.I_androidSensorEventListener = new d_GpsAndroidSensorEventListener(this, this.H_polarSensorEventListener, this.C_handler);
-      this.J = new e(this);
-      fi.polar.polarflow.util.d.c(w, "GpsLocationProvider");
+      this.J_powerSaveModeBroadcastReceiver = new e_PowerSaveModeBroadcastReceiver(this);
+      fi.polar.polarflow.util.d.c(w_className, "GpsLocationProvider");
       this.z_gpsSensor = new i_GpsSensor(this, (c_GpsPolarSensorEventListener)null);
       this.x_locationDataCalculator = var2;
       this.F = new aa();
@@ -66,13 +68,13 @@ public class b_GpsLocationProvider extends a_GpsLocationProviderBase {
    }
 
    // $FF: synthetic method
-   static fi.polar.polarflow.c_sensor_package.e a(b_GpsLocationProvider var0) {
-      return var0.A;
+   static e_PolarSensorListenerEx a_getPolarSensorListener(b_GpsLocationProvider var0) {
+      return var0.A_polarSensorListener;
    }
 
    // $FF: synthetic method
-   static AscentDescentCalculatorAndroidImpl a(b_GpsLocationProvider var0, AscentDescentCalculatorAndroidImpl var1) {
-      var0.y = var1;
+   static AscentDescentCalculatorAndroidImpl a_setAscentDescentCalculator(b_GpsLocationProvider var0, AscentDescentCalculatorAndroidImpl var1) {
+      var0.y_ascentDescentCalculator = var1;
       return var1;
    }
 
@@ -90,12 +92,12 @@ public class b_GpsLocationProvider extends a_GpsLocationProviderBase {
    private static double b(double var0) {
       double var2;
       if (var0 < 0.0D) {
-         fi.polar.polarflow.util.d.e(w, "Speed is below minimum: " + var0 + " m/s");
+         fi.polar.polarflow.util.d.e(w_className, "Speed is below minimum: " + var0 + " m/s");
          var2 = 0.0D;
       } else {
          var2 = var0;
          if (var0 > 110.83333626941406D) {
-            fi.polar.polarflow.util.d.e(w, "Speed is above maximum : " + var0 + " m/s");
+            fi.polar.polarflow.util.d.e(w_className, "Speed is above maximum : " + var0 + " m/s");
             var2 = 110.83333626941406D;
          }
       }
@@ -164,8 +166,8 @@ public class b_GpsLocationProvider extends a_GpsLocationProviderBase {
    }
 
    // $FF: synthetic method
-   static AscentDescentCalculatorAndroidImpl k(b_GpsLocationProvider var0) {
-      return var0.y;
+   static AscentDescentCalculatorAndroidImpl k_getAscentDescentCalculator(b_GpsLocationProvider var0) {
+      return var0.y_ascentDescentCalculator;
    }
 
    // $FF: synthetic method
@@ -209,18 +211,18 @@ public class b_GpsLocationProvider extends a_GpsLocationProviderBase {
    }
 
    // $FF: synthetic method
-   static String s() {
-      return w;
+   static String s_getClassName() {
+      return w_className;
    }
 
    protected void a() {
       super.a();
       this.n = (float)this.x_locationDataCalculator.getDistanceInMeters();
-      this.i = fi.polar.polarflow.a_package.a.b(4, this.x_locationDataCalculator.getAltitudeInMeters(true));
+      this.i_altitudeInMetersChecked = a_DataTypes.b_adjust(4, this.x_locationDataCalculator.getAltitudeInMeters(true));
    }
 
-   public void a(l var1) {
-      this.A = (fi.polar.polarflow.c_sensor_package.e)var1;
+   public void a_setPolarSensorListener(l_PolarSensorListener var1) {
+      this.A_polarSensorListener = (e_PolarSensorListenerEx)var1;
    }
 
    public void a_setState(m_SENSOR_STATE var1) {
@@ -238,12 +240,12 @@ public class b_GpsLocationProvider extends a_GpsLocationProviderBase {
 
    public void b_start() {
       this.E = this.F.b();
-      fi.polar.polarflow.util.d.c(w, "start() at: " + this.E);
+      fi.polar.polarflow.util.d.c(w_className, "start() at: " + this.E);
       if (!fi.polar.polarflow.ui.o.d(this.a_context, "android.permission.ACCESS_FINE_LOCATION")) {
          this.a_setState(m_SENSOR_STATE.a_DISABLED, true);
       } else if (!this.d) {
          this.d = true;
-         this.a_context.registerReceiver(this.J, new IntentFilter("android.os.action.POWER_SAVE_MODE_CHANGED"), (String)null, this.C_handler);
+         this.a_context.registerReceiver(this.J_powerSaveModeBroadcastReceiver, new IntentFilter("android.os.action.POWER_SAVE_MODE_CHANGED"), (String)null, this.C_handler);
          if (this.G.a()) {
             this.a_setState(m_SENSOR_STATE.a_DISABLED, true);
          } else if (!this.B) {
@@ -256,10 +258,10 @@ public class b_GpsLocationProvider extends a_GpsLocationProviderBase {
    }
 
    public void c_stop() {
-      fi.polar.polarflow.util.d.c(w, "stop()");
+      fi.polar.polarflow.util.d.c(w_className, "stop()");
       if (this.d) {
          this.d = false;
-         this.a_context.unregisterReceiver(this.J);
+         this.a_context.unregisterReceiver(this.J_powerSaveModeBroadcastReceiver);
          i_GpsSensor.c(this.z_gpsSensor);
       } else {
          this.d();
@@ -280,8 +282,8 @@ public class b_GpsLocationProvider extends a_GpsLocationProviderBase {
 
    public void g() {
       this.m += (float)this.x_locationDataCalculator.getDistanceInMeters() - this.l;
-      if (this.y != null) {
-         AscentDescentOutput var1 = this.y.addAltitude((float)this.i);
+      if (this.y_ascentDescentCalculator != null) {
+         AscentDescentOutput var1 = this.y_ascentDescentCalculator.addAltitude((float)this.i_altitudeInMetersChecked);
          this.p += var1.getAscent() - this.r;
          this.q += var1.getDescent() - this.s;
          this.r = var1.getAscent();

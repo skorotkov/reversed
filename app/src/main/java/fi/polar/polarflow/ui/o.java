@@ -11,6 +11,8 @@ import android.text.format.DateFormat;
 import android.text.format.DateUtils;
 import android.util.TypedValue;
 import android.widget.TextView;
+
+import fi.polar.polarflow.a_package.a_DataTypes;
 import fi.polar.polarflow.data.orm.PhysData;
 import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
@@ -71,7 +73,7 @@ public class o {
    }
 
    public static String a(double var0) {
-      return fi.polar.polarflow.a_package.a.a(4, fi.polar.polarflow.a_package.a.b(4, var0) / 0.3048D);
+      return a_DataTypes.a_roundAndToString(4, a_DataTypes.b_adjust(4, var0) / 0.3048D);
    }
 
    public static String a(float var0) {
@@ -79,7 +81,7 @@ public class o {
    }
 
    public static String a(float var0, int var1) {
-      return fi.polar.polarflow.a_package.a.a(var1, (double)fi.polar.polarflow.a_package.a.a(1, var0) / 1609.344D);
+      return a_DataTypes.a_roundAndToString(var1, (double) a_DataTypes.a_adjust(1, var0) / 1609.344D);
    }
 
    public static String a(int var0, float var1) {
@@ -100,7 +102,7 @@ public class o {
    public static String a(Context var0, float var1) {
       String var2;
       if (!Float.isNaN(var1) && var1 >= 0.0F) {
-         var2 = c(var0, fi.polar.polarflow.a_package.a.b(var1));
+         var2 = c(var0, a_DataTypes.b(var1));
       } else {
          var2 = var0.getString(2131231107);
       }
@@ -154,13 +156,13 @@ public class o {
    }
 
    public static void a(int var0, TextView var1, float var2, int var3) {
-      float var4 = fi.polar.polarflow.a_package.a.a(1, var2);
+      float var4 = a_DataTypes.a_adjust(1, var2);
       var2 = var4;
       if (var3 == 1) {
          var2 = e(var4);
       }
 
-      var1.setText(fi.polar.polarflow.a_package.a.a(var0, (double)var2));
+      var1.setText(a_DataTypes.a_roundAndToString(var0, (double)var2));
    }
 
    public static void a(Context var0) {
@@ -223,7 +225,7 @@ public class o {
    }
 
    public static String b(double var0) {
-      return fi.polar.polarflow.a_package.a.a(4, fi.polar.polarflow.a_package.a.b(4, var0));
+      return a_DataTypes.a_roundAndToString(4, a_DataTypes.b_adjust(4, var0));
    }
 
    public static String b(float var0) {
@@ -231,13 +233,13 @@ public class o {
    }
 
    public static String b(float var0, int var1) {
-      return fi.polar.polarflow.a_package.a.a(var1, (double)fi.polar.polarflow.a_package.a.a(1, var0) / 1000.0D);
+      return a_DataTypes.a_roundAndToString(var1, (double) a_DataTypes.a_adjust(1, var0) / 1000.0D);
    }
 
    public static String b(Context var0, float var1) {
       String var2;
       if (!Float.isNaN(var1) && var1 >= 0.0F) {
-         var2 = c(var0, fi.polar.polarflow.a_package.a.c(var1));
+         var2 = c(var0, a_DataTypes.c(var1));
       } else {
          var2 = var0.getString(2131231107);
       }
@@ -272,13 +274,13 @@ public class o {
    }
 
    public static String c(float var0) {
-      return fi.polar.polarflow.a_package.a.a(8, (double)((int)fi.polar.polarflow.a_package.a.a(4, var0)));
+      return a_DataTypes.a_roundAndToString(8, (double)((int) a_DataTypes.a_adjust(4, var0)));
    }
 
    public static String c(Context var0, float var1) {
       String var2;
       if (!Float.isNaN(var1) && var1 >= 0.0F) {
-         var2 = fi.polar.polarflow.a_package.a.a(2, (double)var1);
+         var2 = a_DataTypes.a_roundAndToString(2, (double)var1);
       } else {
          var2 = var0.getString(2131231109);
       }
@@ -328,13 +330,13 @@ public class o {
    }
 
    public static String d(float var0) {
-      return fi.polar.polarflow.a_package.a.a(8, (double)((int)((double)fi.polar.polarflow.a_package.a.a(4, var0) / 0.3048D)));
+      return a_DataTypes.a_roundAndToString(8, (double)((int)((double) a_DataTypes.a_adjust(4, var0) / 0.3048D)));
    }
 
    public static String d(Context var0, float var1) {
       String var2;
       if (!Float.isNaN(var1) && var1 >= 0.0F) {
-         var2 = fi.polar.polarflow.a_package.a.a(2, (double)var1 / 1.609344D);
+         var2 = a_DataTypes.a_roundAndToString(2, (double)var1 / 1.609344D);
       } else {
          var2 = var0.getString(2131231109);
       }
@@ -345,7 +347,7 @@ public class o {
    public static String d(Context var0, int var1) {
       String var2;
       if (var1 > 0) {
-         var2 = String.valueOf(fi.polar.polarflow.a_package.a.a(7, var1));
+         var2 = String.valueOf(a_DataTypes.a_adjust(7, var1));
       } else {
          var2 = var0.getString(2131231105);
       }
@@ -381,7 +383,7 @@ public class o {
          if (var1 == 0.0F) {
             var2 = var0.getString(2131231106);
          } else {
-            var2 = c(var0, fi.polar.polarflow.a_package.a.a(var1));
+            var2 = c(var0, a_DataTypes.a(var1));
          }
       } else {
          var2 = var0.getString(2131231107);
@@ -417,7 +419,7 @@ public class o {
          if (var1 == 0.0F) {
             var2 = var0.getString(2131231106);
          } else {
-            var2 = c(var0, fi.polar.polarflow.a_package.a.a(var1 / 1.609344F));
+            var2 = c(var0, a_DataTypes.a(var1 / 1.609344F));
          }
       } else {
          var2 = var0.getString(2131231107);

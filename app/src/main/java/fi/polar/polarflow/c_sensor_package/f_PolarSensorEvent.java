@@ -1,6 +1,6 @@
 package fi.polar.polarflow.c_sensor_package;
 
-public class f extends b_PolarSensorEvent {
+public class f_PolarSensorEvent extends b_PolarSensorEventBase {
    public final float e;
    public final float f;
    public final int g;
@@ -12,7 +12,7 @@ public class f extends b_PolarSensorEvent {
    public final float m;
    public final boolean n;
 
-   public f() {
+   public f_PolarSensorEvent() {
       super(new float[]{0.0F}, 0L, 0);
       this.n = false;
       this.e = 0.0F;
@@ -26,7 +26,7 @@ public class f extends b_PolarSensorEvent {
       this.m = 0.0F;
    }
 
-   public f(long var1, boolean var3, float var4, float var5, double var6, double var8, int var10, double var11, double var13, float var15, float var16) {
+   public f_PolarSensorEvent(long var1, boolean var3, float var4, float var5, double var6, double var8, int var10, double var11, double var13, float var15, float var16) {
       super(new float[]{0.0F}, var1, 0);
       this.n = var3;
       this.e = var4;

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
+
+import fi.polar.polarflow.a_package.a_DataTypes;
 import fi.polar.polarflow.ui.exeview.a_package.a_package.ah;
 
 import java.util.Collection;
@@ -116,11 +118,11 @@ public class c extends ah {
       String var3;
       if (this.n()) {
          if (this.j == 0) {
-            var2 = fi.polar.polarflow.a_package.a.a(17, (double)this.f);
-            var3 = fi.polar.polarflow.a_package.a.a(18, (double)this.g);
+            var2 = a_DataTypes.a_roundAndToString(17, (double)this.f);
+            var3 = a_DataTypes.a_roundAndToString(18, (double)this.g);
          } else {
-            var2 = fi.polar.polarflow.a_package.a.a(17, (double)fi.polar.polarflow.ui.o.e(this.f));
-            var3 = fi.polar.polarflow.a_package.a.a(18, (double)fi.polar.polarflow.ui.o.e(this.g));
+            var2 = a_DataTypes.a_roundAndToString(17, (double)fi.polar.polarflow.ui.o.e(this.f));
+            var3 = a_DataTypes.a_roundAndToString(18, (double)fi.polar.polarflow.ui.o.e(this.g));
          }
       } else {
          var2 = fi.polar.polarflow.ui.o.a(this.p(), this.f);

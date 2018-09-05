@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.os.SystemClock;
 
 import fi.polar.polarflow.c_sensor_package.a_accelerometer_package.a_AccelerometerSensor;
-import fi.polar.polarflow.c_sensor_package.b_PolarSensorEvent;
+import fi.polar.polarflow.c_sensor_package.b_PolarSensorEventBase;
 import fi.polar.polarflow.c_sensor_package.c_heartrate_package.a_HeartRateSensor;
+import fi.polar.polarflow.c_sensor_package.e_PolarSensorListenerEx;
+import fi.polar.polarflow.c_sensor_package.l_PolarSensorListener;
 import fi.polar.polarmathsmart.swimming.poolswimming.PoolSwimmingAlgorithmAndroidImpl;
 import fi.polar.polarmathsmart.swimming.poolswimming.PoolSwimmingOutput;
 import fi.polar.polarmathsmart.swimming.poolswimming.SwimmingLapStatistics;
@@ -34,7 +36,7 @@ public class bb implements ae, ah {
    private boolean n;
    private int o;
    private int p;
-   private final fi.polar.polarflow.c_sensor_package.e q;
+   private final e_PolarSensorListenerEx q;
 
    public bb(a_HeartRateSensor var1, a_AccelerometerSensor var2, long var3) {
       this.k = SwimmingType.NO_SWIMMING.getValue();
@@ -118,7 +120,7 @@ public class bb implements ae, ah {
          float[] var6 = new float[var2];
 
          for(var3 = 0; var3 < var2; ++var3) {
-            b_PolarSensorEvent var7 = (b_PolarSensorEvent)var1.get(var3);
+            b_PolarSensorEventBase var7 = (b_PolarSensorEventBase)var1.get(var3);
             var4[var3] = var7.a[0];
             var5[var3] = var7.a[1];
             var6[var3] = var7.a[2];
@@ -161,7 +163,7 @@ public class bb implements ae, ah {
    }
 
    public SwimmingStatistics a() {
-      this.b.a((fi.polar.polarflow.c_sensor_package.l)null);
+      this.b.a_setPolarSensorListener((l_PolarSensorListener)null);
       this.f.a("SwimmingMetricsProvider.ACTION_POOL_SWIMMING_OUTPUT_DATA");
       this.f.a("SwimmingMetricsProvider.ACTION_POOL_SWIMMING_OUTPUT_REST_TIME_START");
       if (this.d != null) {
@@ -183,7 +185,7 @@ public class bb implements ae, ah {
       }
 
       this.c = new PoolSwimmingAlgorithmAndroidImpl(var1, this.e, var3);
-      this.b.a((fi.polar.polarflow.c_sensor_package.l)this.q);
+      this.b.a_setPolarSensorListener((l_PolarSensorListener)this.q);
       this.j = this.g();
       this.a(this.j);
    }
@@ -193,7 +195,7 @@ public class bb implements ae, ah {
       this.j = 0L;
       this.m = SwimmingType.NO_SWIMMING.getValue();
       this.l = SwimmingType.NO_SWIMMING.getValue();
-      this.b.a((fi.polar.polarflow.c_sensor_package.l)null);
+      this.b.a_setPolarSensorListener((l_PolarSensorListener)null);
       this.n = true;
    }
 
@@ -202,7 +204,7 @@ public class bb implements ae, ah {
       this.i = 0L;
       this.j = this.g();
       this.a(this.j);
-      this.b.a((fi.polar.polarflow.c_sensor_package.l)this.q);
+      this.b.a_setPolarSensorListener((l_PolarSensorListener)this.q);
       this.n = false;
    }
 

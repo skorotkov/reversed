@@ -5,6 +5,8 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.view.View;
 import android.widget.TextView;
+
+import fi.polar.polarflow.a_package.a_DataTypes;
 import fi.polar.polarflow.data.orm.Preferences;
 import fi.polar.polarflow.data.orm.Sport;
 import fi.polar.polarflow.data.orm.TrainingSession;
@@ -34,12 +36,12 @@ public class j extends c {
    }
 
    private void a(TextView var1, int var2) {
-      var2 = fi.polar.polarflow.a_package.a.a(7, var2);
+      var2 = a_DataTypes.a_adjust(7, var2);
       var1.setText(o.d(this.i, var2));
    }
 
    private void a(TextView var1, int var2, float var3) {
-      String var4 = o.a(var2, fi.polar.polarflow.a_package.a.a(1, var3));
+      String var4 = o.a(var2, a_DataTypes.a_adjust(1, var3));
       String var5 = o.a(var4);
       if (var5.length() != 4) {
          var5 = var4;

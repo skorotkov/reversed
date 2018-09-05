@@ -11,6 +11,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 
+import fi.polar.polarflow.c_sensor_package.l_PolarSensorListener;
 import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
 import fi.polar.polarflow.data.ExerciseSensor;
 import fi.polar.polarflow.data.orm.BleDevice;
@@ -24,7 +25,7 @@ import java.util.concurrent.TimeUnit;
 
 public class b_BleHeartRateSensor extends a_HeartRateSensor {
    private static final long g;
-   private fi.polar.polarflow.c_sensor_package.l A = null;
+   private l_PolarSensorListener A = null;
    private final boolean B;
    private Handler C = new Handler();
    private Runnable D = new c(this);
@@ -531,7 +532,7 @@ public class b_BleHeartRateSensor extends a_HeartRateSensor {
    }
 
    // $FF: synthetic method
-   static fi.polar.polarflow.c_sensor_package.l p(b_BleHeartRateSensor var0) {
+   static l_PolarSensorListener p(b_BleHeartRateSensor var0) {
       return var0.A;
    }
 
@@ -659,7 +660,7 @@ public class b_BleHeartRateSensor extends a_HeartRateSensor {
       this.m = 0;
    }
 
-   public void a(fi.polar.polarflow.c_sensor_package.l var1) {
+   public void a_setPolarSensorListener(l_PolarSensorListener var1) {
       this.A = var1;
    }
 

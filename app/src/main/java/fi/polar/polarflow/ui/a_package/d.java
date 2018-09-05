@@ -3,6 +3,8 @@ package fi.polar.polarflow.ui.a_package;
 import android.view.View;
 import android.widget.TextView;
 
+import fi.polar.polarflow.a_package.a_DataTypes;
+
 public abstract class d extends fi.polar.polarflow.ui.exeview.a_package.a_package.ah {
    private TextView a;
    private TextView c;
@@ -48,7 +50,7 @@ public abstract class d extends fi.polar.polarflow.ui.exeview.a_package.a_packag
 
    public void b(int var1) {
       if (this.d != null) {
-         this.d.setText(String.valueOf(fi.polar.polarflow.a_package.a.a(9, var1)));
+         this.d.setText(String.valueOf(a_DataTypes.a_adjust(9, var1)));
       }
 
    }

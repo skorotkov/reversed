@@ -3,10 +3,12 @@ package fi.polar.polarflow.ui.a_package;
 import android.util.Pair;
 import android.view.View;
 import android.widget.TextView;
+
+import fi.polar.polarflow.a_package.a_DataTypes;
 import fi.polar.polarflow.ui.exeview.a_package.a_package.bj;
 
 public abstract class g extends fi.polar.polarflow.ui.exeview.a_package.a_package.ah {
-   private static final String c = fi.polar.polarflow.a_package.a.a(1, 99.9990005493164D);
+   private static final String c = a_DataTypes.a_roundAndToString(1, 99.9990005493164D);
    protected int a = 1;
    private TextView d;
    private TextView e;
@@ -68,13 +70,13 @@ public abstract class g extends fi.polar.polarflow.ui.exeview.a_package.a_packag
    private void c(float var1) {
       this.e.setVisibility(8);
       this.e.setText("");
-      float var2 = fi.polar.polarflow.a_package.a.a(1, var1);
+      float var2 = a_DataTypes.a_adjust(1, var1);
       String var3;
       if (this.h == 1) {
          var1 = fi.polar.polarflow.ui.o.e(var2);
-         var3 = fi.polar.polarflow.a_package.a.a(this.a, (double)var1);
+         var3 = a_DataTypes.a_roundAndToString(this.a, (double)var1);
       } else {
-         var3 = fi.polar.polarflow.a_package.a.a(this.a, (double)var2);
+         var3 = a_DataTypes.a_roundAndToString(this.a, (double)var2);
       }
 
       if (var3.length() > 4) {
@@ -130,7 +132,7 @@ public abstract class g extends fi.polar.polarflow.ui.exeview.a_package.a_packag
    }
 
    public void a(float var1) {
-      var1 = fi.polar.polarflow.a_package.a.a(1, var1);
+      var1 = a_DataTypes.a_adjust(1, var1);
       if (this.n()) {
          this.c(var1);
       } else {

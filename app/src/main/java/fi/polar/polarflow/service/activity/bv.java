@@ -1,5 +1,6 @@
 package fi.polar.polarflow.service.activity;
 
+import fi.polar.polarflow.a_package.a_DataTypes;
 import fi.polar.polarflow.data.orm.PhysData;
 import fi.polar.polarmathsmart.recoverystatus.RecoveryTimeCalculator;
 import fi.polar.polarmathsmart.recoverystatus.RecoveryTimeCalculatorAndroidImpl;
@@ -58,7 +59,7 @@ class bv {
 
    public long b() {
       if (this.f != -1L) {
-         this.f = fi.polar.polarflow.a_package.a.a(22, this.f);
+         this.f = a_DataTypes.a_adjust(22, this.f);
       }
 
       return this.f;

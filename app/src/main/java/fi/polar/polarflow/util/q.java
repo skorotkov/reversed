@@ -2,6 +2,8 @@ package fi.polar.polarflow.util;
 
 import android.text.TextUtils;
 import com.google.protobuf.ByteString;
+
+import fi.polar.polarflow.a_package.a_DataTypes;
 import fi.polar.remote.representation.protobuf.Structures$PbBleMac;
 import fi.polar.remote.representation.protobuf.Structures$PbBleMac$Builder;
 import fi.polar.remote.representation.protobuf.Structures$PbVersion;
@@ -288,7 +290,7 @@ public class q {
    }
 
    public static Types$PbDuration c(long var0, int var2) {
-      var0 = fi.polar.polarflow.a_package.a.a(var2, var0);
+      var0 = a_DataTypes.a_adjust(var2, var0);
       Calendar var3 = Calendar.getInstance();
       var3.clear();
       var3.setTimeZone(TimeZone.getTimeZone("UTC"));

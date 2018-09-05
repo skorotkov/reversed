@@ -6,6 +6,8 @@ import android.os.Parcelable;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import fi.polar.polarflow.a_package.a_DataTypes;
 import fi.polar.polarflow.data.orm.DailySummary;
 import fi.polar.polarflow.data.orm.Preferences;
 import fi.polar.polarflow.ui.o;
@@ -21,12 +23,12 @@ class a extends fi.polar.polarflow.ui.myday.item.b {
    private Context i;
 
    private String a(int var1) {
-      var1 = fi.polar.polarflow.a_package.a.a(7, var1);
+      var1 = a_DataTypes.a_adjust(7, var1);
       return o.d(this.i, var1);
    }
 
    private String a(int var1, float var2) {
-      String var3 = o.a(var1, fi.polar.polarflow.a_package.a.a(1, var2));
+      String var3 = o.a(var1, a_DataTypes.a_adjust(1, var2));
       String var4 = var3;
       if (o.a(var3).length() == 4) {
          var4 = var3.substring(0, var3.length() - 1);

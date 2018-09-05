@@ -7,6 +7,8 @@ import android.os.SystemClock;
 import android.util.SparseIntArray;
 import android.view.View;
 import android.widget.TextView;
+
+import fi.polar.polarflow.a_package.a_DataTypes;
 import fi.polar.polarflow.ui.custom.PolarGlyphView;
 import fi.polar.polarflow.ui.myday.u;
 import fi.polar.polarflow.ui.myday.sleep.SleepResultActivity;
@@ -58,8 +60,8 @@ public class g extends c {
       Period var2 = new Period(ab.a(TimeUnit.SECONDS.toMillis((long)this.d.d)));
       ((TextView)var1.findViewById(2131755423)).setText(String.valueOf(var2.getHours()));
       ((TextView)var1.findViewById(2131755425)).setText(String.valueOf(var2.getMinutes()));
-      ((TextView)var1.findViewById(2131755429)).setText(fi.polar.polarflow.a_package.a.a(20, this.d.i));
-      ((TextView)var1.findViewById(2131755421)).setText(fi.polar.polarflow.a_package.a.a(21, this.d.j));
+      ((TextView)var1.findViewById(2131755429)).setText(a_DataTypes.a_roundAndToString(20, this.d.i));
+      ((TextView)var1.findViewById(2131755421)).setText(a_DataTypes.a_roundAndToString(21, this.d.j));
       ((PolarGlyphView)var1.findViewById(2131755420)).setGlyph(this.f.getText(j.get(this.d.k, 2131231150)));
    }
 

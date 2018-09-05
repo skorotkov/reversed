@@ -3,6 +3,8 @@ package fi.polar.polarflow.ui.myday.sleep.a_package;
 import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
+
+import fi.polar.polarflow.a_package.a_DataTypes;
 import fi.polar.polarflow.ui.o;
 import fi.polar.polarflow.ui.custom.PolarGlyphView;
 
@@ -23,7 +25,7 @@ public class f extends i {
       super.a(var1);
       Context var2 = var1.getContext();
       ((PolarGlyphView)var1.findViewById(2131755146)).setGlyph(var2.getText(2131231120));
-      ((TextView)var1.findViewById(2131755429)).setText(fi.polar.polarflow.a_package.a.a(20, this.a));
+      ((TextView)var1.findViewById(2131755429)).setText(a_DataTypes.a_roundAndToString(20, this.a));
       ((TextView)var1.findViewById(2131755502)).setText(o.b(var2, this.c));
    }
 }

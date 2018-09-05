@@ -8,15 +8,16 @@ import android.os.Handler;
 import android.os.HandlerThread;
 
 import fi.polar.polarflow.c_sensor_package.a_Sensor;
-import fi.polar.polarflow.c_sensor_package.i;
-import fi.polar.polarflow.c_sensor_package.l;
+import fi.polar.polarflow.c_sensor_package.e_PolarSensorListenerEx;
+import fi.polar.polarflow.c_sensor_package.i_PolarSensorListenerSupport;
+import fi.polar.polarflow.c_sensor_package.l_PolarSensorListener;
 import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
 import fi.polar.polarflow.c_sensor_package.n_SENSOR_TYPE;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class a_AccelerometerSensor extends a_Sensor implements i {
+public class a_AccelerometerSensor extends a_Sensor implements i_PolarSensorListenerSupport {
    private final SensorManager g;
    private final Sensor h;
    private final int i;
@@ -28,7 +29,7 @@ public class a_AccelerometerSensor extends a_Sensor implements i {
    private boolean o;
    private HandlerThread p;
    private Handler q;
-   private fi.polar.polarflow.c_sensor_package.e r;
+   private e_PolarSensorListenerEx r;
    private long s;
    private final SensorEventListener t;
 
@@ -127,8 +128,8 @@ public class a_AccelerometerSensor extends a_Sensor implements i {
    protected void a() {
    }
 
-   public void a(l var1) {
-      this.r = (fi.polar.polarflow.c_sensor_package.e)var1;
+   public void a_setPolarSensorListener(l_PolarSensorListener var1) {
+      this.r = (e_PolarSensorListenerEx)var1;
    }
 
    protected void a(List var1) {

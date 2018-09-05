@@ -8,6 +8,8 @@ import android.content.ServiceConnection;
 import android.hardware.SensorEventListener;
 import android.os.Handler;
 import android.os.IBinder;
+
+import fi.polar.polarflow.a_package.a_DataTypes;
 import fi.polar.polarflow.data.Training;
 import fi.polar.polarflow.data.orm.PhysData;
 import fi.polar.polarflow.data.orm.UserDeviceSettings;
@@ -145,7 +147,7 @@ public class DailyActivityService extends k {
          int var10 = this.t.a(var9, var1.c, var7);
          var9 = this.t.c();
          (new StringBuilder()).append(var14).append(", FinalMet30s=").append(var9).toString();
-         var9 = fi.polar.polarflow.a_package.a.a(19, var9);
+         var9 = a_DataTypes.a_adjust(19, var9);
          bv var11 = this.y;
          if (var11 != null) {
             if (var4 != null && var4.c != 0.0F) {

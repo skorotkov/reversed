@@ -1,5 +1,7 @@
 package fi.polar.polarflow.calculators;
 
+import fi.polar.polarflow.c_sensor_package.f_PolarSensorEvent;
+
 class v extends ai {
    private final double a;
    private final double b;
@@ -10,7 +12,7 @@ class v extends ai {
       this(0, 0L, false, 0.0D, 0.0D, -1.0D, 0);
    }
 
-   v(int var1, long var2, fi.polar.polarflow.c_sensor_package.f var4) {
+   v(int var1, long var2, f_PolarSensorEvent var4) {
       this(var1, var2, var4.n, var4.h, var4.i, var4.k, var4.g);
    }
 

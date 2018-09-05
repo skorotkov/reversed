@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import fi.polar.polarflow.a_package.a_DataTypes;
 import fi.polar.polarflow.calculators.as;
 import fi.polar.polarflow.calculators.bd;
 import fi.polar.polarflow.data.Training;
@@ -136,7 +138,7 @@ public abstract class z extends fi.polar.polarflow.ui.exeview.a_package.a_packag
    public String a(float var1) {
       float var2 = var1;
       if (var1 >= 0.0F) {
-         var2 = fi.polar.polarflow.a_package.a.a(2, var1);
+         var2 = a_DataTypes.a_adjust(2, var1);
       }
 
       return this.i.a(var2);

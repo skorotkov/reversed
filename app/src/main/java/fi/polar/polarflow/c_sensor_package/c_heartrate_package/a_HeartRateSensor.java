@@ -5,9 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import fi.polar.polarflow.c_sensor_package.a_Sensor;
+import fi.polar.polarflow.c_sensor_package.i_PolarSensorListenerSupport;
 import fi.polar.polarflow.c_sensor_package.n_SENSOR_TYPE;
 
-public abstract class a_HeartRateSensor extends a_Sensor implements fi.polar.polarflow.c_sensor_package.i {
+public abstract class a_HeartRateSensor extends a_Sensor implements i_PolarSensorListenerSupport {
    private fi.polar.polarflow.util.v g;
    private int h = 0;
 

@@ -3,8 +3,8 @@ package fi.polar.polarflow.a_package;
 import android.util.SparseArray;
 import java.math.RoundingMode;
 
-final class c extends SparseArray {
-   c() {
+final class c_RoundingModes extends SparseArray {
+   c_RoundingModes() {
       this.append(1, RoundingMode.DOWN);
       this.append(2, RoundingMode.DOWN);
       this.append(3, RoundingMode.UP);

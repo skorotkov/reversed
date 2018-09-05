@@ -13,8 +13,8 @@ class c_GpsPolarSensorEventListener implements j_PolarSensorEventListener {
    }
 
    public void a_onPolarSensorEvents(List var1) {
-      if (b_GpsLocationProvider.a(this.a_gpsLocationProvider) != null) {
-         b_GpsLocationProvider.a(this.a_gpsLocationProvider).a_onPolarSensorEvents(var1);
+      if (b_GpsLocationProvider.a_getPolarSensorListener(this.a_gpsLocationProvider) != null) {
+         b_GpsLocationProvider.a_getPolarSensorListener(this.a_gpsLocationProvider).a_onPolarSensorEvents(var1);
       }
    }
 }

@@ -15,14 +15,14 @@ class g_GnssStatusCallback extends Callback {
    public void onFirstFix(int var1) {
       b_GpsLocationProvider var2 = (b_GpsLocationProvider)this.a_gpsLocationProvider.get();
       if (var2 != null) {
-         fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s(), "GnssStatus first fix, mLocationCalc.getFix():" + b_GpsLocationProvider.h_getLocationDataCalculator(var2).getFix());
+         fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s_getClassName(), "GnssStatus first fix, mLocationCalc.getFix():" + b_GpsLocationProvider.h_getLocationDataCalculator(var2).getFix());
          var2.a_setState(m_SENSOR_STATE.d_READY);
       }
 
    }
 
    public void onStarted() {
-      fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s(), "onStarted()");
+      fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s_getClassName(), "onStarted()");
       b_GpsLocationProvider var1 = (b_GpsLocationProvider)this.a_gpsLocationProvider.get();
       if (var1 != null) {
          var1.a_setState(m_SENSOR_STATE.c_SEARCHING);
@@ -31,7 +31,7 @@ class g_GnssStatusCallback extends Callback {
    }
 
    public void onStopped() {
-      fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s(), "onStopped()");
+      fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s_getClassName(), "onStopped()");
       b_GpsLocationProvider var1 = (b_GpsLocationProvider)this.a_gpsLocationProvider.get();
       if (var1 != null && b_GpsLocationProvider.s_getState(var1) != m_SENSOR_STATE.a_DISABLED) {
          var1.a_setState(m_SENSOR_STATE.b_NOT_READY);

@@ -1,5 +1,7 @@
 package fi.polar.polarflow.calculators;
 
+import fi.polar.polarflow.a_package.a_DataTypes;
+
 public class aw {
    private float a = -1.0F;
    private float b = -1.0F;
@@ -7,7 +9,7 @@ public class aw {
    private boolean d = false;
 
    public float a() {
-      return fi.polar.polarflow.a_package.a.a(1, this.a);
+      return a_DataTypes.a_adjust(1, this.a);
    }
 
    public void a(ag var1) {
@@ -18,7 +20,7 @@ public class aw {
    }
 
    public float b() {
-      return fi.polar.polarflow.a_package.a.a(1, this.b);
+      return a_DataTypes.a_adjust(1, this.b);
    }
 
    public boolean c() {

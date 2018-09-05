@@ -2,8 +2,8 @@ package fi.polar.polarflow.a_package;
 
 import android.util.SparseArray;
 
-final class b extends SparseArray {
-   b() {
+final class b_Formats extends SparseArray {
+   b_Formats() {
       this.append(1, "0.00");
       this.append(2, "0.0");
       this.append(3, "0.00");

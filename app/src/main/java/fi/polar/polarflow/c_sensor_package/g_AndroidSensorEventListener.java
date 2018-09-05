@@ -25,7 +25,7 @@ public abstract class g_AndroidSensorEventListener extends c_AndroidSensorEventL
       return var0.a_polarSensorEventListener;
    }
 
-   public void a(b_PolarSensorEvent var1) {
+   public void a(b_PolarSensorEventBase var1) {
       this.b_collectedEvents.add(var1);
       super.onSensorChanged((SensorEvent)null);
    }
@@ -35,7 +35,7 @@ public abstract class g_AndroidSensorEventListener extends c_AndroidSensorEventL
    }
 
    public void onSensorChanged(SensorEvent var1) {
-      this.b_collectedEvents.add(new b_PolarSensorEvent(var1));
+      this.b_collectedEvents.add(new b_PolarSensorEventBase(var1));
       super.onSensorChanged(var1);
    }
 }

@@ -18,8 +18,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import fi.polar.polarflow.c_sensor_package.b_PolarSensorEvent;
-import fi.polar.polarflow.c_sensor_package.l;
+import fi.polar.polarflow.c_sensor_package.b_PolarSensorEventBase;
+import fi.polar.polarflow.c_sensor_package.e_PolarSensorListenerEx;
+import fi.polar.polarflow.c_sensor_package.l_PolarSensorListener;
 import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
 import fi.polar.polarflow.c_sensor_package.c_heartrate_package.s;
 import fi.polar.polarflow.data.Training;
@@ -35,7 +36,7 @@ import fi.polar.polarflow.util.v;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class MyHeartRateActivity extends android.support.wearable.activity.a implements fi.polar.polarflow.c_sensor_package.e, u {
+public class MyHeartRateActivity extends android.support.wearable.activity.a implements e_PolarSensorListenerEx, u {
    private static final long a;
    private AlarmManager A;
    private PendingIntent B;
@@ -103,15 +104,15 @@ public class MyHeartRateActivity extends android.support.wearable.activity.a imp
 
    private static void a(s var0) {
       if (var0 != null) {
-         var0.a((l)null);
+         var0.a_setPolarSensorListener((l_PolarSensorListener)null);
          var0.c_stop();
       }
 
    }
 
-   private static void a(s var0, l var1) {
+   private static void a(s var0, l_PolarSensorListener var1) {
       if (var0 != null) {
-         var0.a(var1);
+         var0.a_setPolarSensorListener(var1);
          var0.b_start();
       }
 
@@ -359,7 +360,7 @@ public class MyHeartRateActivity extends android.support.wearable.activity.a imp
                this.b = new s(this);
             }
 
-            a((s)this.b, (l)this);
+            a((s)this.b, (l_PolarSensorListener)this);
             if (this.D != -1) {
                this.g();
             }
@@ -422,7 +423,7 @@ public class MyHeartRateActivity extends android.support.wearable.activity.a imp
    public void a_onPolarSensorEvents(List var1) {
       if (var1 != null && this.c == m_SENSOR_STATE.d_READY) {
          this.c(true);
-         b_PolarSensorEvent var2 = (b_PolarSensorEvent)var1.get(var1.size() - 1);
+         b_PolarSensorEventBase var2 = (b_PolarSensorEventBase)var1.get(var1.size() - 1);
          if (var2.a != null && var2.a.length > 0) {
             this.b(Math.round(var2.a[0]));
          } else {

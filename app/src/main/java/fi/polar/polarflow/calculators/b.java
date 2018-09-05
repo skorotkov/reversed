@@ -1,5 +1,7 @@
 package fi.polar.polarflow.calculators;
 
+import fi.polar.polarflow.a_package.a_DataTypes;
+
 public class b extends ai {
    private final int a;
 
@@ -10,7 +12,7 @@ public class b extends ai {
 
    b(int var1, long var2, int var4) {
       super(var1, var2, true);
-      this.a = fi.polar.polarflow.a_package.a.a(9, var4);
+      this.a = a_DataTypes.a_adjust(9, var4);
    }
 
    int a() {

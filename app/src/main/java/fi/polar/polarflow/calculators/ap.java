@@ -1,8 +1,9 @@
 package fi.polar.polarflow.calculators;
 
+import fi.polar.polarflow.c_sensor_package.l_PolarSensorListener;
 import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
 
-class ap implements fi.polar.polarflow.c_sensor_package.l {
+class ap implements l_PolarSensorListener {
    // $FF: synthetic field
    final am_SessionCalculators a;
 

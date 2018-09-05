@@ -3,18 +3,18 @@ package fi.polar.polarflow.c_sensor_package.a_accelerometer_package;
 import java.util.ArrayList;
 import java.util.List;
 
-import fi.polar.polarflow.c_sensor_package.b_PolarSensorEvent;
+import fi.polar.polarflow.c_sensor_package.b_PolarSensorEventBase;
 
 class d {
    private final boolean a;
    private List b;
-   private b_PolarSensorEvent c;
+   private b_PolarSensorEventBase c;
    private long d = 0L;
 
    d(boolean var1) {
       this.a = var1;
       this.b();
-      this.c = new b_PolarSensorEvent(new float[]{0.0F, 0.0F, 0.0F}, 0L, 0);
+      this.c = new b_PolarSensorEventBase(new float[]{0.0F, 0.0F, 0.0F}, 0L, 0);
    }
 
    private void b() {
@@ -27,7 +27,7 @@ class d {
       return var1;
    }
 
-   void a(b_PolarSensorEvent var1) {
+   void a(b_PolarSensorEventBase var1) {
       boolean var2 = true;
       long var3 = var1.b;
       boolean var5;
@@ -45,7 +45,7 @@ class d {
                      break;
                   }
 
-                  this.b.add(new b_PolarSensorEvent(this.c));
+                  this.b.add(new b_PolarSensorEventBase(this.c));
                   this.d += 20000000L;
                }
             } else {
@@ -58,7 +58,7 @@ class d {
       }
 
       if (var5) {
-         this.c = new b_PolarSensorEvent(var1);
+         this.c = new b_PolarSensorEventBase(var1);
          this.b.add(var1);
       }
 

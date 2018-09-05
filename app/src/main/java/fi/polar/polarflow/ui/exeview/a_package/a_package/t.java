@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.TextView;
 import java.util.Collection;
 
+import fi.polar.polarflow.a_package.a_DataTypes;
+
 public class t extends ag {
    protected TextView a;
    protected TextView c;
@@ -37,7 +39,7 @@ public class t extends ag {
    }
 
    private Pair b(int var1) {
-      var1 = fi.polar.polarflow.a_package.a.a(7, var1);
+      var1 = a_DataTypes.a_adjust(7, var1);
       String var2;
       String var3;
       if (this.l() == bj.a && var1 >= 10000) {
