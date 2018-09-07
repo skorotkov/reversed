@@ -410,8 +410,8 @@ public class am_SessionCalculators {
 
       while(var6.hasNext()) {
          al var7 = (al)var6.next();
-         if (var7 instanceof h) {
-            ((h)var7).b(new z(var1, var3, var5, var2));
+         if (var7 instanceof h_ExerciseLapCalc) {
+            ((h_ExerciseLapCalc)var7).b(new z(var1, var3, var5, var2));
          } else if (var7 instanceof q) {
             ((q)var7).b(new z(var1, var3, var5, var2));
          } else if (var7 instanceof j) {
@@ -433,8 +433,8 @@ public class am_SessionCalculators {
 
       while(var5.hasNext()) {
          al var6 = (al)var5.next();
-         if (var6 instanceof h) {
-            ((h)var6).b(new aa(var1, var3, var2));
+         if (var6 instanceof h_ExerciseLapCalc) {
+            ((h_ExerciseLapCalc)var6).b(new aa(var1, var3, var2));
          } else if (var6 instanceof s) {
             ((s)var6).b(new aa(var1, var3, var2));
          } else if (var6 instanceof t) {
@@ -454,7 +454,7 @@ public class am_SessionCalculators {
          this.b.add(new s());
          this.b.add(new t());
          if (this.v_gpsSensor.e_getState() == m_SENSOR_STATE.d_READY) {
-            this.s.getStatistics().getSpeedStatistics().b(this.v_gpsSensor.p());
+            this.s.getStatistics().getSpeedStatistics().b(this.v_gpsSensor.p_getSpeedInMetersPerSecond());
          }
 
          this.v_gpsSensor.a_setPolarSensorListener(this.G_gpsPolarSensorListener);
@@ -518,7 +518,7 @@ public class am_SessionCalculators {
          if (this.s.getTrainingSessionTarget().getExerciseTarget().getTargetType() == 2) {
             this.b.add(new j(this.context));
          } else if (this.s.getTrainingSessionTarget().getExerciseTarget().getTargetType() == 1) {
-            this.b.add(new w(this.context));
+            this.b.add(new w_ExerciseVolumeTargetCalc(this.context));
          }
       }
 
@@ -580,8 +580,8 @@ public class am_SessionCalculators {
          al var7 = (al)var6.next();
          if (var7 instanceof o) {
             ((o)var7).b(var5);
-         } else if (var7 instanceof h) {
-            ((h)var7).b(var5);
+         } else if (var7 instanceof h_ExerciseLapCalc) {
+            ((h_ExerciseLapCalc)var7).b(var5);
          } else if (var7 instanceof j) {
             ((j)var7).b(var5);
          }

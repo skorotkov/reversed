@@ -136,17 +136,17 @@ public class b_GpsLocationProvider extends a_GpsLocationProviderBase {
    }
 
    // $FF: synthetic method
-   static g_AndroidSensorEventListener e(b_GpsLocationProvider var0) {
+   static g_AndroidSensorEventListener e_getAndroidSensorEventListener(b_GpsLocationProvider var0) {
       return var0.I_androidSensorEventListener;
    }
 
    // $FF: synthetic method
-   static i_GpsSensor f(b_GpsLocationProvider var0) {
+   static i_GpsSensor f_getGpsSensor(b_GpsLocationProvider var0) {
       return var0.z_gpsSensor;
    }
 
    // $FF: synthetic method
-   static Context g(b_GpsLocationProvider var0) {
+   static Context g_getContext(b_GpsLocationProvider var0) {
       return var0.a_context;
    }
 

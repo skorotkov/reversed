@@ -51,30 +51,30 @@ public abstract class a_GpsLocationProviderBase extends a_Sensor implements i_Po
 
       // decompiled after remove of try ... catch
       Object var1 = this.v;
-      return new f_PolarSensorEvent(this.t, this.u_fix, this.o(), this.p(), this.g_latitudeInDecimalDegrees, this.h_longitudeInDecimalDegrees, this.n(), this.l(), this.m(), this.q(), this.r());
+      return new f_PolarSensorEvent(this.t, this.u_fix, this.o_getTotalDistance(), this.p_getSpeedInMetersPerSecond(), this.g_latitudeInDecimalDegrees, this.h_longitudeInDecimalDegrees, this.n_getNumberOfSatellites(), this.l_getAltitudeInMetersChecked(), this.m_getAltitudeInMeters(), this.q_getAscentDelta(), this.r_getDescentDelta());
    }
 
-   public double l() {
+   public double l_getAltitudeInMetersChecked() {
       return this.i_altitudeInMetersChecked;
    }
 
-   public double m() {
+   public double m_getAltitudeInMeters() {
       return this.j_altitudeInMeters;
    }
 
-   public int n() {
+   public int n_getNumberOfSatellites() {
       return this.k_numberOfSatellites;
    }
 
-   public float o() {
+   public float o_getTotalDistance() {
       return a_DataTypes.a_adjust(1, this.l - (this.n + this.m));
    }
 
-   public float p() {
+   public float p_getSpeedInMetersPerSecond() {
       return this.o_speedInMetersPerSecond;
    }
 
-   public float q() {
+   public float q_getAscentDelta() {
       float var1;
       if (this.r > this.p) {
          var1 = this.r - this.p;
@@ -85,7 +85,7 @@ public abstract class a_GpsLocationProviderBase extends a_Sensor implements i_Po
       return var1;
    }
 
-   public float r() {
+   public float r_getDescentDelta() {
       float var1;
       if (this.s > this.q) {
          var1 = this.s - this.q;

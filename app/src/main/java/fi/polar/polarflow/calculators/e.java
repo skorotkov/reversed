@@ -11,7 +11,7 @@ import android.os.SystemClock;
 
 import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
 
-class e extends h implements y {
+class e extends h_ExerciseLapCalc implements y {
    private AlarmManager d;
    private PendingIntent e;
    private final long f;

@@ -22,8 +22,8 @@ class ar implements af {
 
       while(var3.hasNext()) {
          al var4 = (al)var3.next();
-         if (var4 instanceof h) {
-            ((h)var4).b(var2);
+         if (var4 instanceof h_ExerciseLapCalc) {
+            ((h_ExerciseLapCalc)var4).b(var2);
          } else if (var4 instanceof j) {
             ((j)var4).b(var2);
          }

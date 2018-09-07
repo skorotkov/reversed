@@ -14,7 +14,7 @@ import fi.polar.polarmathsmart.swimming.poolswimming.SwimmingLapStatistics;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public abstract class h extends aj implements ae, ah {
+public abstract class h_ExerciseLapCalc extends aj implements ae, ah {
    private static final ArrayList d = new ArrayList(3);
    int a;
    protected v_StickyLocalBroadcastManager b;
@@ -41,15 +41,15 @@ public abstract class h extends aj implements ae, ah {
       d.add(n_SENSOR_TYPE.e_RUNNING_CADENCE);
    }
 
-   public h(Context var1, long var2) {
+   public h_ExerciseLapCalc(Context var1, long var2) {
       this(var1, var2, (v_StickyLocalBroadcastManager)null, new as());
    }
 
-   public h(Context var1, long var2, v_StickyLocalBroadcastManager var4) {
+   public h_ExerciseLapCalc(Context var1, long var2, v_StickyLocalBroadcastManager var4) {
       this(var1, var2, var4, new as());
    }
 
-   public h(Context var1, long var2, v_StickyLocalBroadcastManager var4, as var5) {
+   public h_ExerciseLapCalc(Context var1, long var2, v_StickyLocalBroadcastManager var4, as var5) {
       super(d);
       this.a = 1;
       this.e = -1.0F;

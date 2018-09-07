@@ -7,7 +7,7 @@ import android.os.Handler;
 
 import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
 
-class ab extends h implements y {
+class ab extends h_ExerciseLapCalc implements y {
    private final Handler d;
    private boolean e;
    private final BroadcastReceiver f;

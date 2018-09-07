@@ -2,9 +2,9 @@ package fi.polar.polarflow.calculators;
 
 class i extends ai {
    // $FF: synthetic field
-   final h a;
+   final h_ExerciseLapCalc a;
 
-   i(h var1, int var2, long var3) {
+   i(h_ExerciseLapCalc var1, int var2, long var3) {
       super(var2, var3);
       this.a = var1;
    }

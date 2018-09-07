@@ -9,7 +9,7 @@ import android.content.IntentFilter;
 import fi.polar.polarflow.data.Training;
 import fi.polar.polarflow.data.orm.Sport;
 
-public class w implements ae, ah, al, y {
+public class w_ExerciseVolumeTargetCalc implements ae, ah, al, y {
    private AlarmManager a;
    private PendingIntent b;
    private final android.support.v4.c.g c;
@@ -21,11 +21,11 @@ public class w implements ae, ah, al, y {
    private final Training i;
    private final BroadcastReceiver j;
 
-   public w(Context var1) {
+   public w_ExerciseVolumeTargetCalc(Context var1) {
       this(var1, (Training)null, (AlarmManager)null);
    }
 
-   public w(Context var1, Training var2, AlarmManager var3) {
+   public w_ExerciseVolumeTargetCalc(Context var1, Training var2, AlarmManager var3) {
       this.h = 0;
       this.j = new x(this);
       this.c = android.support.v4.c.g.a(var1);
@@ -106,22 +106,22 @@ public class w implements ae, ah, al, y {
    }
 
    // $FF: synthetic method
-   static void a(w var0) {
+   static void a(w_ExerciseVolumeTargetCalc var0) {
       var0.f();
    }
 
    // $FF: synthetic method
-   static void a(w var0, float var1) {
+   static void a(w_ExerciseVolumeTargetCalc var0, float var1) {
       var0.a(var1);
    }
 
    // $FF: synthetic method
-   static void a(w var0, int var1) {
+   static void a(w_ExerciseVolumeTargetCalc var0, int var1) {
       var0.a(var1);
    }
 
    // $FF: synthetic method
-   static void b(w var0) {
+   static void b(w_ExerciseVolumeTargetCalc var0) {
       var0.e();
    }
 

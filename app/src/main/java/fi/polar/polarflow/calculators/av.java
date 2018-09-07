@@ -5,7 +5,7 @@ import android.content.Context;
 import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
 import fi.polar.polarmathsmart.swimming.poolswimming.SwimmingLapStatistics;
 
-class av extends h {
+class av extends h_ExerciseLapCalc {
    bb d;
 
    av(Context var1, long var2, bb var4) {

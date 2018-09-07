@@ -5,7 +5,7 @@ import android.content.Context;
 import fi.polar.polarflow.a_package.a_DataTypes;
 import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
 
-public class d extends h {
+public class d extends h_ExerciseLapCalc {
    private final float d;
    private boolean e;
 
