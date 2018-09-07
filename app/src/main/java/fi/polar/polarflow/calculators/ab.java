@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.IntentFilter;
 import android.os.Handler;
 
+import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
+
 class ab extends h implements y {
    private final Handler d;
    private boolean e;
@@ -12,10 +14,10 @@ class ab extends h implements y {
    private final Runnable g;
 
    ab(Context var1, long var2) {
-      this(var1, var2, (Handler)null, (fi.polar.polarflow.util.v)null);
+      this(var1, var2, (Handler)null, (v_StickyLocalBroadcastManager)null);
    }
 
-   ab(Context var1, long var2, Handler var4, fi.polar.polarflow.util.v var5) {
+   ab(Context var1, long var2, Handler var4, v_StickyLocalBroadcastManager var5) {
       super(var1, var2, var5);
       this.e = false;
       this.f = new ac(this);
@@ -26,7 +28,7 @@ class ab extends h implements y {
          this.d = var4;
       }
 
-      this.b.a(this.f, new IntentFilter("fi.polar.polarflow.action.ADD_MANUAL_LAP"));
+      this.b.a_registerReceiver(this.f, new IntentFilter("fi.polar.polarflow.action.ADD_MANUAL_LAP"));
    }
 
    // $FF: synthetic method
@@ -43,7 +45,7 @@ class ab extends h implements y {
    }
 
    protected void e() {
-      this.b.a(this.f);
+      this.b.a_unregisterReceiver(this.f);
    }
 
    protected Runnable f() {

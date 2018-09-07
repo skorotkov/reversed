@@ -8,7 +8,7 @@ import android.view.View;
 import fi.polar.polarflow.service.datalayer.u;
 import fi.polar.polarflow.ui.NotificationReceiver;
 import fi.polar.polarflow.ui.myday.item.c;
-import fi.polar.polarflow.util.v;
+import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
 import fi.polar.polarflow.util.z;
 import org.joda.time.LocalDate;
 
@@ -16,7 +16,7 @@ public class a extends c implements fi.polar.polarflow.ui.myday.a_package.c {
    private final LocalDate c;
    private z d = new z();
    private u e = new u();
-   private v f = v.a();
+   private v_StickyLocalBroadcastManager f = v_StickyLocalBroadcastManager.a_getInstance();
    private Context g;
    private SleepRatingGlyphsView h;
    private int i;

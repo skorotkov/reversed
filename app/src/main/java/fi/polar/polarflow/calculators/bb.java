@@ -8,6 +8,7 @@ import fi.polar.polarflow.c_sensor_package.b_PolarSensorEventBase;
 import fi.polar.polarflow.c_sensor_package.c_heartrate_package.a_HeartRateSensor;
 import fi.polar.polarflow.c_sensor_package.e_PolarSensorListenerEx;
 import fi.polar.polarflow.c_sensor_package.l_PolarSensorListener;
+import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
 import fi.polar.polarmathsmart.swimming.poolswimming.PoolSwimmingAlgorithmAndroidImpl;
 import fi.polar.polarmathsmart.swimming.poolswimming.PoolSwimmingOutput;
 import fi.polar.polarmathsmart.swimming.poolswimming.SwimmingLapStatistics;
@@ -25,7 +26,7 @@ public class bb implements ae, ah {
    private PoolSwimmingAlgorithmAndroidImpl c;
    private af d;
    private Handedness e;
-   private fi.polar.polarflow.util.v f;
+   private v_StickyLocalBroadcastManager f;
    private long g = 0L;
    private long h = 0L;
    private long i = 0L;
@@ -48,7 +49,7 @@ public class bb implements ae, ah {
       this.q = new bc(this);
       this.a = var1;
       this.b = var2;
-      this.f = fi.polar.polarflow.util.v.a();
+      this.f = v_StickyLocalBroadcastManager.a_getInstance();
       this.g = var3;
    }
 
@@ -77,7 +78,7 @@ public class bb implements ae, ah {
    private void a(long var1) {
       Intent var3 = new Intent("SwimmingMetricsProvider.ACTION_POOL_SWIMMING_OUTPUT_REST_TIME_START");
       var3.putExtra("SwimmingMetricsProvider.KEY_POOL_SWIMMING_REST_TIME_START", var1);
-      this.f.b(var3);
+      this.f.b_sendStickyBroadcast(var3);
    }
 
    // $FF: synthetic method
@@ -99,7 +100,7 @@ public class bb implements ae, ah {
       var2.putExtra("SwimmingMetricsProvider.KEY_POOL_SWIMMING_LAP_DISTANCE", var1.getLapDistance());
       var2.putExtra("SwimmingMetricsProvider.KEY_POOL_SWIMMING_AUTO_LAP_NUMBER", this.p);
       var2.putExtra("SwimmingMetricsProvider.KEY_POOL_SWIMMING_LAP_NUMBER", this.o);
-      this.f.b(var2);
+      this.f.b_sendStickyBroadcast(var2);
    }
 
    private void a(List var1) {
@@ -164,8 +165,8 @@ public class bb implements ae, ah {
 
    public SwimmingStatistics a() {
       this.b.a_setPolarSensorListener((l_PolarSensorListener)null);
-      this.f.a("SwimmingMetricsProvider.ACTION_POOL_SWIMMING_OUTPUT_DATA");
-      this.f.a("SwimmingMetricsProvider.ACTION_POOL_SWIMMING_OUTPUT_REST_TIME_START");
+      this.f.a_removeFromMap("SwimmingMetricsProvider.ACTION_POOL_SWIMMING_OUTPUT_DATA");
+      this.f.a_removeFromMap("SwimmingMetricsProvider.ACTION_POOL_SWIMMING_OUTPUT_REST_TIME_START");
       if (this.d != null) {
          this.d.a(this.c.endSwimming());
       }

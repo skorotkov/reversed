@@ -19,12 +19,12 @@ class e_PowerSaveModeBroadcastReceiver extends BroadcastReceiver {
          boolean var3 = b_GpsLocationProvider.c(this.a_gpsLocationProvider).a();
          fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s_getClassName(), "onReceive: ACTION_POWER_SAVE_MODE_CHANGED, enabled= " + var3);
          if (var3) {
-            this.a_gpsLocationProvider.t = b_GpsLocationProvider.d(this.a_gpsLocationProvider).b();
+            this.a_gpsLocationProvider.t = b_GpsLocationProvider.d_getTimeUtils(this.a_gpsLocationProvider).b_elapsedRealtime();
             this.a_gpsLocationProvider.u_fix = false;
             b_GpsLocationProvider.e(this.a_gpsLocationProvider).a((b_PolarSensorEventBase)this.a_gpsLocationProvider.k());
-            i_GpsSensor.c(b_GpsLocationProvider.f(this.a_gpsLocationProvider));
+            i_GpsSensor.c_stopListeningUpdates(b_GpsLocationProvider.f(this.a_gpsLocationProvider));
          } else {
-            i_GpsSensor.b(b_GpsLocationProvider.f(this.a_gpsLocationProvider));
+            i_GpsSensor.b_startListeningUpdates(b_GpsLocationProvider.f(this.a_gpsLocationProvider));
          }
       }
 

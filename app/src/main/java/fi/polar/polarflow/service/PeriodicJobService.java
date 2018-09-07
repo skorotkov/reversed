@@ -7,7 +7,7 @@ import android.app.job.JobInfo.Builder;
 import android.content.ComponentName;
 import android.content.Context;
 import android.os.AsyncTask;
-import fi.polar.polarflow.util.aa;
+import fi.polar.polarflow.util.aa_TimeUtils;
 import java.util.concurrent.TimeUnit;
 import org.joda.time.DateTime;
 import org.joda.time.Period;
@@ -29,7 +29,7 @@ public class PeriodicJobService extends JobService {
 
    public static void a(Context var0) {
       JobScheduler var1 = (JobScheduler)var0.getSystemService(Context.JOB_SCHEDULER_SERVICE);
-      long var2 = (new aa()).a();
+      long var2 = (new aa_TimeUtils()).a_currentTimeMillis();
       var2 = (new DateTime(var2)).plusDays(1).withTimeAtStartOfDay().plusMinutes(1).getMillis() - var2;
       fi.polar.polarflow.util.d.c("PeriodicJobService", "schedulePeriodicJob() in " + PeriodFormat.getDefault().print(new Period(var2)));
       if (var1.schedule((new Builder(1, new ComponentName(var0, PeriodicJobService.class))).setMinimumLatency(var2).setOverrideDeadline(var2 + a).build()) == 0) {

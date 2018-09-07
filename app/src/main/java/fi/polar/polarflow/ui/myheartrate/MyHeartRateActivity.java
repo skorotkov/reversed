@@ -31,8 +31,8 @@ import fi.polar.polarflow.ui.u;
 import fi.polar.polarflow.ui.custom.PolarGlyphView;
 import fi.polar.polarflow.ui.custom.RotateImageView;
 import fi.polar.polarflow.ui.custom.ab;
-import fi.polar.polarflow.util.aa;
-import fi.polar.polarflow.util.v;
+import fi.polar.polarflow.util.aa_TimeUtils;
+import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -70,9 +70,9 @@ public class MyHeartRateActivity extends android.support.wearable.activity.a imp
    private boolean u;
    private Training v;
    private boolean w;
-   private v x;
+   private v_StickyLocalBroadcastManager x;
    private p y;
-   private aa z;
+   private aa_TimeUtils z;
 
    static {
       a = TimeUnit.SECONDS.toMillis(10L);
@@ -290,7 +290,7 @@ public class MyHeartRateActivity extends android.support.wearable.activity.a imp
          break;
       case 1:
          this.o = true;
-         this.q = this.z.b();
+         this.q = this.z.b_elapsedRealtime();
          break;
       default:
          this.f();
@@ -309,7 +309,7 @@ public class MyHeartRateActivity extends android.support.wearable.activity.a imp
    private void k() {
       if (this.G) {
          if (this.b()) {
-            this.C = this.z.b() + a;
+            this.C = this.z.b_elapsedRealtime() + a;
             this.A.setExact(2, this.C, this.B);
          } else {
             this.l();
@@ -349,7 +349,7 @@ public class MyHeartRateActivity extends android.support.wearable.activity.a imp
       if (!this.e) {
          if (this.v.isRunning()) {
             this.n();
-            Intent var1 = this.x.a(this.I, "fi.polar.polarflow.ACTION_HR_DATA");
+            Intent var1 = this.x.a_registerReceiver(this.I, "fi.polar.polarflow.ACTION_HR_DATA");
             this.w = true;
             if (var1 != null) {
                this.a(var1);
@@ -379,7 +379,7 @@ public class MyHeartRateActivity extends android.support.wearable.activity.a imp
       if (this.e) {
          if (this.w) {
             this.w = false;
-            this.x.a(this.I);
+            this.x.a_unregisterReceiver(this.I);
          }
 
          if (this.b != null) {
@@ -529,9 +529,9 @@ public class MyHeartRateActivity extends android.support.wearable.activity.a imp
       this.r = false;
       this.u = false;
       this.v = Training.getInstance();
-      this.x = fi.polar.polarflow.util.v.a();
+      this.x = v_StickyLocalBroadcastManager.a_getInstance();
       this.y = new p();
-      this.z = new aa();
+      this.z = new aa_TimeUtils();
       this.H = -1;
       if (this.G) {
          this.A = (AlarmManager)this.getSystemService("alarm");
@@ -593,7 +593,7 @@ public class MyHeartRateActivity extends android.support.wearable.activity.a imp
          if (var3.length > 0) {
             if (var3[0] == 0) {
                this.o();
-            } else if (this.z.b() - this.q < 300L) {
+            } else if (this.z.b_elapsedRealtime() - this.q < 300L) {
                if (!this.r) {
                   this.o = true;
                   this.j();

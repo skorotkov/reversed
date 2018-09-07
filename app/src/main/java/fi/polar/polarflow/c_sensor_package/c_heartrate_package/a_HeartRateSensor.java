@@ -7,9 +7,10 @@ import android.os.Bundle;
 import fi.polar.polarflow.c_sensor_package.a_Sensor;
 import fi.polar.polarflow.c_sensor_package.i_PolarSensorListenerSupport;
 import fi.polar.polarflow.c_sensor_package.n_SENSOR_TYPE;
+import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
 
 public abstract class a_HeartRateSensor extends a_Sensor implements i_PolarSensorListenerSupport {
-   private fi.polar.polarflow.util.v g;
+   private v_StickyLocalBroadcastManager g;
    private int h = 0;
 
    protected a_HeartRateSensor(Context var1) {
@@ -27,7 +28,7 @@ public abstract class a_HeartRateSensor extends a_Sensor implements i_PolarSenso
    protected void d() {
       Intent var1 = new Intent("fi.polar.polarflow.SENSOR_HR_STATE_CHANGED");
       var1.putExtras(this.k());
-      this.o().b(var1);
+      this.o().b_sendStickyBroadcast(var1);
    }
 
    protected Bundle k() {
@@ -41,20 +42,20 @@ public abstract class a_HeartRateSensor extends a_Sensor implements i_PolarSenso
       Intent var1 = new Intent("fi.polar.polarflow.ACTION_HR_DATA");
       var1.putExtra("fi.polar.polarflow.KEY_SENSOR_HR_MEASUREMENT_VALUE", this.h);
       var1.putExtra("fi.polar.polarflow.SENSOR_STATE", this.b_sensorState);
-      this.o().b(var1);
+      this.o().b_sendStickyBroadcast(var1);
    }
 
    protected void m() {
-      this.o().a("fi.polar.polarflow.ACTION_HR_DATA", "fi.polar.polarflow.SENSOR_HR_STATE_CHANGED");
+      this.o().a_removeFromMap("fi.polar.polarflow.ACTION_HR_DATA", "fi.polar.polarflow.SENSOR_HR_STATE_CHANGED");
    }
 
    public int n() {
       return this.h;
    }
 
-   protected fi.polar.polarflow.util.v o() {
+   protected v_StickyLocalBroadcastManager o() {
       if (this.g == null) {
-         this.g = fi.polar.polarflow.util.v.a();
+         this.g = v_StickyLocalBroadcastManager.a_getInstance();
       }
 
       return this.g;

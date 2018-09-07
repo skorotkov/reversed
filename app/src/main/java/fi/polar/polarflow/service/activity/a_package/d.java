@@ -8,6 +8,8 @@ import fi.polar.polarflow.data.orm.RecoveryTimes;
 import fi.polar.polarflow.service.activity.bs;
 import fi.polar.polarflow.service.activity.z;
 import fi.polar.polarflow.util.ab;
+import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
+
 import java.util.Iterator;
 import java.util.List;
 import org.joda.time.DateTime;
@@ -15,7 +17,7 @@ import org.joda.time.LocalDate;
 
 public class d {
    private static final String a = d.class.getSimpleName();
-   private final fi.polar.polarflow.util.v b;
+   private final v_StickyLocalBroadcastManager b;
    private final bs c;
    private final z d;
    private h e;
@@ -34,7 +36,7 @@ public class d {
    private final fi.polar.polarflow.service.d r;
    private float s = -1.0F;
 
-   public d(Context var1, fi.polar.polarflow.util.v var2, bs var3, z var4) {
+   public d(Context var1, v_StickyLocalBroadcastManager var2, bs var3, z var4) {
       this.c = var3;
       this.d = var4;
       this.g = new w();
@@ -95,7 +97,7 @@ public class d {
       if (var3 != this.n || var2 != this.m || this.l == null || !this.l.equals(var4)) {
          Intent var5 = new Intent("DailyActivityService.action.DAILY_ACTIVITY_STATUS");
          var5.putExtra("DailyActivityService.extra.DAILY_SUMMARY", var1);
-         this.b.b(var5);
+         this.b.b_sendStickyBroadcast(var5);
          this.l = var4;
          this.m = var2;
          this.n = var3;

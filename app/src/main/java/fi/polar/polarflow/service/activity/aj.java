@@ -1,11 +1,13 @@
 package fi.polar.polarflow.service.activity;
 
 import android.content.Context;
+
+import fi.polar.polarflow.util.aa_TimeUtils;
 import fi.polar.polarmathsmart.types.InActivityAlertType;
 import org.joda.time.DateTime;
 
 class aj implements ag {
-   private fi.polar.polarflow.util.aa a = new fi.polar.polarflow.util.aa();
+   private aa_TimeUtils a = new aa_TimeUtils();
    private ae b;
    private ak c;
    private int d;
@@ -68,7 +70,7 @@ class aj implements ag {
       if (this.e != null) {
          if (this.a(this.e.plusMinutes(55), InActivityAlertType.NOTIFY_USER_TO_GET_MOVING)) {
             long var2 = var1.getMillis();
-            long var4 = this.a.a();
+            long var4 = this.a.a_currentTimeMillis();
             this.b.a(var2 - var4);
          } else {
             fi.polar.polarflow.util.d.c("InactivityAlertManager", "Notification send not allowed after 55 minutes. Skipping flush alarm.");

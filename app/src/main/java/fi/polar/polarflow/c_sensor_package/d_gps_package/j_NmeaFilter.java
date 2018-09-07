@@ -11,23 +11,23 @@ public class j_NmeaFilter {
    private boolean f = true;
    private boolean g = false;
    private double h = Double.NaN;
-   private double i = Double.NaN;
-   private double j = Double.NaN;
-   private String k = "";
-   private String l = "";
+   private double i_fixTimeFromGGA = Double.NaN;
+   private double j_fixTimeFromRMC = Double.NaN;
+   private String k_ggaMessage = "";
+   private String l_rmcMessage = "";
    private int m = -1;
    private int n = -1;
    private int o = -1;
    private LocationDataCalculator p_locationDataCalculator = null;
 
-   private void b() {
+   private void b_passToLocationDataCalculator() {
       if (this.p_locationDataCalculator != null) {
-         this.p_locationDataCalculator.handleNMEAMessage(this.k);
-         this.p_locationDataCalculator.handleNMEAMessage(this.l);
+         this.p_locationDataCalculator.handleNMEAMessage(this.k_ggaMessage);
+         this.p_locationDataCalculator.handleNMEAMessage(this.l_rmcMessage);
       }
 
-      this.k = "";
-      this.l = "";
+      this.k_ggaMessage = "";
+      this.l_rmcMessage = "";
    }
 
    public void a_reset() {
@@ -36,10 +36,10 @@ public class j_NmeaFilter {
       this.f = true;
       this.g = false;
       this.h = Double.NaN;
-      this.i = Double.NaN;
-      this.j = Double.NaN;
-      this.k = "";
-      this.l = "";
+      this.i_fixTimeFromGGA = Double.NaN;
+      this.j_fixTimeFromRMC = Double.NaN;
+      this.k_ggaMessage = "";
+      this.l_rmcMessage = "";
       this.m = -1;
       this.n = -1;
       this.o = -1;
@@ -53,41 +53,41 @@ public class j_NmeaFilter {
       boolean var2 = true;
       int var3;
       if (var1.startsWith("GGA", 3)) {
-         this.k = var1;
+         this.k_ggaMessage = var1;
          if (this.f) {
-            var3 = var1.indexOf(44, 14);
+            var3 = var1.indexOf(44, 14); // search for ','
 
             try {
-               this.i = Double.parseDouble(var1.substring(7, var3));
+               this.i_fixTimeFromGGA = Double.parseDouble(var1.substring(7, var3));
             } catch (NumberFormatException var11) {
-               fi.polar.polarflow.util.d.e("NmeaFilter", "Exception in parsing time (" + var1.substring(7, var3) + ") from NMEA: " + this.k + "");
+               fi.polar.polarflow.util.d.e("NmeaFilter", "Exception in parsing time (" + var1.substring(7, var3) + ") from NMEA: " + this.k_ggaMessage + "");
             }
          }
       } else if (var1.startsWith("RMC", 3)) {
-         this.l = var1;
+         this.l_rmcMessage = var1;
          if (this.f) {
-            var3 = var1.indexOf(44, 14);
+            var3 = var1.indexOf(44, 14); // search for ','
 
             try {
-               this.j = Double.parseDouble(var1.substring(7, var3));
+               this.j_fixTimeFromRMC = Double.parseDouble(var1.substring(7, var3));
             } catch (NumberFormatException var10) {
-               fi.polar.polarflow.util.d.e("NmeaFilter", "Exception in parsing time (" + var1.substring(7, var3) + ") from NMEA: " + this.l + "");
+               fi.polar.polarflow.util.d.e("NmeaFilter", "Exception in parsing time (" + var1.substring(7, var3) + ") from NMEA: " + this.l_rmcMessage + "");
             }
          }
       }
 
       boolean var4;
       if (!this.e) {
-         if (!Double.isNaN(this.i) && !Double.isNaN(this.j) && Double.compare(this.i, this.j) == 0) {
+         if (!Double.isNaN(this.i_fixTimeFromGGA) && !Double.isNaN(this.j_fixTimeFromRMC) && Double.compare(this.i_fixTimeFromGGA, this.j_fixTimeFromRMC) == 0) {
             this.e = true;
-            this.h = this.i;
-            this.b();
+            this.h = this.i_fixTimeFromGGA;
+            this.b_passToLocationDataCalculator();
             var4 = var2;
-            return var4;
+            return var4; //true
          }
-      } else if (!this.k.isEmpty() && !this.l.isEmpty()) {
+      } else if (!this.k_ggaMessage.isEmpty() && !this.l_rmcMessage.isEmpty()) {
          if (this.f) {
-            double var6 = (this.i - this.h) % 40.0D;
+            double var6 = (this.i_fixTimeFromGGA - this.h) % 40.0D;
             double var8 = var6;
             if (var6 < 0.0D) {
                var8 = var6 + 40.0D;
@@ -115,7 +115,7 @@ public class j_NmeaFilter {
                this.m = var3;
                this.n = 0;
                fi.polar.polarflow.util.d.c("NmeaFilter", "Previous GGA time:" + this.h);
-               fi.polar.polarflow.util.d.c("NmeaFilter", "Current  GGA time:" + this.i);
+               fi.polar.polarflow.util.d.c("NmeaFilter", "Current  GGA time:" + this.i_fixTimeFromGGA);
                fi.polar.polarflow.util.d.c("NmeaFilter", "Sample rate: " + this.o + " Hz.");
                this.h = Double.NaN;
                this.f = false;
@@ -123,21 +123,21 @@ public class j_NmeaFilter {
          }
 
          if (this.g) {
-            this.b();
+            this.b_passToLocationDataCalculator();
             var4 = var2;
             return var4;
          }
 
          if (this.m - this.n <= 0) {
-            this.b();
+            this.b_passToLocationDataCalculator();
             this.n = 0;
             var4 = var2;
             return var4;
          }
 
          ++this.n;
-         this.k = "";
-         this.l = "";
+         this.k_ggaMessage = "";
+         this.l_rmcMessage = "";
       }
 
       var4 = false;

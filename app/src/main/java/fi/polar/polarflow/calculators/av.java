@@ -1,6 +1,8 @@
 package fi.polar.polarflow.calculators;
 
 import android.content.Context;
+
+import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
 import fi.polar.polarmathsmart.swimming.poolswimming.SwimmingLapStatistics;
 
 class av extends h {
@@ -11,7 +13,7 @@ class av extends h {
    }
 
    av(Context var1, long var2, bb var4, as var5) {
-      super(var1, var2, (fi.polar.polarflow.util.v)null, var5);
+      super(var1, var2, (v_StickyLocalBroadcastManager)null, var5);
       this.d = var4;
    }
 

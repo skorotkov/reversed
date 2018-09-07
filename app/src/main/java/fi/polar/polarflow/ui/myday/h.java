@@ -11,7 +11,9 @@ import android.support.wearable.view.bd;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import fi.polar.polarflow.util.aa;
+import fi.polar.polarflow.util.aa_TimeUtils;
+import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -19,13 +21,13 @@ import org.joda.time.LocalDate;
 
 public class h extends a implements bd {
    private final IntentFilter a = new IntentFilter();
-   private fi.polar.polarflow.util.v b;
+   private v_StickyLocalBroadcastManager b;
    private int c;
    private MyDayListView d;
    private AsyncTask e;
    private f f;
    private int g;
-   private aa h;
+   private aa_TimeUtils h;
    private LocalDate i;
    private final BroadcastReceiver j = new i(this);
 
@@ -33,9 +35,9 @@ public class h extends a implements bd {
       super(fi.polar.polarflow.ui.myday.e.a);
       this.a.addAction("DailyActivityService.action.DAILY_ACTIVITY_STATUS");
       this.a.addAction("SleepTrackingService.action.SLEEP_STATE_CHANGED");
-      this.b = fi.polar.polarflow.util.v.a();
+      this.b = v_StickyLocalBroadcastManager.a_getInstance();
       this.g = -1;
-      this.h = new aa();
+      this.h = new aa_TimeUtils();
    }
 
    // $FF: synthetic method
@@ -98,7 +100,7 @@ public class h extends a implements bd {
    }
 
    private Intent a(String var1) {
-      return this.b.a((BroadcastReceiver)null, (String)var1);
+      return this.b.a_registerReceiver((BroadcastReceiver)null, (String)var1);
    }
 
    private void a(Intent var1) {
@@ -243,7 +245,7 @@ public class h extends a implements bd {
    }
 
    private void c() {
-      this.i = this.h.f();
+      this.i = this.h.f_newLocalDate();
       ArrayList var1 = new ArrayList();
       if (this.f()) {
          var1.add(new fi.polar.polarflow.ui.myday.item.f());
@@ -307,7 +309,7 @@ public class h extends a implements bd {
 
    private boolean g() {
       boolean var1;
-      if (this.i != null && this.i.equals(this.h.f())) {
+      if (this.i != null && this.i.equals(this.h.f_newLocalDate())) {
          var1 = false;
       } else {
          var1 = true;
@@ -362,7 +364,7 @@ public class h extends a implements bd {
 
    public void onStart() {
       super.onStart();
-      this.b.a(this.j, this.a);
+      this.b.a_registerReceiver(this.j, this.a);
       Intent var1 = this.a("SleepTrackingService.action.SLEEP_STATE_CHANGED");
       if (var1 != null) {
          this.b(var1);
@@ -376,7 +378,7 @@ public class h extends a implements bd {
    }
 
    public void onStop() {
-      this.b.a(this.j);
+      this.b.a_unregisterReceiver(this.j);
       super.onStop();
    }
 

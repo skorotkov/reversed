@@ -27,6 +27,8 @@ import fi.polar.polarflow.ui.custom.GpsSensorView;
 import fi.polar.polarflow.ui.custom.HrSensorView;
 import fi.polar.polarflow.ui.custom.SensorToastView;
 import fi.polar.polarflow.ui.custom.ai;
+import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
+
 import java.util.Iterator;
 import java.util.List;
 
@@ -524,15 +526,15 @@ public class x extends a implements bd, bg, fi.polar.polarflow.ui.exewait.a_pack
    public void onPause() {
       fi.polar.polarflow.util.d.c("SportProfileFragment", "onPause()");
       super.onPause();
-      fi.polar.polarflow.util.v.a().a(this.A);
+      v_StickyLocalBroadcastManager.a_getInstance().a_unregisterReceiver(this.A);
       this.o();
    }
 
    public void onResume() {
       fi.polar.polarflow.util.d.c("SportProfileFragment", "onResume()");
       super.onResume();
-      fi.polar.polarflow.util.v.a().a(this.A, this.z);
-      Iterator var1 = fi.polar.polarflow.util.v.a().b("fi.polar.polarflow.SENSOR_LOCATION_STATE_CHANGED", "fi.polar.polarflow.SENSOR_HR_STATE_CHANGED").iterator();
+      v_StickyLocalBroadcastManager.a_getInstance().a_registerReceiver(this.A, this.z);
+      Iterator var1 = v_StickyLocalBroadcastManager.a_getInstance().b_getFromMap("fi.polar.polarflow.SENSOR_LOCATION_STATE_CHANGED", "fi.polar.polarflow.SENSOR_HR_STATE_CHANGED").iterator();
 
       while(var1.hasNext()) {
          this.a((Intent)var1.next());

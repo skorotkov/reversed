@@ -25,6 +25,9 @@ import fi.polar.polarflow.data.orm.TrainingSessionTarget;
 import fi.polar.polarflow.ui.exeview.laps.LapNotificationView;
 import fi.polar.polarflow.ui.exeview.shader.ShaderContainerView;
 import fi.polar.polarflow.ui.exeview.shader.ShaderGridPager;
+import fi.polar.polarflow.util.aa_TimeUtils;
+import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -35,7 +38,7 @@ public class ExeViewActivity extends android.support.wearable.activity.a impleme
    private static final long y;
    private PendingIntent A;
    private long B;
-   private fi.polar.polarflow.util.aa C;
+   private aa_TimeUtils C;
    private fi.polar.polarflow.util.n D;
    private boolean E;
    private Training F;
@@ -326,7 +329,7 @@ public class ExeViewActivity extends android.support.wearable.activity.a impleme
          var2.add(ak.c);
       }
 
-      if (!var1 && fi.polar.polarflow.util.v.a().a((BroadcastReceiver)null, (String)"ExerciseLapCalc.ACTION_MANUAL_LAP") != null) {
+      if (!var1 && v_StickyLocalBroadcastManager.a_getInstance().a_registerReceiver((BroadcastReceiver)null, (String)"ExerciseLapCalc.ACTION_MANUAL_LAP") != null) {
          var2.add(ak.d);
       }
 
@@ -575,7 +578,7 @@ public class ExeViewActivity extends android.support.wearable.activity.a impleme
    }
 
    private void r() {
-      this.B = this.C.b() + y;
+      this.B = this.C.b_elapsedRealtime() + y;
       if (this.b()) {
          this.z.setExact(2, this.B, this.A);
       }
@@ -938,7 +941,7 @@ public class ExeViewActivity extends android.support.wearable.activity.a impleme
       this.b(var1);
       this.D = new fi.polar.polarflow.util.n(this.getApplicationContext());
       this.u = fi.polar.polarflow.util.a_package.b.a((Context)this, (fi.polar.polarflow.ui.p)(new fi.polar.polarflow.ui.p()));
-      this.C = new fi.polar.polarflow.util.aa();
+      this.C = new aa_TimeUtils();
       SportProfileSettings var7;
       if (this.A() != null) {
          var7 = this.A().getSettings();

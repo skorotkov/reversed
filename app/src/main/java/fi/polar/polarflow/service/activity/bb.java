@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.SparseArray;
 import fi.polar.polarflow.data.orm.PhysData;
 import fi.polar.polarflow.data.orm.SleepWakePhase;
+import fi.polar.polarflow.util.aa_TimeUtils;
 import fi.polar.polarmathsmart.sleep.sleepschedulesandfragmentation.SleepAnalyzerAndroidImpl;
 import fi.polar.polarmathsmart.sleep.sleepschedulesandfragmentation.SleepCalculatorAndroidImpl;
 import fi.polar.polarmathsmart.sleep.sleepschedulesandfragmentation.SleepCalculatorResult;
@@ -28,10 +29,10 @@ class bb {
    private fi.polar.polarflow.b_package.f k;
 
    public bb(Context var1) {
-      this(var1, new fi.polar.polarflow.util.aa());
+      this(var1, new aa_TimeUtils());
    }
 
-   public bb(Context var1, fi.polar.polarflow.util.aa var2) {
+   public bb(Context var1, aa_TimeUtils var2) {
       this.j = var1;
       this.b = new SleepCalculatorAndroidImpl();
       this.c = new br(var2);

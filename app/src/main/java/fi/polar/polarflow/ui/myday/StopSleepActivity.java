@@ -9,12 +9,13 @@ import android.view.KeyEvent;
 import android.view.View;
 import fi.polar.polarflow.service.activity.SleepTrackingService;
 import fi.polar.polarflow.service.activity.bo;
+import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
 import fi.polar.polarflow.util.z;
 
 public class StopSleepActivity extends Activity {
    private z a;
    private fi.polar.polarflow.service.datalayer.u b;
-   private fi.polar.polarflow.util.v c;
+   private v_StickyLocalBroadcastManager c;
    private SleepTrackingService d;
    private View e;
    private String f;
@@ -96,7 +97,7 @@ public class StopSleepActivity extends Activity {
    }
 
    // $FF: synthetic method
-   static fi.polar.polarflow.util.v g(StopSleepActivity var0) {
+   static v_StickyLocalBroadcastManager g(StopSleepActivity var0) {
       return var0.c;
    }
 
@@ -132,7 +133,7 @@ public class StopSleepActivity extends Activity {
       }
 
       if (this.c == null) {
-         this.c = fi.polar.polarflow.util.v.a();
+         this.c = v_StickyLocalBroadcastManager.a_getInstance();
       }
 
    }

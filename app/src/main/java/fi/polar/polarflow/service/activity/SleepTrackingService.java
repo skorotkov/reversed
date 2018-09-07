@@ -110,7 +110,7 @@ public class SleepTrackingService extends a {
    private void a(bd var1) {
       Intent var2 = new Intent("SleepTrackingService.action.SLEEP_STATE_CHANGED");
       var2.putExtra("SleepTrackingService.extra.SLEEP_STATE", var1);
-      this.c.b(var2);
+      this.c.b_sendStickyBroadcast(var2);
    }
 
    private void a(fi.polar.polarflow.util.b_package.a var1, boolean var2) {
@@ -122,7 +122,7 @@ public class SleepTrackingService extends a {
          this.sendBroadcast(var4);
       }
 
-      this.c.b(var3);
+      this.c.b_sendStickyBroadcast(var3);
    }
 
    private static boolean a(int var0, int var1) {
@@ -301,7 +301,7 @@ public class SleepTrackingService extends a {
       IntentFilter var1 = new IntentFilter();
       var1.addAction("DailyActivityService.action.LONG_TERM_NON_WEAR");
       var1.addAction("fi.polar.polarflow.action.FLUSH_LOGS");
-      this.c.a(this.x, var1);
+      this.c.a_registerReceiver(this.x, var1);
       if (this.k == null) {
          this.k = new av();
          this.getApplicationContext().registerReceiver(this.k, new IntentFilter("android.intent.action.ACTION_SHUTDOWN"));
@@ -329,7 +329,7 @@ public class SleepTrackingService extends a {
          }
       }
 
-      this.c.a(this.x);
+      this.c.a_unregisterReceiver(this.x);
       this.a.b(this.b);
       this.i.shutdownNow();
       this.g.removeCallbacksAndMessages((Object)null);

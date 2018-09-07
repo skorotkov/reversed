@@ -12,10 +12,10 @@ import android.support.wearable.complications.d;
 import fi.polar.polarflow.data.orm.DailySummary;
 import fi.polar.polarflow.util.f;
 import fi.polar.polarflow.util.u;
-import fi.polar.polarflow.util.v;
+import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
 
 public class DailyActivityComplicationProvider extends d {
-   private v a;
+   private v_StickyLocalBroadcastManager a;
    private f b;
 
    private ComplicationData a() {
@@ -23,7 +23,7 @@ public class DailyActivityComplicationProvider extends d {
    }
 
    private ComplicationData a(int var1, int var2) {
-      Intent var3 = this.a.a((BroadcastReceiver)null, (String)"DailyActivityService.action.DAILY_ACTIVITY_STATUS");
+      Intent var3 = this.a.a_registerReceiver((BroadcastReceiver)null, (String)"DailyActivityService.action.DAILY_ACTIVITY_STATUS");
       DailySummary var6;
       if (var3 == null) {
          fi.polar.polarflow.util.d.c("DailyActivityComplicationProvider", "DailyActivityComplicationData requested but no summary found from broadcast");
@@ -77,7 +77,7 @@ public class DailyActivityComplicationProvider extends d {
 
    public void onCreate() {
       super.onCreate();
-      this.a = v.a();
+      this.a = v_StickyLocalBroadcastManager.a_getInstance();
       this.b = new f();
    }
 }

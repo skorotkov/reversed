@@ -7,11 +7,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 
+import fi.polar.polarflow.util.aa_TimeUtils;
+
 public class ae {
    private static final String a = ae.class.getSimpleName();
    private AlarmManager b;
    private boolean c;
-   private fi.polar.polarflow.util.aa d;
+   private aa_TimeUtils d;
    private final Context e;
    private final ag f;
    private final BroadcastReceiver g = new af(this);
@@ -20,7 +22,7 @@ public class ae {
       this.e = var1;
       this.f = var2;
       this.b = (AlarmManager)this.e.getSystemService("alarm");
-      this.d = new fi.polar.polarflow.util.aa();
+      this.d = new aa_TimeUtils();
    }
 
    private PendingIntent a(Context var1) {
@@ -49,7 +51,7 @@ public class ae {
    public void a(long var1) {
       this.a();
       android.support.v4.c.g.a(this.e).a(this.g, new IntentFilter("fi.polar.polarflow.action.FLUSH_SENSOR_ALARM"));
-      long var3 = this.d.b();
+      long var3 = this.d.b_elapsedRealtime();
       this.b.setExact(2, var3 + var1, this.a(this.e));
       this.c = true;
       fi.polar.polarflow.util.d.c(a, "Trigger flush alarm " + var1 / 1000L + " seconds from now.");

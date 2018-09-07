@@ -9,6 +9,8 @@ import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.SystemClock;
 
+import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
+
 class e extends h implements y {
    private AlarmManager d;
    private PendingIntent e;
@@ -22,15 +24,15 @@ class e extends h implements y {
    }
 
    e(Context var1, Handler var2, AlarmManager var3, long var4, long var6) {
-      this(var1, var2, var3, var4, var6, (fi.polar.polarflow.util.v)null);
+      this(var1, var2, var3, var4, var6, (v_StickyLocalBroadcastManager)null);
    }
 
-   e(Context var1, Handler var2, AlarmManager var3, long var4, long var6, fi.polar.polarflow.util.v var8) {
+   e(Context var1, Handler var2, AlarmManager var3, long var4, long var6, v_StickyLocalBroadcastManager var8) {
       super(var1, var6);
       this.h = new f(this);
       this.i = new g(this);
       if (var8 != null) {
-         this.a((fi.polar.polarflow.util.v)var8);
+         this.a((v_StickyLocalBroadcastManager)var8);
       }
 
       var6 = var4;
@@ -56,7 +58,7 @@ class e extends h implements y {
       this.f();
       IntentFilter var9 = new IntentFilter();
       var9.addAction("fi.polar.polarflow.action.AUTO_LAP_ALARM_TRIGGERED");
-      this.b.a(this.h, var9);
+      this.b.a_registerReceiver(this.h, var9);
    }
 
    // $FF: synthetic method
@@ -98,7 +100,7 @@ class e extends h implements y {
 
    public void d() {
       this.q();
-      this.b.a(this.h);
+      this.b.a_unregisterReceiver(this.h);
    }
 
    protected long e() {

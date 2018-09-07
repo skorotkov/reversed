@@ -9,20 +9,22 @@ import org.joda.time.ReadableInstant;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
+import fi.polar.polarflow.util.aa_TimeUtils;
+
 public class br {
-   fi.polar.polarflow.util.aa a;
+   aa_TimeUtils a;
    private DateTimeFormatter b;
 
    public br() {
-      this(new fi.polar.polarflow.util.aa());
+      this(new aa_TimeUtils());
    }
 
-   public br(fi.polar.polarflow.util.aa var1) {
+   public br(aa_TimeUtils var1) {
       this.a = var1;
    }
 
    public long a() {
-      return this.a.a();
+      return this.a.a_currentTimeMillis();
    }
 
    public long a(DateTime var1, DateTime var2) {
@@ -46,7 +48,7 @@ public class br {
    }
 
    public long b() {
-      return this.a.b();
+      return this.a.b_elapsedRealtime();
    }
 
    public String b(DateTime var1, long var2) {
@@ -58,15 +60,15 @@ public class br {
    }
 
    public DateTime c() {
-      return new DateTime(this.a.a(), this.f());
+      return new DateTime(this.a.a_currentTimeMillis(), this.f());
    }
 
    public LocalDate d() {
-      return new LocalDate(this.a.a(), this.f());
+      return new LocalDate(this.a.a_currentTimeMillis(), this.f());
    }
 
    public TimeZone e() {
-      return this.a.d();
+      return this.a.d_getgetDefaultTimeZone();
    }
 
    public DateTimeZone f() {
@@ -74,6 +76,6 @@ public class br {
    }
 
    public DateTime g() {
-      return this.c().minus(this.a.b());
+      return this.c().minus(this.a.b_elapsedRealtime());
    }
 }

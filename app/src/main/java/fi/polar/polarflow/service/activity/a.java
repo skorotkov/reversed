@@ -3,10 +3,12 @@ package fi.polar.polarflow.service.activity;
 import android.content.Intent;
 import android.os.IBinder;
 
+import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
+
 public abstract class a extends aw {
    protected final as a;
    protected at b;
-   protected fi.polar.polarflow.util.v c;
+   protected v_StickyLocalBroadcastManager c;
    protected fi.polar.polarflow.service.datalayer.u d;
    private ah e;
    private boolean f;
@@ -58,7 +60,7 @@ public abstract class a extends aw {
       }
 
       if (this.c == null) {
-         this.c = fi.polar.polarflow.util.v.a();
+         this.c = v_StickyLocalBroadcastManager.a_getInstance();
       }
 
       if (this.d == null) {

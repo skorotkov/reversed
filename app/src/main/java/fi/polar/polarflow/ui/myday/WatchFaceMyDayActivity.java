@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.os.Bundle;
 
+import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
+
 public class WatchFaceMyDayActivity extends Activity {
    private fi.polar.polarflow.ui.myday.item.c a;
    private final BroadcastReceiver b = new w(this);
@@ -19,13 +21,13 @@ public class WatchFaceMyDayActivity extends Activity {
    }
 
    public void onPause() {
-      fi.polar.polarflow.util.v.a().a(this.b);
+      v_StickyLocalBroadcastManager.a_getInstance().a_unregisterReceiver(this.b);
       super.onPause();
    }
 
    public void onResume() {
       super.onResume();
-      fi.polar.polarflow.util.v.a().a(this.b, "DailyActivityService.action.DAILY_ACTIVITY_STATUS");
+      v_StickyLocalBroadcastManager.a_getInstance().a_registerReceiver(this.b, "DailyActivityService.action.DAILY_ACTIVITY_STATUS");
    }
 
    protected void onStart() {

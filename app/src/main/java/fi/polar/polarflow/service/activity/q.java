@@ -106,7 +106,7 @@ class q extends BroadcastReceiver {
          DailyActivityService.e(this.a).a();
          DailyActivityService.a(this.a, (bv)null);
          DailyActivityService.a(this.a, (ad)null);
-         this.a.c.a("DailyActivityService.action.TRAINING_LOAD_DATA");
+         this.a.c.a_removeFromMap("DailyActivityService.action.TRAINING_LOAD_DATA");
          break;
       case 4:
          long var4 = var2.getLongExtra("ExerciseSampleHeartrateCalcKEY_TIMESTAMP", 0L);

@@ -7,8 +7,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import fi.polar.polarflow.util.aa_TimeUtils;
+
 class al extends fi.polar.polarflow.service.a {
-   private fi.polar.polarflow.util.aa a = new fi.polar.polarflow.util.aa();
+   private aa_TimeUtils a = new aa_TimeUtils();
    private final Map b = Collections.synchronizedMap(new HashMap());
    private final i c = new i(50);
    private final i d = new i(50);
@@ -72,7 +74,7 @@ class al extends fi.polar.polarflow.service.a {
       super.a();
       this.c.b();
       this.d.b();
-      this.c.a(this.a.c(), this.d());
+      this.c.a(this.a.c_elapsedRealtimeNanos(), this.d());
    }
 
    public void a(int var1) {
@@ -104,13 +106,13 @@ class al extends fi.polar.polarflow.service.a {
    protected void f() {
       fi.polar.polarflow.util.d.c("NonWearCache", "onPlugged()");
       super.f();
-      this.c.a(this.a.c(), true);
+      this.c.a(this.a.c_elapsedRealtimeNanos(), true);
    }
 
    protected void g() {
       fi.polar.polarflow.util.d.c("NonWearCache", "onUnPlugged()");
       super.g();
-      this.c.a(this.a.c(), false);
+      this.c.a(this.a.c_elapsedRealtimeNanos(), false);
    }
 
    public int h() {

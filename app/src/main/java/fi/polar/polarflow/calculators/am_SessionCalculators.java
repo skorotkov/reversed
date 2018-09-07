@@ -19,6 +19,7 @@ import fi.polar.polarflow.data.orm.Sport;
 import fi.polar.polarflow.data.orm.SportProfile;
 import fi.polar.polarflow.data.orm.SwimmingSamples;
 import fi.polar.polarflow.data.orm.UserDeviceSettings;
+import fi.polar.polarflow.util.aa_TimeUtils;
 import fi.polar.polarmathsmart.swimming.poolswimming.SwimmingPoolInformation;
 import fi.polar.polarmathsmart.swimming.poolswimming.SwimmingStatistics;
 import java.util.ArrayList;
@@ -57,7 +58,7 @@ public class am_SessionCalculators {
    private final List q;
    private final Handler r;
    private final Training s;
-   private fi.polar.polarflow.util.aa t;
+   private aa_TimeUtils t;
    private final int[] u;
    private a_GpsLocationProviderBase v_gpsSensor;
    private a_HeartRateSensor w_heartRateSensor;
@@ -88,7 +89,7 @@ public class am_SessionCalculators {
       this.r = var3;
       this.u = new int[]{0};
       this.s = var2;
-      this.t = new fi.polar.polarflow.util.aa();
+      this.t = new aa_TimeUtils();
       this.E = 0L;
       this.p = new ArrayList();
       this.q = new ArrayList();
@@ -164,7 +165,7 @@ public class am_SessionCalculators {
    }
 
    // $FF: synthetic method
-   static fi.polar.polarflow.util.aa b(am_SessionCalculators var0) {
+   static aa_TimeUtils b(am_SessionCalculators var0) {
       return var0.t;
    }
 
@@ -468,10 +469,10 @@ public class am_SessionCalculators {
          if (this.w_heartRateSensor.e_getState() == m_SENSOR_STATE.d_READY) {
             this.s.getStatistics().getHeartrateStatistics().b((float)this.w_heartRateSensor.n());
             var5 = (float)this.w_heartRateSensor.n();
-            var6 = this.t.c();
+            var6 = this.t.c_elapsedRealtimeNanos();
             this.g = new b_PolarSensorEventBase(new float[]{var5}, var6, 3);
          } else {
-            var6 = this.t.c();
+            var6 = this.t.c_elapsedRealtimeNanos();
             this.g = new b_PolarSensorEventBase(new float[]{0.0F}, var6, -1);
          }
 

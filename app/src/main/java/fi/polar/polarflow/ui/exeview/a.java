@@ -7,12 +7,14 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import fi.polar.polarflow.data.orm.SportProfile;
 import fi.polar.polarflow.ui.custom.BetterWearableListView;
+import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
+
 import java.util.Collection;
 import java.util.HashMap;
 
 public abstract class a extends Fragment implements h {
    protected BetterWearableListView a = null;
-   protected fi.polar.polarflow.util.v b;
+   protected v_StickyLocalBroadcastManager b;
    protected final ak c;
    protected boolean d;
    private final c e = new c();
@@ -22,7 +24,7 @@ public abstract class a extends Fragment implements h {
 
    protected a(ak var1) {
       this.c = var1;
-      this.b = fi.polar.polarflow.util.v.a();
+      this.b = v_StickyLocalBroadcastManager.a_getInstance();
    }
 
    // $FF: synthetic method

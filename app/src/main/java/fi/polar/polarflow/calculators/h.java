@@ -9,6 +9,7 @@ import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
 import fi.polar.polarflow.c_sensor_package.n_SENSOR_TYPE;
 import fi.polar.polarflow.data.Lap;
 import fi.polar.polarflow.data.Lap$LapBuilder;
+import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
 import fi.polar.polarmathsmart.swimming.poolswimming.SwimmingLapStatistics;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -16,7 +17,7 @@ import java.util.Iterator;
 public abstract class h extends aj implements ae, ah {
    private static final ArrayList d = new ArrayList(3);
    int a;
-   protected fi.polar.polarflow.util.v b;
+   protected v_StickyLocalBroadcastManager b;
    private float e;
    private float f;
    private float g;
@@ -41,14 +42,14 @@ public abstract class h extends aj implements ae, ah {
    }
 
    public h(Context var1, long var2) {
-      this(var1, var2, (fi.polar.polarflow.util.v)null, new as());
+      this(var1, var2, (v_StickyLocalBroadcastManager)null, new as());
    }
 
-   public h(Context var1, long var2, fi.polar.polarflow.util.v var4) {
+   public h(Context var1, long var2, v_StickyLocalBroadcastManager var4) {
       this(var1, var2, var4, new as());
    }
 
-   public h(Context var1, long var2, fi.polar.polarflow.util.v var4, as var5) {
+   public h(Context var1, long var2, v_StickyLocalBroadcastManager var4, as var5) {
       super(d);
       this.a = 1;
       this.e = -1.0F;
@@ -68,7 +69,7 @@ public abstract class h extends aj implements ae, ah {
       this.r = var2;
       if (var4 == null) {
          if (var1 != null) {
-            var4 = fi.polar.polarflow.util.v.a(var1);
+            var4 = v_StickyLocalBroadcastManager.a_getInstance(var1);
          } else {
             var4 = null;
          }
@@ -140,11 +141,11 @@ public abstract class h extends aj implements ae, ah {
 
       var2.putExtra("ExerciseLapCalc.KEY_LAP_NUMBER", var1.getLapNumber());
       var2.putExtra("ExerciseLapCalc.KEY_LAP", var1);
-      this.b.b(var2);
+      this.b.b_sendStickyBroadcast(var2);
    }
 
    private void d() {
-      Iterator var1 = this.b.b("fi.polar.polarflow.ACTION_HR_DATA", "fi.polar.polarflow.ACTION_LOCATION_DATA", "fi.polar.polarflow.ACTION_RUNNING_CADENCE_DATA").iterator();
+      Iterator var1 = this.b.b_getFromMap("fi.polar.polarflow.ACTION_HR_DATA", "fi.polar.polarflow.ACTION_LOCATION_DATA", "fi.polar.polarflow.ACTION_RUNNING_CADENCE_DATA").iterator();
 
       while(var1.hasNext()) {
          Intent var2 = (Intent)var1.next();
@@ -180,7 +181,7 @@ public abstract class h extends aj implements ae, ah {
          var2.putExtra("ExerciseLapCalc.KEY_AVG_HR", Math.round(this.q.c()));
          var2.putExtra("ExerciseLapCalc.KEY_MAX_HR", Math.round(this.q.e()));
          var2.putExtra("ExerciseLapCalc.KEY_MIN_HR", Math.round(this.q.d()));
-         this.b.b(var2);
+         this.b.b_sendStickyBroadcast(var2);
       }
 
    }
@@ -207,7 +208,7 @@ public abstract class h extends aj implements ae, ah {
             var4.putExtra("ExerciseLapCalc.KEY_MAX_SPEED", var3);
          }
 
-         this.b.b(var4);
+         this.b.b_sendStickyBroadcast(var4);
       }
 
    }
@@ -225,7 +226,7 @@ public abstract class h extends aj implements ae, ah {
          var2.putExtra("ExerciseLapCalc.KEY_LAP_NUMBER", this.a);
          var2.putExtra("ExerciseLapCalc.KEY_AVG_RUNNING_CADENCE", this.p.d());
          var2.putExtra("ExerciseLapCalc.KEY_MAX_RUNNING_CADENCE", this.p.e());
-         this.b.b(var2);
+         this.b.b_sendStickyBroadcast(var2);
       }
 
    }
@@ -245,7 +246,7 @@ public abstract class h extends aj implements ae, ah {
 
    }
 
-   void a(fi.polar.polarflow.util.v var1) {
+   void a(v_StickyLocalBroadcastManager var1) {
       this.b = var1;
    }
 

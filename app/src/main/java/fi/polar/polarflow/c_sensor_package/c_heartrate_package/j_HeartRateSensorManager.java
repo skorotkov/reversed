@@ -330,7 +330,7 @@ public class j_HeartRateSensorManager extends a_HeartRateSensor {
       var1.addAction("TrainingService.action.TRAINING_STARTED");
       var1.addAction("fi.polar.polarflow.ACTION_SENSOR_PAIRING_CONFIRMED");
       var1.addAction("fi.polar.polarflow.ACTION_SENSOR_PAIRING_DECLINED");
-      this.o().a(this.s, var1);
+      this.o().a_registerReceiver(this.s, var1);
    }
 
    // $FF: synthetic method
@@ -339,7 +339,7 @@ public class j_HeartRateSensorManager extends a_HeartRateSensor {
    }
 
    private void r() {
-      this.o().a(this.s);
+      this.o().a_unregisterReceiver(this.s);
    }
 
    // $FF: synthetic method
@@ -355,7 +355,7 @@ public class j_HeartRateSensorManager extends a_HeartRateSensor {
    private void s() {
       Intent var1 = new Intent("fi.polar.polarflow.ACTION_SENSOR_PAIRING_CONFIRMATION_NEEDED");
       var1.putExtras(this.m.k());
-      this.o().a(var1);
+      this.o().a_sendBroadcast(var1);
    }
 
    private void t() {

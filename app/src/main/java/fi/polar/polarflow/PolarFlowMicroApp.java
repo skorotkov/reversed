@@ -14,7 +14,7 @@ import fi.polar.polarflow.ui.exeview.ExeViewActivity;
 import fi.polar.polarflow.util.j;
 import fi.polar.polarflow.util.s;
 import fi.polar.polarflow.util.u;
-import fi.polar.polarflow.util.v;
+import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
 import fi.polar.polarflow.util.w;
 import fi.polar.polarflow.util.y;
 import java.util.ArrayList;
@@ -92,7 +92,7 @@ public class PolarFlowMicroApp extends SugarApp {
 
    private static void b(PolarFlowMicroApp var0) {
       u.a((Context)var0);
-      v.a((Context)var0);
+      v_StickyLocalBroadcastManager.a_getInstance((Context)var0);
       fi.polar.polarflow.service.f.a((Context)var0);
    }
 

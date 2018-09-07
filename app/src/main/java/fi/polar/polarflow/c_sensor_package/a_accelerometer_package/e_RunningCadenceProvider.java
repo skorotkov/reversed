@@ -9,7 +9,7 @@ import fi.polar.polarflow.c_sensor_package.l_PolarSensorListener;
 import fi.polar.polarflow.c_sensor_package.n_SENSOR_TYPE;
 import fi.polar.polarflow.data.orm.PhysData;
 import fi.polar.polarflow.util.k;
-import fi.polar.polarflow.util.v;
+import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
 import fi.polar.polarmathsmart.wristmetrics.SpeedCadenceAndDistanceFromWristMeterAccelerationCalculatorAndroidImpl;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 public class e_RunningCadenceProvider extends a_AccelerometerSensor implements i_PolarSensorListenerSupport {
    private static final long g;
    private SpeedCadenceAndDistanceFromWristMeterAccelerationCalculatorAndroidImpl h;
-   private v i;
+   private v_StickyLocalBroadcastManager i;
    private int j = -1;
    private long k = 0L;
    private l_PolarSensorListener l;
@@ -28,7 +28,7 @@ public class e_RunningCadenceProvider extends a_AccelerometerSensor implements i
 
    public e_RunningCadenceProvider(Context var1) {
       super(var1, n_SENSOR_TYPE.e_RUNNING_CADENCE, 50, 500);
-      this.i = v.a(var1);
+      this.i = v_StickyLocalBroadcastManager.a_getInstance(var1);
    }
 
    private static short a(float var0) {
@@ -59,7 +59,7 @@ public class e_RunningCadenceProvider extends a_AccelerometerSensor implements i
          var2.putExtra("fi.polar.polarflow.KEY_SENSOR_CALCULATOR_TYPE", "fi.polar.polarflow.SENSOR_CALCULATOR_TYPE_POLAR");
          var2.putExtra("fi.polar.polarflow.KEY_SENSOR_RUNNING_CADENCE_VALUE", var1);
          var2.putExtra("fi.polar.polarflow.SENSOR_STATE", this.b_sensorState);
-         this.i.b(var2);
+         this.i.b_sendStickyBroadcast(var2);
       }
 
    }
@@ -114,7 +114,7 @@ public class e_RunningCadenceProvider extends a_AccelerometerSensor implements i
    }
 
    public void c_stop() {
-      this.i.a("fi.polar.polarflow.ACTION_RUNNING_CADENCE_DATA");
+      this.i.a_removeFromMap("fi.polar.polarflow.ACTION_RUNNING_CADENCE_DATA");
       super.c_stop();
    }
 

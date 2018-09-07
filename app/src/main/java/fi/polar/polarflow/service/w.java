@@ -6,7 +6,7 @@ import android.content.IntentFilter;
 import android.os.PowerManager;
 import android.os.Vibrator;
 import android.os.PowerManager.WakeLock;
-import fi.polar.polarflow.util.aa;
+import fi.polar.polarflow.util.aa_TimeUtils;
 import lanchon.dexpatcher.annotation.DexIgnore;
 
 public class w {
@@ -15,7 +15,7 @@ public class w {
    private WakeLock c;
    private final android.support.v4.g.t d;
    private long e;
-   private aa f;
+   private aa_TimeUtils f;
    private final BroadcastReceiver g;
    private SoundManager mSoundManager;
 
@@ -35,11 +35,11 @@ public class w {
       }
 
       this.c = ((PowerManager)var1.getSystemService("power")).newWakeLock(1, "AutoLapVibraWakelockTag");
-      this.f = new aa();
+      this.f = new aa_TimeUtils();
    }
 
    // $FF: synthetic method
-   static aa a(w var0) {
+   static aa_TimeUtils a(w var0) {
       return var0.f;
    }
 
@@ -63,7 +63,7 @@ public class w {
    }
 
    private void a(String var1) {
-      if (this.f.b() - this.e > 2000L) {
+      if (this.f.b_elapsedRealtime() - this.e > 2000L) {
          long[] var2 = (long[])this.d.get(var1);
          if (var2 == null) {
             fi.polar.polarflow.util.d.f("VibratorManager", "No pattern found for action: " + var1);

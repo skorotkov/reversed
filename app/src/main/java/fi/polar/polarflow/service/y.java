@@ -73,7 +73,7 @@ public class y extends BroadcastReceiver {
          w.a(this.a, var2.getAction());
          break;
       case 5:
-         w.b(this.a, w.a(this.a).b());
+         w.b(this.a, w.a(this.a).b_elapsedRealtime());
          if (var2.getIntExtra("ExercisePhaseCalc.KEY_PHASE_GOAL", 0) == 2) {
             w.a(this.a, fi.polar.polarflow.util.b.e);
          } else {

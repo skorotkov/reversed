@@ -424,7 +424,7 @@ public class DailyActivityService extends k {
             var3.putExtra("DailyActivityService.extra.FAT_CONSUMPTION", var2.c());
          }
 
-         this.c.b(var3);
+         this.c.b_sendStickyBroadcast(var3);
       }
 
    }
@@ -528,7 +528,7 @@ public class DailyActivityService extends k {
          this.a.b(this.b);
          this.o.b();
          this.o.a(this.p);
-         this.c.a(this.e);
+         this.c.a_unregisterReceiver(this.e);
          this.w.b();
          this.u.b();
          this.v.a();

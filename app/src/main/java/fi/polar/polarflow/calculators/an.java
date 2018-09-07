@@ -17,7 +17,7 @@ class an implements e_PolarSensorListenerEx {
    public void a(int var1) {
       // $FF: Couldn't be decompiled
       if (!am_SessionCalculators.a(this.a)) {
-         am_SessionCalculators.a(this.a, am_SessionCalculators.b(this.a).c());
+         am_SessionCalculators.a(this.a, am_SessionCalculators.b(this.a).c_elapsedRealtimeNanos());
          am_SessionCalculators.c(this.a);
          int var2 = am_SessionCalculators.c(this.a)[0] - 1;
          if (am_SessionCalculators.d(this.a).a != null && am_SessionCalculators.d(this.a).a[0] == 0.0F) {

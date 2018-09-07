@@ -17,6 +17,8 @@ import fi.polar.polarflow.data.orm.PhysData;
 import fi.polar.polarflow.data.orm.SleepAnalysisResult;
 import fi.polar.polarflow.data.orm.TrainingSessionTarget;
 import fi.polar.polarflow.data.orm.UserId;
+import fi.polar.polarflow.util.aa_TimeUtils;
+
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
@@ -57,7 +59,7 @@ public class NotificationReceiver extends BroadcastReceiver {
       if (var1) {
          var9.setContentText(String.format(Locale.getDefault(), "%02d:%02d:%02d", TimeUnit.MILLISECONDS.toHours(var6), TimeUnit.MILLISECONDS.toMinutes(var6) % 60L, TimeUnit.MILLISECONDS.toSeconds(var6) % 60L));
       } else {
-         var9.setUsesChronometer(true).setWhen((new fi.polar.polarflow.util.aa()).a() - var6);
+         var9.setUsesChronometer(true).setWhen((new aa_TimeUtils()).a_currentTimeMillis() - var6);
       }
 
       return var9.build();
@@ -343,7 +345,7 @@ public class NotificationReceiver extends BroadcastReceiver {
 
       for(int var4 = 0; var4 < var3; ++var4) {
          StatusBarNotification var5 = var2[var4];
-         if (var5.getId() == 7 && SleepAnalysisResult.getRecordingDate(new DateTime(var5.getNotification().when)).isBefore((new fi.polar.polarflow.util.aa()).f())) {
+         if (var5.getId() == 7 && SleepAnalysisResult.getRecordingDate(new DateTime(var5.getNotification().when)).isBefore((new aa_TimeUtils()).f_newLocalDate())) {
             this.d(var1, 7);
          }
       }

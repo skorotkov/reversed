@@ -6,6 +6,7 @@ import fi.polar.polarflow.data.orm.ActivitySamples;
 import fi.polar.polarflow.data.orm.InactivityNonWearTriggerInfo;
 import fi.polar.polarflow.data.orm.Sport;
 import fi.polar.polarflow.data.orm.SportInfo;
+import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
 import fi.polar.polarmathsmart.nonwear.LongTermNonWearCalculatorRealTime;
 import fi.polar.polarmathsmart.nonwear.LongTermNonWearCalculatorRealTimeAndroidImpl;
 import fi.polar.polarmathsmart.nonwear.LongTermNonWearOutput;
@@ -13,7 +14,7 @@ import org.joda.time.DateTime;
 
 class f implements bu {
    private final LongTermNonWearCalculatorRealTime a;
-   private final fi.polar.polarflow.util.v b;
+   private final v_StickyLocalBroadcastManager b;
    private final bs c;
    private final z d;
    private final Object e;
@@ -24,7 +25,7 @@ class f implements bu {
    private boolean j;
    private boolean k;
 
-   public f(fi.polar.polarflow.util.v var1, bs var2, z var3) {
+   public f(v_StickyLocalBroadcastManager var1, bs var2, z var3) {
       this.b = var1;
       this.c = var2;
       this.d = var3;
@@ -125,7 +126,7 @@ class f implements bu {
       Intent var2 = new Intent("DailyActivityService.action.LONG_TERM_NON_WEAR");
       var2.putExtra("DailyActivityService.extra.START_TIME", this.i);
       var2.putExtra("DailyActivityService.extra.END_TIME", var1);
-      this.b.a(var2);
+      this.b.a_sendBroadcast(var2);
    }
 
    private boolean e(DateTime var1) {

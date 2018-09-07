@@ -4,6 +4,8 @@ import android.app.AlarmManager;
 import android.content.Context;
 import android.os.Handler;
 
+import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
+
 public class ax extends e {
    private bb d;
    private final Runnable e;
@@ -13,10 +15,10 @@ public class ax extends e {
    }
 
    ax(Context var1, Handler var2, AlarmManager var3, long var4, long var6, bb var8) {
-      this(var1, var2, var3, var4, var6, var8, (fi.polar.polarflow.util.v)null);
+      this(var1, var2, var3, var4, var6, var8, (v_StickyLocalBroadcastManager)null);
    }
 
-   ax(Context var1, Handler var2, AlarmManager var3, long var4, long var6, bb var8, fi.polar.polarflow.util.v var9) {
+   ax(Context var1, Handler var2, AlarmManager var3, long var4, long var6, bb var8, v_StickyLocalBroadcastManager var9) {
       super(var1, var2, var3, var4, var6, var9);
       this.e = new ay(this);
       this.d = var8;

@@ -5,24 +5,26 @@ import android.content.Intent;
 import android.view.View;
 import java.util.List;
 
+import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
+
 public abstract class f implements ah {
    private boolean a;
-   protected fi.polar.polarflow.util.v b;
+   protected v_StickyLocalBroadcastManager b;
 
-   private fi.polar.polarflow.util.v e() {
+   private v_StickyLocalBroadcastManager e() {
       if (this.b == null) {
-         this.b = fi.polar.polarflow.util.v.a();
+         this.b = v_StickyLocalBroadcastManager.a_getInstance();
       }
 
       return this.b;
    }
 
    public Intent a(String var1) {
-      return this.e().a((BroadcastReceiver)null, (String)var1);
+      return this.e().a_registerReceiver((BroadcastReceiver)null, (String)var1);
    }
 
    protected List a(String... var1) {
-      return this.e().b(var1);
+      return this.e().b_getFromMap(var1);
    }
 
    public void a(Intent var1) {
