@@ -434,7 +434,7 @@ public class j_HeartRateSensorManager extends a_HeartRateSensor {
          this.h.a(this.t);
          b((a_Sensor)this.i, (l_PolarSensorListener)this.q);
       } else {
-         this.d();
+         this.d_broadcastStateChanged();
       }
 
    }

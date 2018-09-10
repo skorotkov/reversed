@@ -26,6 +26,7 @@ import fi.polar.polarflow.ui.exeview.laps.LapNotificationView;
 import fi.polar.polarflow.ui.exeview.shader.ShaderContainerView;
 import fi.polar.polarflow.ui.exeview.shader.ShaderGridPager;
 import fi.polar.polarflow.util.aa_TimeUtils;
+import fi.polar.polarflow.util.n_PowerManagerHelper;
 import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
 
 import java.util.ArrayList;
@@ -39,7 +40,7 @@ public class ExeViewActivity extends android.support.wearable.activity.a impleme
    private PendingIntent A;
    private long B;
    private aa_TimeUtils C;
-   private fi.polar.polarflow.util.n D;
+   private n_PowerManagerHelper D;
    private boolean E;
    private Training F;
    private final BroadcastReceiver G;
@@ -417,7 +418,7 @@ public class ExeViewActivity extends android.support.wearable.activity.a impleme
    }
 
    // $FF: synthetic method
-   static fi.polar.polarflow.util.n i(ExeViewActivity var0) {
+   static n_PowerManagerHelper i(ExeViewActivity var0) {
       return var0.D;
    }
 
@@ -939,7 +940,7 @@ public class ExeViewActivity extends android.support.wearable.activity.a impleme
       var8.a((Activity)this, var5);
       this.setContentView(2130968619);
       this.b(var1);
-      this.D = new fi.polar.polarflow.util.n(this.getApplicationContext());
+      this.D = new n_PowerManagerHelper(this.getApplicationContext());
       this.u = fi.polar.polarflow.util.a_package.b.a((Context)this, (fi.polar.polarflow.ui.p)(new fi.polar.polarflow.ui.p()));
       this.C = new aa_TimeUtils();
       SportProfileSettings var7;
@@ -1065,7 +1066,7 @@ public class ExeViewActivity extends android.support.wearable.activity.a impleme
 
    protected void onPostResume() {
       super.onPostResume();
-      if (this.D.a() && this.F.isSensorEnabled(4)) {
+      if (this.D.a_isPowerSaveMode() && this.F.isSensorEnabled(4)) {
          this.g();
       } else {
          this.h();

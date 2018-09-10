@@ -13,6 +13,8 @@ public abstract class Sensor extends fi.polar.polarflow.c.a_Sensor implements i_
         super(var1, var2);
     }
 
+    protected n_SENSOR_TYPE getType() { return c_sensorType; }
+
     protected void setState(m_SENSOR_STATE state) {
         this.a_setState(state, false);
     }
@@ -33,11 +35,11 @@ public abstract class Sensor extends fi.polar.polarflow.c.a_Sensor implements i_
 
     public abstract void stop();
 
-    protected void d() {
-        doSomething();
+    protected void d_broadcastStateChanged() {
+        broadcastStateChanged();
     }
 
-    protected abstract void doSomething();
+    protected abstract void broadcastStateChanged();
 
     public m_SENSOR_STATE getState() {
         return this.e_getState();
@@ -69,5 +71,7 @@ public abstract class Sensor extends fi.polar.polarflow.c.a_Sensor implements i_
 
     public abstract void setPolarSensorListener(PolarSensorListener var1);
 
-    protected Context getContext() { return a_context; }
+    public Context getContext() { return a_context; }
+
+    public boolean isStarted() { return d_sensorStarted; }
 }

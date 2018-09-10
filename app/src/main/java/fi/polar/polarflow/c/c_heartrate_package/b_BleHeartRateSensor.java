@@ -671,7 +671,7 @@ public class b_BleHeartRateSensor extends a_HeartRateSensor {
          this.a_setState((m_SENSOR_STATE) m_SENSOR_STATE.c_SEARCHING, true);
          this.w();
       } else {
-         this.d();
+         this.d_broadcastStateChanged();
       }
 
    }
@@ -689,7 +689,7 @@ public class b_BleHeartRateSensor extends a_HeartRateSensor {
       this.a_setState((m_SENSOR_STATE) m_SENSOR_STATE.b_NOT_READY);
    }
 
-   protected void d() {
+   protected void d_broadcastStateChanged() {
       if (this.A != null) {
          this.h.post(new h(this, this.e_getState()));
       }

@@ -92,7 +92,7 @@ public class s extends a_HeartRateSensor {
                this.a_setState(m_SENSOR_STATE.a_DISABLED, true);
             }
          } else {
-            this.d();
+            this.d_broadcastStateChanged();
          }
       } else {
          this.a_setState(m_SENSOR_STATE.a_DISABLED, true);
@@ -107,7 +107,7 @@ public class s extends a_HeartRateSensor {
       this.a_setState(m_SENSOR_STATE.b_NOT_READY, true);
    }
 
-   protected void d() {
+   protected void d_broadcastStateChanged() {
       if (this.l != null) {
          this.l.a(this.e_getState());
       }

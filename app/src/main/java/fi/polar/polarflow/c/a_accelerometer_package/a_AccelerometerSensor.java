@@ -140,12 +140,12 @@ public class a_AccelerometerSensor extends a_Sensor implements i_PolarSensorList
    }
 
    public void b_start() {
-      if (!this.d) {
+      if (!this.d_sensorStarted) {
          fi.polar.polarflow.util.d.c(this.getClass().getSimpleName(), "start");
          this.l();
          if (this.n()) {
             this.a_setState((m_SENSOR_STATE) m_SENSOR_STATE.d_READY);
-            this.d = true;
+            this.d_sensorStarted = true;
          } else {
             this.a_setState((m_SENSOR_STATE) m_SENSOR_STATE.a_DISABLED);
             this.m();
@@ -155,20 +155,20 @@ public class a_AccelerometerSensor extends a_Sensor implements i_PolarSensorList
    }
 
    public void c_stop() {
-      if (this.d) {
+      if (this.d_sensorStarted) {
          fi.polar.polarflow.util.d.c(this.getClass().getSimpleName(), "stop");
          super.i();
          this.o();
          this.q.removeCallbacksAndMessages((Object)null);
          this.m();
          this.a_setState((m_SENSOR_STATE) m_SENSOR_STATE.b_NOT_READY);
-         this.d = false;
+         this.d_sensorStarted = false;
          this.m.removeCallbacksAndMessages((Object)null);
       }
 
    }
 
-   protected void d() {
+   protected void d_broadcastStateChanged() {
    }
 
    void k() {

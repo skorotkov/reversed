@@ -25,7 +25,7 @@ public abstract class a_HeartRateSensor extends a_Sensor implements i_PolarSenso
       this.h = var1;
    }
 
-   protected void d() {
+   protected void d_broadcastStateChanged() {
       Intent var1 = new Intent("fi.polar.polarflow.SENSOR_HR_STATE_CHANGED");
       var1.putExtras(this.k());
       this.o().b_sendStickyBroadcast(var1);
