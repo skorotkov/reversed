@@ -4,7 +4,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.os.Handler;
 
-class be extends fi.polar.polarflow.c_sensor_package.d {
+class be extends fi.polar.polarflow.c.d {
    // $FF: synthetic field
    final SleepTrackingService a;
 

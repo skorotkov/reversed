@@ -1,6 +1,6 @@
 package fi.polar.polarflow.calculators;
 
-import fi.polar.polarflow.c_sensor_package.n_SENSOR_TYPE;
+import fi.polar.polarflow.c.n_SENSOR_TYPE;
 import fi.polar.polarflow.data.Training;
 import java.util.ArrayList;
 

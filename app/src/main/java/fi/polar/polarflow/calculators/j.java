@@ -9,7 +9,7 @@ import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.SystemClock;
 
-import fi.polar.polarflow.c_sensor_package.n_SENSOR_TYPE;
+import fi.polar.polarflow.c.n_SENSOR_TYPE;
 import fi.polar.polarflow.data.Training;
 import fi.polar.polarflow.data.orm.ExercisePhase;
 import fi.polar.polarflow.data.orm.ExercisePhaseData;

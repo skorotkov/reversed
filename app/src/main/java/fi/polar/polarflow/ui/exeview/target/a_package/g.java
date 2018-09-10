@@ -9,7 +9,7 @@ import android.view.animation.Animation;
 import android.widget.TextView;
 import android.widget.LinearLayout.LayoutParams;
 
-import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
+import fi.polar.polarflow.c.m_SENSOR_STATE;
 import fi.polar.polarflow.data.orm.ExercisePhase;
 import fi.polar.polarflow.data.orm.SportProfile;
 import fi.polar.polarflow.data.orm.Zones;

@@ -307,7 +307,7 @@ public class ExeWaitActivity extends Activity implements ad, n, p, fi.polar.pola
 
    private void o() {
       fi.polar.polarflow.util.d.c("ExeWaitActivity", "startSensorUpdates()");
-      this.k.a(new Intent(fi.polar.polarflow.c_sensor_package.o.a));
+      this.k.a(new Intent(fi.polar.polarflow.c.o.a));
    }
 
    private void p() {
@@ -468,7 +468,7 @@ public class ExeWaitActivity extends Activity implements ad, n, p, fi.polar.pola
       super.onPause();
       fi.polar.polarflow.util.d.c("ExeWaitActivity", "onPause");
       this.n();
-      this.k.a(new Intent(fi.polar.polarflow.c_sensor_package.o.b));
+      this.k.a(new Intent(fi.polar.polarflow.c.o.b));
       this.h.d();
    }
 

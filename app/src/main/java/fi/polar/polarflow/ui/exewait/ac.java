@@ -1,6 +1,6 @@
 package fi.polar.polarflow.ui.exewait;
 
-import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
+import fi.polar.polarflow.c.m_SENSOR_STATE;
 
 // $FF: synthetic class
 class ac {

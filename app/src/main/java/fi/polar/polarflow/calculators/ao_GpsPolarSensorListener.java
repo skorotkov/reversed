@@ -2,8 +2,8 @@ package fi.polar.polarflow.calculators;
 
 import java.util.List;
 
-import fi.polar.polarflow.c_sensor_package.e_PolarSensorListenerEx;
-import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
+import fi.polar.polarflow.c.e_PolarSensorListenerEx;
+import fi.polar.polarflow.c.m_SENSOR_STATE;
 
 class ao_GpsPolarSensorListener implements e_PolarSensorListenerEx {
    // $FF: synthetic field
@@ -43,7 +43,7 @@ class ao_GpsPolarSensorListener implements e_PolarSensorListenerEx {
 
             long var3 = am_SessionCalculators.n(this.a).get(am_SessionCalculators.l(this.a));
             long var5 = am_SessionCalculators.n(this.a).get(am_SessionCalculators.l(this.a)) + am_SessionCalculators.o(this.a);
-            fi.polar.polarflow.c_sensor_package.f_PolarSensorEvent var7 = (fi.polar.polarflow.c_sensor_package.f_PolarSensorEvent)fi.polar.polarflow.c_sensor_package.b_PolarSensorEventBase.a(var5, am_SessionCalculators.k(this.a), 500L);
+            fi.polar.polarflow.c.f_PolarSensorEvent var7 = (fi.polar.polarflow.c.f_PolarSensorEvent)fi.polar.polarflow.c.b_PolarSensorEventBase.a(var5, am_SessionCalculators.k(this.a), 500L);
             if (var7 != null) {
                if (am_SessionCalculators.o(this.a) == 0L) {
                   am_SessionCalculators.b(this.a, var7.b - var3);
@@ -57,11 +57,11 @@ class ao_GpsPolarSensorListener implements e_PolarSensorListenerEx {
             } else if (am_SessionCalculators.l(this.a) == 0) {
                var7 = am_SessionCalculators.p(this.a);
             } else {
-               if (var5 > ((fi.polar.polarflow.c_sensor_package.b_PolarSensorEventBase)am_SessionCalculators.k(this.a).get(am_SessionCalculators.k(this.a).size() - 1)).b + 500L) {
+               if (var5 > ((fi.polar.polarflow.c.b_PolarSensorEventBase)am_SessionCalculators.k(this.a).get(am_SessionCalculators.k(this.a).size() - 1)).b + 500L) {
                   break;
                }
 
-               var7 = (fi.polar.polarflow.c_sensor_package.f_PolarSensorEvent)fi.polar.polarflow.c_sensor_package.b_PolarSensorEventBase.a(var5, am_SessionCalculators.k(this.a));
+               var7 = (fi.polar.polarflow.c.f_PolarSensorEvent)fi.polar.polarflow.c.b_PolarSensorEventBase.a(var5, am_SessionCalculators.k(this.a));
                if (var7.b > var5 + 500L) {
                   var7 = am_SessionCalculators.p(this.a);
                } else {
@@ -71,12 +71,12 @@ class ao_GpsPolarSensorListener implements e_PolarSensorListenerEx {
 
             if (var7 != null) {
                this.a.a(am_SessionCalculators.l(this.a), var7);
-               fi.polar.polarflow.c_sensor_package.b_PolarSensorEventBase.a(am_SessionCalculators.k(this.a), var7.b, 0L);
+               fi.polar.polarflow.c.b_PolarSensorEventBase.a(am_SessionCalculators.k(this.a), var7.b, 0L);
             }
          }
 
          if (am_SessionCalculators.k(this.a).size() > 0) {
-            am_SessionCalculators.a(this.a, (fi.polar.polarflow.c_sensor_package.f_PolarSensorEvent)am_SessionCalculators.k(this.a).get(am_SessionCalculators.k(this.a).size() - 1));
+            am_SessionCalculators.a(this.a, (fi.polar.polarflow.c.f_PolarSensorEvent)am_SessionCalculators.k(this.a).get(am_SessionCalculators.k(this.a).size() - 1));
          }
       }
 

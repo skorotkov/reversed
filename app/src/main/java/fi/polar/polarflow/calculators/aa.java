@@ -1,6 +1,6 @@
 package fi.polar.polarflow.calculators;
 
-import fi.polar.polarflow.c_sensor_package.f_PolarSensorEvent;
+import fi.polar.polarflow.c.f_PolarSensorEvent;
 
 class aa extends ai {
    private final float a;

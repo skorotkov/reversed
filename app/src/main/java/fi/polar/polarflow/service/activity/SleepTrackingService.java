@@ -36,7 +36,7 @@ public class SleepTrackingService extends a {
    private boolean q;
    private int r;
    private boolean s;
-   private final fi.polar.polarflow.c_sensor_package.d t;
+   private final fi.polar.polarflow.c.d t;
    private final Runnable u;
    private final Runnable v;
    private final ServiceConnection w;

@@ -18,11 +18,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import fi.polar.polarflow.c_sensor_package.b_PolarSensorEventBase;
-import fi.polar.polarflow.c_sensor_package.e_PolarSensorListenerEx;
-import fi.polar.polarflow.c_sensor_package.l_PolarSensorListener;
-import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
-import fi.polar.polarflow.c_sensor_package.c_heartrate_package.s;
+import fi.polar.polarflow.c.b_PolarSensorEventBase;
+import fi.polar.polarflow.c.e_PolarSensorListenerEx;
+import fi.polar.polarflow.c.l_PolarSensorListener;
+import fi.polar.polarflow.c.m_SENSOR_STATE;
+import fi.polar.polarflow.c.c_heartrate_package.s;
 import fi.polar.polarflow.data.Training;
 import fi.polar.polarflow.ui.p;
 import fi.polar.polarflow.ui.q;

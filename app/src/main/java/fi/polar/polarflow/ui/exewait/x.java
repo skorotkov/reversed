@@ -19,7 +19,7 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 import android.widget.FrameLayout.LayoutParams;
 
-import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
+import fi.polar.polarflow.c.m_SENSOR_STATE;
 import fi.polar.polarflow.data.SportProfileSettings;
 import fi.polar.polarflow.data.orm.Sport;
 import fi.polar.polarflow.data.orm.SportProfile;

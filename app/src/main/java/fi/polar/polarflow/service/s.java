@@ -1,6 +1,6 @@
 package fi.polar.polarflow.service;
 
-class s implements fi.polar.polarflow.c_sensor_package.k {
+class s implements fi.polar.polarflow.c.k {
    // $FF: synthetic field
    final TrainingService a;
 

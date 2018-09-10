@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.os.SystemClock;
 
 import fi.polar.polarflow.a_package.a_DataTypes;
-import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
-import fi.polar.polarflow.c_sensor_package.n_SENSOR_TYPE;
+import fi.polar.polarflow.c.m_SENSOR_STATE;
+import fi.polar.polarflow.c.n_SENSOR_TYPE;
 import fi.polar.polarflow.data.Lap;
 import fi.polar.polarflow.data.Lap$LapBuilder;
 import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;

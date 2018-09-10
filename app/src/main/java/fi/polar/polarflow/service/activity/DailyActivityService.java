@@ -33,7 +33,7 @@ public class DailyActivityService extends k {
    private boolean E;
    private boolean F;
    private fi.polar.polarflow.b_package.c G;
-   private final fi.polar.polarflow.c_sensor_package.d H;
+   private final fi.polar.polarflow.c.d H;
    private final Runnable I;
    private final ak J;
    private final fi.polar.polarflow.service.j K;
@@ -337,7 +337,7 @@ public class DailyActivityService extends k {
    }
 
    // $FF: synthetic method
-   static fi.polar.polarflow.c_sensor_package.d f(DailyActivityService var0) {
+   static fi.polar.polarflow.c.d f(DailyActivityService var0) {
       return var0.H;
    }
 

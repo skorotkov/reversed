@@ -3,11 +3,11 @@ package fi.polar.polarflow.calculators;
 import android.content.Intent;
 import android.os.SystemClock;
 
-import fi.polar.polarflow.c_sensor_package.a_accelerometer_package.a_AccelerometerSensor;
-import fi.polar.polarflow.c_sensor_package.b_PolarSensorEventBase;
-import fi.polar.polarflow.c_sensor_package.c_heartrate_package.a_HeartRateSensor;
-import fi.polar.polarflow.c_sensor_package.e_PolarSensorListenerEx;
-import fi.polar.polarflow.c_sensor_package.l_PolarSensorListener;
+import fi.polar.polarflow.c.a_accelerometer_package.a_AccelerometerSensor;
+import fi.polar.polarflow.c.b_PolarSensorEventBase;
+import fi.polar.polarflow.c.c_heartrate_package.a_HeartRateSensor;
+import fi.polar.polarflow.c.e_PolarSensorListenerEx;
+import fi.polar.polarflow.c.l_PolarSensorListener;
 import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
 import fi.polar.polarmathsmart.swimming.poolswimming.PoolSwimmingAlgorithmAndroidImpl;
 import fi.polar.polarmathsmart.swimming.poolswimming.PoolSwimmingOutput;

@@ -2,8 +2,8 @@ package fi.polar.polarflow.calculators;
 
 import java.util.List;
 
-import fi.polar.polarflow.c_sensor_package.e_PolarSensorListenerEx;
-import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
+import fi.polar.polarflow.c.e_PolarSensorListenerEx;
+import fi.polar.polarflow.c.m_SENSOR_STATE;
 
 class bc implements e_PolarSensorListenerEx {
    // $FF: synthetic field

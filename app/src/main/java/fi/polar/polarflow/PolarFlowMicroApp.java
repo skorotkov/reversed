@@ -68,7 +68,7 @@ public class PolarFlowMicroApp extends SugarApp {
       var1.execute(new d(var0));
       if (u.a().e()) {
          var1.execute(new e(var0));
-         var1.execute(new c(var0));
+         var1.execute(new c_class(var0));
       }
 
       var1.execute(new b(var0));

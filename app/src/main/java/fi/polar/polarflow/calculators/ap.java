@@ -1,7 +1,7 @@
 package fi.polar.polarflow.calculators;
 
-import fi.polar.polarflow.c_sensor_package.l_PolarSensorListener;
-import fi.polar.polarflow.c_sensor_package.m_SENSOR_STATE;
+import fi.polar.polarflow.c.l_PolarSensorListener;
+import fi.polar.polarflow.c.m_SENSOR_STATE;
 
 class ap implements l_PolarSensorListener {
    // $FF: synthetic field
