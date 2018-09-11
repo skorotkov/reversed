@@ -139,7 +139,7 @@ class r_SessionSensorsThread extends HandlerThread implements Callback {
       // $FF: Couldn't be decompiled
    }
 
-   private void g() {
+   private void g_pause() {
       if (this.g) {
          this.d_sessionCalculators.b();
          Iterator var1 = this.e_sensorsMap.entrySet().iterator();
@@ -148,14 +148,14 @@ class r_SessionSensorsThread extends HandlerThread implements Callback {
             Entry var2 = (Entry)var1.next();
             a_Sensor var3 = (a_Sensor)var2.getValue();
             if (this.c((Integer)var2.getKey())) {
-               var3.f();
+               var3.f_pause();
             }
          }
       }
 
    }
 
-   private void h() {
+   private void h_resume() {
       if (this.g) {
          Iterator var1 = this.e_sensorsMap.entrySet().iterator();
 
@@ -163,7 +163,7 @@ class r_SessionSensorsThread extends HandlerThread implements Callback {
             Entry var2 = (Entry)var1.next();
             a_Sensor var3 = (a_Sensor)var2.getValue();
             if (this.c((Integer)var2.getKey())) {
-               var3.g();
+               var3.g_resume();
             }
          }
 
@@ -223,10 +223,10 @@ class r_SessionSensorsThread extends HandlerThread implements Callback {
          this.f();
          break;
       case 3:
-         this.g();
+         this.g_pause();
          break;
       case 4:
-         this.h();
+         this.h_resume();
          break;
       case 5:
          this.b((m_SENSOR_STATE)var1.obj);

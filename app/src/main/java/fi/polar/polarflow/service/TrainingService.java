@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.IBinder;
+
+import fi.polar.polarflow.c.o_SessionSensors;
 import fi.polar.polarflow.data.Training;
 import fi.polar.polarflow.data.TrainingDataRefs;
 import fi.polar.polarflow.data.orm.Sport;
@@ -26,7 +28,7 @@ public class TrainingService extends Service {
    private final Runnable c = new r(this);
    private final IBinder d = new v(this);
    private final Handler e = new Handler();
-   private fi.polar.polarflow.c.o f;
+   private o_SessionSensors f;
    private a g;
    private w h;
    private Training i;
@@ -253,7 +255,7 @@ public class TrainingService extends Service {
       this.l = 1;
       this.i.startSession();
       this.i.setLocalBroadcastManager(this.j);
-      this.f.a(this.b(this.i.getSportId()));
+      this.f.a_startSessionSensors(this.b(this.i.getSportId()));
       this.g.a();
       if (this.g.c()) {
          this.k();
@@ -341,7 +343,7 @@ public class TrainingService extends Service {
             this.h = null;
          }
 
-         this.f.a((fi.polar.polarflow.c.k)(new s(this)));
+         this.f.a_stopSessionSensors((fi.polar.polarflow.c.k)(new s(this)));
       }
 
    }
@@ -351,7 +353,7 @@ public class TrainingService extends Service {
       if (this.l == 1) {
          fi.polar.polarflow.util.d.c("TrainingService", "pauseSession()");
          var1 = this.i.pauseSession();
-         this.f.b();
+         this.f.b_pauseSessionSensors();
          this.j();
       } else {
          var1 = 0L;
@@ -364,7 +366,7 @@ public class TrainingService extends Service {
       if (this.l == 1) {
          fi.polar.polarflow.util.d.c("TrainingService", "resumeSession()");
          this.i.resumeSession();
-         this.f.c();
+         this.f.c_resumeSessionSensors();
          this.j();
       }
 
@@ -390,7 +392,7 @@ public class TrainingService extends Service {
    public void onCreate() {
       fi.polar.polarflow.util.d.c("TrainingService", "onCreate()");
       this.j = android.support.v4.c.g.a(this);
-      this.f = new fi.polar.polarflow.c.o(this);
+      this.f = new o_SessionSensors(this);
       this.g = new a(this);
       this.g.a(this.b);
       IntentFilter var1 = new IntentFilter();

@@ -14,6 +14,8 @@ import android.os.Handler;
 import android.support.wearable.view.DotsPageIndicator;
 import android.view.KeyEvent;
 import android.view.View;
+
+import fi.polar.polarflow.c.o_SessionSensors;
 import fi.polar.polarflow.data.orm.SportProfile;
 import fi.polar.polarflow.data.orm.TrainingSessionTarget;
 import fi.polar.polarflow.ui.exeview.ExeViewActivity;
@@ -307,7 +309,7 @@ public class ExeWaitActivity extends Activity implements ad, n, p, fi.polar.pola
 
    private void o() {
       fi.polar.polarflow.util.d.c("ExeWaitActivity", "startSensorUpdates()");
-      this.k.a(new Intent(fi.polar.polarflow.c.o.a));
+      this.k.a(new Intent(o_SessionSensors.a));
    }
 
    private void p() {
@@ -468,7 +470,7 @@ public class ExeWaitActivity extends Activity implements ad, n, p, fi.polar.pola
       super.onPause();
       fi.polar.polarflow.util.d.c("ExeWaitActivity", "onPause");
       this.n();
-      this.k.a(new Intent(fi.polar.polarflow.c.o.b));
+      this.k.a(new Intent(o_SessionSensors.b));
       this.h.d();
    }
 

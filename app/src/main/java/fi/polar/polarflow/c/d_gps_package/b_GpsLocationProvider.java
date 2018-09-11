@@ -275,12 +275,12 @@ public class b_GpsLocationProvider extends a_GpsLocationProviderBase {
       i_GpsSensor.e_broadcastStateChanged(this.z_gpsSensor);
    }
 
-   public void f() {
+   public void f_pause() {
       this.e = false;
-      this.f = true;
+      this.f_isPaused = true;
    }
 
-   public void g() {
+   public void g_resume() {
       this.m += (float)this.x_locationDataCalculator.getDistanceInMeters() - this.l;
       if (this.y_ascentDescentCalculator != null) {
          AscentDescentOutput var1 = this.y_ascentDescentCalculator.addAltitude((float)this.i_altitudeInMetersChecked);
@@ -291,7 +291,7 @@ public class b_GpsLocationProvider extends a_GpsLocationProviderBase {
       }
 
       this.e = true;
-      this.f = false;
+      this.f_isPaused = false;
    }
 
    public void h() {

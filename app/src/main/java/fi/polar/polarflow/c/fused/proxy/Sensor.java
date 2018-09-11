@@ -15,11 +15,11 @@ public abstract class Sensor extends fi.polar.polarflow.c.a_Sensor implements i_
 
     protected n_SENSOR_TYPE getType() { return c_sensorType; }
 
-    protected void setState(m_SENSOR_STATE state) {
+    public void setState(m_SENSOR_STATE state) {
         this.a_setState(state, false);
     }
 
-    protected void setState(m_SENSOR_STATE state, boolean var2) {
+    public void setState(m_SENSOR_STATE state, boolean var2) {
         this.a_setState(state, var2);
     }
 
@@ -46,11 +46,11 @@ public abstract class Sensor extends fi.polar.polarflow.c.a_Sensor implements i_
     }
 
     public void set_F_true() {
-        this.f();
+        this.f_pause();
     }
 
     public void set_F_false() {
-        this.g();
+        this.g_resume();
     }
 
     public void do_a_and_set_e_true() {

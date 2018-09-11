@@ -4,8 +4,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.location.Location;
 import android.os.Handler;
 import android.os.SystemClock;
+
+import java.util.List;
 
 import fi.polar.polarflow.c.fused.proxy.Log;
 import fi.polar.polarflow.c.fused.proxy.PolarSensorListener;
@@ -14,6 +17,8 @@ import fi.polar.polarflow.c.m_SENSOR_STATE;
 import fi.polar.polarflow.c.n_SENSOR_TYPE;
 import fi.polar.polarflow.util.n_PowerManagerHelper;
 import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
+import fi.polar.polarmathsmart.ascentdescent.AscentDescentCalculatorAndroidImpl;
+import fi.polar.polarmathsmart.gps.LocationDataCalculator;
 
 public class FusedGpsLocationProvider extends Sensor {
     private static final String TAG = FusedGpsLocationProvider.class.getSimpleName();
@@ -21,11 +26,24 @@ public class FusedGpsLocationProvider extends Sensor {
     private PolarSensorListener mPolarSensorListener;
     private long mStartTime;
     private long mPowerSaveModeStartTime;
-    private boolean mFix;
+
     private Handler mHandler;
     private BroadcastReceiver mPowerSaveModeBroadcastReceiver;
+
     private n_PowerManagerHelper mPowerManagerHelper;
+    private AscentDescentCalculatorAndroidImpl mAscentDescentCalculator = null;
+
     private FusedGpsSensor mSensor;
+    private FusedLocationDataCalculator mLocationDataCalculator;
+
+    protected double mLatitudeInDecimalDegrees = 0.0D;
+    protected double mLongitudeInDecimalDegrees = 0.0D;
+    protected double mAltitudeInMetersChecked = Double.NaN;
+    protected double mAltitudeInMeters = Double.NaN;
+    protected int mNumberOfSatellites = 0;
+    protected float mSpeedInMetersPerSecond = Float.NaN;
+    protected boolean mFix = false;
+
 
     protected FusedGpsLocationProvider(Context context) {
         super(context, n_SENSOR_TYPE.c_FUSED_GPS);
@@ -35,21 +53,21 @@ public class FusedGpsLocationProvider extends Sensor {
         mPowerSaveModeBroadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                if ("android.os.action.POWER_SAVE_MODE_CHANGED".equals(intent.getAction())) {
-                    boolean isPowerSaveMode = mPowerManagerHelper.a_isPowerSaveMode();
-                    Log.i(TAG, "onReceive: ACTION_POWER_SAVE_MODE_CHANGED, enabled= " + isPowerSaveMode);
-                    if (isPowerSaveMode) {
-                        mPowerSaveModeStartTime = SystemClock.elapsedRealtime();
-                        mFix = false;
+            if ("android.os.action.POWER_SAVE_MODE_CHANGED".equals(intent.getAction())) {
+                boolean isPowerSaveMode = mPowerManagerHelper.a_isPowerSaveMode();
+                Log.i(TAG, "onReceive: ACTION_POWER_SAVE_MODE_CHANGED, enabled= " + isPowerSaveMode);
+                if (isPowerSaveMode) {
+                    mPowerSaveModeStartTime = SystemClock.elapsedRealtime();
+                    mFix = false;
 //                            b_GpsLocationProvider.e_getAndroidSensorEventListener(this.a_gpsLocationProvider).a((b_PolarSensorEventBase)this.a_gpsLocationProvider.k());
-                        mSensor.stopListeningUpdates();
-                    } else {
-                        mSensor.startListeningUpdates();
-                    }
+                    mSensor.stopListeningUpdates();
+                } else {
+                    mSensor.startListeningUpdates();
                 }
-
+            }
             }
         };
+        mLocationDataCalculator = new FusedLocationDataCalculator();
     }
 
     @Override
@@ -84,6 +102,13 @@ public class FusedGpsLocationProvider extends Sensor {
             setStarted(false);
             getContext().unregisterReceiver(mPowerSaveModeBroadcastReceiver);
             mSensor.stopListeningUpdates();
+
+            if (mPowerManagerHelper.a_isPowerSaveMode()) {
+                setState(m_SENSOR_STATE.a_DISABLED, true);
+            } else {
+                setState(m_SENSOR_STATE.b_NOT_READY, true);
+            }
+
         } else {
             broadcastStateChanged();
         }
@@ -116,5 +141,18 @@ public class FusedGpsLocationProvider extends Sensor {
         } else {
             super.setState(var1, false);
         }
-    }    
+    }
+
+    private void handleLocation(Location location){
+        mLocationDataCalculator.handleLocation(location);
+        if (mAscentDescentCalculator == null) {
+            mAscentDescentCalculator = new AscentDescentCalculatorAndroidImpl(1, mLocationDataCalculator.)
+        }
+    }
+
+    public void handleLocationList(List<Location> locationList){
+        for (Location location : locationList) {
+            handleLocation(location);
+        }
+    }
 }
