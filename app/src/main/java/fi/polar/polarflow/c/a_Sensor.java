@@ -20,7 +20,7 @@ public abstract class a_Sensor {
       this.c_sensorType = var2;
    }
 
-   protected abstract void a();
+   protected abstract void a_reset();
 
    protected void a_setState(m_SENSOR_STATE var1) {
       this.a_setState(var1, false);
@@ -55,7 +55,7 @@ public abstract class a_Sensor {
    }
 
    public void h() {
-      this.a();
+      this.a_reset();
       this.e = true;
    }
 

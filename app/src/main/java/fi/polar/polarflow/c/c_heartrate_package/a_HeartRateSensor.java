@@ -17,7 +17,7 @@ public abstract class a_HeartRateSensor extends a_Sensor implements i_PolarSenso
       super(var1, n_SENSOR_TYPE.d_HEART_RATE);
    }
 
-   protected void a() {
+   protected void a_reset() {
       this.h = 0;
    }
 

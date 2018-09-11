@@ -20,7 +20,7 @@ class k implements OnClickListener {
 
       if (!var2) {
          Context var3 = var1.getContext();
-         if (this.a.getState() == 2 && GpsSensorView.b(this.a).a()) {
+         if (this.a.getState() == 2 && GpsSensorView.b(this.a).a_isPowerSaveMode()) {
             this.a.a(var3).show();
          }
       }

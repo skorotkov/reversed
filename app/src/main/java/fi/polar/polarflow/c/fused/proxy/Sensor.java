@@ -73,5 +73,7 @@ public abstract class Sensor extends fi.polar.polarflow.c.a_Sensor implements i_
 
     public Context getContext() { return a_context; }
 
-    public boolean isStarted() { return d_sensorStarted; }
+    protected boolean isStarted() { return d_sensorStarted; }
+    
+    protected void setStarted(boolean started) { d_sensorStarted = started; }
 }

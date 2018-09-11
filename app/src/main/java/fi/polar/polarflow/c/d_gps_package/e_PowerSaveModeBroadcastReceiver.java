@@ -16,10 +16,10 @@ class e_PowerSaveModeBroadcastReceiver extends BroadcastReceiver {
 
    public void onReceive(Context context, Intent intent) {
       if ("android.os.action.POWER_SAVE_MODE_CHANGED".equals(intent.getAction())) {
-         boolean var3 = b_GpsLocationProvider.c(this.a_gpsLocationProvider).a();
+         boolean var3 = b_GpsLocationProvider.c(this.a_gpsLocationProvider).a_isPowerSaveMode();
          fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s_getClassName(), "onReceive: ACTION_POWER_SAVE_MODE_CHANGED, enabled= " + var3);
          if (var3) {
-            this.a_gpsLocationProvider.t = b_GpsLocationProvider.d_getTimeUtils(this.a_gpsLocationProvider).b_elapsedRealtime();
+            this.a_gpsLocationProvider.t_powerSaveModeStartTime = b_GpsLocationProvider.d_getTimeUtils(this.a_gpsLocationProvider).b_elapsedRealtime();
             this.a_gpsLocationProvider.u_fix = false;
             b_GpsLocationProvider.e_getAndroidSensorEventListener(this.a_gpsLocationProvider).a((b_PolarSensorEventBase)this.a_gpsLocationProvider.k());
             i_GpsSensor.c_stopListeningUpdates(b_GpsLocationProvider.f_getGpsSensor(this.a_gpsLocationProvider));

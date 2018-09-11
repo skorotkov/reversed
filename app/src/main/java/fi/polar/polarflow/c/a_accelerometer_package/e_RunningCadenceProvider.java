@@ -72,7 +72,7 @@ public class e_RunningCadenceProvider extends a_AccelerometerSensor implements i
       return this.h;
    }
 
-   protected void a() {
+   protected void a_reset() {
       this.k = 0L;
    }
 

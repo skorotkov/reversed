@@ -40,12 +40,12 @@ class i_GpsSensor {
       this(var1);
    }
 
-   private void a() {
+   private void a_collectAndBroadcastLocationData() {
       // $FF: Couldn't be decompiled
 
       // decompiled after remove of try ... catch
       Object var1 = this.a_gpsLocationProvider.v;
-      this.a_gpsLocationProvider.t = b_GpsLocationProvider.i_getD(this.a_gpsLocationProvider);
+      this.a_gpsLocationProvider.t_powerSaveModeStartTime = b_GpsLocationProvider.i_getD(this.a_gpsLocationProvider);
       this.a_gpsLocationProvider.u_fix = b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getFix();
       this.a_gpsLocationProvider.k_numberOfSatellites = b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getNumberOfSatellites();
       this.a_gpsLocationProvider.i_altitudeInMetersChecked = a_DataTypes.b_adjust(4, b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getAltitudeInMeters(true));
@@ -89,8 +89,8 @@ class i_GpsSensor {
    }
 
    // $FF: synthetic method
-   static void a(i_GpsSensor var0) {
-      var0.a();
+   static void a_collectAndBroadcastLocationData(i_GpsSensor var0) {
+      var0.a_collectAndBroadcastLocationData();
    }
 
    // $FF: synthetic method
@@ -119,7 +119,7 @@ class i_GpsSensor {
             b_GpsLocationProvider.a_setD(this.a_gpsLocationProvider, var2_elapsedRealtime);
          }
 
-         this.a();
+         this.a_collectAndBroadcastLocationData();
          b_GpsLocationProvider.e_getAndroidSensorEventListener(this.a_gpsLocationProvider).a((b_PolarSensorEventBase)this.a_gpsLocationProvider.k());
       }
 
@@ -187,7 +187,7 @@ class i_GpsSensor {
       fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s_getClassName(), "PolarMath, stopListeningUpdates");
       b_GpsLocationProvider var1 = this.a_gpsLocationProvider;
       m_SENSOR_STATE var2;
-      if (b_GpsLocationProvider.c(this.a_gpsLocationProvider).a()) {
+      if (b_GpsLocationProvider.c(this.a_gpsLocationProvider).a_isPowerSaveMode()) {
          var2 = m_SENSOR_STATE.a_DISABLED;
       } else {
          var2 = m_SENSOR_STATE.b_NOT_READY;

@@ -19,10 +19,14 @@ public class FusedGpsSensor {
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(mGpsLocationProvider.getContext());
     }
 
-    private void startLocationUpdates() {
+    public void startListeningUpdates() {
         Log.i(TAG, "startLocationUpdates");
         if (o.d(mGpsLocationProvider.getContext(), "android.permission.ACCESS_FINE_LOCATION")) {
 
         }
+    }
+    
+    public void stopListeningUpdates() {
+        
     }
 }

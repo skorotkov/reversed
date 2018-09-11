@@ -128,7 +128,7 @@ class k extends BroadcastReceiver {
          break;
       case 8:
          if (((m_SENSOR_STATE)var2.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE")).equals(m_SENSOR_STATE.a_DISABLED)) {
-            if (ExeViewActivity.i(this.a).a()) {
+            if (ExeViewActivity.i(this.a).a_isPowerSaveMode()) {
                ExeViewActivity.j(this.a);
             }
          } else {

@@ -125,7 +125,7 @@ public class a_AccelerometerSensor extends a_Sensor implements i_PolarSensorList
 
    }
 
-   protected void a() {
+   protected void a_reset() {
    }
 
    public void a_setPolarSensorListener(l_PolarSensorListener var1) {

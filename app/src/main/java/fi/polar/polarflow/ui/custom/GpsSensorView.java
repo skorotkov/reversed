@@ -3,12 +3,13 @@ package fi.polar.polarflow.ui.custom;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.View.OnClickListener;
 import android.widget.Toast;
+
+import fi.polar.polarflow.util.n_PowerManagerHelper;
 
 public class GpsSensorView extends ag {
    private l a;
-   private fi.polar.polarflow.util.n b;
+   private n_PowerManagerHelper b;
    private Toast c;
    private OnClickListener d;
 
@@ -23,7 +24,7 @@ public class GpsSensorView extends ag {
    public GpsSensorView(Context var1, AttributeSet var2, int var3) {
       super(var1, var2, var3);
       this.d = new k(this);
-      this.b = new fi.polar.polarflow.util.n(var1);
+      this.b = new n_PowerManagerHelper(var1);
       this.setOnClickListener(this.d);
    }
 
@@ -33,7 +34,7 @@ public class GpsSensorView extends ag {
    }
 
    // $FF: synthetic method
-   static fi.polar.polarflow.util.n b(GpsSensorView var0) {
+   static n_PowerManagerHelper b(GpsSensorView var0) {
       return var0.b;
    }
 
@@ -53,7 +54,7 @@ public class GpsSensorView extends ag {
       this.a = var1;
    }
 
-   void setPowerManagerWrapper(fi.polar.polarflow.util.n var1) {
+   void setPowerManagerWrapper(n_PowerManagerHelper var1) {
       this.b = var1;
    }
 
