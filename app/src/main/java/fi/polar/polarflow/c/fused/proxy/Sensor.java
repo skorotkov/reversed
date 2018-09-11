@@ -2,25 +2,24 @@ package fi.polar.polarflow.c.fused.proxy;
 
 import android.content.Context;
 
+import fi.polar.polarflow.c.fused.PolarSensorListener;
 import fi.polar.polarflow.c.i_PolarSensorListenerSupport;
 import fi.polar.polarflow.c.l_PolarSensorListener;
-import fi.polar.polarflow.c.m_SENSOR_STATE;
-import fi.polar.polarflow.c.n_SENSOR_TYPE;
 import fi.polar.polarflow.data.ExerciseSensor;
 
 public abstract class Sensor extends fi.polar.polarflow.c.a_Sensor implements i_PolarSensorListenerSupport {
-    protected Sensor(Context var1, n_SENSOR_TYPE var2) {
-        super(var1, var2);
+    protected Sensor(Context var1, SENSOR_TYPE var2) {
+        super(var1, SENSOR_TYPE.toPolar(var2));
     }
 
-    protected n_SENSOR_TYPE getType() { return c_sensorType; }
+    protected SENSOR_TYPE getType() { return SENSOR_TYPE.fromPolar(c_sensorType); }
 
-    public void setState(m_SENSOR_STATE state) {
-        this.a_setState(state, false);
+    public void setState(SENSOR_STATE state) {
+        this.a_setState(SENSOR_STATE.toPolar(state), false);
     }
 
-    public void setState(m_SENSOR_STATE state, boolean var2) {
-        this.a_setState(state, var2);
+    public void setState(SENSOR_STATE state, boolean var2) {
+        this.a_setState(SENSOR_STATE.toPolar(state), var2);
     }
 
     public void b_start() {
@@ -41,8 +40,8 @@ public abstract class Sensor extends fi.polar.polarflow.c.a_Sensor implements i_
 
     protected abstract void broadcastStateChanged();
 
-    public m_SENSOR_STATE getState() {
-        return this.e_getState();
+    public SENSOR_STATE getState() {
+        return SENSOR_STATE.fromPolar(this.e_getState());
     }
 
     public void set_F_true() {

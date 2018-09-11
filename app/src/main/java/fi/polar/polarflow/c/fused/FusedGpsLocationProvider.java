@@ -10,18 +10,13 @@ import android.os.SystemClock;
 
 import java.util.List;
 
-import fi.polar.polarflow.a_package.a_DataTypes;
-import fi.polar.polarflow.c.d_gps_package.b_GpsLocationProvider;
-import fi.polar.polarflow.c.fused.proxy.Log;
-import fi.polar.polarflow.c.fused.proxy.PolarSensorListener;
+import fi.polar.polarflow.c.fused.a_package.a_DataTypes;
+import fi.polar.polarflow.c.fused.proxy.SENSOR_STATE;
+import fi.polar.polarflow.c.fused.proxy.SENSOR_TYPE;
 import fi.polar.polarflow.c.fused.proxy.Sensor;
-import fi.polar.polarflow.c.m_SENSOR_STATE;
-import fi.polar.polarflow.c.n_SENSOR_TYPE;
-import fi.polar.polarflow.util.n_PowerManagerHelper;
-import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
+import fi.polar.polarflow.c.fused.proxy.StickyLocalBroadcastManager;
 import fi.polar.polarmathsmart.ascentdescent.AscentDescentCalculatorAndroidImpl;
 import fi.polar.polarmathsmart.ascentdescent.AscentDescentOutput;
-import fi.polar.polarmathsmart.gps.LocationDataCalculator;
 
 public class FusedGpsLocationProvider extends Sensor {
     private static final String TAG = FusedGpsLocationProvider.class.getSimpleName();
@@ -33,7 +28,7 @@ public class FusedGpsLocationProvider extends Sensor {
     private Handler mHandler;
     private BroadcastReceiver mPowerSaveModeBroadcastReceiver;
 
-    private n_PowerManagerHelper mPowerManagerHelper;
+    private PowerManagerHelper mPowerManagerHelper;
     private AscentDescentCalculatorAndroidImpl mAscentDescentCalculator = null;
 
     private FusedGpsSensor mSensor;
@@ -49,15 +44,15 @@ public class FusedGpsLocationProvider extends Sensor {
 
 
     protected FusedGpsLocationProvider(Context context) {
-        super(context, n_SENSOR_TYPE.c_FUSED_GPS);
+        super(context, SENSOR_TYPE.FUSED_GPS);
         mHandler = new Handler();
-        mPowerManagerHelper = new n_PowerManagerHelper(context);
+        mPowerManagerHelper = new PowerManagerHelper(context);
         mSensor = new FusedGpsSensor(this);
         mPowerSaveModeBroadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
             if ("android.os.action.POWER_SAVE_MODE_CHANGED".equals(intent.getAction())) {
-                boolean isPowerSaveMode = mPowerManagerHelper.a_isPowerSaveMode();
+                boolean isPowerSaveMode = mPowerManagerHelper.isPowerSaveMode();
                 Log.i(TAG, "onReceive: ACTION_POWER_SAVE_MODE_CHANGED, enabled= " + isPowerSaveMode);
                 if (isPowerSaveMode) {
                     mPowerSaveModeStartTime = SystemClock.elapsedRealtime();
@@ -83,13 +78,13 @@ public class FusedGpsLocationProvider extends Sensor {
         mStartTime = SystemClock.elapsedRealtime();
         Log.i(TAG, "start() at: " + mStartTime);
         if (!fi.polar.polarflow.ui.o.d(this.a_context, "android.permission.ACCESS_FINE_LOCATION")) {
-            setState(m_SENSOR_STATE.a_DISABLED, true);
+            setState(SENSOR_STATE.DISABLED, true);
         } else if (!isStarted()) {
             setStarted(true);
             getContext().registerReceiver(mPowerSaveModeBroadcastReceiver, new IntentFilter("android.os.action.POWER_SAVE_MODE_CHANGED"), (String) null, mHandler);
             
-            if (this.mPowerManagerHelper.a_isPowerSaveMode()) {
-                setState(m_SENSOR_STATE.a_DISABLED, true);
+            if (this.mPowerManagerHelper.isPowerSaveMode()) {
+                setState(SENSOR_STATE.DISABLED, true);
             } else if (!isStarted()) {
                 mSensor.startListeningUpdates();
             }
@@ -106,10 +101,10 @@ public class FusedGpsLocationProvider extends Sensor {
             getContext().unregisterReceiver(mPowerSaveModeBroadcastReceiver);
             mSensor.stopListeningUpdates();
 
-            if (mPowerManagerHelper.a_isPowerSaveMode()) {
-                setState(m_SENSOR_STATE.a_DISABLED, true);
+            if (mPowerManagerHelper.isPowerSaveMode()) {
+                setState(SENSOR_STATE.DISABLED, true);
             } else {
-                setState(m_SENSOR_STATE.b_NOT_READY, true);
+                setState(SENSOR_STATE.NOT_READY, true);
             }
 
         } else {
@@ -117,7 +112,7 @@ public class FusedGpsLocationProvider extends Sensor {
         }
 
         mHandler.removeCallbacksAndMessages((Object)null);
-        v_StickyLocalBroadcastManager.a_getInstance().a_removeFromMap("fi.polar.polarflow.ACTION_LOCATION_DATA", "fi.polar.polarflow.SENSOR_LOCATION_STATE_CHANGED");
+        StickyLocalBroadcastManager.removeFromMap("fi.polar.polarflow.ACTION_LOCATION_DATA", "fi.polar.polarflow.SENSOR_LOCATION_STATE_CHANGED");
     }
 
     @Override
@@ -125,7 +120,7 @@ public class FusedGpsLocationProvider extends Sensor {
         Intent intent = new Intent("fi.polar.polarflow.SENSOR_LOCATION_STATE_CHANGED");
         intent.putExtra("fi.polar.polarflow.SENSOR_STATE", getState());
         intent.putExtra("fi.polar.polarflow.KEY_SENSOR_TYPE", getType());
-        v_StickyLocalBroadcastManager.a_getInstance().b_sendStickyBroadcast(intent);
+        StickyLocalBroadcastManager.sendStickyBroadcast(intent);
     }
 
     @Override
@@ -134,10 +129,10 @@ public class FusedGpsLocationProvider extends Sensor {
     }
 
     @Override
-    public void setState(m_SENSOR_STATE var1) {
-        if (m_SENSOR_STATE.d_READY.equals(var1)) {
+    public void setState(SENSOR_STATE var1) {
+        if (SENSOR_STATE.READY.equals(var1)) {
             if (!mFix) { // TODO: may be more actual data is needed here
-                super.setState(m_SENSOR_STATE.c_SEARCHING, false);
+                super.setState(SENSOR_STATE.SEARCHING, false);
             } else {
                 super.setState(var1, false);
             }

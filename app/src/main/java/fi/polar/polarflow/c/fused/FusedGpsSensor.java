@@ -21,8 +21,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.wearable.Wearable;
 
-import fi.polar.polarflow.c.fused.proxy.Log;
-import fi.polar.polarflow.c.m_SENSOR_STATE;
+import fi.polar.polarflow.c.fused.proxy.SENSOR_STATE;
 
 public class FusedGpsSensor {
     private static final String TAG = FusedGpsSensor.class.getSimpleName();
@@ -59,9 +58,9 @@ public class FusedGpsSensor {
             @Override
             public void onLocationAvailability(LocationAvailability locationAvailability) {
                 if (!locationAvailability.isLocationAvailable())
-                    mGpsLocationProvider.setState(m_SENSOR_STATE.c_SEARCHING, true);
+                    mGpsLocationProvider.setState(SENSOR_STATE.SEARCHING, true);
                 else
-                    mGpsLocationProvider.setState(m_SENSOR_STATE.d_READY, true);
+                    mGpsLocationProvider.setState(SENSOR_STATE.READY, true);
             }
         };
         mLocationRequest = createLocationRequest();
@@ -75,7 +74,7 @@ public class FusedGpsSensor {
             .addConnectionCallbacks(new GoogleApiClient.ConnectionCallbacks() {
                 @Override
                 public void onConnected(Bundle connectionHint) {
-                    mGpsLocationProvider.setState(m_SENSOR_STATE.c_SEARCHING, true);
+                    mGpsLocationProvider.setState(SENSOR_STATE.SEARCHING, true);
                     mWaitingForGpsSignal = true;
                     requestLocationUpdates();
                 }
@@ -83,7 +82,7 @@ public class FusedGpsSensor {
                 @Override
                 public void onConnectionSuspended(int cause) {
                     Log.i(TAG, "onConnectionSuspended(): connection to location client suspended");
-                    mGpsLocationProvider.setState(m_SENSOR_STATE.b_NOT_READY, true);
+                    mGpsLocationProvider.setState(SENSOR_STATE.NOT_READY, true);
                     mWaitingForGpsSignal = true;
                     stopListeningUpdates();
                 }
@@ -92,7 +91,7 @@ public class FusedGpsSensor {
                 @Override
                 public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
                     Log.e(TAG, "onConnectionFailed(): " + connectionResult.getErrorMessage());
-                    mGpsLocationProvider.setState(m_SENSOR_STATE.a_DISABLED, true);
+                    mGpsLocationProvider.setState(SENSOR_STATE.DISABLED, true);
                 }
             })
             .build();
@@ -144,10 +143,10 @@ public class FusedGpsSensor {
                             });
                     } catch (SecurityException ex) {
                         Log.e(TAG, "Failed in requesting location updates", ex);
-                        mGpsLocationProvider.setState(m_SENSOR_STATE.a_DISABLED, true);
+                        mGpsLocationProvider.setState(SENSOR_STATE.DISABLED, true);
                     }
                 } catch (ApiException exception) {
-                    mGpsLocationProvider.setState(m_SENSOR_STATE.a_DISABLED, true);
+                    mGpsLocationProvider.setState(SENSOR_STATE.DISABLED, true);
                 }
             }
         });

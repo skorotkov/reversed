@@ -1,4 +1,4 @@
-package fi.polar.polarflow.c.fused.proxy;
+package fi.polar.polarflow.c.fused;
 
 public class Log {
     public static int i(String tag, String msg) {
