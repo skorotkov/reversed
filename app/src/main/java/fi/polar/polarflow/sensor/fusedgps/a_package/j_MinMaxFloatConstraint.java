@@ -1,4 +1,4 @@
-package fi.polar.polarflow.c.fused.a_package;
+package fi.polar.polarflow.sensor.fusedgps.a_package;
 
 class j_MinMaxFloatConstraint extends k_FloatConstraint {
    private final float b;

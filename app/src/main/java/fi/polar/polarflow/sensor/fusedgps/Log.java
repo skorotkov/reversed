@@ -1,4 +1,4 @@
-package fi.polar.polarflow.c.fused;
+package fi.polar.polarflow.sensor.fusedgps;
 
 public class Log {
     public static int i(String tag, String msg) {

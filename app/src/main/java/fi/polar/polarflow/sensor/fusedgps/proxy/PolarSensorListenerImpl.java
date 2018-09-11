@@ -1,9 +1,9 @@
-package fi.polar.polarflow.c.fused.proxy;
+package fi.polar.polarflow.sensor.fusedgps.proxy;
 
 import java.util.List;
 
 import fi.polar.polarflow.c.e_PolarSensorListenerEx;
-import fi.polar.polarflow.c.fused.PolarSensorListener;
+import fi.polar.polarflow.sensor.fusedgps.PolarSensorListener;
 import fi.polar.polarflow.c.l_PolarSensorListener;
 
 public class PolarSensorListenerImpl implements PolarSensorListener {

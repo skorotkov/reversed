@@ -1,4 +1,4 @@
-package fi.polar.polarflow.c.fused.a_package;
+package fi.polar.polarflow.sensor.fusedgps.a_package;
 
 abstract class i_DoubleConstraint {
    protected final String a;

@@ -1,8 +1,8 @@
-package fi.polar.polarflow.c.fused;
+package fi.polar.polarflow.sensor.fusedgps;
 
 import java.util.List;
 
-import fi.polar.polarflow.c.fused.proxy.SENSOR_STATE;
+import fi.polar.polarflow.sensor.fusedgps.proxy.SENSOR_STATE;
 
 public interface PolarSensorListener {
     void a_new(int var1);

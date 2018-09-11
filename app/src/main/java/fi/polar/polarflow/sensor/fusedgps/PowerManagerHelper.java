@@ -1,4 +1,4 @@
-package fi.polar.polarflow.c.fused;
+package fi.polar.polarflow.sensor.fusedgps;
 
 import android.content.Context;
 import android.os.PowerManager;

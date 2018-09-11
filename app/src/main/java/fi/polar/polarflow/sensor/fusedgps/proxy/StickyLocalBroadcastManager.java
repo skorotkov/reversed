@@ -1,4 +1,4 @@
-package fi.polar.polarflow.c.fused.proxy;
+package fi.polar.polarflow.sensor.fusedgps.proxy;
 
 import android.content.Intent;
 

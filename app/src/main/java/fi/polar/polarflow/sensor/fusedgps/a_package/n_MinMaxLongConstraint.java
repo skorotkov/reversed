@@ -1,17 +1,17 @@
-package fi.polar.polarflow.c.fused.a_package;
+package fi.polar.polarflow.sensor.fusedgps.a_package;
 
-class h_MinMaxDoubleConstraint extends i_DoubleConstraint {
-   private final double b;
-   private final double c;
+class n_MinMaxLongConstraint extends o_LongConstraint {
+   private final long b;
+   private final long c;
 
-   public h_MinMaxDoubleConstraint(String var1, double var2, double var4) {
+   public n_MinMaxLongConstraint(String var1, long var2, long var4) {
       super(var1);
       this.b = var2;
       this.c = var4;
    }
 
-   public double a_adjust(double var1) {
-      double var3;
+   public long a_adjust(long var1) {
+      long var3;
       if (var1 < this.b) {
          fi.polar.polarflow.util.d.e("DataTypes", this.a + " is below minimum: " + var1);
          var3 = this.b;

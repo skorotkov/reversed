@@ -1,4 +1,4 @@
-package fi.polar.polarflow.c.fused;
+package fi.polar.polarflow.sensor.fusedgps;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -10,11 +10,11 @@ import android.os.SystemClock;
 
 import java.util.List;
 
-import fi.polar.polarflow.c.fused.a_package.a_DataTypes;
-import fi.polar.polarflow.c.fused.proxy.SENSOR_STATE;
-import fi.polar.polarflow.c.fused.proxy.SENSOR_TYPE;
-import fi.polar.polarflow.c.fused.proxy.Sensor;
-import fi.polar.polarflow.c.fused.proxy.StickyLocalBroadcastManager;
+import fi.polar.polarflow.sensor.fusedgps.a_package.a_DataTypes;
+import fi.polar.polarflow.sensor.fusedgps.proxy.SENSOR_STATE;
+import fi.polar.polarflow.sensor.fusedgps.proxy.SENSOR_TYPE;
+import fi.polar.polarflow.sensor.fusedgps.proxy.Sensor;
+import fi.polar.polarflow.sensor.fusedgps.proxy.StickyLocalBroadcastManager;
 import fi.polar.polarmathsmart.ascentdescent.AscentDescentCalculatorAndroidImpl;
 import fi.polar.polarmathsmart.ascentdescent.AscentDescentOutput;
 
@@ -69,7 +69,7 @@ public class FusedGpsLocationProvider extends Sensor {
     }
 
     @Override
-    protected void a_reset() {
+    protected void reset() {
 
     }
 
@@ -77,7 +77,7 @@ public class FusedGpsLocationProvider extends Sensor {
     public void start() {
         mStartTime = SystemClock.elapsedRealtime();
         Log.i(TAG, "start() at: " + mStartTime);
-        if (!fi.polar.polarflow.ui.o.d(this.a_context, "android.permission.ACCESS_FINE_LOCATION")) {
+        if (!fi.polar.polarflow.ui.o.d(getContext(), "android.permission.ACCESS_FINE_LOCATION")) {
             setState(SENSOR_STATE.DISABLED, true);
         } else if (!isStarted()) {
             setStarted(true);

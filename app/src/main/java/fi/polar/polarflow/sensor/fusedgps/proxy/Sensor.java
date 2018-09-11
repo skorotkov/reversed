@@ -1,8 +1,8 @@
-package fi.polar.polarflow.c.fused.proxy;
+package fi.polar.polarflow.sensor.fusedgps.proxy;
 
 import android.content.Context;
 
-import fi.polar.polarflow.c.fused.PolarSensorListener;
+import fi.polar.polarflow.sensor.fusedgps.PolarSensorListener;
 import fi.polar.polarflow.c.i_PolarSensorListenerSupport;
 import fi.polar.polarflow.c.l_PolarSensorListener;
 import fi.polar.polarflow.data.ExerciseSensor;
@@ -67,6 +67,12 @@ public abstract class Sensor extends fi.polar.polarflow.c.a_Sensor implements i_
     public void a_setPolarSensorListener(l_PolarSensorListener var1) {
         this.setPolarSensorListener(new PolarSensorListenerImpl(var1));
     }
+
+    protected void a_reset() {
+        this.reset();
+    }
+
+    protected abstract void reset();
 
     public abstract void setPolarSensorListener(PolarSensorListener var1);
 

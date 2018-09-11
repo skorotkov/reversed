@@ -1,4 +1,4 @@
-package fi.polar.polarflow.c.fused;
+package fi.polar.polarflow.sensor.fusedgps;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -21,7 +21,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.wearable.Wearable;
 
-import fi.polar.polarflow.c.fused.proxy.SENSOR_STATE;
+import fi.polar.polarflow.sensor.fusedgps.proxy.SENSOR_STATE;
 
 public class FusedGpsSensor {
     private static final String TAG = FusedGpsSensor.class.getSimpleName();

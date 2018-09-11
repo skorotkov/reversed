@@ -1,4 +1,4 @@
-package fi.polar.polarflow.c.fused.proxy;
+package fi.polar.polarflow.sensor.fusedgps.proxy;
 
 import fi.polar.polarflow.c.m_SENSOR_STATE;
 
