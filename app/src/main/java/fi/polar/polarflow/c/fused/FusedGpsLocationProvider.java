@@ -10,6 +10,8 @@ import android.os.SystemClock;
 
 import java.util.List;
 
+import fi.polar.polarflow.a_package.a_DataTypes;
+import fi.polar.polarflow.c.d_gps_package.b_GpsLocationProvider;
 import fi.polar.polarflow.c.fused.proxy.Log;
 import fi.polar.polarflow.c.fused.proxy.PolarSensorListener;
 import fi.polar.polarflow.c.fused.proxy.Sensor;
@@ -18,6 +20,7 @@ import fi.polar.polarflow.c.n_SENSOR_TYPE;
 import fi.polar.polarflow.util.n_PowerManagerHelper;
 import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
 import fi.polar.polarmathsmart.ascentdescent.AscentDescentCalculatorAndroidImpl;
+import fi.polar.polarmathsmart.ascentdescent.AscentDescentOutput;
 import fi.polar.polarmathsmart.gps.LocationDataCalculator;
 
 public class FusedGpsLocationProvider extends Sensor {
@@ -145,9 +148,34 @@ public class FusedGpsLocationProvider extends Sensor {
 
     private void handleLocation(Location location){
         mLocationDataCalculator.handleLocation(location);
-        if (mAscentDescentCalculator == null) {
-            mAscentDescentCalculator = new AscentDescentCalculatorAndroidImpl(1, mLocationDataCalculator.)
+
+        mNumberOfSatellites = mLocationDataCalculator.getNumberOfSatellites();
+        mAltitudeInMetersChecked = a_DataTypes.b_adjust(4, mLocationDataCalculator.getAltitudeInMeters(true));
+        mAltitudeInMeters = a_DataTypes.b_adjust(4, mLocationDataCalculator.getAltitudeInMeters(false));
+        mSpeedInMetersPerSecond = (float)boundSpeed(mLocationDataCalculator.getSpeedInMetersPerSecond());
+        mLatitudeInDecimalDegrees = a_DataTypes.b_adjust(5, mLocationDataCalculator.getLatitudeInDecimalDegrees());
+        mLongitudeInDecimalDegrees = a_DataTypes.b_adjust(6, mLocationDataCalculator.getLongitudeInDecimalDegrees());
+
+        if (mAscentDescentCalculator == null && !Double.isNaN(mAltitudeInMetersChecked)) {
+            mAscentDescentCalculator = new AscentDescentCalculatorAndroidImpl(1, (float)mAltitudeInMetersChecked);
+        } else {
+            AscentDescentOutput result = mAscentDescentCalculator.addAltitude((float)mAltitudeInMetersChecked);
         }
+    }
+
+    private static double boundSpeed(double var0) {
+        double var2;
+        if (var0 < 0.0D) {
+            Log.i(TAG, "Speed is below minimum: " + var0 + " m/s");
+            var2 = 0.0D;
+        } else {
+            var2 = var0;
+            if (var0 > 110.83333626941406D) {
+                Log.i(TAG, "Speed is above maximum : " + var0 + " m/s");
+                var2 = 110.83333626941406D;
+            }
+        }
+        return var2;
     }
 
     public void handleLocationList(List<Location> locationList){
