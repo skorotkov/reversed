@@ -6,7 +6,7 @@ import android.content.IntentFilter;
 
 public abstract class aw extends Service {
    private final String a = super.getClass().getSimpleName();
-   private fi.polar.polarflow.util.n b;
+   private fi.polar.polarflow.util.n_PowerManagerHelper b;
    private az c;
    private final BroadcastReceiver d = new ax(this);
 
@@ -86,13 +86,13 @@ public abstract class aw extends Service {
    }
 
    protected boolean m() {
-      return this.b.b();
+      return this.b.b_isDeviceIdleMode();
    }
 
    public void onCreate() {
       super.onCreate();
       if (this.b == null) {
-         this.b = new fi.polar.polarflow.util.n(this);
+         this.b = new fi.polar.polarflow.util.n_PowerManagerHelper(this);
       }
 
       this.registerReceiver(this.d, new IntentFilter("android.os.action.DEVICE_IDLE_MODE_CHANGED"));
