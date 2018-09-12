@@ -46,6 +46,7 @@ public class FusedGpsSensor {
         mLocationCallback = new LocationCallback() {
             @Override
             public void onLocationResult(LocationResult locationResult) {
+                Log.i(TAG, "onLocationResult");
                 if (locationResult == null) {
                     return;
                 }
@@ -57,7 +58,9 @@ public class FusedGpsSensor {
             }
             @Override
             public void onLocationAvailability(LocationAvailability locationAvailability) {
-                if (!locationAvailability.isLocationAvailable())
+                boolean isLocationAvailable = locationAvailability.isLocationAvailable();
+                Log.i(TAG, "onLocationAvailability: isLocationAvailable = " + isLocationAvailable);
+                if (!isLocationAvailable)
                     mGpsLocationProvider.setState(SENSOR_STATE.SEARCHING, true);
                 else
                     mGpsLocationProvider.setState(SENSOR_STATE.READY, true);
@@ -74,6 +77,7 @@ public class FusedGpsSensor {
             .addConnectionCallbacks(new GoogleApiClient.ConnectionCallbacks() {
                 @Override
                 public void onConnected(Bundle connectionHint) {
+                    Log.i(TAG, "GoogleApiClient.ConnectionCallbacks::onConnected");
                     mGpsLocationProvider.setState(SENSOR_STATE.SEARCHING, true);
                     mWaitingForGpsSignal = true;
                     requestLocationUpdates();
@@ -81,7 +85,7 @@ public class FusedGpsSensor {
 
                 @Override
                 public void onConnectionSuspended(int cause) {
-                    Log.i(TAG, "onConnectionSuspended(): connection to location client suspended");
+                    Log.i(TAG, "GoogleApiClient.ConnectionCallbacks::onConnectionSuspended");
                     mGpsLocationProvider.setState(SENSOR_STATE.NOT_READY, true);
                     mWaitingForGpsSignal = true;
                     stopListeningUpdates();
@@ -90,7 +94,7 @@ public class FusedGpsSensor {
             .addOnConnectionFailedListener(new GoogleApiClient.OnConnectionFailedListener() {
                 @Override
                 public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-                    Log.e(TAG, "onConnectionFailed(): " + connectionResult.getErrorMessage());
+                    Log.e(TAG, "GoogleApiClient.ConnectionCallbacks::onConnectionFailed: " + connectionResult.getErrorMessage());
                     mGpsLocationProvider.setState(SENSOR_STATE.DISABLED, true);
                 }
             })
@@ -108,15 +112,15 @@ public class FusedGpsSensor {
     }
 
     public void startListeningUpdates() {
-        Log.d(TAG, "startLocationUpdates");
+        Log.d(TAG, "startListeningUpdates");
         mGoogleApiClient.connect();
     }
 
     private void requestLocationUpdates() {
         Log.d(TAG, "requestLocationUpdates");
         LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
-                .addLocationRequest(mLocationRequest)
-                .setNeedBle(true);
+                .addLocationRequest(mLocationRequest);
+//                .setNeedBle(true);
         SettingsClient client = LocationServices.getSettingsClient(mGpsLocationProvider.getContext());
         Task<LocationSettingsResponse> task = client.checkLocationSettings(builder.build());
 
@@ -124,6 +128,7 @@ public class FusedGpsSensor {
             @Override
             public void onComplete(@NonNull Task<LocationSettingsResponse> task) {
                 try {
+                    Log.i(TAG, "checkLocationSettings task completed");
                     LocationSettingsResponse response = task.getResult(ApiException.class);
                     // All location settings are satisfied. The client can initialize location
                     // requests here.
@@ -141,11 +146,12 @@ public class FusedGpsSensor {
                                     Log.e(TAG, "Failed in requesting location updates", e);
                                 }
                             });
-                    } catch (SecurityException ex) {
-                        Log.e(TAG, "Failed in requesting location updates", ex);
+                    } catch (SecurityException exception) {
+                        Log.e(TAG, "Failed in requesting location updates", exception);
                         mGpsLocationProvider.setState(SENSOR_STATE.DISABLED, true);
                     }
                 } catch (ApiException exception) {
+                    Log.e(TAG, "Failed in checkLocationSettings", exception);
                     mGpsLocationProvider.setState(SENSOR_STATE.DISABLED, true);
                 }
             }
