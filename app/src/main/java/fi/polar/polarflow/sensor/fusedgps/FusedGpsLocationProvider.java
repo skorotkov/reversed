@@ -43,7 +43,7 @@ public class FusedGpsLocationProvider extends Sensor {
     protected boolean mFix = false;
 
 
-    protected FusedGpsLocationProvider(Context context) {
+    public FusedGpsLocationProvider(Context context) {
         super(context, SENSOR_TYPE.FUSED_GPS);
         mHandler = new Handler();
         mPowerManagerHelper = new PowerManagerHelper(context);
