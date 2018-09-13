@@ -14,14 +14,14 @@ public abstract class a_GpsLocationProviderBase extends a_Sensor implements i_Po
    protected double i_altitudeInMetersChecked = Double.NaN;
    protected double j_altitudeInMeters = Double.NaN;
    protected int k_numberOfSatellites = 0;
-   protected float l = 0.0F;
-   protected float m = 0.0F;
-   protected float n = 0.0F;
+   protected float l_totalDirtyDistanceInMeters = 0.0F;
+   protected float m_totalDistanceDuringPauseInMeters = 0.0F;
+   protected float n_referenceDistanceInMeters = 0.0F;
    protected float o_speedInMetersPerSecond = Float.NaN;
-   protected float p = 0.0F;
-   protected float q = 0.0F;
-   protected float r = 0.0F;
-   protected float s = 0.0F;
+   protected float p_totalAscentDuringPause = 0.0F;
+   protected float q_totalDescentDuringPause = 0.0F;
+   protected float r_totalDirtyAscent = 0.0F;
+   protected float s_totalDirtyDescent = 0.0F;
    protected long t_powerSaveModeStartTime = 0L;
    protected boolean u_fix = false;
    protected final Object v = new Object();
@@ -35,13 +35,13 @@ public abstract class a_GpsLocationProviderBase extends a_Sensor implements i_Po
       this.h_longitudeInDecimalDegrees = 0.0D;
       this.j_altitudeInMeters = Double.NaN;
       this.k_numberOfSatellites = 0;
-      this.l = 0.0F;
-      this.m = 0.0F;
+      this.l_totalDirtyDistanceInMeters = 0.0F;
+      this.m_totalDistanceDuringPauseInMeters = 0.0F;
       this.o_speedInMetersPerSecond = Float.NaN;
-      this.r = 0.0F;
-      this.s = 0.0F;
-      this.p = 0.0F;
-      this.q = 0.0F;
+      this.r_totalDirtyAscent = 0.0F;
+      this.s_totalDirtyDescent = 0.0F;
+      this.p_totalAscentDuringPause = 0.0F;
+      this.q_totalDescentDuringPause = 0.0F;
       this.t_powerSaveModeStartTime = 0L;
       this.u_fix = false;
    }
@@ -51,7 +51,7 @@ public abstract class a_GpsLocationProviderBase extends a_Sensor implements i_Po
 
       // decompiled after remove of try ... catch
       Object var1 = this.v;
-      return new f_PolarSensorEvent(this.t_powerSaveModeStartTime, this.u_fix, this.o_getTotalDistance(), this.p_getSpeedInMetersPerSecond(), this.g_latitudeInDecimalDegrees, this.h_longitudeInDecimalDegrees, this.n_getNumberOfSatellites(), this.l_getAltitudeInMetersChecked(), this.m_getAltitudeInMeters(), this.q_getAscentDelta(), this.r_getDescentDelta());
+      return new f_PolarSensorEvent(this.t_powerSaveModeStartTime, this.u_fix, this.o_getTotalPureDistance(), this.p_getSpeedInMetersPerSecond(), this.g_latitudeInDecimalDegrees, this.h_longitudeInDecimalDegrees, this.n_getNumberOfSatellites(), this.l_getAltitudeInMetersChecked(), this.m_getAltitudeInMeters(), this.q_getPureAscent(), this.r_getPureDescent());
    }
 
    public double l_getAltitudeInMetersChecked() {
@@ -66,18 +66,18 @@ public abstract class a_GpsLocationProviderBase extends a_Sensor implements i_Po
       return this.k_numberOfSatellites;
    }
 
-   public float o_getTotalDistance() {
-      return a_DataTypes.a_adjust(1, this.l - (this.n + this.m));
+   public float o_getTotalPureDistance() {
+      return a_DataTypes.a_adjust(1, this.l_totalDirtyDistanceInMeters - (this.n_referenceDistanceInMeters + this.m_totalDistanceDuringPauseInMeters));
    }
 
    public float p_getSpeedInMetersPerSecond() {
       return this.o_speedInMetersPerSecond;
    }
 
-   public float q_getAscentDelta() {
+   public float q_getPureAscent() {
       float var1;
-      if (this.r > this.p) {
-         var1 = this.r - this.p;
+      if (this.r_totalDirtyAscent > this.p_totalAscentDuringPause) {
+         var1 = this.r_totalDirtyAscent - this.p_totalAscentDuringPause;
       } else {
          var1 = 0.0F;
       }
@@ -85,10 +85,10 @@ public abstract class a_GpsLocationProviderBase extends a_Sensor implements i_Po
       return var1;
    }
 
-   public float r_getDescentDelta() {
+   public float r_getPureDescent() {
       float var1;
-      if (this.s > this.q) {
-         var1 = this.s - this.q;
+      if (this.s_totalDirtyDescent > this.q_totalDescentDuringPause) {
+         var1 = this.s_totalDirtyDescent - this.q_totalDescentDuringPause;
       } else {
          var1 = 0.0F;
       }

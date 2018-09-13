@@ -7,6 +7,13 @@ import java.text.DecimalFormat;
 import java.util.concurrent.TimeUnit;
 
 public class a_DataTypes {
+
+   public static final int DISTANCE_INDEX = 1;
+   public static final int SPEED_INDEX = 2;
+   public static final int ALTITUDE_INDEX = 4;
+   public static final int LAT_INDEX = 5;
+   public static final int LON_INDEX = 6;
+
    private static final SparseArray a_formats = new b_Formats();
    private static final SparseArray b_roundingModes = new c_RoundingModes();
    private static final SparseArray c_doubleRanges = new d_DoubleRanges();

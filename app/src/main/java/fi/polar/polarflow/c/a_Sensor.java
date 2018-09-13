@@ -8,13 +8,13 @@ public abstract class a_Sensor {
    protected m_SENSOR_STATE b_sensorState;
    protected final n_SENSOR_TYPE c_sensorType;
    protected boolean d_sensorStarted;
-   protected boolean e;
+   protected boolean e_isActive;
    protected boolean f_isPaused;
 
    protected a_Sensor(Context var1, n_SENSOR_TYPE var2) {
       this.b_sensorState = m_SENSOR_STATE.b_NOT_READY;
       this.d_sensorStarted = false;
-      this.e = false;
+      this.e_isActive = false;
       this.f_isPaused = false;
       this.a_context = var1;
       this.c_sensorType = var2;
@@ -56,11 +56,11 @@ public abstract class a_Sensor {
 
    public void h() {
       this.a_reset();
-      this.e = true;
+      this.e_isActive = true;
    }
 
    public void i() {
-      this.e = false;
+      this.e_isActive = false;
    }
 
    public ExerciseSensor j() {

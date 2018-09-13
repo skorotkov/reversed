@@ -12,7 +12,7 @@ class h_PolarNmeaMessageListener implements OnNmeaMessageListener {
 
    public void onNmeaMessage(String var1, long var2) {
       b_GpsLocationProvider var4 = (b_GpsLocationProvider)this.a_gpsLocationProvider.get();
-      if (var4 != null && b_GpsLocationProvider.r(var4) && b_GpsLocationProvider.b(var4)) {
+      if (var4 != null && b_GpsLocationProvider.r(var4) && b_GpsLocationProvider.b_isGpsSensorStarted(var4)) {
          i_GpsSensor.a_handleNmeaMessage(b_GpsLocationProvider.f_getGpsSensor(var4), var1);
       }
 

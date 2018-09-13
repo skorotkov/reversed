@@ -49,7 +49,7 @@ public class e_RunningCadenceProvider extends a_AccelerometerSensor implements i
    }
 
    private void a(int var1) {
-      if (this.e) {
+      if (this.e_isActive) {
          fi.polar.polarflow.util.d.c("RunningCadenceProvider", "onMeasurementChanged " + var1);
          if (this.l != null) {
             this.l.a(var1);
@@ -79,7 +79,7 @@ public class e_RunningCadenceProvider extends a_AccelerometerSensor implements i
    void a(int var1, long var2) {
       if (this.j != var1 || this.k + g < var2) {
          this.j = var1;
-         if (this.e) {
+         if (this.e_isActive) {
             this.a(var1);
             this.k = var2;
          }

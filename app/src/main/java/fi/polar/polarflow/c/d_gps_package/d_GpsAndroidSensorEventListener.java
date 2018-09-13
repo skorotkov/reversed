@@ -18,7 +18,7 @@ class d_GpsAndroidSensorEventListener extends g_AndroidSensorEventListener {
    }
 
    public void a(b_PolarSensorEventBase var1) {
-      if (b_GpsLocationProvider.b(this.a_gpsLocationProvider)) {
+      if (b_GpsLocationProvider.b_isGpsSensorStarted(this.a_gpsLocationProvider)) {
          super.a(var1);
       }
 

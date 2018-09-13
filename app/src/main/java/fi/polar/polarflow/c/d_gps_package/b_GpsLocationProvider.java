@@ -111,7 +111,7 @@ public class b_GpsLocationProvider extends a_GpsLocationProviderBase {
    }
 
    // $FF: synthetic method
-   static boolean b(b_GpsLocationProvider var0) {
+   static boolean b_isGpsSensorStarted(b_GpsLocationProvider var0) {
       return var0.B_gpsSensorStarted;
    }
 
@@ -171,8 +171,8 @@ public class b_GpsLocationProvider extends a_GpsLocationProviderBase {
    }
 
    // $FF: synthetic method
-   static boolean l(b_GpsLocationProvider var0) {
-      return var0.e;
+   static boolean l_isActive(b_GpsLocationProvider var0) {
+      return var0.e_isActive;
    }
 
    // $FF: synthetic method
@@ -217,7 +217,7 @@ public class b_GpsLocationProvider extends a_GpsLocationProviderBase {
 
    protected void a_reset() {
       super.a_reset();
-      this.n = (float)this.x_locationDataCalculator.getDistanceInMeters();
+      this.n_referenceDistanceInMeters = (float)this.x_locationDataCalculator.getDistanceInMeters();
       this.i_altitudeInMetersChecked = a_DataTypes.b_adjust(4, this.x_locationDataCalculator.getAltitudeInMeters(true));
    }
 
@@ -276,21 +276,21 @@ public class b_GpsLocationProvider extends a_GpsLocationProviderBase {
    }
 
    public void f_pause() {
-      this.e = false;
+      this.e_isActive = false;
       this.f_isPaused = true;
    }
 
    public void g_resume() {
-      this.m += (float)this.x_locationDataCalculator.getDistanceInMeters() - this.l;
+      this.m_totalDistanceDuringPauseInMeters += (float)this.x_locationDataCalculator.getDistanceInMeters() - this.l_totalDirtyDistanceInMeters;
       if (this.y_ascentDescentCalculator != null) {
          AscentDescentOutput var1 = this.y_ascentDescentCalculator.addAltitude((float)this.i_altitudeInMetersChecked);
-         this.p += var1.getAscent() - this.r;
-         this.q += var1.getDescent() - this.s;
-         this.r = var1.getAscent();
-         this.s = var1.getDescent();
+         this.p_totalAscentDuringPause += var1.getAscent() - this.r_totalDirtyAscent;
+         this.q_totalDescentDuringPause += var1.getDescent() - this.s_totalDirtyDescent;
+         this.r_totalDirtyAscent = var1.getAscent();
+         this.s_totalDirtyDescent = var1.getDescent();
       }
 
-      this.e = true;
+      this.e_isActive = true;
       this.f_isPaused = false;
    }
 

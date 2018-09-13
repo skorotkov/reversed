@@ -10,6 +10,7 @@ import android.os.SystemClock;
 
 import java.util.List;
 
+import fi.polar.polarflow.c.f_PolarSensorEvent;
 import fi.polar.polarflow.sensor.fusedgps.a_package.a_DataTypes;
 import fi.polar.polarflow.sensor.fusedgps.proxy.SENSOR_STATE;
 import fi.polar.polarflow.sensor.fusedgps.proxy.SENSOR_TYPE;
@@ -21,7 +22,7 @@ import fi.polar.polarmathsmart.ascentdescent.AscentDescentOutput;
 public class FusedGpsLocationProvider extends Sensor {
     private static final String TAG = FusedGpsLocationProvider.class.getSimpleName();
 
-    private PolarSensorListener mPolarSensorListener;
+//    private PolarSensorListener mPolarSensorListener;
     private long mStartTime;
     private long mPowerSaveModeStartTime;
 
@@ -43,6 +44,16 @@ public class FusedGpsLocationProvider extends Sensor {
     protected float mSpeedInMetersPerSecond = Float.NaN;
     protected boolean mFix = false;
 
+    protected float mReferenceDistanceInMeters = 0.0F;
+    protected float mDirtyTotalDistanceInMeters = 0.0F;
+    protected float mTotalDistanceDuringPauseInMeters = 0.0F;
+
+    protected float mTotalAscentDuringPause = 0.0F;
+    protected float mTotalDescentDuringPause = 0.0F;
+    protected float mTotalDirtyAscent = 0.0F;
+    protected float mTotalDirtyDescent = 0.0F;
+
+    protected double mReferenceAltitudeInMeters = 0.0D;
 
     public FusedGpsLocationProvider(Context context) {
         super(context, SENSOR_TYPE.FUSED_GPS);
@@ -74,6 +85,22 @@ public class FusedGpsLocationProvider extends Sensor {
     @Override
     protected void reset() {
         Log.i(TAG, "reset");
+
+        mLatitudeInDecimalDegrees = 0.0D;
+        mLongitudeInDecimalDegrees = 0.0D;
+        mAltitudeInMetersChecked = Double.NaN;
+        mAltitudeInMeters = Double.NaN;
+        mNumberOfSatellites = 0;
+        mSpeedInMetersPerSecond = Float.NaN;
+        mFix = false;
+
+        mTotalDirtyAscent = 0.0F;
+        mTotalDirtyDescent = 0.0F;
+        mTotalAscentDuringPause = 0.0F;
+        mTotalDescentDuringPause = 0.0F;
+
+        mReferenceDistanceInMeters = (float)mLocationDataCalculator.getDistanceInMeters();
+        mAltitudeInMetersChecked = a_DataTypes.b_adjust(a_DataTypes.ALTITUDE_INDEX, mLocationDataCalculator.getAltitudeInMeters(true));
     }
 
     @Override
@@ -130,9 +157,28 @@ public class FusedGpsLocationProvider extends Sensor {
     }
 
     @Override
-    public void setPolarSensorListener(PolarSensorListener listener) {
-        this.mPolarSensorListener = listener;
+    protected void pause() {
+        setActive(false);
     }
+
+    @Override
+    protected void resume() {
+        mTotalDistanceDuringPauseInMeters += (float)mLocationDataCalculator.getDistanceInMeters() - mDirtyTotalDistanceInMeters;
+        if (mAscentDescentCalculator != null) {
+            AscentDescentOutput ascentDescentOutput = mAscentDescentCalculator.addAltitude((float)mAltitudeInMetersChecked);
+            mTotalAscentDuringPause += ascentDescentOutput.getAscent() - mTotalDirtyAscent;
+            mTotalDescentDuringPause += ascentDescentOutput.getDescent() - mTotalDirtyDescent;
+            mTotalDirtyAscent = ascentDescentOutput.getAscent();
+            mTotalDirtyDescent = ascentDescentOutput.getDescent();
+        }
+
+        setActive(true);
+    }
+
+//    @Override
+//    public void setPolarSensorListener(PolarSensorListener listener) {
+//        this.mPolarSensorListener = listener;
+//    }
 
     @Override
     public void setState(SENSOR_STATE var1) {
@@ -153,32 +199,48 @@ public class FusedGpsLocationProvider extends Sensor {
         mLocationDataCalculator.handleLocation(location);
 
         mNumberOfSatellites = mLocationDataCalculator.getNumberOfSatellites();
-        mAltitudeInMetersChecked = a_DataTypes.b_adjust(4, mLocationDataCalculator.getAltitudeInMeters(true));
-        mAltitudeInMeters = a_DataTypes.b_adjust(4, mLocationDataCalculator.getAltitudeInMeters(false));
+        mAltitudeInMetersChecked = a_DataTypes.b_adjust(a_DataTypes.ALTITUDE_INDEX, mLocationDataCalculator.getAltitudeInMeters(true));
+        mAltitudeInMeters = a_DataTypes.b_adjust(a_DataTypes.ALTITUDE_INDEX, mLocationDataCalculator.getAltitudeInMeters(false));
         mSpeedInMetersPerSecond = (float)boundSpeed(mLocationDataCalculator.getSpeedInMetersPerSecond());
-        mLatitudeInDecimalDegrees = a_DataTypes.b_adjust(5, mLocationDataCalculator.getLatitudeInDecimalDegrees());
-        mLongitudeInDecimalDegrees = a_DataTypes.b_adjust(6, mLocationDataCalculator.getLongitudeInDecimalDegrees());
+        mLatitudeInDecimalDegrees = a_DataTypes.b_adjust(a_DataTypes.LAT_INDEX, mLocationDataCalculator.getLatitudeInDecimalDegrees());
+        mLongitudeInDecimalDegrees = a_DataTypes.b_adjust(a_DataTypes.LON_INDEX, mLocationDataCalculator.getLongitudeInDecimalDegrees());
+        AscentDescentOutput ascentDescentOutput = null;
+        if (mAscentDescentCalculator != null) {
+            ascentDescentOutput = mAscentDescentCalculator.addAltitude((float)mAltitudeInMetersChecked);
+        }
 
-        if (mAscentDescentCalculator == null && !Double.isNaN(mAltitudeInMetersChecked)) {
-            mAscentDescentCalculator = new AscentDescentCalculatorAndroidImpl(1, (float)mAltitudeInMetersChecked);
-        } else {
-            AscentDescentOutput result = mAscentDescentCalculator.addAltitude((float)mAltitudeInMetersChecked);
+        setState(SENSOR_STATE.READY);
+
+        if (isActive()) {
+            mDirtyTotalDistanceInMeters = (float)mLocationDataCalculator.getDistanceInMeters();
+            if (mAscentDescentCalculator == null && !Double.isNaN(mAltitudeInMetersChecked)) {
+                mAscentDescentCalculator = new AscentDescentCalculatorAndroidImpl(1, (float)mAltitudeInMetersChecked);
+            } else if (ascentDescentOutput != null) {
+                mTotalDirtyAscent = ascentDescentOutput.getAscent();
+                mTotalDirtyDescent = ascentDescentOutput.getDescent();
+            }
+
+            broadcastLocationData(mSpeedInMetersPerSecond,
+                    getPureTotalDistance(),
+                    mAltitudeInMetersChecked,
+                    getPureAscent(),
+                    getPureDescent());
         }
     }
 
-    private static double boundSpeed(double var0) {
-        double var2;
-        if (var0 < 0.0D) {
-            Log.i(TAG, "Speed is below minimum: " + var0 + " m/s");
-            var2 = 0.0D;
+    private static double boundSpeed(double speed) {
+        double result;
+        if (speed < 0.0D) {
+            Log.i(TAG, "Speed is below minimum: " + speed + " m/s");
+            result = 0.0D;
         } else {
-            var2 = var0;
-            if (var0 > 110.83333626941406D) {
-                Log.i(TAG, "Speed is above maximum : " + var0 + " m/s");
-                var2 = 110.83333626941406D;
+            result = speed;
+            if (speed > 110.83333626941406D) {
+                Log.i(TAG, "Speed is above maximum : " + speed + " m/s");
+                result = 110.83333626941406D;
             }
         }
-        return var2;
+        return result;
     }
 
     public void handleLocationList(List<Location> locationList){
@@ -187,4 +249,61 @@ public class FusedGpsLocationProvider extends Sensor {
             handleLocation(location);
         }
     }
+
+    public float getPureTotalDistance() {
+        return a_DataTypes.a_adjust(a_DataTypes.DISTANCE_INDEX,
+                mDirtyTotalDistanceInMeters - (mReferenceDistanceInMeters + mTotalDistanceDuringPauseInMeters));
+    }
+
+    public float getPureAscent() {
+        float result;
+        if (mTotalDirtyAscent > mTotalAscentDuringPause) {
+            result = mTotalDirtyAscent - mTotalAscentDuringPause;
+        } else {
+            result = 0.0F;
+        }
+
+        return result;
+    }
+
+    public float getPureDescent() {
+        float result;
+        if (mTotalDirtyDescent > mTotalDescentDuringPause) {
+            result = mTotalDirtyDescent - mTotalDescentDuringPause;
+        } else {
+            result = 0.0F;
+        }
+
+        return result;
+    }
+
+    private void broadcastLocationData(float speed, float pureTotalDistance, double altitude, float pureAscent, float pureDescent) {
+        Intent intent = new Intent("fi.polar.polarflow.ACTION_LOCATION_DATA");
+
+        intent.putExtra("fi.polar.polarflow.KEY_SENSOR_CALCULATOR_TYPE", "fi.polar.polarflow.SENSOR_CALCULATOR_TYPE_POLAR");
+        intent.putExtra("fi.polar.polarflow.KEY_SENSOR_LOCATION_CURRENT_SPEED_VALUE", speed);
+        intent.putExtra("fi.polar.polarflow.KEY_SENSOR_LOCATION_DISTANCE_VALUE", pureTotalDistance);
+        intent.putExtra("fi.polar.polarflow.KEY_SENSOR_LOCATION_ALTITUDE_VALUE", altitude);
+        intent.putExtra("fi.polar.polarflow.KEY_SENSOR_LOCATION_ASCENT_VALUE", pureAscent);
+        intent.putExtra("fi.polar.polarflow.KEY_SENSOR_LOCATION_DESCENT_VALUE", pureDescent);
+        intent.putExtra("fi.polar.polarflow.SENSOR_STATE", SENSOR_STATE.toPolar(getState()));
+
+        StickyLocalBroadcastManager.sendStickyBroadcast(intent);
+    }
+
+    public f_PolarSensorEvent k() {
+        return new f_PolarSensorEvent(
+                mPowerSaveModeStartTime,
+                mFix,
+                getPureTotalDistance(),
+                mSpeedInMetersPerSecond,
+                mLatitudeInDecimalDegrees,
+                mLongitudeInDecimalDegrees,
+                mNumberOfSatellites,
+                mAltitudeInMetersChecked,
+                mAltitudeInMeters,
+                getPureAscent(),
+                getPureDescent());
+    }
+
 }

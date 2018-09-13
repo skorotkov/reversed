@@ -59,20 +59,20 @@ class i_GpsSensor {
       }
 
       this.a_gpsLocationProvider.a_setState(m_SENSOR_STATE.d_READY);
-      if (b_GpsLocationProvider.l(this.a_gpsLocationProvider)) {
-         this.a_gpsLocationProvider.l = (float)b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getDistanceInMeters();
+      if (b_GpsLocationProvider.l_isActive(this.a_gpsLocationProvider)) {
+         this.a_gpsLocationProvider.l_totalDirtyDistanceInMeters = (float)b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getDistanceInMeters();
          if (b_GpsLocationProvider.k_getAscentDescentCalculator(this.a_gpsLocationProvider) == null && !Double.isNaN(this.a_gpsLocationProvider.i_altitudeInMetersChecked)) {
             b_GpsLocationProvider.a_setAscentDescentCalculator(this.a_gpsLocationProvider, new AscentDescentCalculatorAndroidImpl(1, (float)this.a_gpsLocationProvider.i_altitudeInMetersChecked));
          } else if (var2 != null) {
-            this.a_gpsLocationProvider.r = var2.getAscent();
-            this.a_gpsLocationProvider.s = var2.getDescent();
+            this.a_gpsLocationProvider.r_totalDirtyAscent = var2.getAscent();
+            this.a_gpsLocationProvider.s_totalDirtyDescent = var2.getDescent();
          }
 
          this.a_broadcastLocationData(this.a_gpsLocationProvider.p_getSpeedInMetersPerSecond(),
-                 this.a_gpsLocationProvider.o_getTotalDistance(),
+                 this.a_gpsLocationProvider.o_getTotalPureDistance(),
                  this.a_gpsLocationProvider.l_getAltitudeInMetersChecked(),
-                 this.a_gpsLocationProvider.q_getAscentDelta(),
-                 this.a_gpsLocationProvider.r_getDescentDelta());
+                 this.a_gpsLocationProvider.q_getPureAscent(),
+                 this.a_gpsLocationProvider.r_getPureDescent());
       }
    }
 

@@ -189,5 +189,6 @@ public class FusedGpsSensor {
     public void stopListeningUpdates() {
         Log.d(TAG, "stopListeningUpdates");
         mFusedLocationClient.removeLocationUpdates(mLocationCallback);
+        mGoogleApiClient.disconnect();
     }
 }
