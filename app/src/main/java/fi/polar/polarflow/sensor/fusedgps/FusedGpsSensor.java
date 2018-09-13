@@ -116,7 +116,13 @@ public class FusedGpsSensor {
         mGoogleApiClient.connect();
     }
 
-    private void requestLocationUpdates() {
+    private void requestLocationUpdates_settings() {
+
+        // does not work on device
+        // 09-13 12:26:02.266  3603  3603 I FusedGpsSensor: checkLocationSettings task completed
+        // 09-13 12:26:02.275  3603  3603 E FusedGpsSensor: Failed in checkLocationSettings
+        // 09-13 12:26:02.275  3603  3603 E FusedGpsSensor: com.google.android.gms.common.api.ApiException: 10: Not implemented on this platform.
+
         Log.d(TAG, "requestLocationUpdates");
         LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
                 .addLocationRequest(mLocationRequest);
@@ -157,7 +163,29 @@ public class FusedGpsSensor {
             }
         });
     }
-    
+
+    private void requestLocationUpdates() {
+        Log.d(TAG, "requestLocationUpdates");
+        try {
+            mFusedLocationClient.requestLocationUpdates(mLocationRequest, mLocationCallback, null /* Looper */)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.i(TAG, "Successfully requested location updates");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.e(TAG, "Failed in requesting location updates", e);
+                    }
+                });
+        } catch (SecurityException exception) {
+            Log.e(TAG, "Failed in requesting location updates", exception);
+            mGpsLocationProvider.setState(SENSOR_STATE.DISABLED, true);
+        }
+    }
+
     public void stopListeningUpdates() {
         Log.d(TAG, "stopListeningUpdates");
         mFusedLocationClient.removeLocationUpdates(mLocationCallback);
