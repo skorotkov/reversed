@@ -161,7 +161,7 @@ public class b_GpsLocationProvider extends a_GpsLocationProviderBase {
    }
 
    // $FF: synthetic method
-   static long j(b_GpsLocationProvider var0) {
+   static long j_getGpsLocationProviderStartTime(b_GpsLocationProvider var0) {
       return var0.E_gpsLocationProviderStartTime;
    }
 

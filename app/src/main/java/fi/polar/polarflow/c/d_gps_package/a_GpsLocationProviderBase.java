@@ -22,7 +22,7 @@ public abstract class a_GpsLocationProviderBase extends a_Sensor implements i_Po
    protected float q_totalDescentDuringPause = 0.0F;
    protected float r_totalDirtyAscent = 0.0F;
    protected float s_totalDirtyDescent = 0.0F;
-   protected long t_powerSaveModeStartTime = 0L;
+   protected long t_eventTime = 0L;
    protected boolean u_fix = false;
    protected final Object v = new Object();
 
@@ -42,7 +42,7 @@ public abstract class a_GpsLocationProviderBase extends a_Sensor implements i_Po
       this.s_totalDirtyDescent = 0.0F;
       this.p_totalAscentDuringPause = 0.0F;
       this.q_totalDescentDuringPause = 0.0F;
-      this.t_powerSaveModeStartTime = 0L;
+      this.t_eventTime = 0L;
       this.u_fix = false;
    }
 
@@ -51,7 +51,7 @@ public abstract class a_GpsLocationProviderBase extends a_Sensor implements i_Po
 
       // decompiled after remove of try ... catch
       Object var1 = this.v;
-      return new f_PolarSensorEvent(this.t_powerSaveModeStartTime, this.u_fix, this.o_getTotalPureDistance(), this.p_getSpeedInMetersPerSecond(), this.g_latitudeInDecimalDegrees, this.h_longitudeInDecimalDegrees, this.n_getNumberOfSatellites(), this.l_getAltitudeInMetersChecked(), this.m_getAltitudeInMeters(), this.q_getPureAscent(), this.r_getPureDescent());
+      return new f_PolarSensorEvent(this.t_eventTime, this.u_fix, this.o_getTotalPureDistance(), this.p_getSpeedInMetersPerSecond(), this.g_latitudeInDecimalDegrees, this.h_longitudeInDecimalDegrees, this.n_getNumberOfSatellites(), this.l_getAltitudeInMetersChecked(), this.m_getAltitudeInMeters(), this.q_getPureAscent(), this.r_getPureDescent());
    }
 
    public double l_getAltitudeInMetersChecked() {

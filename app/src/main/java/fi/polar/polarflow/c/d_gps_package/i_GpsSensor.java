@@ -45,7 +45,7 @@ class i_GpsSensor {
 
       // decompiled after remove of try ... catch
       Object var1 = this.a_gpsLocationProvider.v;
-      this.a_gpsLocationProvider.t_powerSaveModeStartTime = b_GpsLocationProvider.i_getD(this.a_gpsLocationProvider);
+      this.a_gpsLocationProvider.t_eventTime = b_GpsLocationProvider.i_getD(this.a_gpsLocationProvider);
       this.a_gpsLocationProvider.u_fix = b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getFix();
       this.a_gpsLocationProvider.k_numberOfSatellites = b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getNumberOfSatellites();
       this.a_gpsLocationProvider.i_altitudeInMetersChecked = a_DataTypes.b_adjust(4, b_GpsLocationProvider.h_getLocationDataCalculator(this.a_gpsLocationProvider).getAltitudeInMeters(true));
@@ -105,7 +105,7 @@ class i_GpsSensor {
          if (b_GpsLocationProvider.i_getD(this.a_gpsLocationProvider) == 0L) {
             b_GpsLocationProvider.a_setD(this.a_gpsLocationProvider, var2_elapsedRealtime);
             fi.polar.polarflow.util.d.c(b_GpsLocationProvider.s_getClassName(),
-                    "First NMEAs handled, diff to GPS start time(" + b_GpsLocationProvider.i_getD(this.a_gpsLocationProvider) + " - " + b_GpsLocationProvider.j(this.a_gpsLocationProvider) + ") :" + (b_GpsLocationProvider.i_getD(this.a_gpsLocationProvider) - b_GpsLocationProvider.j(this.a_gpsLocationProvider)));
+                    "First NMEAs handled, diff to GPS start time(" + b_GpsLocationProvider.i_getD(this.a_gpsLocationProvider) + " - " + b_GpsLocationProvider.j_getGpsLocationProviderStartTime(this.a_gpsLocationProvider) + ") :" + (b_GpsLocationProvider.i_getD(this.a_gpsLocationProvider) - b_GpsLocationProvider.j_getGpsLocationProviderStartTime(this.a_gpsLocationProvider)));
          } else {
             b_GpsLocationProvider.a_setD(this.a_gpsLocationProvider, b_GpsLocationProvider.i_getD(this.a_gpsLocationProvider) + 1000L);
          }

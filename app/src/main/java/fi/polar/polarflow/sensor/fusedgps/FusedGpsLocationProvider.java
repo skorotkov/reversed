@@ -8,10 +8,13 @@ import android.location.Location;
 import android.os.Handler;
 import android.os.SystemClock;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
-import fi.polar.polarflow.c.f_PolarSensorEvent;
 import fi.polar.polarflow.sensor.fusedgps.a_package.a_DataTypes;
+import fi.polar.polarflow.sensor.fusedgps.proxy.AndroidSensorEventListener;
+import fi.polar.polarflow.sensor.fusedgps.proxy.PolarSensorEvent;
 import fi.polar.polarflow.sensor.fusedgps.proxy.SENSOR_STATE;
 import fi.polar.polarflow.sensor.fusedgps.proxy.SENSOR_TYPE;
 import fi.polar.polarflow.sensor.fusedgps.proxy.Sensor;
@@ -22,12 +25,13 @@ import fi.polar.polarmathsmart.ascentdescent.AscentDescentOutput;
 public class FusedGpsLocationProvider extends Sensor {
     private static final String TAG = FusedGpsLocationProvider.class.getSimpleName();
 
-//    private PolarSensorListener mPolarSensorListener;
-    private long mStartTime;
-    private long mPowerSaveModeStartTime;
+    private long mProviderStartTime;
+    private long mEventTime;
+    private long mLastFixElapsedRealtime;
 
     private Handler mHandler;
     private BroadcastReceiver mPowerSaveModeBroadcastReceiver;
+    private AndroidSensorEventListener mAndroidSensorEventListener;
 
     private PowerManagerHelper mPowerManagerHelper;
     private AscentDescentCalculatorAndroidImpl mAscentDescentCalculator = null;
@@ -36,29 +40,27 @@ public class FusedGpsLocationProvider extends Sensor {
     private boolean mSensorStarted;
     private FusedLocationDataCalculator mLocationDataCalculator;
 
-    protected double mLatitudeInDecimalDegrees = 0.0D;
-    protected double mLongitudeInDecimalDegrees = 0.0D;
-    protected double mAltitudeInMetersChecked = Double.NaN;
-    protected double mAltitudeInMeters = Double.NaN;
-    protected int mNumberOfSatellites = 0;
-    protected float mSpeedInMetersPerSecond = Float.NaN;
-    protected boolean mFix = false;
+    private double mLatitudeInDecimalDegrees = 0.0D;
+    private double mLongitudeInDecimalDegrees = 0.0D;
+    private double mAltitudeInMetersChecked = Double.NaN;
+    private double mAltitudeInMeters = Double.NaN;
+    private int mNumberOfSatellites = 0;
+    private float mSpeedInMetersPerSecond = Float.NaN;
+    private boolean mFix = false;
 
-    protected float mReferenceDistanceInMeters = 0.0F;
-    protected float mDirtyTotalDistanceInMeters = 0.0F;
-    protected float mTotalDistanceDuringPauseInMeters = 0.0F;
+    private float mReferenceDistanceInMeters = 0.0F;
+    private float mDirtyTotalDistanceInMeters = 0.0F;
+    private float mTotalDistanceDuringPauseInMeters = 0.0F;
 
-    protected float mTotalAscentDuringPause = 0.0F;
-    protected float mTotalDescentDuringPause = 0.0F;
-    protected float mTotalDirtyAscent = 0.0F;
-    protected float mTotalDirtyDescent = 0.0F;
-
-    protected double mReferenceAltitudeInMeters = 0.0D;
+    private float mTotalAscentDuringPause = 0.0F;
+    private float mTotalDescentDuringPause = 0.0F;
+    private float mTotalDirtyAscent = 0.0F;
+    private float mTotalDirtyDescent = 0.0F;
 
     public FusedGpsLocationProvider(Context context) {
         super(context, SENSOR_TYPE.FUSED_GPS);
         Log.i(TAG, "FusedGpsLocationProvider");
-        mHandler = new Handler();
+
         mPowerManagerHelper = new PowerManagerHelper(context);
         mSensor = new FusedGpsSensor(this);
         mSensorStarted = false;
@@ -69,9 +71,9 @@ public class FusedGpsLocationProvider extends Sensor {
                 boolean isPowerSaveMode = mPowerManagerHelper.isPowerSaveMode();
                 Log.i(TAG, "onReceive: ACTION_POWER_SAVE_MODE_CHANGED, enabled= " + isPowerSaveMode);
                 if (isPowerSaveMode) {
-                    mPowerSaveModeStartTime = SystemClock.elapsedRealtime();
+                    mEventTime = SystemClock.elapsedRealtime();
                     mFix = false;
-//                            b_GpsLocationProvider.e_getAndroidSensorEventListener(this.a_gpsLocationProvider).a((b_PolarSensorEventBase)this.a_gpsLocationProvider.k());
+                    mAndroidSensorEventListener.onEvent(createPolarSensorEvent());
                     mSensor.stopListeningUpdates();
                 } else {
                     mSensor.startListeningUpdates();
@@ -80,6 +82,18 @@ public class FusedGpsLocationProvider extends Sensor {
             }
         };
         mLocationDataCalculator = new FusedLocationDataCalculator();
+
+        mHandler = new Handler();
+        mAndroidSensorEventListener = new AndroidSensorEventListener(mPolarSensorEventListener, mHandler) {
+            public void onEvent(PolarSensorEvent event) {
+                Log.i(TAG+"::AndroidSensorEventListener", "onEvent");
+                if (mSensorStarted) {
+                    super.onEvent(event);
+                }
+            }
+        };
+        this.mLastFixElapsedRealtime = 0L;
+        this.mProviderStartTime = 0L;
     }
 
     @Override
@@ -93,6 +107,7 @@ public class FusedGpsLocationProvider extends Sensor {
         mNumberOfSatellites = 0;
         mSpeedInMetersPerSecond = Float.NaN;
         mFix = false;
+        mEventTime = 0L;
 
         mTotalDirtyAscent = 0.0F;
         mTotalDirtyDescent = 0.0F;
@@ -105,14 +120,14 @@ public class FusedGpsLocationProvider extends Sensor {
 
     @Override
     public void start() {
-        mStartTime = SystemClock.elapsedRealtime();
-        Log.i(TAG, "start() at: " + mStartTime);
+        mProviderStartTime = SystemClock.elapsedRealtime();
+        Log.i(TAG, "start() at: " + mProviderStartTime);
         if (!fi.polar.polarflow.ui.o.d(getContext(), "android.permission.ACCESS_FINE_LOCATION")) {
             Log.i(TAG, "Disabled because of lack of permission");
             setState(SENSOR_STATE.DISABLED, true);
         } else if (!isStarted()) {
             setStarted(true);
-            getContext().registerReceiver(mPowerSaveModeBroadcastReceiver, new IntentFilter("android.os.action.POWER_SAVE_MODE_CHANGED"), (String) null, mHandler);
+            getContext().registerReceiver(mPowerSaveModeBroadcastReceiver, new IntentFilter("android.os.action.POWER_SAVE_MODE_CHANGED"), null, mHandler);
             
             if (this.mPowerManagerHelper.isPowerSaveMode()) {
                 Log.i(TAG, "Disabled because of power save mode");
@@ -144,25 +159,30 @@ public class FusedGpsLocationProvider extends Sensor {
             broadcastStateChanged();
         }
 
-        mHandler.removeCallbacksAndMessages((Object)null);
+        mHandler.removeCallbacksAndMessages(null);
         StickyLocalBroadcastManager.removeFromMap("fi.polar.polarflow.ACTION_LOCATION_DATA", "fi.polar.polarflow.SENSOR_LOCATION_STATE_CHANGED");
     }
 
     @Override
     protected void broadcastStateChanged() {
+        Log.i(TAG, "broadcastStateChanged: " + getType());
+
         Intent intent = new Intent("fi.polar.polarflow.SENSOR_LOCATION_STATE_CHANGED");
         intent.putExtra("fi.polar.polarflow.SENSOR_STATE", SENSOR_STATE.toPolar(getState()));
         intent.putExtra("fi.polar.polarflow.KEY_SENSOR_TYPE", SENSOR_TYPE.toPolar(getType()));
+
         StickyLocalBroadcastManager.sendStickyBroadcast(intent);
     }
 
     @Override
     protected void pause() {
+        Log.i(TAG, "pause");
         setActive(false);
     }
 
     @Override
     protected void resume() {
+        Log.i(TAG, "resume");
         mTotalDistanceDuringPauseInMeters += (float)mLocationDataCalculator.getDistanceInMeters() - mDirtyTotalDistanceInMeters;
         if (mAscentDescentCalculator != null) {
             AscentDescentOutput ascentDescentOutput = mAscentDescentCalculator.addAltitude((float)mAltitudeInMetersChecked);
@@ -174,11 +194,6 @@ public class FusedGpsLocationProvider extends Sensor {
 
         setActive(true);
     }
-
-//    @Override
-//    public void setPolarSensorListener(PolarSensorListener listener) {
-//        this.mPolarSensorListener = listener;
-//    }
 
     @Override
     public void setState(SENSOR_STATE var1) {
@@ -196,8 +211,23 @@ public class FusedGpsLocationProvider extends Sensor {
     private void handleLocation(Location location){
         Log.i(TAG, "handleLocation: " + location.toString());
 
+        long elapsedRealtime = SystemClock.elapsedRealtime();
+
         mLocationDataCalculator.handleLocation(location);
 
+        if (mLastFixElapsedRealtime == 0L) {
+            mLastFixElapsedRealtime = elapsedRealtime;
+            Log.i(TAG, "First location handled, diff to GPS start time(" + mLastFixElapsedRealtime + " - " + mProviderStartTime + ") :" + (mLastFixElapsedRealtime - mProviderStartTime));
+        } else {
+            mLastFixElapsedRealtime = mLastFixElapsedRealtime + 1000L;
+        }
+
+        if (elapsedRealtime - mLastFixElapsedRealtime < 0L) {
+            mLastFixElapsedRealtime = elapsedRealtime;
+        }
+
+        mEventTime = mLastFixElapsedRealtime;
+        mFix = true;
         mNumberOfSatellites = mLocationDataCalculator.getNumberOfSatellites();
         mAltitudeInMetersChecked = a_DataTypes.b_adjust(a_DataTypes.ALTITUDE_INDEX, mLocationDataCalculator.getAltitudeInMeters(true));
         mAltitudeInMeters = a_DataTypes.b_adjust(a_DataTypes.ALTITUDE_INDEX, mLocationDataCalculator.getAltitudeInMeters(false));
@@ -226,6 +256,8 @@ public class FusedGpsLocationProvider extends Sensor {
                     getPureAscent(),
                     getPureDescent());
         }
+
+        mAndroidSensorEventListener.onEvent(createPolarSensorEvent());
     }
 
     private static double boundSpeed(double speed) {
@@ -243,19 +275,19 @@ public class FusedGpsLocationProvider extends Sensor {
         return result;
     }
 
-    public void handleLocationList(List<Location> locationList){
+    void handleLocationList(List<Location> locationList){
         Log.i(TAG, "handleLocationList");
         for (Location location : locationList) {
             handleLocation(location);
         }
     }
 
-    public float getPureTotalDistance() {
+    private float getPureTotalDistance() {
         return a_DataTypes.a_adjust(a_DataTypes.DISTANCE_INDEX,
                 mDirtyTotalDistanceInMeters - (mReferenceDistanceInMeters + mTotalDistanceDuringPauseInMeters));
     }
 
-    public float getPureAscent() {
+    private float getPureAscent() {
         float result;
         if (mTotalDirtyAscent > mTotalAscentDuringPause) {
             result = mTotalDirtyAscent - mTotalAscentDuringPause;
@@ -266,7 +298,7 @@ public class FusedGpsLocationProvider extends Sensor {
         return result;
     }
 
-    public float getPureDescent() {
+    private float getPureDescent() {
         float result;
         if (mTotalDirtyDescent > mTotalDescentDuringPause) {
             result = mTotalDirtyDescent - mTotalDescentDuringPause;
@@ -278,6 +310,8 @@ public class FusedGpsLocationProvider extends Sensor {
     }
 
     private void broadcastLocationData(float speed, float pureTotalDistance, double altitude, float pureAscent, float pureDescent) {
+        Log.i(TAG, "broadcastLocationData");
+
         Intent intent = new Intent("fi.polar.polarflow.ACTION_LOCATION_DATA");
 
         intent.putExtra("fi.polar.polarflow.KEY_SENSOR_CALCULATOR_TYPE", "fi.polar.polarflow.SENSOR_CALCULATOR_TYPE_POLAR");
@@ -291,9 +325,23 @@ public class FusedGpsLocationProvider extends Sensor {
         StickyLocalBroadcastManager.sendStickyBroadcast(intent);
     }
 
-    public f_PolarSensorEvent k() {
-        return new f_PolarSensorEvent(
-                mPowerSaveModeStartTime,
+    private PolarSensorEvent createPolarSensorEvent() {
+        String eventString = PolarSensorEvent.class.getSimpleName() + String.format(Locale.ENGLISH,
+                "[t:%s f:%s D:%f.2 S:%f.2 La:%f.5 Lo:%f.5 n:%d A:%f.2 a:%f.2 u:%f.2 d:%f.2]",
+                new Date(mEventTime), mFix,
+                getPureTotalDistance(),
+                mSpeedInMetersPerSecond,
+                mLatitudeInDecimalDegrees,
+                mLongitudeInDecimalDegrees,
+                mNumberOfSatellites,
+                mAltitudeInMetersChecked,
+                mAltitudeInMeters,
+                getPureAscent(),
+                getPureDescent());
+        Log.i(TAG, "createPolarSensorEvent: " + eventString);
+
+        return new PolarSensorEvent(
+                mEventTime,
                 mFix,
                 getPureTotalDistance(),
                 mSpeedInMetersPerSecond,
@@ -306,4 +354,7 @@ public class FusedGpsLocationProvider extends Sensor {
                 getPureDescent());
     }
 
+    void setFix(boolean fix) {
+        mFix = fix;
+    }
 }

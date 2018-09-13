@@ -2,32 +2,42 @@ package fi.polar.polarflow.sensor.fusedgps;
 
 import android.location.Location;
 
+import java.util.Locale;
+
 import fi.polar.polarmathsmart.gps.LocationDataCalculator;
 
-public class FusedLocationDataCalculator implements LocationDataCalculator {
+class FusedLocationDataCalculator implements LocationDataCalculator {
+    private static final String TAG = FusedLocationDataCalculator.class.getSimpleName();
+
+    private Location mPreviousLocation = null;
+    private double mTotalDistance = 0.0D;
+
     @Override
     public double getAltitudeInMeters(boolean var1) {
-        return 0;
+        if (mPreviousLocation.hasAltitude())
+            return mPreviousLocation.getAltitude();
+        else
+            return Double.NaN;
     }
 
     @Override
     public double getDistanceInMeters() {
-        return 0;
+        return mTotalDistance;
     }
 
     @Override
     public boolean getFix() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public double getLatitudeInDecimalDegrees() {
-        return 0;
+        return mPreviousLocation.getLatitude();
     }
 
     @Override
     public double getLongitudeInDecimalDegrees() {
-        return 0;
+        return mPreviousLocation.getLongitude();
     }
 
     @Override
@@ -37,7 +47,10 @@ public class FusedLocationDataCalculator implements LocationDataCalculator {
 
     @Override
     public double getSpeedInMetersPerSecond() {
-        return 0;
+        if (mPreviousLocation.hasSpeed())
+            return mPreviousLocation.getSpeed();
+        else
+            return Double.NaN;
     }
 
     @Override
@@ -45,7 +58,11 @@ public class FusedLocationDataCalculator implements LocationDataCalculator {
         throw new  UnsupportedOperationException();
     }
 
-    public void handleLocation(Location location) {
-
+    void handleLocation(Location location) {
+        if (mPreviousLocation != null) {
+            mTotalDistance += mPreviousLocation.distanceTo(location);
+            Log.i(TAG, String.format(Locale.ENGLISH, "handleLocation: mTotalDistance = %f.2", mTotalDistance));
+        }
+        mPreviousLocation = location;
     }
 }
