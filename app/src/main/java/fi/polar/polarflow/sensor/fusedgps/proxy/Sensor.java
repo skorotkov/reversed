@@ -109,11 +109,6 @@ public abstract class Sensor extends fi.polar.polarflow.c.a_Sensor implements i_
 
     protected abstract void reset();
 
-
-//    protected void setPolarSensorListener(PolarSensorListener listener) {
-//        this.mPolarSensorListener = listener;
-//    }
-
     public Context getContext() { return a_context; }
 
     protected boolean isStarted() { return d_sensorStarted; }
