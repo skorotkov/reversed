@@ -133,10 +133,50 @@ class r_SessionSensorsThread extends HandlerThread implements Callback {
 
    private void e(int param1) {
       // $FF: Couldn't be decompiled
+      if (!this.g) {
+         this.f = param1;
+         this.b_createSensors();
+         Set var2 = this.c;
+         this.c.clear();
+         this.c();
+         this.d();
+         if (this.d_sessionCalculators == null) {
+            this.d_sessionCalculators = new am_SessionCalculators(this.b_context);
+         }
+
+         this.d_sessionCalculators.a_startSessionCalculators((fi.polar.polarflow.c.d_gps_package.a_GpsLocationProviderBase)this.d_getSensor(4),
+                 (fi.polar.polarflow.c.c_heartrate_package.a_HeartRateSensor)this.d_getSensor(1),
+                 (fi.polar.polarflow.c.a_accelerometer_package.e_RunningCadenceProvider)this.d_getSensor(8), (a)this.d(16));
+         this.g = true;
+      }
+
    }
 
    private void f() {
       // $FF: Couldn't be decompiled
+      if (this.g) {
+         this.d.a();
+      }
+
+      this.d = null;
+      Iterator var1 = this.e.values().iterator();
+
+      while(var1.hasNext()) {
+         ((a_Class)var1.next()).c();
+      }
+
+      this.e.clear();
+      this.f = 0;
+      this.g = false;
+      this.h.sendEmptyMessageDelayed(7, 1000L);
+      if (this.i != null) {
+         this.i.a();
+      }
+
+      this.i = null;
+      Set var2 = this.c;
+      this.c.clear();
+
    }
 
    private void g_pause() {
@@ -180,6 +220,16 @@ class r_SessionSensorsThread extends HandlerThread implements Callback {
 
    ExerciseSensors a() {
       // $FF: Couldn't be decompiled
+      ExerciseSensors var1 = new ExerciseSensors();
+      Set var2 = this.c;
+      Iterator var3 = this.c.iterator();
+
+      while(var3.hasNext()) {
+         var1.add((ExerciseSensor)var3.next());
+      }
+
+      return var1;
+
       return null;
    }
 
