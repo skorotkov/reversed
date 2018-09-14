@@ -101,12 +101,14 @@ public abstract class Sensor extends a_GpsLocationProviderBase {
 
     protected void setStarted(boolean started) { d_sensorStarted = started; }
 
+    @Override
     public f_PolarSensorEvent k() {
         return createPolarSensorEvent();
     }
 
     protected abstract PolarSensorEvent createPolarSensorEvent();
 
+    @Override
     public float p_getSpeedInMetersPerSecond() {
         return getSpeedInMetersPerSecond();
     }
