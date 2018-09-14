@@ -61,7 +61,7 @@ class FusedLocationDataCalculator implements LocationDataCalculator {
     void handleLocation(Location location) {
         if (mPreviousLocation != null) {
             mTotalDistance += mPreviousLocation.distanceTo(location);
-            Log.i(TAG, String.format(Locale.ENGLISH, "handleLocation: mTotalDistance = %f.2", mTotalDistance));
+            Log.i(TAG, String.format(Locale.US, "handleLocation: mTotalDistance = %.2f", mTotalDistance));
         }
         mPreviousLocation = location;
     }

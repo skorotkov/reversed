@@ -7,8 +7,8 @@ import android.content.IntentFilter;
 import android.location.Location;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.support.v4.util.TimeUtils;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -165,7 +165,7 @@ public class FusedGpsLocationProvider extends Sensor {
 
     @Override
     protected void broadcastStateChanged() {
-        Log.i(TAG, "broadcastStateChanged: " + getType());
+        Log.i(TAG, "broadcastStateChanged: " + getState());
 
         Intent intent = new Intent("fi.polar.polarflow.SENSOR_LOCATION_STATE_CHANGED");
         intent.putExtra("fi.polar.polarflow.SENSOR_STATE", SENSOR_STATE.toPolar(getState()));
@@ -326,9 +326,11 @@ public class FusedGpsLocationProvider extends Sensor {
     }
 
     protected PolarSensorEvent createPolarSensorEvent() {
-        String eventString = PolarSensorEvent.class.getSimpleName() + String.format(Locale.ENGLISH,
-                "[t:%s f:%s D:%.2f S:%.2f La:%.5f Lo:%.5f A:%.2f a:%.2f u:%.2f d:%.2f n:%d]",
-                new Date(mEventTime), mFix,
+        StringBuilder s = new StringBuilder();
+        TimeUtils.formatDuration(mEventTime, s);
+        String eventString = PolarSensorEvent.class.getSimpleName() + String.format(Locale.US,
+                "[t:%s f:%s D:%.2f S:%.2f La:%.6f Lo:%.6f A:%.2f a:%.2f u:%.2f d:%.2f n:%d]",
+                s.toString(), mFix,
                 getPureTotalDistance(),
                 mSpeedInMetersPerSecond,
                 mLatitudeInDecimalDegrees,
