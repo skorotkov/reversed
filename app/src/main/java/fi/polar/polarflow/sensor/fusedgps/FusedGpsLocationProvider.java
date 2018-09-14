@@ -219,7 +219,8 @@ public class FusedGpsLocationProvider extends Sensor {
             mLastFixElapsedRealtime = elapsedRealtime;
             Log.i(TAG, "First location handled, diff to GPS start time(" + mLastFixElapsedRealtime + " - " + mProviderStartTime + ") :" + (mLastFixElapsedRealtime - mProviderStartTime));
         } else {
-            mLastFixElapsedRealtime = mLastFixElapsedRealtime + 1000L;
+//            mLastFixElapsedRealtime = mLastFixElapsedRealtime + 1000L;
+            mLastFixElapsedRealtime = elapsedRealtime;
         }
 
         if (elapsedRealtime - mLastFixElapsedRealtime < 0L) {
