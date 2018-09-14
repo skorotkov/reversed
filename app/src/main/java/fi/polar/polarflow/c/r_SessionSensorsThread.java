@@ -11,6 +11,7 @@ import fi.polar.polarflow.c.a_accelerometer_package.e_RunningCadenceProvider;
 import fi.polar.polarflow.c.c_heartrate_package.j_HeartRateSensorManager;
 import fi.polar.polarflow.c.d_gps_package.b_GpsLocationProvider;
 import fi.polar.polarflow.calculators.am_SessionCalculators;
+import fi.polar.polarflow.data.ExerciseSensor;
 import fi.polar.polarflow.data.ExerciseSensors;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -146,7 +147,7 @@ class r_SessionSensorsThread extends HandlerThread implements Callback {
 
          this.d_sessionCalculators.a_startSessionCalculators((fi.polar.polarflow.c.d_gps_package.a_GpsLocationProviderBase)this.d_getSensor(4),
                  (fi.polar.polarflow.c.c_heartrate_package.a_HeartRateSensor)this.d_getSensor(1),
-                 (fi.polar.polarflow.c.a_accelerometer_package.e_RunningCadenceProvider)this.d_getSensor(8), (a)this.d(16));
+                 (fi.polar.polarflow.c.a_accelerometer_package.e_RunningCadenceProvider)this.d_getSensor(8), (a_AccelerometerSensor) this.d_getSensor(16));
          this.g = true;
       }
 
@@ -155,17 +156,17 @@ class r_SessionSensorsThread extends HandlerThread implements Callback {
    private void f() {
       // $FF: Couldn't be decompiled
       if (this.g) {
-         this.d.a();
+         this.d_sessionCalculators.a();
       }
 
-      this.d = null;
-      Iterator var1 = this.e.values().iterator();
+      this.d_sessionCalculators = null;
+      Iterator var1 = this.e_sensorsMap.values().iterator();
 
       while(var1.hasNext()) {
-         ((a_Class)var1.next()).c();
+         ((a_Sensor)var1.next()).c_stop();
       }
 
-      this.e.clear();
+      this.e_sensorsMap.clear();
       this.f = 0;
       this.g = false;
       this.h.sendEmptyMessageDelayed(7, 1000L);
@@ -229,8 +230,6 @@ class r_SessionSensorsThread extends HandlerThread implements Callback {
       }
 
       return var1;
-
-      return null;
    }
 
    void a(int var1) {
