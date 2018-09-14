@@ -9,6 +9,11 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.support.v4.util.TimeUtils;
 
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+import org.joda.time.format.ISODateTimeFormat;
+
 import java.util.List;
 import java.util.Locale;
 
@@ -39,6 +44,8 @@ public class FusedGpsLocationProvider extends Sensor {
     private FusedGpsSensor mSensor;
     private boolean mSensorStarted;
     private FusedLocationDataCalculator mLocationDataCalculator;
+
+    private FusedGpsLog mGpsLog = null;
 
     private double mLatitudeInDecimalDegrees = 0.0D;
     private double mLongitudeInDecimalDegrees = 0.0D;
@@ -121,6 +128,8 @@ public class FusedGpsLocationProvider extends Sensor {
     @Override
     public void start() {
         mProviderStartTime = SystemClock.elapsedRealtime();
+        mGpsLog = new FusedGpsLog(getContext());
+
         Log.i(TAG, "start() at: " + mProviderStartTime);
         if (!fi.polar.polarflow.ui.o.d(getContext(), "android.permission.ACCESS_FINE_LOCATION")) {
             Log.i(TAG, "Disabled because of lack of permission");
@@ -144,6 +153,8 @@ public class FusedGpsLocationProvider extends Sensor {
     @Override
     public void stop() {
         Log.i(TAG, "stop()");
+        mGpsLog.close();
+        mGpsLog = null;
         if (isStarted()) {
             setStarted(false);
             getContext().unregisterReceiver(mPowerSaveModeBroadcastReceiver);
@@ -258,7 +269,10 @@ public class FusedGpsLocationProvider extends Sensor {
                     getPureDescent());
         }
 
-        mAndroidSensorEventListener.onEvent(createPolarSensorEvent());
+        PolarSensorEvent event = createPolarSensorEvent();
+        if (mGpsLog != null)
+            mGpsLog.write(location, event);
+        mAndroidSensorEventListener.onEvent(event);
     }
 
     private static double boundSpeed(double speed) {
@@ -326,7 +340,7 @@ public class FusedGpsLocationProvider extends Sensor {
         StickyLocalBroadcastManager.sendStickyBroadcast(intent);
     }
 
-    protected PolarSensorEvent createPolarSensorEvent() {
+    protected synchronized PolarSensorEvent createPolarSensorEvent() {
         StringBuilder s = new StringBuilder();
         TimeUtils.formatDuration(mEventTime, s);
         String eventString = PolarSensorEvent.class.getSimpleName() + String.format(Locale.US,
