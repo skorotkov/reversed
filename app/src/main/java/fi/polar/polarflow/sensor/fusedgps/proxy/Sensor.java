@@ -4,23 +4,24 @@ import android.content.Context;
 
 import java.util.List;
 
+import fi.polar.polarflow.c.d_gps_package.a_GpsLocationProviderBase;
 import fi.polar.polarflow.c.e_PolarSensorListenerEx;
-import fi.polar.polarflow.c.i_PolarSensorListenerSupport;
+import fi.polar.polarflow.c.f_PolarSensorEvent;
 import fi.polar.polarflow.c.j_PolarSensorEventListener;
 import fi.polar.polarflow.c.l_PolarSensorListener;
-import fi.polar.polarflow.data.ExerciseSensor;
 
-public abstract class Sensor extends fi.polar.polarflow.c.a_Sensor implements i_PolarSensorListenerSupport {
+public abstract class Sensor extends a_GpsLocationProviderBase {
     protected final j_PolarSensorEventListener mPolarSensorEventListener;
+    private e_PolarSensorListenerEx mPolarSensorListener;
 
     protected Sensor(Context var1, SENSOR_TYPE var2) {
         super(var1, SENSOR_TYPE.toPolar(var2));
         mPolarSensorEventListener = new j_PolarSensorEventListener() {
             @Override
             public void a_onPolarSensorEvents(List var1) {
-            if (mPolarSensorListener != null) {
-                mPolarSensorListener.a_onPolarSensorEvents(var1);
-            }
+                if (mPolarSensorListener != null) {
+                    mPolarSensorListener.a_onPolarSensorEvents(var1);
+                }
             }
         };
     }
@@ -76,30 +77,15 @@ public abstract class Sensor extends fi.polar.polarflow.c.a_Sensor implements i_
 
     protected abstract void resume();
 
-    public void do_a_and_set_e_true() {
-        this.h();
-    }
-
-    public void set_e_false() {
-        this.i();
-    }
-
     protected void setActive(boolean isActive) {
         this.e_isActive = isActive;
     }
 
     protected boolean isActive() { return e_isActive; }
 
-    public ExerciseSensor get_ExerciseSensor() {
-        return j();
-    }
-
-    protected e_PolarSensorListenerEx mPolarSensorListener;
-
     @Override
     public void a_setPolarSensorListener(l_PolarSensorListener var1) {
         mPolarSensorListener = (e_PolarSensorListenerEx)var1;
-//        this.setPolarSensorListener(new PolarSensorListenerImpl(var1));
     }
 
     @Override
@@ -114,4 +100,16 @@ public abstract class Sensor extends fi.polar.polarflow.c.a_Sensor implements i_
     protected boolean isStarted() { return d_sensorStarted; }
 
     protected void setStarted(boolean started) { d_sensorStarted = started; }
+
+    public f_PolarSensorEvent k() {
+        return createPolarSensorEvent();
+    }
+
+    protected abstract PolarSensorEvent createPolarSensorEvent();
+
+    public float p_getSpeedInMetersPerSecond() {
+        return getSpeedInMetersPerSecond();
+    }
+
+    protected abstract float getSpeedInMetersPerSecond();
 }

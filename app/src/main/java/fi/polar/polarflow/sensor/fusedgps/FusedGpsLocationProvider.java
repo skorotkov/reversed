@@ -325,19 +325,19 @@ public class FusedGpsLocationProvider extends Sensor {
         StickyLocalBroadcastManager.sendStickyBroadcast(intent);
     }
 
-    private PolarSensorEvent createPolarSensorEvent() {
+    protected PolarSensorEvent createPolarSensorEvent() {
         String eventString = PolarSensorEvent.class.getSimpleName() + String.format(Locale.ENGLISH,
-                "[t:%s f:%s D:%f.2 S:%f.2 La:%f.5 Lo:%f.5 n:%d A:%f.2 a:%f.2 u:%f.2 d:%f.2]",
+                "[t:%s f:%s D:%.2f S:%.2f La:%.5f Lo:%.5f A:%.2f a:%.2f u:%.2f d:%.2f n:%d]",
                 new Date(mEventTime), mFix,
                 getPureTotalDistance(),
                 mSpeedInMetersPerSecond,
                 mLatitudeInDecimalDegrees,
                 mLongitudeInDecimalDegrees,
-                mNumberOfSatellites,
                 mAltitudeInMetersChecked,
                 mAltitudeInMeters,
                 getPureAscent(),
-                getPureDescent());
+                getPureDescent(),
+                mNumberOfSatellites);
         Log.i(TAG, "createPolarSensorEvent: " + eventString);
 
         return new PolarSensorEvent(
@@ -356,5 +356,9 @@ public class FusedGpsLocationProvider extends Sensor {
 
     void setFix(boolean fix) {
         mFix = fix;
+    }
+
+    protected float getSpeedInMetersPerSecond() {
+        return mSpeedInMetersPerSecond;
     }
 }
