@@ -11,6 +11,7 @@ class FusedLocationDataCalculator implements LocationDataCalculator {
 
     private Location mPreviousLocation = null;
     private double mTotalDistance = 0.0D;
+    private double mSpeed = Double.NaN;
 
     @Override
     public double getAltitudeInMeters(boolean var1) {
@@ -47,10 +48,11 @@ class FusedLocationDataCalculator implements LocationDataCalculator {
 
     @Override
     public double getSpeedInMetersPerSecond() {
-        if (mPreviousLocation.hasSpeed())
-            return mPreviousLocation.getSpeed();
-        else
-            return Double.NaN;
+        return mSpeed;
+//        if (mPreviousLocation.hasSpeed())
+//            return mPreviousLocation.getSpeed();
+//        else
+//            return Double.NaN;
     }
 
     @Override
@@ -60,8 +62,10 @@ class FusedLocationDataCalculator implements LocationDataCalculator {
 
     void handleLocation(Location location) {
         if (mPreviousLocation != null) {
-            mTotalDistance += mPreviousLocation.distanceTo(location);
-            Log.i(TAG, String.format(Locale.US, "handleLocation: mTotalDistance = %.2f", mTotalDistance));
+            double distanceDelta = mPreviousLocation.distanceTo(location);
+            mTotalDistance += distanceDelta;
+            mSpeed = distanceDelta / ((location.getElapsedRealtimeNanos() - mPreviousLocation.getElapsedRealtimeNanos()) / 1000000L);
+            Log.i(TAG, String.format(Locale.US, "handleLocation: mTotalDistance = %.2f (m), speed = %.2f (m/s)", mTotalDistance, mSpeed));
         }
         mPreviousLocation = location;
     }
