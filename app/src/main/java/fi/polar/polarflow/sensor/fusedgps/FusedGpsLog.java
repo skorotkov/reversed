@@ -37,6 +37,7 @@ class FusedGpsLog {
             mFs = new FileOutputStream(file);
             mWriter = new PrintWriter(mFs);
             mWriter.println(
+                    "event:timestamp_i;" +
                     "event:timestamp;" +
                     "event:fix;" +
                     "event:distance;" +
@@ -58,7 +59,8 @@ class FusedGpsLog {
                     "location:speed;" +
                     "location:sacc;" +
                     "location:time;" +
-                    "location:et");
+                    "location:et;" +
+                    "location:et_i;");
             mWriter.flush();
             Log.i(TAG, "open file: " + mFileName);
         } catch (FileNotFoundException e) {
@@ -69,7 +71,8 @@ class FusedGpsLog {
     private String locationToCsvString(Location location) {
         StringBuilder s = new StringBuilder();
         TimeUtils.formatDuration(location.getElapsedRealtimeNanos() / 1000000L, s);
-        return String.format(Locale.US, "%.6f;%.6f;%.2f;%.2f;%.2f;%.2f;%.2f;%.2f;%.2f;%s;%s",
+        return String.format(Locale.US, "%d;%.6f;%.6f;%.2f;%.2f;%.2f;%.2f;%.2f;%.2f;%.2f;%s;%s",
+                location.getElapsedRealtimeNanos() / 1000000L,
                 location.getLatitude(),
                 location.getLongitude(),
                 location.hasAccuracy() ? location.getAccuracy() : Float.NaN,

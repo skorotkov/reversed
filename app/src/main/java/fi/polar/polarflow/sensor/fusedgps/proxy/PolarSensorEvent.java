@@ -34,7 +34,8 @@ public class PolarSensorEvent extends f_PolarSensorEvent {
     public String toCsvString() {
         StringBuilder s = new StringBuilder();
         TimeUtils.formatDuration(this.b, s);
-        return String.format(Locale.US, "%s;%s;%.2f;%.2f;%.6f;%.6f;%d;%.2f;%.2f;%.2f;%.2f",
+        return String.format(Locale.US, "%d;%s;%s;%.2f;%.2f;%.6f;%.6f;%d;%.2f;%.2f;%.2f;%.2f",
+                this.b,
                 s,
                 this.n,
                 this.e,
