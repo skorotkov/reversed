@@ -28,7 +28,7 @@ class FusedLocationDataCalculator implements LocationDataCalculator {
 
     @Override
     public boolean getFix() {
-        throw new UnsupportedOperationException();
+        return mPreviousLocation.hasAccuracy() && mPreviousLocation.getAccuracy() < 20;
     }
 
     @Override

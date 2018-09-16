@@ -239,7 +239,7 @@ public class FusedGpsLocationProvider extends Sensor {
         }
 
         mEventTime = mLastFixElapsedRealtime;
-        mFix = true;
+        mFix = mLocationDataCalculator.getFix();
         mNumberOfSatellites = mLocationDataCalculator.getNumberOfSatellites();
         mAltitudeInMetersChecked = a_DataTypes.b_adjust(a_DataTypes.ALTITUDE_INDEX, mLocationDataCalculator.getAltitudeInMeters(true));
         mAltitudeInMeters = a_DataTypes.b_adjust(a_DataTypes.ALTITUDE_INDEX, mLocationDataCalculator.getAltitudeInMeters(false));
