@@ -46,26 +46,26 @@ public class j_HeartRateSensorManager extends a_HeartRateSensor {
       this.l = new i();
    }
 
-   private void A() {
+   private void A_switchToBleSensor() {
       fi.polar.polarflow.util.d.c("HeartRateSensorManager", "switchToBleSensor()");
       if (!this.n && this.m != null) {
          this.n = true;
-         a((a_Sensor)this.i);
+         a_stopSensor((a_Sensor)this.i);
          if (!b((a_Sensor)this.m)) {
-            b((a_Sensor)this.m, (l_PolarSensorListener)this.r);
+            b_startSensor((a_Sensor)this.m, (l_PolarSensorListener)this.r);
          }
       }
 
    }
 
-   private void B() {
+   private void B_switchToInDeviceSensor() {
       fi.polar.polarflow.util.d.c("HeartRateSensorManager", "switchToInDeviceSensor()");
       if (this.n) {
          this.n = false;
-         a((a_Sensor)this.m);
+         a_stopSensor((a_Sensor)this.m);
          this.m = null;
          if (!b((a_Sensor)this.i)) {
-            b((a_Sensor)this.i, (l_PolarSensorListener)this.q);
+            b_startSensor((a_Sensor)this.i, (l_PolarSensorListener)this.q);
          }
       }
 
@@ -77,12 +77,12 @@ public class j_HeartRateSensorManager extends a_HeartRateSensor {
       if (var2 != null) {
          this.h.a();
          this.m = this.a(var2);
-         b((a_Sensor)this.m, (l_PolarSensorListener)this.r);
+         b_startSensor((a_Sensor)this.m, (l_PolarSensorListener)this.r);
       } else {
          var2 = this.b(var1);
          if (var2 != null) {
             this.m = this.a(var2);
-            this.s();
+            this.s_broadcastPairingConfirmationNeeded();
          } else if (!this.h.b()) {
             this.h.a(this.t);
          }
@@ -90,7 +90,7 @@ public class j_HeartRateSensorManager extends a_HeartRateSensor {
 
    }
 
-   private void D() {
+   private void D_onBluetoothEnabled() {
       fi.polar.polarflow.util.d.c("HeartRateSensorManager", "onBluetoothEnabled()");
       if (!this.n) {
          this.h.a();
@@ -100,7 +100,7 @@ public class j_HeartRateSensorManager extends a_HeartRateSensor {
 
    }
 
-   private void E() {
+   private void E_onBluetoothDisabled() {
       fi.polar.polarflow.util.d.c("HeartRateSensorManager", "onBluetoothDisabled()");
       if (this.h.b()) {
          this.h.a();
@@ -108,7 +108,7 @@ public class j_HeartRateSensorManager extends a_HeartRateSensor {
 
       if (this.n) {
          this.a_setState((m_SENSOR_STATE) m_SENSOR_STATE.c_SEARCHING);
-         this.B();
+         this.B_switchToInDeviceSensor();
       }
 
    }
@@ -146,7 +146,7 @@ public class j_HeartRateSensorManager extends a_HeartRateSensor {
       return var1;
    }
 
-   private static void a(a_Sensor var0) {
+   private static void a_stopSensor(a_Sensor var0) {
       fi.polar.polarflow.util.d.c("HeartRateSensorManager", "stopSensor(" + var0 + ")");
       if (var0 != null) {
          if (var0 instanceof i_PolarSensorListenerSupport) {
@@ -160,12 +160,12 @@ public class j_HeartRateSensorManager extends a_HeartRateSensor {
 
    // $FF: synthetic method
    static void a(a_Sensor var0, l_PolarSensorListener var1) {
-      b(var0, var1);
+      b_startSensor(var0, var1);
    }
 
    // $FF: synthetic method
    static void a(j_HeartRateSensorManager var0) {
-      var0.D();
+      var0.D_onBluetoothEnabled();
    }
 
    // $FF: synthetic method
@@ -207,7 +207,7 @@ public class j_HeartRateSensorManager extends a_HeartRateSensor {
       return var6;
    }
 
-   private static void b(a_Sensor var0, l_PolarSensorListener var1) {
+   private static void b_startSensor(a_Sensor var0, l_PolarSensorListener var1) {
       fi.polar.polarflow.util.d.c("HeartRateSensorManager", "startSensor(" + var0 + ")");
       if (var0 != null) {
          if (var0 instanceof i_PolarSensorListenerSupport) {
@@ -221,7 +221,7 @@ public class j_HeartRateSensorManager extends a_HeartRateSensor {
 
    // $FF: synthetic method
    static void b(j_HeartRateSensorManager var0) {
-      var0.E();
+      var0.E_onBluetoothDisabled();
    }
 
    // $FF: synthetic method
@@ -256,17 +256,17 @@ public class j_HeartRateSensorManager extends a_HeartRateSensor {
 
    // $FF: synthetic method
    static void e(j_HeartRateSensorManager var0) {
-      var0.y();
+      var0.y_onInDeviceSensorDisabled();
    }
 
    // $FF: synthetic method
    static void f(j_HeartRateSensorManager var0) {
-      var0.z();
+      var0.z_onInDeviceSensorSearching();
    }
 
    // $FF: synthetic method
    static void g(j_HeartRateSensorManager var0) {
-      var0.x();
+      var0.x_onInDeviceSensorReady();
    }
 
    // $FF: synthetic method
@@ -276,22 +276,22 @@ public class j_HeartRateSensorManager extends a_HeartRateSensor {
 
    // $FF: synthetic method
    static void i(j_HeartRateSensorManager var0) {
-      var0.v();
+      var0.v_onBleSensorDisconnected();
    }
 
    // $FF: synthetic method
    static void j(j_HeartRateSensorManager var0) {
-      var0.w();
+      var0.w_onBleSensorSearching();
    }
 
    // $FF: synthetic method
    static void k(j_HeartRateSensorManager var0) {
-      var0.t();
+      var0.t_onBleSensorReady();
    }
 
    // $FF: synthetic method
    static void l(j_HeartRateSensorManager var0) {
-      var0.u();
+      var0.u_onBleSensorConnectFailed();
    }
 
    // $FF: synthetic method
@@ -335,7 +335,7 @@ public class j_HeartRateSensorManager extends a_HeartRateSensor {
 
    // $FF: synthetic method
    static void q(j_HeartRateSensorManager var0) {
-      var0.s();
+      var0.s_broadcastPairingConfirmationNeeded();
    }
 
    private void r() {
@@ -352,47 +352,47 @@ public class j_HeartRateSensorManager extends a_HeartRateSensor {
       return var0.t;
    }
 
-   private void s() {
+   private void s_broadcastPairingConfirmationNeeded() {
       Intent var1 = new Intent("fi.polar.polarflow.ACTION_SENSOR_PAIRING_CONFIRMATION_NEEDED");
       var1.putExtras(this.m.k());
       this.o().a_sendBroadcast(var1);
    }
 
-   private void t() {
+   private void t_onBleSensorReady() {
       fi.polar.polarflow.util.d.c("HeartRateSensorManager", "onBleSensorReady()");
-      this.A();
+      this.A_switchToBleSensor();
       this.a_setState(m_SENSOR_STATE.d_READY, true);
    }
 
-   private void u() {
+   private void u_onBleSensorConnectFailed() {
       fi.polar.polarflow.util.d.c("HeartRateSensorManager", "onBleSensorConnectFailed()");
       if (!this.m.p()) {
          this.b(this.m.q());
-         a((a_Sensor)this.m);
+         a_stopSensor((a_Sensor)this.m);
          this.m = null;
          this.C();
       }
 
    }
 
-   private void v() {
+   private void v_onBleSensorDisconnected() {
       fi.polar.polarflow.util.d.c("HeartRateSensorManager", "onBleSensorDisconnected()");
       this.a_setState((m_SENSOR_STATE) m_SENSOR_STATE.c_SEARCHING);
       this.n = false;
-      b((a_Sensor)this.i, (l_PolarSensorListener)this.q);
+      b_startSensor((a_Sensor)this.i, (l_PolarSensorListener)this.q);
    }
 
-   private void w() {
+   private void w_onBleSensorSearching() {
       fi.polar.polarflow.util.d.c("HeartRateSensorManager", "onBleSensorSearching()");
       this.a_setState((m_SENSOR_STATE) m_SENSOR_STATE.c_SEARCHING);
    }
 
-   private void x() {
+   private void x_onInDeviceSensorReady() {
       fi.polar.polarflow.util.d.c("HeartRateSensorManager", "onInDeviceSensorReady()");
       this.a_setState((m_SENSOR_STATE) m_SENSOR_STATE.d_READY);
    }
 
-   private void y() {
+   private void y_onInDeviceSensorDisabled() {
       fi.polar.polarflow.util.d.c("HeartRateSensorManager", "onInDeviceSensorDisabled()");
       if (this.h.b()) {
          this.a_setState((m_SENSOR_STATE) m_SENSOR_STATE.c_SEARCHING);
@@ -402,7 +402,7 @@ public class j_HeartRateSensorManager extends a_HeartRateSensor {
 
    }
 
-   private void z() {
+   private void z_onInDeviceSensorSearching() {
       fi.polar.polarflow.util.d.c("HeartRateSensorManager", "onInDeviceSensorSearching()");
       this.a_setState((m_SENSOR_STATE) m_SENSOR_STATE.c_SEARCHING);
    }
@@ -432,7 +432,7 @@ public class j_HeartRateSensorManager extends a_HeartRateSensor {
          this.h.a(fi.polar.polarflow.c.b_ble_package.i.b);
          this.h.a(fi.polar.polarflow.util.i.a(this.a_context, "PAIRING_RSSI_THRESHOLD_POLAR", -55), fi.polar.polarflow.util.i.a(this.a_context, "PAIRING_RSSI_THRESHOLD_OTHER", -55));
          this.h.a(this.t);
-         b((a_Sensor)this.i, (l_PolarSensorListener)this.q);
+         b_startSensor((a_Sensor)this.i, (l_PolarSensorListener)this.q);
       } else {
          this.d_broadcastStateChanged();
       }
@@ -445,8 +445,8 @@ public class j_HeartRateSensorManager extends a_HeartRateSensor {
          this.o = false;
          this.j.a();
          this.r();
-         a((a_Sensor)this.i);
-         a((a_Sensor)this.m);
+         a_stopSensor((a_Sensor)this.i);
+         a_stopSensor((a_Sensor)this.m);
          this.h.a();
          this.g.removeCallbacksAndMessages((Object)null);
       }

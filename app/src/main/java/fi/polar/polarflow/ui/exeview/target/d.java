@@ -98,7 +98,7 @@ public class d extends x implements fi.polar.polarflow.ui.exeview.h {
          }
 
          var6.setOnClickListener(new f(this));
-         this.a.postDelayed(this.b, fi.polar.polarflow.util.b.m);
+         this.a.postDelayed(this.b, fi.polar.polarflow.util.b.m_5secsInMs);
       } else {
          var6 = null;
       }

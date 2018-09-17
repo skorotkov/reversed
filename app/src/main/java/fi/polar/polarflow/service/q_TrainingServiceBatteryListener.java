@@ -1,17 +1,17 @@
 package fi.polar.polarflow.service;
 
-class q implements c_BatteryManagerListener {
+class q_TrainingServiceBatteryListener implements c_BatteryManagerListener {
    // $FF: synthetic field
    final TrainingService a;
 
-   q(TrainingService var1) {
+   q_TrainingServiceBatteryListener(TrainingService var1) {
       this.a = var1;
    }
 
    public void a_onBatteryLow() {
       fi.polar.polarflow.util.d.c("TrainingService", "onBatteryLow()");
       if (TrainingService.b_getTraining(this.a).isRunning()) {
-         TrainingService.c(this.a);
+         TrainingService.c_startPeriodicSaving(this.a);
       }
 
    }

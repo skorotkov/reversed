@@ -14,11 +14,11 @@ public class b {
    public static final long[] i = new long[]{0L, 500L, 200L, 500L};
    public static final long[] j = new long[]{0L, 60L, 60L, 60L, 60L, 60L, 180L, 60L, 60L, 60L, 60L, 60L};
    public static final long[] k = new long[]{0L, 200L};
-   public static final long l;
-   public static final long m;
+   public static final long l_10minutesInMs;
+   public static final long m_5secsInMs;
 
    static {
-      l = TimeUnit.MINUTES.toMillis(10L);
-      m = TimeUnit.SECONDS.toMillis(5L);
+      l_10minutesInMs = TimeUnit.MINUTES.toMillis(10L);
+      m_5secsInMs = TimeUnit.SECONDS.toMillis(5L);
    }
 }

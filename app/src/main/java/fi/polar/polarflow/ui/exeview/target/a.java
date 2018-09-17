@@ -243,7 +243,7 @@ public class a extends x implements fi.polar.polarflow.ui.exeview.h {
          if (this.d != null && this.d.getChangeType() == 0) {
             var6.findViewById(2131755445).setVisibility(0);
          } else {
-            this.a.postDelayed(this.b, fi.polar.polarflow.util.b.m);
+            this.a.postDelayed(this.b, fi.polar.polarflow.util.b.m_5secsInMs);
          }
 
          var6.setOnClickListener(new c(this));

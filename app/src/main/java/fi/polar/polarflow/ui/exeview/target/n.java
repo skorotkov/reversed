@@ -62,7 +62,7 @@ public class n extends x implements fi.polar.polarflow.ui.exeview.h {
       }
 
       var4.setOnClickListener(new p(this));
-      this.a.postDelayed(this.b, fi.polar.polarflow.util.b.m);
+      this.a.postDelayed(this.b, fi.polar.polarflow.util.b.m_5secsInMs);
       return var4;
    }
 
@@ -74,7 +74,7 @@ public class n extends x implements fi.polar.polarflow.ui.exeview.h {
    public void onStart() {
       super.onStart();
       ObjectAnimator var1 = ObjectAnimator.ofInt(this.getDialog().getWindow().getDecorView().findViewById(2131755358), "progress", new int[]{0, 100});
-      var1.setDuration(fi.polar.polarflow.util.b.m);
+      var1.setDuration(fi.polar.polarflow.util.b.m_5secsInMs);
       var1.start();
    }
 }

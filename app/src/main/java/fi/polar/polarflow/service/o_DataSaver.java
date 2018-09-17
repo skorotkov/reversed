@@ -19,7 +19,7 @@ import fi.polar.polarflow.service.datalayer.at;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class o {
+public class o_DataSaver {
    private final TrainingSession a;
    private final Exercise b;
    private final TrainingSamples c;
@@ -32,7 +32,7 @@ public class o {
    private final SportProfile j;
    private ExerciseSensors k = null;
 
-   o(TrainingDataRefs var1) {
+   o_DataSaver(TrainingDataRefs var1) {
       this.a = var1.mTrainingSession;
       this.b = var1.mExercise;
       this.c = var1.mSamples;

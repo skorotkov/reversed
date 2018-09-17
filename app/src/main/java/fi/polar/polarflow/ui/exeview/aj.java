@@ -16,7 +16,7 @@ class aj implements fi.polar.polarflow.ui.custom.j {
    public void b() {
       ab.a(this.a, true);
       ab.b(this.a, false);
-      if (Training.getInstance().getDurationMs() < fi.polar.polarflow.util.b.l) {
+      if (Training.getInstance().getDurationMs() < fi.polar.polarflow.util.b.l_10minutesInMs) {
          ab.i(this.a);
       } else {
          ab.j(this.a);

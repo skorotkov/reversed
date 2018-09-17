@@ -79,6 +79,19 @@ class r_SessionSensorsThread extends HandlerThread implements Callback {
 
    private void c() {
       // $FF: Couldn't be decompiled
+      Iterator var1 = this.e_sensorsMap.entrySet().iterator();
+
+      while(var1.hasNext()) {
+         Entry var2 = (Entry)var1.next();
+         if (this.c((Integer)var2.getKey()) && ((a_Sensor)var2.getValue()).e_getState() == m_SENSOR_STATE.d_READY) {
+            ExerciseSensor var3 = ((a_Sensor)var2.getValue()).j();
+            if (var3 != null) {
+               Set var4 = this.c;
+               this.c.add(var3);
+            }
+         }
+      }
+
    }
 
    private boolean c(int var1) {
@@ -213,7 +226,7 @@ class r_SessionSensorsThread extends HandlerThread implements Callback {
 
    }
 
-   private void i() {
+   private void i_onKill() {
       fi.polar.polarflow.util.d.c("SessionSensorsThread", "onKill() id: " + this.getId());
       this.h = null;
       this.quit();
@@ -284,7 +297,7 @@ class r_SessionSensorsThread extends HandlerThread implements Callback {
          this.e(var1.arg1);
          break;
       case 7:
-         this.i();
+         this.i_onKill();
          break;
       default:
          var2 = false;
