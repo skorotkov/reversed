@@ -6,7 +6,7 @@ class bk extends fi.polar.polarflow.ui.a_package.z {
    }
 
    public float a(fi.polar.polarflow.calculators.as var1) {
-      return var1.i();
+      return var1.i_getMostResentAltitude();
    }
 
    public float a(fi.polar.polarflow.calculators.bd var1) {

@@ -20,7 +20,7 @@ class t_StopSessionTask implements Runnable {
       if (TrainingService.g(this.a_trainingService)) {
          TrainingService.h(this.a_trainingService).a(this.a_trainingService.getApplicationContext(), true);
       } else {
-         TrainingService.a_saveAndPublishSession(this.a_trainingService, var1, TrainingService.i(this.a_trainingService));
+         TrainingService.a_saveAndPublishSession(this.a_trainingService, var1, TrainingService.i_createTrainingServicePublishCallback(this.a_trainingService));
       }
 
       TrainingService.a_setSessionState(this.a_trainingService, 0);

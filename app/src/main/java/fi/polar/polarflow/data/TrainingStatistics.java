@@ -2,7 +2,7 @@ package fi.polar.polarflow.data;
 
 import fi.polar.polarflow.calculators.a;
 import fi.polar.polarflow.calculators.as;
-import fi.polar.polarflow.calculators.at;
+import fi.polar.polarflow.calculators.at_RangeStatistics;
 import fi.polar.polarflow.calculators.bd;
 import fi.polar.polarflow.calculators.a_package.c;
 import fi.polar.polarflow.data.orm.Exercise;
@@ -15,7 +15,7 @@ public class TrainingStatistics {
    private final a mAltitudeStatistics = new a();
    private final c mCadenceStatistics = new c();
    private final ExerciseStatistics mExerciseStatistics = new ExerciseStatistics();
-   private final at mHeartrateStatistics = new at(0.0F, 250.0F);
+   private final at_RangeStatistics mHeartrateStatistics = new at_RangeStatistics(0.0F, 250.0F);
    private final as mSpeedStatistics = new as();
    private final bd mSwimmingSpeedStatistics = new bd();
    private SwimmingStatistics mSwimmingStatistics = null;
@@ -30,7 +30,7 @@ public class TrainingStatistics {
       this.mExerciseStatistics.delete();
    }
 
-   public at getAltitudeStatistics() {
+   public at_RangeStatistics getAltitudeStatistics() {
       return this.mAltitudeStatistics;
    }
 
@@ -38,11 +38,11 @@ public class TrainingStatistics {
       return this.mCadenceStatistics;
    }
 
-   public at getHeartrateStatistics() {
+   public at_RangeStatistics getHeartrateStatistics() {
       return this.mHeartrateStatistics;
    }
 
-   public at getSpeedStatistics() {
+   public at_RangeStatistics getSpeedStatistics() {
       return this.mSpeedStatistics;
    }
 
@@ -55,20 +55,20 @@ public class TrainingStatistics {
    }
 
    public void save() {
-      if (this.mSpeedStatistics.g()) {
+      if (this.mSpeedStatistics.g_areAnyAltitudeSamplesAdded()) {
          long var1 = this.mExerciseStatistics.getExercise().getDuration();
          float var3 = this.mExerciseStatistics.getExercise().getDistance();
          this.mExerciseStatistics.setAverageSpeed(this.mSpeedStatistics.b(var1, (double)var3));
          this.mExerciseStatistics.setMaximumSpeed(this.mSpeedStatistics.c(var1, (double)var3));
       }
 
-      this.mExerciseStatistics.setAverageHeartrate(Math.round(this.mHeartrateStatistics.c()));
-      this.mExerciseStatistics.setMaximumHeartrate(Math.round(this.mHeartrateStatistics.e()));
-      this.mExerciseStatistics.setMinimumHeartrate(Math.round(this.mHeartrateStatistics.d()));
-      if (this.mAltitudeStatistics.g()) {
-         this.mExerciseStatistics.setMaximumAltitude(this.mAltitudeStatistics.e());
-         this.mExerciseStatistics.setMinimumAltitude(this.mAltitudeStatistics.d());
-         this.mExerciseStatistics.setAverageAltitude(this.mAltitudeStatistics.c());
+      this.mExerciseStatistics.setAverageHeartrate(Math.round(this.mHeartrateStatistics.c_getAverageAltitude()));
+      this.mExerciseStatistics.setMaximumHeartrate(Math.round(this.mHeartrateStatistics.e_getMaxAltitude()));
+      this.mExerciseStatistics.setMinimumHeartrate(Math.round(this.mHeartrateStatistics.d_getMinAltitude()));
+      if (this.mAltitudeStatistics.g_areAnyAltitudeSamplesAdded()) {
+         this.mExerciseStatistics.setMaximumAltitude(this.mAltitudeStatistics.e_getMaxAltitude());
+         this.mExerciseStatistics.setMinimumAltitude(this.mAltitudeStatistics.d_getMinAltitude());
+         this.mExerciseStatistics.setAverageAltitude(this.mAltitudeStatistics.c_getAverageAltitude());
       }
 
       if (this.mCadenceStatistics.b()) {

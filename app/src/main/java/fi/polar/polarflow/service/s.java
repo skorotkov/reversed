@@ -10,6 +10,6 @@ class s implements fi.polar.polarflow.c.k {
 
    public void a() {
       fi.polar.polarflow.util.d.c("TrainingService", "onStopCompleted");
-      TrainingService.e(this.a).post(TrainingService.f(this.a));
+      TrainingService.e_getHandler(this.a).post(TrainingService.f_getStopSessionTask(this.a));
    }
 }

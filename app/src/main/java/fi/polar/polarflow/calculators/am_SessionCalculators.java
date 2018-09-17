@@ -435,8 +435,8 @@ public class am_SessionCalculators {
          al_Calc var6 = (al_Calc)var5.next();
          if (var6 instanceof h_ExerciseLapCalc) {
             ((h_ExerciseLapCalc)var6).b(new aa_GpsEvent(var1, var3, var2));
-         } else if (var6 instanceof s) {
-            ((s)var6).b(new aa_GpsEvent(var1, var3, var2));
+         } else if (var6 instanceof s_GpsCalc) {
+            ((s_GpsCalc)var6).b(new aa_GpsEvent(var1, var3, var2));
          } else if (var6 instanceof t) {
             ((t)var6).b(new v(var1, var3, var2));
          } else if (var6 instanceof j_ExercisePhaseCalc) {
@@ -451,10 +451,10 @@ public class am_SessionCalculators {
       this.b.clear();
       if (var1 != null) {
          this.v_gpsSensor = var1;
-         this.b.add(new s());
+         this.b.add(new s_GpsCalc());
          this.b.add(new t());
          if (this.v_gpsSensor.e_getState() == m_SENSOR_STATE.d_READY) {
-            this.s.getStatistics().getSpeedStatistics().b(this.v_gpsSensor.p_getSpeedInMetersPerSecond());
+            this.s.getStatistics().getSpeedStatistics().b_setMostResentAltitude(this.v_gpsSensor.p_getSpeedInMetersPerSecond());
          }
 
          this.v_gpsSensor.a_setPolarSensorListener(this.G_gpsPolarSensorListener);
@@ -467,7 +467,7 @@ public class am_SessionCalculators {
          this.w_heartRateSensor = var2;
          this.b.add(new q_ExerciseSampleHeartrateCalc(this.context));
          if (this.w_heartRateSensor.e_getState() == m_SENSOR_STATE.d_READY) {
-            this.s.getStatistics().getHeartrateStatistics().b((float)this.w_heartRateSensor.n());
+            this.s.getStatistics().getHeartrateStatistics().b_setMostResentAltitude((float)this.w_heartRateSensor.n());
             var5 = (float)this.w_heartRateSensor.n();
             var6 = this.t.c_elapsedRealtimeNanos();
             this.g = new b_PolarSensorEventBase(new float[]{var5}, var6, 3);

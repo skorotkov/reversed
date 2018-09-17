@@ -30,7 +30,7 @@ public abstract class h_ExerciseLapCalc extends aj_CalcBase implements ae, ah {
    private final bd n;
    private final aw o;
    private final fi.polar.polarflow.calculators.a_package.c p;
-   private final at q;
+   private final at_RangeStatistics q;
    private long r;
    private long s;
    private long t;
@@ -61,7 +61,7 @@ public abstract class h_ExerciseLapCalc extends aj_CalcBase implements ae, ah {
       this.k = 0.0F;
       this.l = 0L;
       this.p = new fi.polar.polarflow.calculators.a_package.c();
-      this.q = new at(0.0F, 250.0F);
+      this.q = new at_RangeStatistics(0.0F, 250.0F);
       this.r = 0L;
       this.s = 0L;
       this.t = 0L;
@@ -89,9 +89,9 @@ public abstract class h_ExerciseLapCalc extends aj_CalcBase implements ae, ah {
       }
 
       if (Float.isNaN(var2_speed)) {
-         this.m.b();
+         this.m.b_addEmptyAltitude();
       } else {
-         this.m.a(3.6F * var2_speed); // m/s -> km/h
+         this.m.a_addAltitude(3.6F * var2_speed); // m/s -> km/h
       }
 
       if (!this.c) {
@@ -120,9 +120,9 @@ public abstract class h_ExerciseLapCalc extends aj_CalcBase implements ae, ah {
             }
          }
 
-         this.q.a((float)var3);
+         this.q.a_addAltitude((float)var3);
       } else {
-         this.q.b();
+         this.q.b_addEmptyAltitude();
       }
 
       if (!this.c) {
@@ -168,7 +168,7 @@ public abstract class h_ExerciseLapCalc extends aj_CalcBase implements ae, ah {
    }
 
    private void e() {
-      if (this.q.g()) {
+      if (this.q.g_areAnyAltitudeSamplesAdded()) {
          String var1;
          if (this instanceof ab) {
             var1 = "ExerciseLapCalc.ACTION_MANUAL_LAP_DATA_HR";
@@ -178,9 +178,9 @@ public abstract class h_ExerciseLapCalc extends aj_CalcBase implements ae, ah {
 
          Intent var2 = new Intent(var1);
          var2.putExtra("ExerciseLapCalc.KEY_LAP_NUMBER", this.a);
-         var2.putExtra("ExerciseLapCalc.KEY_AVG_HR", Math.round(this.q.c()));
-         var2.putExtra("ExerciseLapCalc.KEY_MAX_HR", Math.round(this.q.e()));
-         var2.putExtra("ExerciseLapCalc.KEY_MIN_HR", Math.round(this.q.d()));
+         var2.putExtra("ExerciseLapCalc.KEY_AVG_HR", Math.round(this.q.c_getAverageAltitude()));
+         var2.putExtra("ExerciseLapCalc.KEY_MAX_HR", Math.round(this.q.e_getMaxAltitude()));
+         var2.putExtra("ExerciseLapCalc.KEY_MIN_HR", Math.round(this.q.d_getMinAltitude()));
          this.b.b_sendStickyBroadcast(var2);
       }
 
@@ -201,9 +201,9 @@ public abstract class h_ExerciseLapCalc extends aj_CalcBase implements ae, ah {
          var4.putExtra("ExerciseLapCalc.KEY_DISTANCE", var1);
          var4.putExtra("ExerciseLapCalc.KEY_ASCENT", this.l());
          var4.putExtra("ExerciseLapCalc.KEY_DESCENT", this.m());
-         if (this.m.g()) {
+         if (this.m.g_areAnyAltitudeSamplesAdded()) {
             var1 = this.m.a(this.i(), (double)var1);
-            float var3 = Math.max(this.m.e(), var1);
+            float var3 = Math.max(this.m.e_getMaxAltitude(), var1);
             var4.putExtra("ExerciseLapCalc.KEY_AVG_SPEED", var1);
             var4.putExtra("ExerciseLapCalc.KEY_MAX_SPEED", var3);
          }
@@ -310,17 +310,17 @@ public abstract class h_ExerciseLapCalc extends aj_CalcBase implements ae, ah {
          this.k += var6;
       }
 
-      if (this.q.g()) {
-         var7.setAvgHR(Math.round(this.q.c()));
-         var7.setMaxHR(Math.round(this.q.e()));
-         var7.setMinHR(Math.round(this.q.d()));
-         this.q.a();
+      if (this.q.g_areAnyAltitudeSamplesAdded()) {
+         var7.setAvgHR(Math.round(this.q.c_getAverageAltitude()));
+         var7.setMaxHR(Math.round(this.q.e_getMaxAltitude()));
+         var7.setMinHR(Math.round(this.q.d_getMinAltitude()));
+         this.q.a_clear();
       }
 
-      if (this.m.g()) {
+      if (this.m.g_areAnyAltitudeSamplesAdded()) {
          var7.setAvgSpeed(this.m.b(var2, (double)var4));
          var7.setMaxSpeed(this.m.c(var2, (double)var4));
-         this.m.a();
+         this.m.a_clear();
       }
 
       if (this.p.b()) {
@@ -339,11 +339,11 @@ public abstract class h_ExerciseLapCalc extends aj_CalcBase implements ae, ah {
       var5.setDurationMillis(var2);
       this.l += var2;
       var5.setSplitTimeMillis(this.l);
-      if (this.q.g()) {
-         var5.setAvgHR(Math.round(this.q.c()));
-         var5.setMaxHR(Math.round(this.q.e()));
-         var5.setMinHR(Math.round(this.q.d()));
-         this.q.a();
+      if (this.q.g_areAnyAltitudeSamplesAdded()) {
+         var5.setAvgHR(Math.round(this.q.c_getAverageAltitude()));
+         var5.setMaxHR(Math.round(this.q.e_getMaxAltitude()));
+         var5.setMinHR(Math.round(this.q.d_getMinAltitude()));
+         this.q.a_clear();
       }
 
       if (var4 != null) {

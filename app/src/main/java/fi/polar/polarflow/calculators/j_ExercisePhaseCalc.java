@@ -51,7 +51,7 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
    private boolean v;
    private boolean w;
    private final fi.polar.polarflow.calculators.a_package.c x;
-   private final at y;
+   private final at_RangeStatistics y;
    private String z;
 
    static {
@@ -83,7 +83,7 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
       this.v = false;
       this.w = false;
       this.x = new fi.polar.polarflow.calculators.a_package.c();
-      this.y = new at(0.0F, 250.0F);
+      this.y = new at_RangeStatistics(0.0F, 250.0F);
       this.z = "";
       this.C = -1;
       this.D = -1;
@@ -138,7 +138,7 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
 
    private void a(float var1, float var2) {
       this.n = var1;
-      this.a.a(3.6F * var2);
+      this.a.a_addAltitude(3.6F * var2);
       this.s();
    }
 
@@ -150,9 +150,9 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
       }
 
       if (Float.isNaN(var2)) {
-         this.a.b();
+         this.a.b_addEmptyAltitude();
       } else {
-         this.a.a(3.6F * var2);
+         this.a.a_addAltitude(3.6F * var2);
       }
 
       this.s();
@@ -171,10 +171,10 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
          }
 
          this.c(var2);
-         this.y.a((float)var2);
+         this.y.a_addAltitude((float)var2);
       } else {
          this.v();
-         this.y.b();
+         this.y.b_addEmptyAltitude();
       }
 
       this.r();
@@ -263,7 +263,7 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
    }
 
    private void c(int var1) {
-      if (this.l != null && !this.w && this.l.getStartTime() != -1L && this.C != -1 && this.D != -1 && (float)var1 != this.y.i()) {
+      if (this.l != null && !this.w && this.l.getStartTime() != -1L && this.C != -1 && this.D != -1 && (float)var1 != this.y.i_getMostResentAltitude()) {
          if (var1 >= this.C && var1 <= this.D) {
             if (this.z.equals("ExercisePhaseCalc.ACTION_BELOW_TARGET_ZONE") || this.z.equals("ExercisePhaseCalc.ACTION_ABOVE_TARGET_ZONE")) {
                this.a("ExercisePhaseCalc.ACTION_TARGET_ZONE_REACHED", 0);
@@ -306,8 +306,8 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
       this.p = -1.0F;
       this.r = -1.0F;
       this.j = false;
-      this.y.a();
-      this.a.a();
+      this.y.a_clear();
+      this.a.a_clear();
       this.x.c();
       if (this.l != null) {
          if (this.l.getGoalType() == 1) {
@@ -402,12 +402,12 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
    private void r() {
       Intent var1 = new Intent("ExercisePhaseCalc.ACTION_PHASE_CURRENT_DATA");
       var1.putExtra("ExercisePhaseCalc.KEY_PHASE_NUMBER", this.m);
-      if (this.y.g()) {
-         this.b.getTrainingPhase().setAvgHr(this.y.c());
-         this.b.getTrainingPhase().setMaxHr(this.y.e());
-         var1.putExtra("ExercisePhaseCalc.KEY_AVG_HR", Math.round(this.y.c()));
-         var1.putExtra("ExercisePhaseCalc.KEY_MAX_HR", Math.round(this.y.e()));
-         var1.putExtra("ExercisePhaseCalc.KEY_MIN_HR", Math.round(this.y.d()));
+      if (this.y.g_areAnyAltitudeSamplesAdded()) {
+         this.b.getTrainingPhase().setAvgHr(this.y.c_getAverageAltitude());
+         this.b.getTrainingPhase().setMaxHr(this.y.e_getMaxAltitude());
+         var1.putExtra("ExercisePhaseCalc.KEY_AVG_HR", Math.round(this.y.c_getAverageAltitude()));
+         var1.putExtra("ExercisePhaseCalc.KEY_MAX_HR", Math.round(this.y.e_getMaxAltitude()));
+         var1.putExtra("ExercisePhaseCalc.KEY_MIN_HR", Math.round(this.y.d_getMinAltitude()));
       }
 
       if (!this.c) {
@@ -425,9 +425,9 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
          this.b.getTrainingPhase().setDistance(var2);
       }
 
-      if (this.a.g()) {
+      if (this.a.g_areAnyAltitudeSamplesAdded()) {
          var2 = this.a.a(this.e(), (double)var2);
-         float var3 = Math.max(this.a.e(), var2);
+         float var3 = Math.max(this.a.e_getMaxAltitude(), var2);
          var1.putExtra("ExercisePhaseCalc.KEY_AVG_SPEED", var2);
          var1.putExtra("ExercisePhaseCalc.KEY_MAX_SPEED", var3);
          this.b.getTrainingPhase().setAvgSpeed(var2);
@@ -565,16 +565,16 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
          this.s += var7;
       }
 
-      if (this.y.g()) {
-         var3.setAvgHR(Math.round(this.y.c()));
-         var3.setMaxHR(Math.round(this.y.e()));
-         this.y.a();
+      if (this.y.g_areAnyAltitudeSamplesAdded()) {
+         var3.setAvgHR(Math.round(this.y.c_getAverageAltitude()));
+         var3.setMaxHR(Math.round(this.y.e_getMaxAltitude()));
+         this.y.a_clear();
       }
 
-      if (this.a.g()) {
+      if (this.a.g_areAnyAltitudeSamplesAdded()) {
          var3.setAvgSpeed(this.a.b(var4, (double)var6));
          var3.setMaxSpeed(this.a.c(var4, (double)var6));
-         this.a.a();
+         this.a.a_clear();
       }
 
       if (this.x.b()) {

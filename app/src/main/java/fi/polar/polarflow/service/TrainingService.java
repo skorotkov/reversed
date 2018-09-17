@@ -27,7 +27,7 @@ public class TrainingService extends Service {
    private final c_BatteryManagerListener b_batteryListener = new q_TrainingServiceBatteryListener(this);
    private final Runnable c_periodicSavingTask = new r_PeriodicSavingTask(this);
    private final IBinder d = new v(this);
-   private final Handler e = new Handler();
+   private final Handler e_handler = new Handler();
    private o_SessionSensors f_sessionSensors;
    private a_BatteryManager g_batteryManager;
    private w h_vibratorManager;
@@ -38,7 +38,7 @@ public class TrainingService extends Service {
    private boolean m;
    private o_DataSaver n_dataSaver = null;
    private z o = null;
-   private final Runnable p = new t_StopSessionTask(this);
+   private final Runnable p_stopSessionTask = new t_StopSessionTask(this);
 
    // $FF: synthetic method
    static int a_getSessionState(TrainingService var0) {
@@ -97,7 +97,7 @@ public class TrainingService extends Service {
          var3_saveAndPublishTask.a_setDataSaver(this.n_dataSaver);
       }
 
-      var3_saveAndPublishTask.a(this.f_sessionSensors.d());
+      var3_saveAndPublishTask.a_setExerciseSensors(this.f_sessionSensors.d());
       (new Thread(var3_saveAndPublishTask)).start();
    }
 
@@ -236,18 +236,18 @@ public class TrainingService extends Service {
    }
 
    // $FF: synthetic method
-   static Runnable d(TrainingService var0) {
+   static Runnable d_getPeriodicSavingTask(TrainingService var0) {
       return var0.c_periodicSavingTask;
    }
 
    // $FF: synthetic method
-   static Handler e(TrainingService var0) {
-      return var0.e;
+   static Handler e_getHandler(TrainingService var0) {
+      return var0.e_handler;
    }
 
    // $FF: synthetic method
-   static Runnable f(TrainingService var0) {
-      return var0.p;
+   static Runnable f_getStopSessionTask(TrainingService var0) {
+      return var0.p_stopSessionTask;
    }
 
    private void g_startSession() {
@@ -278,8 +278,8 @@ public class TrainingService extends Service {
       return var0.m;
    }
 
-   private at h() {
-      return new u(this, this.getApplicationContext());
+   private at h_createTrainingServicePublishCallback() {
+      return new u_TrainingServicePublishCallback(this, this.getApplicationContext());
    }
 
    // $FF: synthetic method
@@ -292,8 +292,8 @@ public class TrainingService extends Service {
    }
 
    // $FF: synthetic method
-   static at i(TrainingService var0) {
-      return var0.h();
+   static at i_createTrainingServicePublishCallback(TrainingService var0) {
+      return var0.h_createTrainingServicePublishCallback();
    }
 
    private void j() {
@@ -305,7 +305,7 @@ public class TrainingService extends Service {
       if (!this.k) {
          long var1 = this.i_training.getDurationMs();
          if (var1 < fi.polar.polarflow.util.b.l_10minutesInMs) { // less than 10 min
-            this.e.postDelayed(this.c_periodicSavingTask, fi.polar.polarflow.util.b.l_10minutesInMs - var1);
+            this.e_handler.postDelayed(this.c_periodicSavingTask, fi.polar.polarflow.util.b.l_10minutesInMs - var1);
          } else {
             this.c_periodicSavingTask.run();
          }
@@ -317,7 +317,7 @@ public class TrainingService extends Service {
 
    private void l_stopPeriodicSaving() {
       fi.polar.polarflow.util.d.c("TrainingService", "stopPeriodicSaving");
-      this.e.removeCallbacks(this.c_periodicSavingTask);
+      this.e_handler.removeCallbacks(this.c_periodicSavingTask);
       this.k = false;
    }
 
@@ -416,7 +416,7 @@ public class TrainingService extends Service {
          this.h_vibratorManager.b();
       }
 
-      this.e.removeCallbacksAndMessages((Object)null);
+      this.e_handler.removeCallbacksAndMessages((Object)null);
       super.onDestroy();
    }
 

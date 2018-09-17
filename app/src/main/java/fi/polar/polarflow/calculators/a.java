@@ -1,49 +1,49 @@
 package fi.polar.polarflow.calculators;
 
-public class a extends at {
+public class a extends at_RangeStatistics {
    public a() {
       super(-550.0F, 9000.0F);
-      this.b(Float.NaN);
+      this.b_setMostResentAltitude(Float.NaN);
    }
 
-   public void a() {
-      super.a();
-      this.b(Float.NaN);
+   public void a_clear() {
+      super.a_clear();
+      this.b_setMostResentAltitude(Float.NaN);
    }
 
-   public void b() {
-      super.b();
-      this.b(Float.NaN);
+   public void b_addEmptyAltitude() {
+      super.b_addEmptyAltitude();
+      this.b_setMostResentAltitude(Float.NaN);
    }
 
-   public float c() {
+   public float c_getAverageAltitude() {
       float var1;
-      if (this.d == 0) {
+      if (this.d_numOfSamples == 0) {
          var1 = Float.NaN;
       } else {
-         var1 = (float)(this.c / (double)this.d);
+         var1 = (float)(this.c_sumOfSamples / (double)this.d_numOfSamples);
       }
 
       return var1;
    }
 
-   public float d() {
+   public float d_getMinAltitude() {
       float var1;
-      if (this.a == Float.MAX_VALUE) {
+      if (this.a_min == Float.MAX_VALUE) {
          var1 = Float.NaN;
       } else {
-         var1 = this.a;
+         var1 = this.a_min;
       }
 
       return var1;
    }
 
-   public float e() {
+   public float e_getMaxAltitude() {
       float var1;
-      if (this.b == -3.4028235E38F) {
+      if (this.b_max == -3.4028235E38F) {
          var1 = Float.NaN;
       } else {
-         var1 = this.b;
+         var1 = this.b_max;
       }
 
       return var1;

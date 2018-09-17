@@ -11,6 +11,6 @@ class r_PeriodicSavingTask implements Runnable {
    public void run() {
       fi.polar.polarflow.util.d.c("TrainingService", "mPeriodicSavingTask: Battery low, saving training session");
       this.a_trainingService.d_saveAndPublishSession();
-      TrainingService.e(this.a_trainingService).postDelayed(TrainingService.d(this.a_trainingService), 60000L);
+      TrainingService.e_getHandler(this.a_trainingService).postDelayed(TrainingService.d_getPeriodicSavingTask(this.a_trainingService), 60000L);
    }
 }

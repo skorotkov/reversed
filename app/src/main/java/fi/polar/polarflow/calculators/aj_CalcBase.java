@@ -5,7 +5,7 @@ import java.util.List;
 
 abstract class aj_CalcBase implements al_Calc, c {
    private static final String a = aj_CalcBase.class.getSimpleName();
-   private final List b;
+   private final List b_sensorTypes;
    boolean c;
    private int d;
    private ai_Event e;
@@ -19,7 +19,7 @@ abstract class aj_CalcBase implements al_Calc, c {
          var1 = new ArrayList();
       }
 
-      this.b = (List)var1;
+      this.b_sensorTypes = (List)var1;
       this.d = 0;
    }
 

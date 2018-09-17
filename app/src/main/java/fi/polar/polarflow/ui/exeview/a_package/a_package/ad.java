@@ -11,10 +11,10 @@ public class ad extends ab {
       if (this.P != null) {
          this.a(this.P.getInt(w, -1));
       } else if (Training.getInstance().isRunning()) {
-         int var1 = Math.round(Training.getInstance().getStatistics().getHeartrateStatistics().e());
+         int var1 = Math.round(Training.getInstance().getStatistics().getHeartrateStatistics().e_getMaxAltitude());
          int var2 = var1;
          if (var1 == 0) {
-            var2 = Math.round(Training.getInstance().getStatistics().getHeartrateStatistics().i());
+            var2 = Math.round(Training.getInstance().getStatistics().getHeartrateStatistics().i_getMostResentAltitude());
          }
 
          this.a(var2);

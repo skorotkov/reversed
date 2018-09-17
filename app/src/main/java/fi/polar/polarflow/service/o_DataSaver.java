@@ -1,6 +1,8 @@
 package fi.polar.polarflow.service;
 
 import android.content.Context;
+
+import fi.polar.polarflow.calculators.at_RangeStatistics;
 import fi.polar.polarflow.data.ExerciseSensors;
 import fi.polar.polarflow.data.TrainingDataRefs;
 import fi.polar.polarflow.data.TrainingLaps;
@@ -30,7 +32,7 @@ public class o_DataSaver {
    private final ExerciseTargetInfo h;
    private final ExercisePhaseStats i;
    private final SportProfile j;
-   private ExerciseSensors k = null;
+   private ExerciseSensors k_exerciseSensors = null;
 
    o_DataSaver(TrainingDataRefs var1) {
       this.a = var1.mTrainingSession;
@@ -49,7 +51,7 @@ public class o_DataSaver {
       return this.a.getStartTime();
    }
 
-   public void a(Context var1, at var2) {
+   public void a_mayBePublish(Context var1, at var2) {
       ArrayList var3 = new ArrayList();
       var3.add(this.a.createDataLayerRequest());
       String var4 = this.a.getPath();
@@ -64,7 +66,7 @@ public class o_DataSaver {
 
       var3.add(this.b.createDataLayerRequest());
       String var5 = this.b.getPath();
-      var3.add(this.k.createDataLayerRequest(var5 + "SENSORS.BPB"));
+      var3.add(this.k_exerciseSensors.createDataLayerRequest(var5 + "SENSORS.BPB"));
       Sport var6 = Sport.getSport(this.b.getSport());
       if (var6 != null) {
          var3.add(var6.createDataLayerRequest(var5 + var6.getFilename()));
@@ -97,15 +99,15 @@ public class o_DataSaver {
       (new fi.polar.polarflow.service.datalayer.t(var1, var2)).execute((fi.polar.polarflow.service.datalayer.s[])var3.toArray(new fi.polar.polarflow.service.datalayer.s[var3.size()]));
    }
 
-   public void a(ExerciseSensors var1) {
-      this.k = var1;
+   public void a_setExerciseSensors(ExerciseSensors var1) {
+      this.k_exerciseSensors = var1;
    }
 
    public void b_save() {
-      fi.polar.polarflow.calculators.at var1 = this.c.getStatistics().getHeartrateStatistics();
+      at_RangeStatistics var1 = this.c.getStatistics().getHeartrateStatistics();
       this.a.setTimeInHrZones(this.c.getZones().getTimeInZones());
-      this.a.setAverageHr((int)var1.c());
-      this.a.setMaximumHr((int)var1.e());
+      this.a.setAverageHr((int)var1.c_getAverageAltitude());
+      this.a.setMaximumHr((int)var1.e_getMaxAltitude());
       this.a.save();
       this.b.save();
       this.c.save();

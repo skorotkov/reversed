@@ -14,10 +14,10 @@ public class bm extends fi.polar.polarflow.ui.a_package.z {
 
    public float a(fi.polar.polarflow.calculators.as var1) {
       float var2;
-      if (var1.g()) {
-         var2 = Math.max(var1.e(), var1.a(this.Q.getDurationMs(), (double)this.Q.getTotalDistance()));
+      if (var1.g_areAnyAltitudeSamplesAdded()) {
+         var2 = Math.max(var1.e_getMaxAltitude(), var1.a(this.Q.getDurationMs(), (double)this.Q.getTotalDistance()));
       } else {
-         var2 = var1.i();
+         var2 = var1.i_getMostResentAltitude();
       }
 
       return var2;
