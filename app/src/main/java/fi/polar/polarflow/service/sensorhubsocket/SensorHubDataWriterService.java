@@ -14,7 +14,7 @@ public class SensorHubDataWriterService extends IntentService {
       this.a((new f(var1)).a(var3).a());
    }
 
-   private void a(a var1) {
+   private void a_sendEventToOhrApp(a var1) {
       fi.polar.polarflow.util.d.c("SensorHubDataWriterService", "sendEventToOhrApp(" + var1 + ")");
       this.a((new f(e.b)).a(var1).a());
    }
@@ -86,10 +86,10 @@ public class SensorHubDataWriterService extends IntentService {
          }
          break;
       case 2:
-         this.a(fi.polar.polarflow.service.sensorhubsocket.a.c);
+         this.a_sendEventToOhrApp(fi.polar.polarflow.service.sensorhubsocket.a.c);
          break;
       case 3:
-         this.a(fi.polar.polarflow.service.sensorhubsocket.a.d);
+         this.a_sendEventToOhrApp(fi.polar.polarflow.service.sensorhubsocket.a.d);
          break;
       default:
          fi.polar.polarflow.util.d.f("SensorHubDataWriterService", "Unknown action: " + var1);

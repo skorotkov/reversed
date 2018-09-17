@@ -29,7 +29,7 @@ class d {
 
    void a(b_PolarSensorEventBase var1) {
       boolean var2 = true;
-      long var3 = var1.b;
+      long var3 = var1.b_timestamp;
       boolean var5;
       if (this.d == 0L) {
          this.d = var3;

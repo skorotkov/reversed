@@ -5,15 +5,15 @@ import android.content.Context;
 import fi.polar.polarflow.a_package.a_DataTypes;
 import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
 
-public class d extends h_ExerciseLapCalc {
+public class d_DistanceLapCalc extends h_ExerciseLapCalc {
    private final float d;
    private boolean e;
 
-   d(Context var1, float var2, long var3) {
+   d_DistanceLapCalc(Context var1, float var2, long var3) {
       this(var1, var2, var3, new as());
    }
 
-   d(Context var1, float var2, long var3, as var5) {
+   d_DistanceLapCalc(Context var1, float var2, long var3, as var5) {
       super(var1, var3, (v_StickyLocalBroadcastManager)null, var5);
       float var6 = a_DataTypes.a_adjust(1, var2);
       var2 = var6;

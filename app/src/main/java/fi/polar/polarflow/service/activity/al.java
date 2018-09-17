@@ -7,9 +7,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import fi.polar.polarflow.service.a_BatteryManager;
 import fi.polar.polarflow.util.aa_TimeUtils;
 
-class al extends fi.polar.polarflow.service.a {
+class al extends a_BatteryManager {
    private aa_TimeUtils a = new aa_TimeUtils();
    private final Map b = Collections.synchronizedMap(new HashMap());
    private final i c = new i(50);
@@ -70,11 +71,11 @@ class al extends fi.polar.polarflow.service.a {
       return var7;
    }
 
-   public void a() {
-      super.a();
+   public void a_start() {
+      super.a_start();
       this.c.b();
       this.d.b();
-      this.c.a(this.a.c_elapsedRealtimeNanos(), this.d());
+      this.c.a(this.a.c_elapsedRealtimeNanos(), this.d_isBatterySafeForOperations());
    }
 
    public void a(int var1) {
@@ -98,20 +99,20 @@ class al extends fi.polar.polarflow.service.a {
       this.d.a(var1, var3);
    }
 
-   protected void e() {
+   protected void e_notifyBatteryLow() {
       fi.polar.polarflow.util.d.c("NonWearCache", "onBatteryLow()");
-      super.e();
+      super.e_notifyBatteryLow();
    }
 
-   protected void f() {
+   protected void f_notifyBatterySafeForOperations() {
       fi.polar.polarflow.util.d.c("NonWearCache", "onPlugged()");
-      super.f();
+      super.f_notifyBatterySafeForOperations();
       this.c.a(this.a.c_elapsedRealtimeNanos(), true);
    }
 
-   protected void g() {
+   protected void g_notifyBatteryNotSafeForOperations() {
       fi.polar.polarflow.util.d.c("NonWearCache", "onUnPlugged()");
-      super.g();
+      super.g_notifyBatteryNotSafeForOperations();
       this.c.a(this.a.c_elapsedRealtimeNanos(), false);
    }
 

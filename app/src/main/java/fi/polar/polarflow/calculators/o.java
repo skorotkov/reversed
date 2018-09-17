@@ -4,7 +4,7 @@ import fi.polar.polarflow.c.n_SENSOR_TYPE;
 import fi.polar.polarflow.data.Training;
 import java.util.ArrayList;
 
-public class o extends aj {
+public class o extends aj_CalcBase {
    private static final ArrayList a = new ArrayList(1);
    private Training b = Training.getInstance();
 

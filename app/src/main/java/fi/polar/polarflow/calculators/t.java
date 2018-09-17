@@ -6,7 +6,7 @@ import fi.polar.polarflow.c.n_SENSOR_TYPE;
 import fi.polar.polarflow.data.Training;
 import java.util.ArrayList;
 
-public class t extends aj {
+public class t extends aj_CalcBase {
    private static final String a = t.class.getSimpleName();
    private static final ArrayList b = new ArrayList(1);
    private long d = 0L;

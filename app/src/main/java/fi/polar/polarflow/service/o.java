@@ -101,7 +101,7 @@ public class o {
       this.k = var1;
    }
 
-   public void b() {
+   public void b_save() {
       fi.polar.polarflow.calculators.at var1 = this.c.getStatistics().getHeartrateStatistics();
       this.a.setTimeInHrZones(this.c.getZones().getTimeInZones());
       this.a.setAverageHr((int)var1.c());
@@ -131,6 +131,6 @@ public class o {
          }
       }
 
-      fi.polar.polarflow.util.d.c(n.a(), "Training saved");
+      fi.polar.polarflow.util.d.c(n_TrainingSaveAndPublishRunnable.a_getTAG(), "Training saved");
    }
 }

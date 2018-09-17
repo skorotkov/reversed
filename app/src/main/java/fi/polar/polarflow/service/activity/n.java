@@ -18,7 +18,7 @@ class n implements fi.polar.polarflow.service.activity.a_package.f {
          this.a.a.a(this.a.b, 30000000);
          this.a.b.a(DailyActivityService.f(this.a));
          DailyActivityService.a(this.a, DailyActivityService.g(this.a).h());
-         DailyActivityService.g(this.a).a();
+         DailyActivityService.g(this.a).a_start();
          this.a.c.a_registerReceiver(this.a.e, DailyActivityService.h(this.a));
          DailyActivityService.a(this.a, y.c);
       }

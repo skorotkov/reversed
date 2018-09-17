@@ -9,7 +9,7 @@ import android.content.IntentFilter;
 import fi.polar.polarflow.data.Training;
 import fi.polar.polarflow.data.orm.Sport;
 
-public class w_ExerciseVolumeTargetCalc implements ae, ah, al, y {
+public class w_ExerciseVolumeTargetCalc implements ae, ah, al_Calc, y {
    private AlarmManager a;
    private PendingIntent b;
    private final android.support.v4.c.g c;

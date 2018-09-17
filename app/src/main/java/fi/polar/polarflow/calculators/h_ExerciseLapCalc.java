@@ -14,7 +14,7 @@ import fi.polar.polarmathsmart.swimming.poolswimming.SwimmingLapStatistics;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public abstract class h_ExerciseLapCalc extends aj implements ae, ah {
+public abstract class h_ExerciseLapCalc extends aj_CalcBase implements ae, ah {
    private static final ArrayList d = new ArrayList(3);
    int a;
    protected v_StickyLocalBroadcastManager b;
@@ -65,7 +65,7 @@ public abstract class h_ExerciseLapCalc extends aj implements ae, ah {
       this.r = 0L;
       this.s = 0L;
       this.t = 0L;
-      this.a((ai)(new i(this, 0, 0L)));
+      this.a((ai_Event)(new i(this, 0, 0L)));
       this.r = var2;
       if (var4 == null) {
          if (var1 != null) {
@@ -81,17 +81,17 @@ public abstract class h_ExerciseLapCalc extends aj implements ae, ah {
       this.o = new aw();
    }
 
-   private void a(float var1, float var2, double var3, float var5, float var6, boolean var7) {
-      this.h = var5;
-      this.j = var6;
-      if (var7) {
-         this.e = var1;
+   private void a_handleLocationDataBroadcast(float var1_distance, float var2_speed, double var3_altitude, float var5_ascent, float var6_descent, boolean var7_isSensorInReadyState) {
+      this.h = var5_ascent;
+      this.j = var6_descent;
+      if (var7_isSensorInReadyState) {
+         this.e = var1_distance;
       }
 
-      if (Float.isNaN(var2)) {
+      if (Float.isNaN(var2_speed)) {
          this.m.b();
       } else {
-         this.m.a(3.6F * var2);
+         this.m.a(3.6F * var2_speed); // m/s -> km/h
       }
 
       if (!this.c) {
@@ -149,17 +149,17 @@ public abstract class h_ExerciseLapCalc extends aj implements ae, ah {
 
       while(var1.hasNext()) {
          Intent var2 = (Intent)var1.next();
-         boolean var3;
+         boolean var3_isSensorInReadyState;
          if (m_SENSOR_STATE.d_READY == var2.getSerializableExtra("fi.polar.polarflow.SENSOR_STATE")) {
-            var3 = true;
+            var3_isSensorInReadyState = true;
          } else {
-            var3 = false;
+            var3_isSensorInReadyState = false;
          }
 
          if ("fi.polar.polarflow.ACTION_HR_DATA".equals(var2.getAction())) {
-            this.a(var2.getIntExtra("fi.polar.polarflow.KEY_SENSOR_HR_MEASUREMENT_VALUE", 0), var3);
+            this.a(var2.getIntExtra("fi.polar.polarflow.KEY_SENSOR_HR_MEASUREMENT_VALUE", 0), var3_isSensorInReadyState);
          } else if ("fi.polar.polarflow.ACTION_LOCATION_DATA".equals(var2.getAction())) {
-            this.a(var2.getFloatExtra("fi.polar.polarflow.KEY_SENSOR_LOCATION_DISTANCE_VALUE", -1.0F), var2.getFloatExtra("fi.polar.polarflow.KEY_SENSOR_LOCATION_CURRENT_SPEED_VALUE", Float.NaN), var2.getDoubleExtra("fi.polar.polarflow.KEY_SENSOR_LOCATION_ALTITUDE_VALUE", -1.0D), var2.getFloatExtra("fi.polar.polarflow.KEY_SENSOR_LOCATION_ASCENT_VALUE", -1.0F), var2.getFloatExtra("fi.polar.polarflow.KEY_SENSOR_LOCATION_DESCENT_VALUE", -1.0F), var3);
+            this.a_handleLocationDataBroadcast(var2.getFloatExtra("fi.polar.polarflow.KEY_SENSOR_LOCATION_DISTANCE_VALUE", -1.0F), var2.getFloatExtra("fi.polar.polarflow.KEY_SENSOR_LOCATION_CURRENT_SPEED_VALUE", Float.NaN), var2.getDoubleExtra("fi.polar.polarflow.KEY_SENSOR_LOCATION_ALTITUDE_VALUE", -1.0D), var2.getFloatExtra("fi.polar.polarflow.KEY_SENSOR_LOCATION_ASCENT_VALUE", -1.0F), var2.getFloatExtra("fi.polar.polarflow.KEY_SENSOR_LOCATION_DESCENT_VALUE", -1.0F), var3_isSensorInReadyState);
          } else if ("fi.polar.polarflow.ACTION_RUNNING_CADENCE_DATA".equals(var2.getAction())) {
             this.a(var2.getIntExtra("fi.polar.polarflow.KEY_SENSOR_RUNNING_CADENCE_VALUE", 0));
          }
@@ -232,11 +232,11 @@ public abstract class h_ExerciseLapCalc extends aj implements ae, ah {
    }
 
    public void a() {
-      ai var1 = this.o();
+      ai_Event var1 = this.o();
       if (var1 instanceof z) {
          this.a(((z)var1).a(), var1.n());
-      } else if (var1 instanceof aa) {
-         this.a(((aa)var1).b(), ((aa)var1).a(), (double)((aa)var1).c(), ((aa)var1).d(), ((aa)var1).e(), var1.n());
+      } else if (var1 instanceof aa_GpsEvent) {
+         this.a_handleLocationDataBroadcast(((aa_GpsEvent)var1).b_getDistance(), ((aa_GpsEvent)var1).a_getSpeed(), (double)((aa_GpsEvent)var1).c_getAltitude(), ((aa_GpsEvent)var1).d_getAscent(), ((aa_GpsEvent)var1).e_getDescent(), var1.n());
       } else if (var1 instanceof b) {
          this.a(((b)var1).a());
       } else if (var1 instanceof ag) {

@@ -1,6 +1,6 @@
 package fi.polar.polarflow.calculators;
 
-class z extends ai {
+class z extends ai_Event {
    private final int a;
 
    z() {

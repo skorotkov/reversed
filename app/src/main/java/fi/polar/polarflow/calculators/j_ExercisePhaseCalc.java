@@ -18,7 +18,7 @@ import fi.polar.polarflow.data.orm.Zones;
 import java.util.ArrayList;
 import java.util.List;
 
-public class j extends aj implements ae, ah, y {
+public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
    private static final ArrayList k = new ArrayList(3);
    private int A;
    private List B;
@@ -60,15 +60,15 @@ public class j extends aj implements ae, ah, y {
       k.add(n_SENSOR_TYPE.e_RUNNING_CADENCE);
    }
 
-   public j(Context var1) {
+   public j_ExercisePhaseCalc(Context var1) {
       this(var1, (Training)null, (Handler)null, (AlarmManager)null);
    }
 
-   public j(Context var1, Training var2, Handler var3, AlarmManager var4) {
+   public j_ExercisePhaseCalc(Context var1, Training var2, Handler var3, AlarmManager var4) {
       this(var1, var2, var3, var4, (as)null);
    }
 
-   public j(Context var1, Training var2, Handler var3, AlarmManager var4, as var5) {
+   public j_ExercisePhaseCalc(Context var1, Training var2, Handler var3, AlarmManager var4, as var5) {
       super(k);
       this.l = null;
       this.m = 1;
@@ -90,7 +90,7 @@ public class j extends aj implements ae, ah, y {
       this.G = new k(this);
       this.H = new m(this);
       this.I = new n(this);
-      this.a((ai)(new l(this, 0, 0L)));
+      this.a((ai_Event)(new l(this, 0, 0L)));
       if (var2 == null) {
          var2 = Training.getInstance();
       }
@@ -206,7 +206,7 @@ public class j extends aj implements ae, ah, y {
    }
 
    // $FF: synthetic method
-   static void a(j var0, String var1, int var2) {
+   static void a(j_ExercisePhaseCalc var0, String var1, int var2) {
       var0.a(var1, var2);
    }
 
@@ -227,12 +227,12 @@ public class j extends aj implements ae, ah, y {
    }
 
    // $FF: synthetic method
-   static boolean a(j var0) {
+   static boolean a(j_ExercisePhaseCalc var0) {
       return var0.w;
    }
 
    // $FF: synthetic method
-   static boolean a(j var0, boolean var1) {
+   static boolean a(j_ExercisePhaseCalc var0, boolean var1) {
       var0.v = var1;
       return var1;
    }
@@ -253,12 +253,12 @@ public class j extends aj implements ae, ah, y {
    }
 
    // $FF: synthetic method
-   static void b(j var0) {
+   static void b(j_ExercisePhaseCalc var0) {
       var0.l();
    }
 
    // $FF: synthetic method
-   static Runnable c(j var0) {
+   static Runnable c(j_ExercisePhaseCalc var0) {
       return var0.H;
    }
 
@@ -296,7 +296,7 @@ public class j extends aj implements ae, ah, y {
    }
 
    // $FF: synthetic method
-   static Handler d(j var0) {
+   static Handler d(j_ExercisePhaseCalc var0) {
       return var0.d;
    }
 
@@ -338,27 +338,27 @@ public class j extends aj implements ae, ah, y {
    }
 
    // $FF: synthetic method
-   static ExercisePhase e(j var0) {
+   static ExercisePhase e(j_ExercisePhaseCalc var0) {
       return var0.l;
    }
 
    // $FF: synthetic method
-   static int f(j var0) {
+   static int f(j_ExercisePhaseCalc var0) {
       return var0.m;
    }
 
    // $FF: synthetic method
-   static void g(j var0) {
+   static void g(j_ExercisePhaseCalc var0) {
       var0.m();
    }
 
    // $FF: synthetic method
-   static String h(j var0) {
+   static String h(j_ExercisePhaseCalc var0) {
       return var0.z;
    }
 
    // $FF: synthetic method
-   static int i(j var0) {
+   static int i(j_ExercisePhaseCalc var0) {
       return var0.A;
    }
 
@@ -501,11 +501,11 @@ public class j extends aj implements ae, ah, y {
 
    public void a() {
       if (this.l != null) {
-         ai var1 = this.o();
+         ai_Event var1 = this.o();
          if (var1 instanceof z) {
             this.a(((z)var1).a());
-         } else if (var1 instanceof aa) {
-            this.a(((aa)var1).b(), ((aa)var1).a(), ((aa)var1).d(), ((aa)var1).e());
+         } else if (var1 instanceof aa_GpsEvent) {
+            this.a(((aa_GpsEvent)var1).b_getDistance(), ((aa_GpsEvent)var1).a_getSpeed(), ((aa_GpsEvent)var1).d_getAscent(), ((aa_GpsEvent)var1).e_getDescent());
          } else if (var1 instanceof b) {
             this.b(((b)var1).a());
          } else if (var1 instanceof ag) {

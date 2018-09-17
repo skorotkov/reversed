@@ -2,7 +2,7 @@ package fi.polar.polarflow.calculators;
 
 import fi.polar.polarflow.a_package.a_DataTypes;
 
-public class b extends ai {
+public class b extends ai_Event {
    private final int a;
 
    b() {

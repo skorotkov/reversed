@@ -33,19 +33,19 @@ public class PolarSensorEvent extends f_PolarSensorEvent {
 
     public String toCsvString() {
         StringBuilder s = new StringBuilder();
-        TimeUtils.formatDuration(this.b, s);
+        TimeUtils.formatDuration(this.b_timestamp, s);
         return String.format(Locale.US, "%d;%s;%s;%.2f;%.2f;%.6f;%.6f;%d;%.2f;%.2f;%.2f;%.2f",
-                this.b,
+                this.b_timestamp,
                 s,
-                this.n,
-                this.e,
-                this.f,
-                this.h,
-                this.i,
-                this.g,
-                this.j,
-                this.k,
-                this.l,
-                this.m);
+                this.n_fix,
+                this.e_distance,
+                this.f_speed,
+                this.h_latitude,
+                this.i_longitude,
+                this.g_numberOfSatellites,
+                this.j_altitudeInMetersChecked,
+                this.k_altitudeInMeters,
+                this.l_ascent,
+                this.m_descent);
     }
 }

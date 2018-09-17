@@ -4,7 +4,7 @@ import fi.polar.polarflow.c.n_SENSOR_TYPE;
 import fi.polar.polarflow.data.Training;
 import java.util.ArrayList;
 
-class s extends aj implements ak, y {
+class s extends aj_CalcBase implements ak, y {
    private static final ArrayList a = new ArrayList(1);
    private int b = -1;
    private int d = -1;
@@ -15,18 +15,18 @@ class s extends aj implements ak, y {
 
    s() {
       super(a);
-      this.a(new aa());
+      this.a(new aa_GpsEvent());
    }
 
    public void a() {
       byte var1 = 0;
-      boolean var2 = ((aa)this.o()).n();
-      int var3 = ((aa)this.o()).l();
-      float var4 = ((aa)this.o()).c();
-      float var5 = ((aa)this.o()).a();
-      Training.getInstance().setTotalDistance(((aa)this.o()).b(), var2);
-      Training.getInstance().setTotalAscent(((aa)this.o()).d());
-      Training.getInstance().setTotalDescent(((aa)this.o()).e());
+      boolean var2 = ((aa_GpsEvent)this.o()).n();
+      int var3 = ((aa_GpsEvent)this.o()).l();
+      float var4 = ((aa_GpsEvent)this.o()).c_getAltitude();
+      float var5 = ((aa_GpsEvent)this.o()).a_getSpeed();
+      Training.getInstance().setTotalDistance(((aa_GpsEvent)this.o()).b_getDistance(), var2);
+      Training.getInstance().setTotalAscent(((aa_GpsEvent)this.o()).d_getAscent());
+      Training.getInstance().setTotalDescent(((aa_GpsEvent)this.o()).e_getDescent());
       int var6;
       if (Float.isNaN(var5)) {
          Training.getInstance().setCurrentSpeedInMetersPerSecond(-1.0F, false);
@@ -34,7 +34,7 @@ class s extends aj implements ak, y {
             this.d = var3;
          }
       } else {
-         Training.getInstance().setCurrentSpeedInMetersPerSecond(((aa)this.o()).a(), true);
+         Training.getInstance().setCurrentSpeedInMetersPerSecond(((aa_GpsEvent)this.o()).a_getSpeed(), true);
          if (this.d != -1) {
             if (var3 > 0) {
                var6 = var3 - 1;
@@ -86,7 +86,7 @@ class s extends aj implements ak, y {
    public void d() {
       int var1 = this.p();
       if (var1 != -1) {
-         int var2 = ((aa)this.o()).l();
+         int var2 = ((aa_GpsEvent)this.o()).l();
          if (var1 == 0) {
             Training.getInstance().getSamples().addDistanceOfflineRange(var1, var2);
          }
@@ -105,7 +105,7 @@ class s extends aj implements ak, y {
       }
 
       if (this.b != -1) {
-         Training.getInstance().getSamples().addAltitudeOfflineRange(this.b, ((aa)this.o()).l());
+         Training.getInstance().getSamples().addAltitudeOfflineRange(this.b, ((aa_GpsEvent)this.o()).l());
          this.b = -1;
       }
 

@@ -6,11 +6,11 @@ import java.util.concurrent.TimeUnit;
 import fi.polar.polarflow.c.e_PolarSensorListenerEx;
 import fi.polar.polarflow.c.m_SENSOR_STATE;
 
-class an implements e_PolarSensorListenerEx {
+class an_HrPolarSensorListener implements e_PolarSensorListenerEx {
    // $FF: synthetic field
    final am_SessionCalculators a;
 
-   an(am_SessionCalculators var1) {
+   an_HrPolarSensorListener(am_SessionCalculators var1) {
       this.a = var1;
    }
 
@@ -20,7 +20,7 @@ class an implements e_PolarSensorListenerEx {
          am_SessionCalculators.a(this.a, am_SessionCalculators.b(this.a).c_elapsedRealtimeNanos());
          am_SessionCalculators.c(this.a);
          int var2 = am_SessionCalculators.c(this.a)[0] - 1;
-         if (am_SessionCalculators.d(this.a).a != null && am_SessionCalculators.d(this.a).a[0] == 0.0F) {
+         if (am_SessionCalculators.d(this.a).a_values != null && am_SessionCalculators.d(this.a).a_values[0] == 0.0F) {
             fi.polar.polarflow.util.d.c(am_SessionCalculators.d(), "HR onMeasurementChanged, fill previous OHR offline values.");
             am_SessionCalculators.a(this.a, 0, true, var2);
             am_SessionCalculators var3 = this.a;
@@ -83,21 +83,21 @@ class an implements e_PolarSensorListenerEx {
             } else if (am_SessionCalculators.h(this.a) == 0) {
                var7 = am_SessionCalculators.d(this.a);
             } else {
-               if (var5 > ((fi.polar.polarflow.c.b_PolarSensorEventBase)am_SessionCalculators.g(this.a).get(am_SessionCalculators.g(this.a).size() - 1)).b + am_SessionCalculators.e()) {
+               if (var5 > ((fi.polar.polarflow.c.b_PolarSensorEventBase)am_SessionCalculators.g(this.a).get(am_SessionCalculators.g(this.a).size() - 1)).b_timestamp + am_SessionCalculators.e()) {
                   break;
                }
 
                var7 = fi.polar.polarflow.c.b_PolarSensorEventBase.a(var5, am_SessionCalculators.g(this.a));
-               if (var7.b > var5 + am_SessionCalculators.e()) {
+               if (var7.b_timestamp > var5 + am_SessionCalculators.e()) {
                   var7 = am_SessionCalculators.d(this.a);
                } else {
                   am_SessionCalculators.a(this.a, var7);
                }
             }
 
-            if (var7 != null && var7.a != null) {
-               this.a.a(am_SessionCalculators.h(this.a), Math.round(var7.a[0]));
-               fi.polar.polarflow.c.b_PolarSensorEventBase.a(am_SessionCalculators.g(this.a), var7.b, 0L);
+            if (var7 != null && var7.a_values != null) {
+               this.a.a(am_SessionCalculators.h(this.a), Math.round(var7.a_values[0]));
+               fi.polar.polarflow.c.b_PolarSensorEventBase.a(am_SessionCalculators.g(this.a), var7.b_timestamp, 0L);
             }
          }
 

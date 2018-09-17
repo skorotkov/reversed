@@ -7,21 +7,21 @@ import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
 import fi.polar.polarmathsmart.swimming.poolswimming.SwimmingLapStatistics;
 
 class az extends ab {
-   private final bb d;
+   private final bb_SwimmingMetricsProvider d;
    private final Runnable e;
 
-   az(Context var1, long var2, bb var4) {
+   az(Context var1, long var2, bb_SwimmingMetricsProvider var4) {
       this(var1, var2, var4, (Handler)null, (v_StickyLocalBroadcastManager)null);
    }
 
-   az(Context var1, long var2, bb var4, Handler var5, v_StickyLocalBroadcastManager var6) {
+   az(Context var1, long var2, bb_SwimmingMetricsProvider var4, Handler var5, v_StickyLocalBroadcastManager var6) {
       super(var1, var2, var5, var6);
       this.e = new ba(this);
       this.d = var4;
    }
 
    // $FF: synthetic method
-   static bb a(az var0) {
+   static bb_SwimmingMetricsProvider a(az var0) {
       return var0.d;
    }
 

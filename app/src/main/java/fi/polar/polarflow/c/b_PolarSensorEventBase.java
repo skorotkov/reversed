@@ -6,40 +6,40 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class b_PolarSensorEventBase {
-   public final float[] a;
-   public final long b;
-   public final Sensor c;
-   public final int d;
+   public final float[] a_values;
+   public final long b_timestamp;
+   public final Sensor c_sensor;
+   public final int d_accuracy;
 
    public b_PolarSensorEventBase(SensorEvent var1) {
       if (var1.values != null) {
-         this.a = (float[])var1.values.clone();
+         this.a_values = (float[])var1.values.clone();
       } else {
-         this.a = null;
+         this.a_values = null;
       }
 
-      this.b = var1.timestamp;
-      this.c = var1.sensor;
-      this.d = var1.accuracy;
+      this.b_timestamp = var1.timestamp;
+      this.c_sensor = var1.sensor;
+      this.d_accuracy = var1.accuracy;
    }
 
    public b_PolarSensorEventBase(b_PolarSensorEventBase var1) {
-      if (var1.a != null) {
-         this.a = (float[])var1.a.clone();
+      if (var1.a_values != null) {
+         this.a_values = (float[])var1.a_values.clone();
       } else {
-         this.a = null;
+         this.a_values = null;
       }
 
-      this.b = var1.b;
-      this.c = var1.c;
-      this.d = var1.d;
+      this.b_timestamp = var1.b_timestamp;
+      this.c_sensor = var1.c_sensor;
+      this.d_accuracy = var1.d_accuracy;
    }
 
-   public b_PolarSensorEventBase(float[] var1, long var2, int var4) {
-      this.a = var1;
-      this.b = var2;
-      this.c = null;
-      this.d = var4;
+   public b_PolarSensorEventBase(float[] var1_values, long var2_timestamp, int var4_accuracy) {
+      this.a_values = var1_values;
+      this.b_timestamp = var2_timestamp;
+      this.c_sensor = null;
+      this.d_accuracy = var4_accuracy;
    }
 
    public static b_PolarSensorEventBase a(long var0, List var2) {
@@ -49,7 +49,7 @@ public class b_PolarSensorEventBase {
 
       int var7;
       for(var7 = 0; var3 < var4; ++var3) {
-         long var8 = ((b_PolarSensorEventBase)var2.get(var3)).b;
+         long var8 = ((b_PolarSensorEventBase)var2.get(var3)).b_timestamp;
          if (var8 <= var0) {
             var8 = Math.abs(var8 - var0);
             if (var8 < var5) {
@@ -75,7 +75,7 @@ public class b_PolarSensorEventBase {
       long var14;
       for(int var11 = 0; var11 < var7; var8 = var14) {
          label35: {
-            long var12 = ((b_PolarSensorEventBase)var2.get(var11)).b;
+            long var12 = ((b_PolarSensorEventBase)var2.get(var11)).b_timestamp;
             if (var12 >= var5) {
                if (var12 > var0 + var3) {
                   var14 = var8;
@@ -88,7 +88,7 @@ public class b_PolarSensorEventBase {
                   break label35;
                }
 
-               if (var14 == var8 && var12 < ((b_PolarSensorEventBase)var2.get(var10)).b) {
+               if (var14 == var8 && var12 < ((b_PolarSensorEventBase)var2.get(var10)).b_timestamp) {
                   var10 = var11;
                   break label35;
                }
@@ -113,7 +113,7 @@ public class b_PolarSensorEventBase {
    public static List a(List var0, long var1, long var3) {
       ArrayList var5 = new ArrayList();
 
-      while(var0.size() > 0 && ((b_PolarSensorEventBase)var0.get(0)).b + var3 < var1) {
+      while(var0.size() > 0 && ((b_PolarSensorEventBase)var0.get(0)).b_timestamp + var3 < var1) {
          var5.add(var0.remove(0));
       }
 

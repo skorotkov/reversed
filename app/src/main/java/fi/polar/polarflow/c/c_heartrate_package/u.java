@@ -17,8 +17,8 @@ class u implements j_PolarSensorEventListener {
       b_PolarSensorEventBase var2 = (b_PolarSensorEventBase)var1.get(var1.size() - 1);
       s var3 = this.a;
       int var4;
-      if (var2.a != null) {
-         var4 = Math.round(var2.a[0]);
+      if (var2.a_values != null) {
+         var4 = Math.round(var2.a_values[0]);
       } else {
          var4 = 0;
       }

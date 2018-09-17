@@ -7,9 +7,9 @@ import fi.polar.polarflow.c.m_SENSOR_STATE;
 
 class bc implements e_PolarSensorListenerEx {
    // $FF: synthetic field
-   final bb a;
+   final bb_SwimmingMetricsProvider a;
 
-   bc(bb var1) {
+   bc(bb_SwimmingMetricsProvider var1) {
       this.a = var1;
    }
 
@@ -20,6 +20,6 @@ class bc implements e_PolarSensorListenerEx {
    }
 
    public void a_onPolarSensorEvents(List var1) {
-      bb.a(this.a, var1);
+      bb_SwimmingMetricsProvider.a(this.a, var1);
    }
 }

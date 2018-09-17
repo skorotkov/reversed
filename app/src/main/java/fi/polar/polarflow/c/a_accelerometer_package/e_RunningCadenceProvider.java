@@ -102,13 +102,13 @@ public class e_RunningCadenceProvider extends a_AccelerometerSensor implements i
 
          for(int var6 = 0; var6 < var2; ++var6) {
             b_PolarSensorEventBase var7 = (b_PolarSensorEventBase)var1.get(var6);
-            var3[var6] = a(var7.a[0] * 101.97162F);
-            var4[var6] = a(var7.a[1] * 101.97162F);
-            var5[var6] = a(var7.a[2] * 101.97162F);
+            var3[var6] = a(var7.a_values[0] * 101.97162F);
+            var4[var6] = a(var7.a_values[1] * 101.97162F);
+            var5[var6] = a(var7.a_values[2] * 101.97162F);
          }
 
          this.m().update(var3, var4, var5);
-         this.a(this.l(), ((b_PolarSensorEventBase)var1.get(var2 - 1)).b);
+         this.a(this.l(), ((b_PolarSensorEventBase)var1.get(var2 - 1)).b_timestamp);
       }
 
    }

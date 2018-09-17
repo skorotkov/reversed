@@ -424,8 +424,8 @@ public class MyHeartRateActivity extends android.support.wearable.activity.a imp
       if (var1 != null && this.c == m_SENSOR_STATE.d_READY) {
          this.c(true);
          b_PolarSensorEventBase var2 = (b_PolarSensorEventBase)var1.get(var1.size() - 1);
-         if (var2.a != null && var2.a.length > 0) {
-            this.b(Math.round(var2.a[0]));
+         if (var2.a_values != null && var2.a_values.length > 0) {
+            this.b(Math.round(var2.a_values[0]));
          } else {
             fi.polar.polarflow.util.d.b("MyHeartRateActivity", "No value!");
          }

@@ -46,23 +46,23 @@ class ao_GpsPolarSensorListener implements e_PolarSensorListenerEx {
             fi.polar.polarflow.c.f_PolarSensorEvent var7 = (fi.polar.polarflow.c.f_PolarSensorEvent)fi.polar.polarflow.c.b_PolarSensorEventBase.a(var5, am_SessionCalculators.k(this.a), 500L);
             if (var7 != null) {
                if (am_SessionCalculators.o(this.a) == 0L) {
-                  am_SessionCalculators.b(this.a, var7.b - var3);
-                  fi.polar.polarflow.util.d.c(am_SessionCalculators.d(), "initial mGpsSampleDifference:" + am_SessionCalculators.o(this.a) + " event.timestamp:" + var7.b + ", searchedTs:" + var5);
-               } else if (var7.b - var5 != 0L) {
-                  am_SessionCalculators.b(this.a, var7.b - var3);
-                  fi.polar.polarflow.util.d.c(am_SessionCalculators.d(), "align mGpsSampleDifference:" + am_SessionCalculators.o(this.a) + " event.timestamp:" + var7.b + ", searchedTs:" + var5 + ", origGpsSearchTs:" + var3);
+                  am_SessionCalculators.b(this.a, var7.b_timestamp - var3);
+                  fi.polar.polarflow.util.d.c(am_SessionCalculators.d(), "initial mGpsSampleDifference:" + am_SessionCalculators.o(this.a) + " event.timestamp:" + var7.b_timestamp + ", searchedTs:" + var5);
+               } else if (var7.b_timestamp - var5 != 0L) {
+                  am_SessionCalculators.b(this.a, var7.b_timestamp - var3);
+                  fi.polar.polarflow.util.d.c(am_SessionCalculators.d(), "align mGpsSampleDifference:" + am_SessionCalculators.o(this.a) + " event.timestamp:" + var7.b_timestamp + ", searchedTs:" + var5 + ", origGpsSearchTs:" + var3);
                }
 
                am_SessionCalculators.a(this.a, var7);
             } else if (am_SessionCalculators.l(this.a) == 0) {
                var7 = am_SessionCalculators.p(this.a);
             } else {
-               if (var5 > ((fi.polar.polarflow.c.b_PolarSensorEventBase)am_SessionCalculators.k(this.a).get(am_SessionCalculators.k(this.a).size() - 1)).b + 500L) {
+               if (var5 > ((fi.polar.polarflow.c.b_PolarSensorEventBase)am_SessionCalculators.k(this.a).get(am_SessionCalculators.k(this.a).size() - 1)).b_timestamp + 500L) {
                   break;
                }
 
                var7 = (fi.polar.polarflow.c.f_PolarSensorEvent)fi.polar.polarflow.c.b_PolarSensorEventBase.a(var5, am_SessionCalculators.k(this.a));
-               if (var7.b > var5 + 500L) {
+               if (var7.b_timestamp > var5 + 500L) {
                   var7 = am_SessionCalculators.p(this.a);
                } else {
                   am_SessionCalculators.a(this.a, var7);
@@ -71,7 +71,7 @@ class ao_GpsPolarSensorListener implements e_PolarSensorListenerEx {
 
             if (var7 != null) {
                this.a.a(am_SessionCalculators.l(this.a), var7);
-               fi.polar.polarflow.c.b_PolarSensorEventBase.a(am_SessionCalculators.k(this.a), var7.b, 0L);
+               fi.polar.polarflow.c.b_PolarSensorEventBase.a(am_SessionCalculators.k(this.a), var7.b_timestamp, 0L);
             }
          }
 

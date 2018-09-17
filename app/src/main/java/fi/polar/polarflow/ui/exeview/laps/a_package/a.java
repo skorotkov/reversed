@@ -85,7 +85,7 @@ public class a extends fi.polar.polarflow.ui.exeview.laps.a {
       Intent var1 = this.b.a_registerReceiver((BroadcastReceiver)null, (String)"ExerciseLapCalc.ACTION_AUTO_LAP");
       if (var1 != null && var1.getIntExtra("ExerciseLapCalc.KEY_LAP_NUMBER", 0) > this.e.size() && this.f != null) {
          this.e.clear();
-         this.e.addAll(this.f.e());
+         this.e.addAll(this.f.e_getAutoLaps());
          this.a((List)this.e);
       }
 

@@ -63,7 +63,7 @@ public class am_SessionCalculators {
    private a_GpsLocationProviderBase v_gpsSensor;
    private a_HeartRateSensor w_heartRateSensor;
    private e_RunningCadenceProvider x_runningCadenceProvider;
-   private bb y;
+   private bb_SwimmingMetricsProvider y;
    private SwimmingSamples z;
 
    static {
@@ -76,7 +76,7 @@ public class am_SessionCalculators {
 
    public am_SessionCalculators(Context var1, Training var2, Handler var3) {
       this.m = 5;
-      this.F_heartRatePolarSensorListener = new an(this);
+      this.F_heartRatePolarSensorListener = new an_HrPolarSensorListener(this);
       this.G_gpsPolarSensorListener = new ao_GpsPolarSensorListener(this);
       this.H_runningCadencePolarSensorListener = new ap(this);
       this.I = new aq(this);
@@ -340,9 +340,9 @@ public class am_SessionCalculators {
       Iterator var2 = this.b.iterator();
 
       while(var2.hasNext()) {
-         al var3 = (al)var2.next();
-         if (var3 instanceof aj) {
-            ((aj)var3).b(true);
+         al_Calc var3 = (al_Calc)var2.next();
+         if (var3 instanceof aj_CalcBase) {
+            ((aj_CalcBase)var3).b(true);
          }
       }
 
@@ -384,7 +384,7 @@ public class am_SessionCalculators {
       Iterator var8 = this.b.iterator();
 
       while(var8.hasNext()) {
-         al var6 = (al)var8.next();
+         al_Calc var6 = (al_Calc)var8.next();
          if (var6 instanceof y) {
             ((y)var6).d();
          }
@@ -409,13 +409,13 @@ public class am_SessionCalculators {
       Iterator var6 = this.b.iterator();
 
       while(var6.hasNext()) {
-         al var7 = (al)var6.next();
+         al_Calc var7 = (al_Calc)var6.next();
          if (var7 instanceof h_ExerciseLapCalc) {
             ((h_ExerciseLapCalc)var7).b(new z(var1, var3, var5, var2));
-         } else if (var7 instanceof q) {
-            ((q)var7).b(new z(var1, var3, var5, var2));
-         } else if (var7 instanceof j) {
-            ((j)var7).b(new z(var1, var3, var5, var2));
+         } else if (var7 instanceof q_ExerciseSampleHeartrateCalc) {
+            ((q_ExerciseSampleHeartrateCalc)var7).b(new z(var1, var3, var5, var2));
+         } else if (var7 instanceof j_ExercisePhaseCalc) {
+            ((j_ExercisePhaseCalc)var7).b(new z(var1, var3, var5, var2));
          }
       }
 
@@ -432,15 +432,15 @@ public class am_SessionCalculators {
       Iterator var5 = this.b.iterator();
 
       while(var5.hasNext()) {
-         al var6 = (al)var5.next();
+         al_Calc var6 = (al_Calc)var5.next();
          if (var6 instanceof h_ExerciseLapCalc) {
-            ((h_ExerciseLapCalc)var6).b(new aa(var1, var3, var2));
+            ((h_ExerciseLapCalc)var6).b(new aa_GpsEvent(var1, var3, var2));
          } else if (var6 instanceof s) {
-            ((s)var6).b(new aa(var1, var3, var2));
+            ((s)var6).b(new aa_GpsEvent(var1, var3, var2));
          } else if (var6 instanceof t) {
             ((t)var6).b(new v(var1, var3, var2));
-         } else if (var6 instanceof j) {
-            ((j)var6).b(new aa(var1, var3, var2));
+         } else if (var6 instanceof j_ExercisePhaseCalc) {
+            ((j_ExercisePhaseCalc)var6).b(new aa_GpsEvent(var1, var3, var2));
          }
       }
 
@@ -465,7 +465,7 @@ public class am_SessionCalculators {
       long var6;
       if (var2 != null) {
          this.w_heartRateSensor = var2;
-         this.b.add(new q(this.context));
+         this.b.add(new q_ExerciseSampleHeartrateCalc(this.context));
          if (this.w_heartRateSensor.e_getState() == m_SENSOR_STATE.d_READY) {
             this.s.getStatistics().getHeartrateStatistics().b((float)this.w_heartRateSensor.n());
             var5 = (float)this.w_heartRateSensor.n();
@@ -490,7 +490,7 @@ public class am_SessionCalculators {
          if (Sport.isSwimmingSport(this.s.getSportId())) {
             this.z = this.s.getSwimmingSamples();
             this.z.setStart(new DateTime(this.s.getStartTime()));
-            this.y = new bb(var2, var4, var6);
+            this.y = new bb_SwimmingMetricsProvider(var2, var4, var6);
             var5 = -1.0F;
             if (var8 != null) {
                var5 = var8.getSettings().getAutomaticLapDistance();
@@ -508,15 +508,15 @@ public class am_SessionCalculators {
       } else if (var2 != null || var1 != null) {
          this.b.add(new ab(this.context, var6));
          if (var9 == 2) {
-            this.b.add(new d(this.context, var8.getSettings().getAutomaticLapDistance(), var6));
+            this.b.add(new d_DistanceLapCalc(this.context, var8.getSettings().getAutomaticLapDistance(), var6));
          } else if (var9 == 3) {
-            this.b.add(new e(this.context, var8.getSettings().getAutomaticLapDuration(), var6));
+            this.b.add(new e_DurationLapCalc(this.context, var8.getSettings().getAutomaticLapDuration(), var6));
          }
       }
 
       if (this.s.getTrainingSessionTarget() != null) {
          if (this.s.getTrainingSessionTarget().getExerciseTarget().getTargetType() == 2) {
-            this.b.add(new j(this.context));
+            this.b.add(new j_ExercisePhaseCalc(this.context));
          } else if (this.s.getTrainingSessionTarget().getExerciseTarget().getTargetType() == 1) {
             this.b.add(new w_ExerciseVolumeTargetCalc(this.context));
          }
@@ -530,7 +530,7 @@ public class am_SessionCalculators {
       }
 
       if (var1 != null && var2 != null && var10 != null && var10.getParentId() == 1L) {
-         this.b.add(new p());
+         this.b.add(new p_ExerciseRunningIndexCalc());
       }
 
       if (var3 != null) {
@@ -553,7 +553,7 @@ public class am_SessionCalculators {
       Iterator var1 = this.b.iterator();
 
       while(var1.hasNext()) {
-         al var2 = (al)var1.next();
+         al_Calc var2 = (al_Calc)var1.next();
          if (var2 instanceof ae) {
             ((ae)var2).b();
          }
@@ -577,13 +577,13 @@ public class am_SessionCalculators {
       Iterator var6 = this.b.iterator();
 
       while(var6.hasNext()) {
-         al var7 = (al)var6.next();
+         al_Calc var7 = (al_Calc)var6.next();
          if (var7 instanceof o) {
             ((o)var7).b(var5);
          } else if (var7 instanceof h_ExerciseLapCalc) {
             ((h_ExerciseLapCalc)var7).b(var5);
-         } else if (var7 instanceof j) {
-            ((j)var7).b(var5);
+         } else if (var7 instanceof j_ExercisePhaseCalc) {
+            ((j_ExercisePhaseCalc)var7).b(var5);
          }
       }
 
@@ -595,7 +595,7 @@ public class am_SessionCalculators {
       Iterator var1 = this.b.iterator();
 
       while(var1.hasNext()) {
-         al var2 = (al)var1.next();
+         al_Calc var2 = (al_Calc)var1.next();
          if (var2 instanceof ah) {
             ((ah)var2).c();
          }

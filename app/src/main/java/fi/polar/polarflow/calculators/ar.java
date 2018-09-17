@@ -21,11 +21,11 @@ class ar implements af {
       Iterator var3 = am_SessionCalculators.v(this.a).iterator();
 
       while(var3.hasNext()) {
-         al var4 = (al)var3.next();
+         al_Calc var4 = (al_Calc)var3.next();
          if (var4 instanceof h_ExerciseLapCalc) {
             ((h_ExerciseLapCalc)var4).b(var2);
-         } else if (var4 instanceof j) {
-            ((j)var4).b(var2);
+         } else if (var4 instanceof j_ExercisePhaseCalc) {
+            ((j_ExercisePhaseCalc)var4).b(var2);
          }
       }
 

@@ -526,7 +526,7 @@ public class DailyActivityService extends k {
          this.v.a();
       } else if (this.B == fi.polar.polarflow.service.activity.y.c) {
          this.a.b(this.b);
-         this.o.b();
+         this.o.b_stop();
          this.o.a(this.p);
          this.c.a_unregisterReceiver(this.e);
          this.w.b();

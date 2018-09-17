@@ -34,7 +34,7 @@ class l implements e_PolarSensorListenerEx {
    public void a_onPolarSensorEvents(List var1) {
       if (j_HeartRateSensorManager.c(this.a) && !j_HeartRateSensorManager.d(this.a)) {
          b_PolarSensorEventBase var2 = (b_PolarSensorEventBase)var1.get(var1.size() - 1);
-         this.a.a(Math.round(var2.a[0]));
+         this.a.a(Math.round(var2.a_values[0]));
          this.a.l();
          if (j_HeartRateSensorManager.h(this.a) != null) {
             j_HeartRateSensorManager.h(this.a).a_onPolarSensorEvents(var1);

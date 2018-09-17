@@ -1,6 +1,6 @@
 package fi.polar.polarflow.service;
 
-class q implements c {
+class q implements c_BatteryManagerListener {
    // $FF: synthetic field
    final TrainingService a;
 
@@ -8,17 +8,17 @@ class q implements c {
       this.a = var1;
    }
 
-   public void a() {
+   public void a_onBatteryLow() {
       fi.polar.polarflow.util.d.c("TrainingService", "onBatteryLow()");
-      if (TrainingService.b(this.a).isRunning()) {
+      if (TrainingService.b_getTraining(this.a).isRunning()) {
          TrainingService.c(this.a);
       }
 
    }
 
-   public void b() {
+   public void b_onBatterySafeForOperations() {
    }
 
-   public void c() {
+   public void c_BatteryNotSafeForOperations() {
    }
 }

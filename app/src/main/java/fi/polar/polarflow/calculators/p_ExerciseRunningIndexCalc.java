@@ -5,7 +5,7 @@ import fi.polar.polarflow.data.TrainingSamples;
 import fi.polar.polarmathsmart.runningindex.ExerciseRunningIndexResult;
 import java.util.concurrent.TimeUnit;
 
-public class p implements al, y {
+public class p_ExerciseRunningIndexCalc implements al_Calc, y {
    private static final int b;
    private final Training a;
 
@@ -13,11 +13,11 @@ public class p implements al, y {
       b = (int)(TimeUnit.MINUTES.toMillis(12L) / 1000L);
    }
 
-   public p() {
+   public p_ExerciseRunningIndexCalc() {
       this((Training)null);
    }
 
-   p(Training var1) {
+   p_ExerciseRunningIndexCalc(Training var1) {
       if (var1 == null) {
          var1 = Training.getInstance();
       }

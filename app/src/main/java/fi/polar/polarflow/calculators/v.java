@@ -2,7 +2,7 @@ package fi.polar.polarflow.calculators;
 
 import fi.polar.polarflow.c.f_PolarSensorEvent;
 
-class v extends ai {
+class v extends ai_Event {
    private final double a;
    private final double b;
    private final int c;
@@ -13,7 +13,7 @@ class v extends ai {
    }
 
    v(int var1, long var2, f_PolarSensorEvent var4) {
-      this(var1, var2, var4.n, var4.h, var4.i, var4.k, var4.g);
+      this(var1, var2, var4.n_fix, var4.h_latitude, var4.i_longitude, var4.k_altitudeInMeters, var4.g_numberOfSatellites);
    }
 
    v(int var1, long var2, boolean var4, double var5, double var7, double var9, int var11) {

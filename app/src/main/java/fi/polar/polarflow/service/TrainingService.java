@@ -23,15 +23,15 @@ import fi.polar.polarflow.util.z;
 import java.util.List;
 
 public class TrainingService extends Service {
-   private final BroadcastReceiver a = new p(this);
-   private final c b = new q(this);
+   private final BroadcastReceiver a = new p_TrainingServiceBroadcastReceiver(this);
+   private final c_BatteryManagerListener b = new q(this);
    private final Runnable c = new r(this);
    private final IBinder d = new v(this);
    private final Handler e = new Handler();
-   private o_SessionSensors f;
-   private a g;
-   private w h;
-   private Training i;
+   private o_SessionSensors f_sessionSensors;
+   private a_BatteryManager g;
+   private w h_vibratorManager;
+   private Training i_training;
    private android.support.v4.c.g j;
    private boolean k;
    private int l;
@@ -69,54 +69,54 @@ public class TrainingService extends Service {
       return var1;
    }
 
-   private void a(long var1, String var3) {
-      fi.polar.polarflow.util.d.c("TrainingService", "startSession(sportId, path), sportId:" + var1 + " TST path: " + var3);
+   private void a_startSession(long var1_sportId, String var3_tstPath) {
+      fi.polar.polarflow.util.d.c("TrainingService", "startSession(sportId, path), sportId:" + var1_sportId + " TST path: " + var3_tstPath);
       if (this.l == 0) {
          TrainingSessionTarget var4;
-         if (var3 != null) {
-            var4 = TrainingSessionTarget.getTrainingTargetForPath(var3);
+         if (var3_tstPath != null) {
+            var4 = TrainingSessionTarget.getTrainingTargetForPath(var3_tstPath);
          } else {
             var4 = null;
          }
 
-         this.i.setSportId(var1);
-         this.i.setTrainingSessionTarget(var4);
-         this.g();
+         this.i_training.setSportId(var1_sportId);
+         this.i_training.setTrainingSessionTarget(var4);
+         this.g_startSession();
       }
 
    }
 
-   public static void a(Context var0) {
+   public static void a_start(Context var0) {
       var0.startService(new Intent(var0, TrainingService.class));
    }
 
-   private void a(TrainingDataRefs var1, at var2) {
+   private void a_saveAndPublishSession(TrainingDataRefs var1, at var2) {
       fi.polar.polarflow.util.d.c("TrainingService", "saveAndPublishSession");
-      n var3 = new n(this, var1, var2);
+      n_TrainingSaveAndPublishRunnable var3 = new n_TrainingSaveAndPublishRunnable(this, var1, var2);
       if (this.n != null) {
          var3.a(this.n);
       }
 
-      var3.a(this.f.d());
+      var3.a(this.f_sessionSensors.d());
       (new Thread(var3)).start();
    }
 
    // $FF: synthetic method
-   static void a(TrainingService var0, long var1, String var3) {
-      var0.a(var1, var3);
+   static void a_startSession(TrainingService var0, long var1, String var3) {
+      var0.a_startSession(var1, var3);
    }
 
    // $FF: synthetic method
-   static void a(TrainingService var0, TrainingDataRefs var1, at var2) {
-      var0.a(var1, var2);
+   static void a_saveAndPublishSession(TrainingService var0, TrainingDataRefs var1, at var2) {
+      var0.a_saveAndPublishSession(var1, var2);
    }
 
    // $FF: synthetic method
-   static void a(TrainingService var0, String var1, long var2) {
-      var0.a(var1, var2);
+   static void a_broadcastSessionStateChange(TrainingService var0, String var1, long var2) {
+      var0.a_broadcastSessionStateChange(var1, var2);
    }
 
-   private void a(String var1, long var2) {
+   private void a_broadcastSessionStateChange(String var1, long var2) {
       Intent var4 = new Intent(var1);
       byte var5 = -1;
       switch(var1.hashCode()) {
@@ -143,13 +143,13 @@ public class TrainingService extends Service {
 
       switch(var5) {
       case 0:
-         var4.putExtra(SportProfile.KEY_SPORT_ID, this.i.getSportId());
-         var4.putExtra("TrainingService.key.TIMESTAMP", this.i.getStartTimeFromBoot());
+         var4.putExtra(SportProfile.KEY_SPORT_ID, this.i_training.getSportId());
+         var4.putExtra("TrainingService.key.TIMESTAMP", this.i_training.getStartTimeFromBoot());
          Intent var6 = new Intent(var4);
          var6.setClass(this.getApplicationContext(), NotificationReceiver.class);
          var6.setFlags(268435456);
-         if (this.i.getTrainingSessionTarget() != null) {
-            var6.putExtra("TrainingService.extra.TRAINING_TARGET_PATH", this.i.getTrainingSessionTarget().getPath());
+         if (this.i_training.getTrainingSessionTarget() != null) {
+            var6.putExtra("TrainingService.extra.TRAINING_TARGET_PATH", this.i_training.getTrainingSessionTarget().getPath());
          }
 
          this.sendBroadcast(var6);
@@ -158,12 +158,12 @@ public class TrainingService extends Service {
          var4.putExtra("TrainingService.key.TIMESTAMP", var2);
          break;
       case 2:
-         var4.putExtra(SportProfile.KEY_SPORT_ID, this.i.getSportId());
-         var4.putExtra("TrainingService.key.TIMESTAMP", this.i.getPauseStartTimeFromBoot());
+         var4.putExtra(SportProfile.KEY_SPORT_ID, this.i_training.getSportId());
+         var4.putExtra("TrainingService.key.TIMESTAMP", this.i_training.getPauseStartTimeFromBoot());
          break;
       case 3:
-         var4.putExtra(SportProfile.KEY_SPORT_ID, this.i.getSportId());
-         var4.putExtra("TrainingService.key.TIMESTAMP", this.i.getSamplingStartTimeFromBoot());
+         var4.putExtra(SportProfile.KEY_SPORT_ID, this.i_training.getSportId());
+         var4.putExtra("TrainingService.key.TIMESTAMP", this.i_training.getSamplingStartTimeFromBoot());
       }
 
       this.j.a(var4);
@@ -171,7 +171,7 @@ public class TrainingService extends Service {
 
    private void a(boolean var1) {
       long var2 = 2L;
-      if (this.a(this.i.getSportId()) == 2L) {
+      if (this.a(this.i_training.getSportId()) == 2L) {
          Intent var4 = new Intent(this, SensorHubDataWriterService.class);
          var4.setAction("SensorHubDataWriterService.action.SENSOR_SPORT_EVENT");
          if (!var1) {
@@ -203,11 +203,11 @@ public class TrainingService extends Service {
    }
 
    // $FF: synthetic method
-   static Training b(TrainingService var0) {
-      return var0.i;
+   static Training b_getTraining(TrainingService var0) {
+      return var0.i_training;
    }
 
-   public static void b(Context var0) {
+   public static void b_stop(Context var0) {
       var0.stopService(new Intent(var0, TrainingService.class));
    }
 
@@ -217,7 +217,7 @@ public class TrainingService extends Service {
    }
 
    private SportProfile c(long var1) {
-      SportProfile var3 = this.i.getSportProfile();
+      SportProfile var3 = this.i_training.getSportProfile();
       SportProfile var4;
       if (var3 != null) {
          var4 = var3;
@@ -232,7 +232,7 @@ public class TrainingService extends Service {
 
    // $FF: synthetic method
    static void c(TrainingService var0) {
-      var0.k();
+      var0.k_startPeriodicSaving();
    }
 
    // $FF: synthetic method
@@ -250,25 +250,25 @@ public class TrainingService extends Service {
       return var0.p;
    }
 
-   private void g() {
+   private void g_startSession() {
       fi.polar.polarflow.util.d.c("TrainingService", "startSession()");
       this.l = 1;
-      this.i.startSession();
-      this.i.setLocalBroadcastManager(this.j);
-      this.f.a_startSessionSensors(this.b(this.i.getSportId()));
-      this.g.a();
-      if (this.g.c()) {
-         this.k();
+      this.i_training.startSession();
+      this.i_training.setLocalBroadcastManager(this.j);
+      this.f_sessionSensors.a_startSessionSensors(this.b(this.i_training.getSportId()));
+      this.g.a_start();
+      if (this.g.c_isBatteryLow()) {
+         this.k_startPeriodicSaving();
       }
 
-      SportProfile var1 = this.i.getSportProfile();
+      SportProfile var1 = this.i_training.getSportProfile();
       if (var1 != null && var1.getVibration()) {
-         this.h = new w(this);
-         this.h.a();
+         this.h_vibratorManager = new w(this);
+         this.h_vibratorManager.a();
       }
 
       this.startForeground(2, this.i());
-      this.a("TrainingService.action.TRAINING_STARTED", 0L);
+      this.a_broadcastSessionStateChange("TrainingService.action.TRAINING_STARTED", 0L);
       this.a(true);
       this.m().a(this.getApplicationContext(), false);
    }
@@ -288,7 +288,7 @@ public class TrainingService extends Service {
    }
 
    private Notification i() {
-      return NotificationReceiver.a(this, this.i.isPaused(), this.i.getDurationMs());
+      return NotificationReceiver.a(this, this.i_training.isPaused(), this.i_training.getDurationMs());
    }
 
    // $FF: synthetic method
@@ -300,10 +300,10 @@ public class TrainingService extends Service {
       ((NotificationManager)this.getSystemService("notification")).notify(2, this.i());
    }
 
-   private void k() {
+   private void k_startPeriodicSaving() {
       fi.polar.polarflow.util.d.c("TrainingService", "startPeriodicSaving");
       if (!this.k) {
-         long var1 = this.i.getDurationMs();
+         long var1 = this.i_training.getDurationMs();
          if (var1 < fi.polar.polarflow.util.b.l) {
             this.e.postDelayed(this.c, fi.polar.polarflow.util.b.l - var1);
          } else {
@@ -315,7 +315,7 @@ public class TrainingService extends Service {
 
    }
 
-   private void l() {
+   private void l_stopPeriodicSaving() {
       fi.polar.polarflow.util.d.c("TrainingService", "stopPeriodicSaving");
       this.e.removeCallbacks(this.c);
       this.k = false;
@@ -332,28 +332,28 @@ public class TrainingService extends Service {
       return var1;
    }
 
-   public void a() {
+   public void a_stopSession() {
       if (this.l == 1) {
          fi.polar.polarflow.util.d.c("TrainingService", "stopSession");
          this.l = 2;
-         this.l();
-         this.g.b();
-         if (this.h != null) {
-            this.h.b();
-            this.h = null;
+         this.l_stopPeriodicSaving();
+         this.g.b_stop();
+         if (this.h_vibratorManager != null) {
+            this.h_vibratorManager.b();
+            this.h_vibratorManager = null;
          }
 
-         this.f.a_stopSessionSensors((fi.polar.polarflow.c.k)(new s(this)));
+         this.f_sessionSensors.a_stopSessionSensors((fi.polar.polarflow.c.k)(new s(this)));
       }
 
    }
 
-   public long b() {
+   public long b_pauseSession() {
       long var1;
       if (this.l == 1) {
          fi.polar.polarflow.util.d.c("TrainingService", "pauseSession()");
-         var1 = this.i.pauseSession();
-         this.f.b_pauseSessionSensors();
+         var1 = this.i_training.pauseSession();
+         this.f_sessionSensors.b_pauseSessionSensors();
          this.j();
       } else {
          var1 = 0L;
@@ -362,26 +362,26 @@ public class TrainingService extends Service {
       return var1;
    }
 
-   public void c() {
+   public void c_resumeSession() {
       if (this.l == 1) {
          fi.polar.polarflow.util.d.c("TrainingService", "resumeSession()");
-         this.i.resumeSession();
-         this.f.c_resumeSessionSensors();
+         this.i_training.resumeSession();
+         this.f_sessionSensors.c_resumeSessionSensors();
          this.j();
       }
 
    }
 
-   public void d() {
-      this.a(this.i.getTrainingDataRefs(true), (at)null);
+   public void d_saveAndPublishSession() {
+      this.a_saveAndPublishSession(this.i_training.getTrainingDataRefs(true), (at)null);
    }
 
-   public List e() {
-      return this.i.getAutoLaps();
+   public List e_getAutoLaps() {
+      return this.i_training.getAutoLaps();
    }
 
-   public List f() {
-      return this.i.getManualLaps();
+   public List f_getManualLaps() {
+      return this.i_training.getManualLaps();
    }
 
    public IBinder onBind(Intent var1) {
@@ -392,9 +392,9 @@ public class TrainingService extends Service {
    public void onCreate() {
       fi.polar.polarflow.util.d.c("TrainingService", "onCreate()");
       this.j = android.support.v4.c.g.a(this);
-      this.f = new o_SessionSensors(this);
-      this.g = new a(this);
-      this.g.a(this.b);
+      this.f_sessionSensors = new o_SessionSensors(this);
+      this.g = new a_BatteryManager(this);
+      this.g.a_addListener(this.b);
       IntentFilter var1 = new IntentFilter();
       var1.addAction("TrainingService.action.START_SESSION");
       var1.addAction("TrainingService.action.STOP_SESSION");
@@ -402,18 +402,18 @@ public class TrainingService extends Service {
       var1.addAction("TrainingService.action.RESUME_SESSION");
       var1.addAction("DailyActivityService.action.TRAINING_LOAD_DATA");
       this.j.a(this.a, var1);
-      this.i = Training.getInstance();
+      this.i_training = Training.getInstance();
       this.l = 0;
    }
 
    public void onDestroy() {
       fi.polar.polarflow.util.d.c("TrainingService", "onDestroy()");
       this.j.a(this.a);
-      this.f.a();
-      this.g.b(this.b);
-      this.g.b();
-      if (this.h != null) {
-         this.h.b();
+      this.f_sessionSensors.a();
+      this.g.b_removeListener(this.b);
+      this.g.b_stop();
+      if (this.h_vibratorManager != null) {
+         this.h_vibratorManager.b();
       }
 
       this.e.removeCallbacksAndMessages((Object)null);

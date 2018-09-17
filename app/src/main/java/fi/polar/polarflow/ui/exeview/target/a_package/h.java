@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TextView.BufferType;
+
+import fi.polar.polarflow.calculators.j_ExercisePhaseCalc;
 import fi.polar.polarflow.data.orm.ExercisePhase;
 import fi.polar.polarflow.data.orm.ExercisePhaseData;
 import fi.polar.polarflow.ui.custom.PolarGlyphView;
@@ -114,7 +116,7 @@ public class h extends ah {
 
    private static void b(Context var0, int var1) {
       fi.polar.polarflow.util.d.c(U, "Skip phase, sequence number: " + var1);
-      Intent var2 = new Intent(var0, fi.polar.polarflow.calculators.j.class);
+      Intent var2 = new Intent(var0, j_ExercisePhaseCalc.class);
       var2.setAction("ExercisePhaseCalc.ACTION_SKIP_TO_NEXT_PHASE");
       var2.putExtra("ExercisePhaseCalc.KEY_PHASE_NUMBER", var1);
       android.support.v4.c.g.a(var0).a(var2);

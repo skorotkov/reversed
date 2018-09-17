@@ -11,6 +11,6 @@ class f implements Runnable {
    }
 
    public void run() {
-      TrainingService.a(this.a);
+      TrainingService.a_start(this.a);
    }
 }

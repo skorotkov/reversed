@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class q extends aj implements ak, y {
+public class q_ExerciseSampleHeartrateCalc extends aj_CalcBase implements ak, y {
    private static final ArrayList a = new ArrayList(1);
    private static final SparseIntArray d;
    private final android.support.v4.c.g b;
@@ -26,7 +26,7 @@ public class q extends aj implements ak, y {
       d = new r(18);
    }
 
-   q(Context var1) {
+   q_ExerciseSampleHeartrateCalc(Context var1) {
       super(a);
       android.support.v4.c.g var2;
       if (var1 != null) {

@@ -22,11 +22,11 @@ public class o {
    public static void a(Context var0, boolean var1) {
       u.a().b(var1);
       if (var1) {
-         TrainingService.a(var0.getApplicationContext());
+         TrainingService.a_start(var0.getApplicationContext());
          DailyActivityService.a(var0.getApplicationContext());
          SleepTrackingService.a(var0.getApplicationContext());
       } else {
-         TrainingService.b(var0.getApplicationContext());
+         TrainingService.b_stop(var0.getApplicationContext());
          DailyActivityService.b(var0.getApplicationContext());
          SleepTrackingService.b(var0.getApplicationContext());
       }

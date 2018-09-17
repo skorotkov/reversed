@@ -10,7 +10,7 @@ class r implements Runnable {
 
    public void run() {
       fi.polar.polarflow.util.d.c("TrainingService", "mPeriodicSavingTask: Battery low, saving training session");
-      this.a.d();
+      this.a.d_saveAndPublishSession();
       TrainingService.e(this.a).postDelayed(TrainingService.d(this.a), 60000L);
    }
 }

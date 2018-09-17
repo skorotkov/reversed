@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class bb implements ae, ah {
+public class bb_SwimmingMetricsProvider implements ae, ah {
    private final a_HeartRateSensor a;
    private final a_AccelerometerSensor b;
    private PoolSwimmingAlgorithmAndroidImpl c;
@@ -39,7 +39,7 @@ public class bb implements ae, ah {
    private int p;
    private final e_PolarSensorListenerEx q;
 
-   public bb(a_HeartRateSensor var1, a_AccelerometerSensor var2, long var3) {
+   public bb_SwimmingMetricsProvider(a_HeartRateSensor var1, a_AccelerometerSensor var2, long var3) {
       this.k = SwimmingType.NO_SWIMMING.getValue();
       this.l = SwimmingType.NO_SWIMMING.getValue();
       this.m = SwimmingType.NO_SWIMMING.getValue();
@@ -82,7 +82,7 @@ public class bb implements ae, ah {
    }
 
    // $FF: synthetic method
-   static void a(bb var0, List var1) {
+   static void a(bb_SwimmingMetricsProvider var0, List var1) {
       var0.a(var1);
    }
 
@@ -122,9 +122,9 @@ public class bb implements ae, ah {
 
          for(var3 = 0; var3 < var2; ++var3) {
             b_PolarSensorEventBase var7 = (b_PolarSensorEventBase)var1.get(var3);
-            var4[var3] = var7.a[0];
-            var5[var3] = var7.a[1];
-            var6[var3] = var7.a[2];
+            var4[var3] = var7.a_values[0];
+            var5[var3] = var7.a_values[1];
+            var6[var3] = var7.a_values[2];
          }
 
          ArrayList var9 = this.c.feedMultipleAccSamples(var4, var5, var6);

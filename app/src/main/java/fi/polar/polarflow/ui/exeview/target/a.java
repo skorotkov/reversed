@@ -14,6 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.TextView.BufferType;
+
+import fi.polar.polarflow.calculators.j_ExercisePhaseCalc;
 import fi.polar.polarflow.data.Training;
 import fi.polar.polarflow.data.orm.ExercisePhase;
 import fi.polar.polarflow.ui.exeview.x;
@@ -139,7 +141,7 @@ public class a extends x implements fi.polar.polarflow.ui.exeview.h {
 
    private void e() {
       if (this.d != null && this.d.getChangeType() == 0) {
-         Intent var1 = new Intent(this.getContext(), fi.polar.polarflow.calculators.j.class);
+         Intent var1 = new Intent(this.getContext(), j_ExercisePhaseCalc.class);
          var1.setAction("ExercisePhaseCalc.ACTION_START_PHASE");
          android.support.v4.c.g.a(this.getContext()).a(var1);
       }

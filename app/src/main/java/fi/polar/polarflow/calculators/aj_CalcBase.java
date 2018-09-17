@@ -3,14 +3,14 @@ package fi.polar.polarflow.calculators;
 import java.util.ArrayList;
 import java.util.List;
 
-abstract class aj implements al, c {
-   private static final String a = aj.class.getSimpleName();
+abstract class aj_CalcBase implements al_Calc, c {
+   private static final String a = aj_CalcBase.class.getSimpleName();
    private final List b;
    boolean c;
    private int d;
-   private ai e;
+   private ai_Event e;
 
-   aj(List var1) {
+   aj_CalcBase(List var1) {
       if (var1 == null || ((List)var1).size() == 0) {
          fi.polar.polarflow.util.d.c(a, "", new IllegalArgumentException("sensorTypes must not be null or empty!"));
       }
@@ -23,11 +23,11 @@ abstract class aj implements al, c {
       this.d = 0;
    }
 
-   final void a(ai var1) {
+   final void a(ai_Event var1) {
       this.e = var1;
    }
 
-   final void b(ai var1) {
+   final void b(ai_Event var1) {
       if (this.e.n() != var1.n()) {
          if (var1.n()) {
             if (this instanceof ak) {
@@ -48,7 +48,7 @@ abstract class aj implements al, c {
       this.c = var1;
    }
 
-   final ai o() {
+   final ai_Event o() {
       return this.e;
    }
 

@@ -11,7 +11,7 @@ import android.os.SystemClock;
 
 import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
 
-class e extends h_ExerciseLapCalc implements y {
+class e_DurationLapCalc extends h_ExerciseLapCalc implements y {
    private AlarmManager d;
    private PendingIntent e;
    private final long f;
@@ -19,15 +19,15 @@ class e extends h_ExerciseLapCalc implements y {
    private final BroadcastReceiver h;
    private final Runnable i;
 
-   e(Context var1, long var2, long var4) {
+   e_DurationLapCalc(Context var1, long var2, long var4) {
       this(var1, (Handler)null, (AlarmManager)null, var2, var4);
    }
 
-   e(Context var1, Handler var2, AlarmManager var3, long var4, long var6) {
+   e_DurationLapCalc(Context var1, Handler var2, AlarmManager var3, long var4, long var6) {
       this(var1, var2, var3, var4, var6, (v_StickyLocalBroadcastManager)null);
    }
 
-   e(Context var1, Handler var2, AlarmManager var3, long var4, long var6, v_StickyLocalBroadcastManager var8) {
+   e_DurationLapCalc(Context var1, Handler var2, AlarmManager var3, long var4, long var6, v_StickyLocalBroadcastManager var8) {
       super(var1, var6);
       this.h = new f(this);
       this.i = new g(this);
@@ -62,7 +62,7 @@ class e extends h_ExerciseLapCalc implements y {
    }
 
    // $FF: synthetic method
-   static Handler a(e var0) {
+   static Handler a(e_DurationLapCalc var0) {
       return var0.g;
    }
 
@@ -79,7 +79,7 @@ class e extends h_ExerciseLapCalc implements y {
    }
 
    // $FF: synthetic method
-   static long b(e var0) {
+   static long b(e_DurationLapCalc var0) {
       return var0.f;
    }
 

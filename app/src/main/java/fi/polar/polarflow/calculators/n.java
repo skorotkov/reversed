@@ -2,9 +2,9 @@ package fi.polar.polarflow.calculators;
 
 class n implements Runnable {
    // $FF: synthetic field
-   final j a;
+   final j_ExercisePhaseCalc a;
 
-   n(j var1) {
+   n(j_ExercisePhaseCalc var1) {
       this.a = var1;
    }
 

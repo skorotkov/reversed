@@ -1,4 +1,4 @@
 package fi.polar.polarflow.calculators;
 
-interface al {
+interface al_Calc {
 }

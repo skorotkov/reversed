@@ -6,9 +6,9 @@ import android.content.Intent;
 
 class f extends BroadcastReceiver {
    // $FF: synthetic field
-   final e a;
+   final e_DurationLapCalc a;
 
-   f(e var1) {
+   f(e_DurationLapCalc var1) {
       this.a = var1;
    }
 
@@ -16,7 +16,7 @@ class f extends BroadcastReceiver {
       String var3 = var2.getAction();
       fi.polar.polarflow.util.d.c("DurationLapCalc", "onReceive " + var3);
       if ("fi.polar.polarflow.action.AUTO_LAP_ALARM_TRIGGERED".equals(var3)) {
-         e.a(this.a).post(this.a.g());
+         e_DurationLapCalc.a(this.a).post(this.a.g());
       }
 
    }
