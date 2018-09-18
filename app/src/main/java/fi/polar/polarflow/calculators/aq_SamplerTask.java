@@ -2,28 +2,30 @@ package fi.polar.polarflow.calculators;
 
 class aq_SamplerTask implements Runnable {
    // $FF: synthetic field
-   final am_SessionCalculators a;
+   final am_SessionCalculators a_sessionCalculators;
 
    aq_SamplerTask(am_SessionCalculators var1) {
-      this.a = var1;
+      this.a_sessionCalculators = var1;
    }
 
    public void run() {
       // $FF: Couldn't be decompiled
-      if (am_SessionCalculators.r_getTraining(this.a).isRunning()) {
-         am_SessionCalculators.c(this.a);
-         long var1 = am_SessionCalculators.b_getTimeUtils(this.a).b_elapsedRealtime();
+      if (am_SessionCalculators.r_getTraining(this.a_sessionCalculators).isRunning()) {
 
-         while(am_SessionCalculators.s(this.a) < var1) {
-            am_SessionCalculators.j(this.a).append(am_SessionCalculators.c(this.a)[0], am_SessionCalculators.s(this.a));
-            am_SessionCalculators.n(this.a).append(am_SessionCalculators.c(this.a)[0], am_SessionCalculators.s(this.a));
-            am_SessionCalculators.t(this.a).append(am_SessionCalculators.c(this.a)[0], am_SessionCalculators.s(this.a));
-            int[] var3 = am_SessionCalculators.c(this.a);
+         am_SessionCalculators.c(this.a_sessionCalculators); // looks like for syncronized
+
+         long var1_elapsedRealtime = am_SessionCalculators.b_getTimeUtils(this.a_sessionCalculators).b_elapsedRealtime();
+
+         while(am_SessionCalculators.s_getCurrentSamplingTimeFromBoot(this.a_sessionCalculators) < var1_elapsedRealtime) {
+            am_SessionCalculators.j_get_d_samplesTimeFromBoot(this.a_sessionCalculators).append(am_SessionCalculators.c(this.a_sessionCalculators)[0], am_SessionCalculators.s_getCurrentSamplingTimeFromBoot(this.a_sessionCalculators));
+            am_SessionCalculators.n_get_e_samplesTimeFromBoot(this.a_sessionCalculators).append(am_SessionCalculators.c(this.a_sessionCalculators)[0], am_SessionCalculators.s_getCurrentSamplingTimeFromBoot(this.a_sessionCalculators));
+            am_SessionCalculators.t_get_f_samplesTimeFromBoot(this.a_sessionCalculators).append(am_SessionCalculators.c(this.a_sessionCalculators)[0], am_SessionCalculators.s_getCurrentSamplingTimeFromBoot(this.a_sessionCalculators));
+            int[] var3 = am_SessionCalculators.c(this.a_sessionCalculators);
             ++var3[0];
-            am_SessionCalculators.c(this.a, am_SessionCalculators.s(this.a) + 1000L);
+            am_SessionCalculators.c_setAndReturnCurrentSamplingTimeFromBoot(this.a_sessionCalculators, am_SessionCalculators.s_getCurrentSamplingTimeFromBoot(this.a_sessionCalculators) + 1000L);
          }
 
-         am_SessionCalculators.u(this.a).postDelayed(this, 1000L);
+         am_SessionCalculators.u_getHandler(this.a_sessionCalculators).postDelayed(this, 1000L);
       } else {
          fi.polar.polarflow.util.d.b(am_SessionCalculators.d(), "Sampler task is running, but training is not running.");
       }

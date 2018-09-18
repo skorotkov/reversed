@@ -8,7 +8,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import fi.polar.polarflow.a_package.a_DataTypes;
-import fi.polar.polarflow.calculators.as;
+import fi.polar.polarflow.calculators.as_SpeedRangeStatistics;
 import fi.polar.polarflow.calculators.bd;
 import fi.polar.polarflow.data.Training;
 import java.util.Collection;
@@ -112,7 +112,7 @@ public abstract class z extends fi.polar.polarflow.ui.exeview.a_package.a_packag
       return -1.0F;
    }
 
-   public abstract float a(as var1);
+   public abstract float a(as_SpeedRangeStatistics var1);
 
    public abstract float a(bd var1);
 

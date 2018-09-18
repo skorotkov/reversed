@@ -3,7 +3,7 @@ package fi.polar.polarflow.ui.a_package;
 import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
-import fi.polar.polarflow.calculators.as;
+import fi.polar.polarflow.calculators.as_SpeedRangeStatistics;
 import fi.polar.polarflow.calculators.bd;
 import java.util.Collection;
 
@@ -49,7 +49,7 @@ public abstract class s extends z {
       return this.c;
    }
 
-   public float a(as var1) {
+   public float a(as_SpeedRangeStatistics var1) {
       return -1.0F;
    }
 

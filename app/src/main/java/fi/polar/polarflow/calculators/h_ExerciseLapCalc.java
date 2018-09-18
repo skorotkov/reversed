@@ -26,7 +26,7 @@ public abstract class h_ExerciseLapCalc extends aj_CalcBase implements ae, ah {
    private float j;
    private float k;
    private long l;
-   private final as m;
+   private final as_SpeedRangeStatistics m;
    private final bd n;
    private final aw o;
    private final fi.polar.polarflow.calculators.a_package.c p;
@@ -42,14 +42,14 @@ public abstract class h_ExerciseLapCalc extends aj_CalcBase implements ae, ah {
    }
 
    public h_ExerciseLapCalc(Context var1, long var2) {
-      this(var1, var2, (v_StickyLocalBroadcastManager)null, new as());
+      this(var1, var2, (v_StickyLocalBroadcastManager)null, new as_SpeedRangeStatistics());
    }
 
    public h_ExerciseLapCalc(Context var1, long var2, v_StickyLocalBroadcastManager var4) {
-      this(var1, var2, var4, new as());
+      this(var1, var2, var4, new as_SpeedRangeStatistics());
    }
 
-   public h_ExerciseLapCalc(Context var1, long var2, v_StickyLocalBroadcastManager var4, as var5) {
+   public h_ExerciseLapCalc(Context var1, long var2, v_StickyLocalBroadcastManager var4, as_SpeedRangeStatistics var5) {
       super(d);
       this.a = 1;
       this.e = -1.0F;
@@ -65,7 +65,7 @@ public abstract class h_ExerciseLapCalc extends aj_CalcBase implements ae, ah {
       this.r = 0L;
       this.s = 0L;
       this.t = 0L;
-      this.a((ai_Event)(new i(this, 0, 0L)));
+      this.a_setCurrentEvent((ai_Event)(new i(this, 0, 0L)));
       this.r = var2;
       if (var4 == null) {
          if (var1 != null) {
@@ -231,17 +231,17 @@ public abstract class h_ExerciseLapCalc extends aj_CalcBase implements ae, ah {
 
    }
 
-   public void a() {
-      ai_Event var1 = this.o();
-      if (var1 instanceof z) {
-         this.a(((z)var1).a(), var1.n_isTrusted());
+   public void a_handleCurrentEvent() {
+      ai_Event var1 = this.o_getCurrentEvent();
+      if (var1 instanceof z_HeartRateEvent) {
+         this.a(((z_HeartRateEvent)var1).a(), var1.n_isTrusted());
       } else if (var1 instanceof aa_GpsDerivativesEvent) {
          this.a_handleLocationDataBroadcast(((aa_GpsDerivativesEvent)var1).b_getDistance(), ((aa_GpsDerivativesEvent)var1).a_getSpeed(), (double)((aa_GpsDerivativesEvent)var1).c_getAltitude(), ((aa_GpsDerivativesEvent)var1).d_getAscent(), ((aa_GpsDerivativesEvent)var1).e_getDescent(), var1.n_isTrusted());
-      } else if (var1 instanceof b) {
-         this.a(((b)var1).a());
-      } else if (var1 instanceof ag) {
-         this.n.a((ag)var1);
-         this.o.a((ag)var1);
+      } else if (var1 instanceof b_RunningCadenceEvent) {
+         this.a(((b_RunningCadenceEvent)var1).a_getCadence());
+      } else if (var1 instanceof ag_PoolSwimmingEvent) {
+         this.n.a((ag_PoolSwimmingEvent)var1);
+         this.o.a((ag_PoolSwimmingEvent)var1);
       }
 
    }
@@ -251,14 +251,14 @@ public abstract class h_ExerciseLapCalc extends aj_CalcBase implements ae, ah {
    }
 
    protected boolean a(int var1, long var2, float var4) {
-      return this.a(this.c(var1, var2, var4));
+      return this.a_addLap(this.c(var1, var2, var4));
    }
 
    protected boolean a(int var1, long var2, SwimmingLapStatistics var4) {
-      return this.a(this.c(var1, var2, var4));
+      return this.a_addLap(this.c(var1, var2, var4));
    }
 
-   protected boolean a(Lap var1) {
+   protected boolean a_addLap(Lap var1) {
       boolean var2;
       if (!this.c && this.a <= this.n()) {
          fi.polar.polarflow.util.d.c("ExerciseLapCalc", "addLap, number:" + this.a);
@@ -277,12 +277,12 @@ public abstract class h_ExerciseLapCalc extends aj_CalcBase implements ae, ah {
       this.t = SystemClock.elapsedRealtime();
    }
 
-   void b(int var1, long var2, float var4) {
+   void b_addLastLap(int var1, long var2, float var4) {
       fi.polar.polarflow.util.d.c("ExerciseLapCalc", "addLastLap, number:" + this.a);
       this.b(this.c(var1, var2, var4));
    }
 
-   void b(int var1, long var2, SwimmingLapStatistics var4) {
+   void b_addLastLap(int var1, long var2, SwimmingLapStatistics var4) {
       fi.polar.polarflow.util.d.c("ExerciseLapCalc", "addLastLap, number:" + this.a);
       this.b(this.c(var1, var2, var4));
    }

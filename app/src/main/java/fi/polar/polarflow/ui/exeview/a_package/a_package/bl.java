@@ -3,6 +3,8 @@ package fi.polar.polarflow.ui.exeview.a_package.a_package;
 import android.content.Intent;
 import android.os.Bundle;
 
+import fi.polar.polarflow.calculators.as_SpeedRangeStatistics;
+
 public class bl extends fi.polar.polarflow.ui.a_package.z {
    public bl() {
       super((new fi.polar.polarflow.ui.a_package.ae()).a(2131230855).b(2131230853).c(2131230851).b("SwimmingMetricsProvider.KEY_POOL_SWIMMING_AVERAGE_SPEED").a());
@@ -12,7 +14,7 @@ public class bl extends fi.polar.polarflow.ui.a_package.z {
       return var1.getFloat(y, -1.0F);
    }
 
-   public float a(fi.polar.polarflow.calculators.as var1) {
+   public float a(as_SpeedRangeStatistics var1) {
       float var2;
       if (var1.g_areAnySamplesAdded()) {
          var2 = var1.a(this.Q.getDurationMs(), (double)this.Q.getTotalDistance());

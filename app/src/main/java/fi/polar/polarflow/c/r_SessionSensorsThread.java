@@ -27,7 +27,7 @@ class r_SessionSensorsThread extends HandlerThread implements Callback {
    private am_SessionCalculators d_sessionCalculators;
    private final Map e_sensorsMap;
    private int f;
-   private boolean g;
+   private boolean g_isStarted;
    private Handler h;
    private k i;
 
@@ -71,7 +71,7 @@ class r_SessionSensorsThread extends HandlerThread implements Callback {
    }
 
    private void b(m_SENSOR_STATE var1) {
-      if (this.g && var1 == m_SENSOR_STATE.d_READY) {
+      if (this.g_isStarted && var1 == m_SENSOR_STATE.d_READY) {
          this.c();
       }
 
@@ -145,9 +145,9 @@ class r_SessionSensorsThread extends HandlerThread implements Callback {
 
    }
 
-   private void e(int param1) {
+   private void e_start(int param1) {
       // $FF: Couldn't be decompiled
-      if (!this.g) {
+      if (!this.g_isStarted) {
          this.f = param1;
          this.b_createSensors();
          Set var2 = this.c;
@@ -161,15 +161,15 @@ class r_SessionSensorsThread extends HandlerThread implements Callback {
          this.d_sessionCalculators.a_startSessionCalculators((fi.polar.polarflow.c.d_gps_package.a_GpsLocationProviderBase)this.d_getSensor(4),
                  (fi.polar.polarflow.c.c_heartrate_package.a_HeartRateSensor)this.d_getSensor(1),
                  (fi.polar.polarflow.c.a_accelerometer_package.e_RunningCadenceProvider)this.d_getSensor(8), (a_AccelerometerSensor) this.d_getSensor(16));
-         this.g = true;
+         this.g_isStarted = true;
       }
 
    }
 
-   private void f() {
+   private void f_stop() {
       // $FF: Couldn't be decompiled
-      if (this.g) {
-         this.d_sessionCalculators.a();
+      if (this.g_isStarted) {
+         this.d_sessionCalculators.a_stop();
       }
 
       this.d_sessionCalculators = null;
@@ -181,7 +181,7 @@ class r_SessionSensorsThread extends HandlerThread implements Callback {
 
       this.e_sensorsMap.clear();
       this.f = 0;
-      this.g = false;
+      this.g_isStarted = false;
       this.h.sendEmptyMessageDelayed(7, 1000L);
       if (this.i != null) {
          this.i.a();
@@ -194,7 +194,7 @@ class r_SessionSensorsThread extends HandlerThread implements Callback {
    }
 
    private void g_pause() {
-      if (this.g) {
+      if (this.g_isStarted) {
          this.d_sessionCalculators.b();
          Iterator var1 = this.e_sensorsMap.entrySet().iterator();
 
@@ -210,7 +210,7 @@ class r_SessionSensorsThread extends HandlerThread implements Callback {
    }
 
    private void h_resume() {
-      if (this.g) {
+      if (this.g_isStarted) {
          Iterator var1 = this.e_sensorsMap.entrySet().iterator();
 
          while(var1.hasNext()) {
@@ -221,7 +221,7 @@ class r_SessionSensorsThread extends HandlerThread implements Callback {
             }
          }
 
-         this.d_sessionCalculators.c();
+         this.d_sessionCalculators.c_resumeSessionCalculators();
       }
 
    }
@@ -282,7 +282,7 @@ class r_SessionSensorsThread extends HandlerThread implements Callback {
          this.e();
          break;
       case 2:
-         this.f();
+         this.f_stop();
          break;
       case 3:
          this.g_pause();
@@ -294,7 +294,7 @@ class r_SessionSensorsThread extends HandlerThread implements Callback {
          this.b((m_SENSOR_STATE)var1.obj);
          break;
       case 6:
-         this.e(var1.arg1);
+         this.e_start(var1.arg1);
          break;
       case 7:
          this.i_onKill();

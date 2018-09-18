@@ -4,10 +4,10 @@ import fi.polar.polarflow.a_package.a_DataTypes;
 import fi.polar.polarmathsmart.speed.AverageSpeedCalculator;
 import fi.polar.polarmathsmart.speed.AverageSpeedCalculatorAndroidImpl;
 
-public class as extends at_RangeStatistics {
+public class as_SpeedRangeStatistics extends at_RangeStatistics {
    private final AverageSpeedCalculator e = new AverageSpeedCalculatorAndroidImpl();
 
-   public as() {
+   public as_SpeedRangeStatistics() {
       super(0.0F, 399.0F);
    }
 

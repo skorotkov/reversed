@@ -29,7 +29,7 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
    private final BroadcastReceiver G;
    private final Runnable H;
    private final Runnable I;
-   as a;
+   as_SpeedRangeStatistics a_speedRangeStatistics;
    protected final Training b;
    private final Handler d;
    private final AlarmManager e;
@@ -65,10 +65,10 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
    }
 
    public j_ExercisePhaseCalc(Context var1, Training var2, Handler var3, AlarmManager var4) {
-      this(var1, var2, var3, var4, (as)null);
+      this(var1, var2, var3, var4, (as_SpeedRangeStatistics)null);
    }
 
-   public j_ExercisePhaseCalc(Context var1, Training var2, Handler var3, AlarmManager var4, as var5) {
+   public j_ExercisePhaseCalc(Context var1, Training var2, Handler var3, AlarmManager var4, as_SpeedRangeStatistics var5) {
       super(k);
       this.l = null;
       this.m = 1;
@@ -90,7 +90,7 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
       this.G = new k(this);
       this.H = new m(this);
       this.I = new n(this);
-      this.a((ai_Event)(new l(this, 0, 0L)));
+      this.a_setCurrentEvent((ai_Event)(new l(this, 0, 0L)));
       if (var2 == null) {
          var2 = Training.getInstance();
       }
@@ -103,9 +103,9 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
       }
 
       if (var5 != null) {
-         this.a = var5;
+         this.a_speedRangeStatistics = var5;
       } else {
-         this.a = new as();
+         this.a_speedRangeStatistics = new as_SpeedRangeStatistics();
       }
 
       if (var4 != null) {
@@ -136,30 +136,30 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
       this.d(false);
    }
 
-   private void a(float var1, float var2) {
+   private void a_handlePoolSwimmingEvent(float var1, float var2) {
       this.n = var1;
-      this.a.a_addSample(3.6F * var2);
+      this.a_speedRangeStatistics.a_addSample(3.6F * var2);
       this.s();
    }
 
-   private void a(float var1, float var2, float var3, float var4) {
-      if (this.o().n_isTrusted()) {
+   private void a_handleGpsDerivativesEvent(float var1, float var2, float var3, float var4) {
+      if (this.o_getCurrentEvent().n_isTrusted()) {
          this.n = var1;
          this.p = var3;
          this.r = var4;
       }
 
       if (Float.isNaN(var2)) {
-         this.a.b_addEmptySample();
+         this.a_speedRangeStatistics.b_addEmptySample();
       } else {
-         this.a.a_addSample(3.6F * var2);
+         this.a_speedRangeStatistics.a_addSample(3.6F * var2);
       }
 
       this.s();
    }
 
-   private void a(int var1) {
-      if (this.o().n_isTrusted()) {
+   private void a_handleHeartRateEvent(int var1) {
+      if (this.o_getCurrentEvent().n_isTrusted()) {
          int var2;
          if (var1 < 0) {
             var2 = 0;
@@ -180,7 +180,7 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
       this.r();
    }
 
-   private void a(long var1) {
+   private void a_setNextZoneAlarm(long var1) {
       fi.polar.polarflow.util.d.c("ExercisePhaseCalc", "setNextZoneAlarm() " + var1 + " ms from now.");
       this.e.setExact(2, SystemClock.elapsedRealtime() + var1, this.f);
    }
@@ -207,10 +207,10 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
 
    // $FF: synthetic method
    static void a(j_ExercisePhaseCalc var0, String var1, int var2) {
-      var0.a(var1, var2);
+      var0.a_broadcastTargetZoneAction(var1, var2);
    }
 
-   private void a(String var1, int var2) {
+   private void a_broadcastTargetZoneAction(String var1, int var2) {
       fi.polar.polarflow.util.d.c("ExercisePhaseCalc", "broadcastTargetZoneAction() " + var1 + " - " + var2);
       if (!this.c && !this.j) {
          Intent var3 = new Intent(var1);
@@ -219,7 +219,7 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
 
       this.v();
       if (var2 > 0) {
-         this.a((long)var2);
+         this.a_setNextZoneAlarm((long)var2);
       }
 
       this.z = var1;
@@ -237,12 +237,12 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
       return var1;
    }
 
-   private void b(int var1) {
+   private void b_handleRunningCadenceEvent(int var1) {
       this.x.a(var1);
       this.q();
    }
 
-   private void b(long var1) {
+   private void b_setPhaseFinishAlarms(long var1) {
       fi.polar.polarflow.util.d.c("ExercisePhaseCalc", "setPhaseFinishAlarms() " + var1 + " ms from now.");
       if (var1 > 4000L) {
          this.e.setExact(2, SystemClock.elapsedRealtime() + var1 - 4000L, this.i);
@@ -254,7 +254,7 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
 
    // $FF: synthetic method
    static void b(j_ExercisePhaseCalc var0) {
-      var0.l();
+      var0.l_startNextPhase();
    }
 
    // $FF: synthetic method
@@ -266,14 +266,14 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
       if (this.l != null && !this.w && this.l.getStartTime() != -1L && this.C != -1 && this.D != -1 && (float)var1 != this.y.i_getMostResentSample()) {
          if (var1 >= this.C && var1 <= this.D) {
             if (this.z.equals("ExercisePhaseCalc.ACTION_BELOW_TARGET_ZONE") || this.z.equals("ExercisePhaseCalc.ACTION_ABOVE_TARGET_ZONE")) {
-               this.a("ExercisePhaseCalc.ACTION_TARGET_ZONE_REACHED", 0);
+               this.a_broadcastTargetZoneAction("ExercisePhaseCalc.ACTION_TARGET_ZONE_REACHED", 0);
             }
          } else if (var1 < this.C) {
             if (!this.z.equals("ExercisePhaseCalc.ACTION_BELOW_TARGET_ZONE")) {
-               this.a("ExercisePhaseCalc.ACTION_BELOW_TARGET_ZONE", 10000);
+               this.a_broadcastTargetZoneAction("ExercisePhaseCalc.ACTION_BELOW_TARGET_ZONE", 10000);
             }
          } else if (var1 > this.D && !this.z.equals("ExercisePhaseCalc.ACTION_ABOVE_TARGET_ZONE")) {
-            this.a("ExercisePhaseCalc.ACTION_ABOVE_TARGET_ZONE", 4000);
+            this.a_broadcastTargetZoneAction("ExercisePhaseCalc.ACTION_ABOVE_TARGET_ZONE", 4000);
          }
       }
 
@@ -290,7 +290,7 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
             var2 = this.t + this.l.getGoalDuration() - this.b.getDurationMs();
          }
 
-         this.b(var2);
+         this.b_setPhaseFinishAlarms(var2);
       }
 
    }
@@ -307,7 +307,7 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
       this.r = -1.0F;
       this.j = false;
       this.y.a_clear();
-      this.a.a_clear();
+      this.a_speedRangeStatistics.a_clear();
       this.x.c();
       if (this.l != null) {
          if (this.l.getGoalType() == 1) {
@@ -316,7 +316,7 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
             this.o = this.b.getTotalDistance();
          }
 
-         this.u = this.t();
+         this.u = this.t_getTimeInHrZones();
          if (this.l.getIntensityType() == 1 && this.l.getIntensityZoneLower() != -1 && this.l.getIntensityZoneUpper() != -1) {
             this.C = ((int[])this.B.get(this.l.getIntensityZoneLower() - 1))[0];
             this.D = ((int[])this.B.get(this.l.getIntensityZoneUpper() - 1))[1];
@@ -349,7 +349,7 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
 
    // $FF: synthetic method
    static void g(j_ExercisePhaseCalc var0) {
-      var0.m();
+      var0.m_skipPhase();
    }
 
    // $FF: synthetic method
@@ -362,20 +362,20 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
       return var0.A;
    }
 
-   private void l() {
+   private void l_startNextPhase() {
       fi.polar.polarflow.util.d.c("ExercisePhaseCalc", "startNextPhase(): current phase number is " + this.m);
       ++this.m;
       this.d(true);
    }
 
-   private void m() {
+   private void m_skipPhase() {
       fi.polar.polarflow.util.d.c("ExercisePhaseCalc", "skipPhase(): current phase number is " + this.m);
       this.w();
-      this.a(true);
+      this.a_broadcastPhaseAboutToFinish(true);
       this.d.post(this.I);
    }
 
-   private void n() {
+   private void n_broadcastPhaseFinished() {
       fi.polar.polarflow.util.d.c("ExercisePhaseCalc", "broadcastPhaseFinished");
       Intent var1 = new Intent("ExercisePhaseCalc.ACTION_PHASE_FINISHED");
       var1.putExtra("ExercisePhaseCalc.KEY_PHASE_NUMBER", this.m);
@@ -425,9 +425,9 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
          this.b.getTrainingPhase().setDistance(var2);
       }
 
-      if (this.a.g_areAnySamplesAdded()) {
-         var2 = this.a.a(this.e(), (double)var2);
-         float var3 = Math.max(this.a.e_getMax(), var2);
+      if (this.a_speedRangeStatistics.g_areAnySamplesAdded()) {
+         var2 = this.a_speedRangeStatistics.a(this.e(), (double)var2);
+         float var3 = Math.max(this.a_speedRangeStatistics.e_getMax(), var2);
          var1.putExtra("ExercisePhaseCalc.KEY_AVG_SPEED", var2);
          var1.putExtra("ExercisePhaseCalc.KEY_MAX_SPEED", var3);
          this.b.getTrainingPhase().setAvgSpeed(var2);
@@ -440,7 +440,7 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
 
    }
 
-   private long t() {
+   private long t_getTimeInHrZones() {
       long var1 = 0L;
       Zones var3 = this.b.getZones();
       long var4 = var1;
@@ -499,27 +499,27 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
       return var1;
    }
 
-   public void a() {
+   public void a_handleCurrentEvent() {
       if (this.l != null) {
-         ai_Event var1 = this.o();
-         if (var1 instanceof z) {
-            this.a(((z)var1).a());
+         ai_Event var1 = this.o_getCurrentEvent();
+         if (var1 instanceof z_HeartRateEvent) {
+            this.a_handleHeartRateEvent(((z_HeartRateEvent)var1).a());
          } else if (var1 instanceof aa_GpsDerivativesEvent) {
-            this.a(((aa_GpsDerivativesEvent)var1).b_getDistance(), ((aa_GpsDerivativesEvent)var1).a_getSpeed(), ((aa_GpsDerivativesEvent)var1).d_getAscent(), ((aa_GpsDerivativesEvent)var1).e_getDescent());
-         } else if (var1 instanceof b) {
-            this.b(((b)var1).a());
-         } else if (var1 instanceof ag) {
-            this.a(((ag)var1).a(), ((ag)var1).b());
+            this.a_handleGpsDerivativesEvent(((aa_GpsDerivativesEvent)var1).b_getDistance(), ((aa_GpsDerivativesEvent)var1).a_getSpeed(), ((aa_GpsDerivativesEvent)var1).d_getAscent(), ((aa_GpsDerivativesEvent)var1).e_getDescent());
+         } else if (var1 instanceof b_RunningCadenceEvent) {
+            this.b_handleRunningCadenceEvent(((b_RunningCadenceEvent)var1).a_getCadence());
+         } else if (var1 instanceof ag_PoolSwimmingEvent) {
+            this.a_handlePoolSwimmingEvent(((ag_PoolSwimmingEvent)var1).a(), ((ag_PoolSwimmingEvent)var1).b());
          }
 
          if (this.l.getGoalType() == 2 && this.f() >= this.l.getGoalDistance()) {
-            this.a(true, false);
+            this.a_addPhaseData(true, false);
          }
       }
 
    }
 
-   protected void a(boolean var1) {
+   protected void a_broadcastPhaseAboutToFinish(boolean var1) {
       fi.polar.polarflow.util.d.c("ExercisePhaseCalc", "broadcastPhaseAboutToFinish");
       Intent var2 = new Intent("ExercisePhaseCalc.ACTION_PHASE_ABOUT_TO_FINISH");
       var2.putExtra("ExercisePhaseCalc.KEY_PHASE_NUMBER", this.m);
@@ -527,7 +527,7 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
       this.x().a(var2);
    }
 
-   protected final void a(boolean var1, boolean var2) {
+   protected final void a_addPhaseData(boolean var1, boolean var2) {
       fi.polar.polarflow.util.d.c("ExercisePhaseCalc", "addPhaseData, number:" + this.m);
       ExercisePhaseData var3 = new ExercisePhaseData();
       var3.setIndex(this.l.getIndex());
@@ -541,7 +541,7 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
          } else if (this.l.getGoalType() == 2) {
             var3.setDistance(this.l.getGoalDistance());
             if (!this.c) {
-               this.a(false);
+               this.a_broadcastPhaseAboutToFinish(false);
             }
          }
       }
@@ -571,10 +571,10 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
          this.y.a_clear();
       }
 
-      if (this.a.g_areAnySamplesAdded()) {
-         var3.setAvgSpeed(this.a.b(var4, (double)var6));
-         var3.setMaxSpeed(this.a.c(var4, (double)var6));
-         this.a.a_clear();
+      if (this.a_speedRangeStatistics.g_areAnySamplesAdded()) {
+         var3.setAvgSpeed(this.a_speedRangeStatistics.b(var4, (double)var6));
+         var3.setMaxSpeed(this.a_speedRangeStatistics.c(var4, (double)var6));
+         this.a_speedRangeStatistics.a_clear();
       }
 
       if (this.x.b()) {
@@ -583,11 +583,11 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
          this.x.c();
       }
 
-      var3.setInTargetZone(this.t() - this.u);
+      var3.setInTargetZone(this.t_getTimeInHrZones() - this.u);
       this.b.addPhaseData(var3);
       if (!var2) {
          if (!this.c) {
-            this.n();
+            this.n_broadcastPhaseFinished();
          }
 
          if (this.b.getExercisePhase(this.m) == null) {
@@ -618,7 +618,7 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
    public void c() {
       this.w = false;
       if (this.v) {
-         this.l();
+         this.l_startNextPhase();
          this.v = false;
       }
 
@@ -627,14 +627,14 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
       }
 
       if (this.z.equals("ExercisePhaseCalc.ACTION_ABOVE_TARGET_ZONE") || this.z.equals("ExercisePhaseCalc.ACTION_BELOW_TARGET_ZONE")) {
-         this.a(this.z, this.A);
+         this.a_broadcastTargetZoneAction(this.z, this.A);
       }
 
    }
 
    public void d() {
       if (this.l != null) {
-         this.a(false, true);
+         this.a_addPhaseData(false, true);
          this.d.removeCallbacks(this.H);
          this.d.removeCallbacks(this.I);
       }
@@ -679,14 +679,14 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
    }
 
    protected void i() {
-      this.a(true, false);
+      this.a_addPhaseData(true, false);
    }
 
    protected void j() {
-      this.a(false, false);
+      this.a_addPhaseData(false, false);
    }
 
-   protected void k() {
+   protected void k_broadcastPhaseEndCountdown() {
       fi.polar.polarflow.util.d.c("ExercisePhaseCalc", "broadcastPhaseEndCountdown");
       this.j = true;
       this.x().a(new Intent("ExercisePhaseCalc.ACTION_PHASE_END_COUNTDOWN"));

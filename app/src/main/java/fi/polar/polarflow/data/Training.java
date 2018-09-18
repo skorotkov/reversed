@@ -1,7 +1,7 @@
 package fi.polar.polarflow.data;
 
 import android.support.v4.c.g;
-import fi.polar.polarflow.calculators.as;
+import fi.polar.polarflow.calculators.as_SpeedRangeStatistics;
 import fi.polar.polarflow.calculators.bd;
 import fi.polar.polarflow.data.orm.Exercise;
 import fi.polar.polarflow.data.orm.ExercisePhase;
@@ -277,8 +277,8 @@ public class Training {
       return var1;
    }
 
-   public as getSpeedStatistics() {
-      return (as)this.getStatistics().getSpeedStatistics();
+   public as_SpeedRangeStatistics getSpeedStatistics() {
+      return (as_SpeedRangeStatistics)this.getStatistics().getSpeedStatistics();
    }
 
    public float getSportFactor() {

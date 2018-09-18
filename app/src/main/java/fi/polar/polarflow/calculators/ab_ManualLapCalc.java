@@ -38,7 +38,7 @@ class ab_ManualLapCalc extends h_ExerciseLapCalc implements y {
 
    public void d() {
       if (this.h()) {
-         this.b(-1, this.i(), this.k());
+         this.b_addLastLap(-1, this.i(), this.k());
       }
 
       this.e();

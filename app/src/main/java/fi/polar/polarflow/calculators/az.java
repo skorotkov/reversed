@@ -28,7 +28,7 @@ class az extends ab_ManualLapCalc {
    public void d() {
       if (this.h()) {
          SwimmingLapStatistics var1 = this.d.d();
-         this.b(-1, this.i(), var1);
+         this.b_addLastLap(-1, this.i(), var1);
       }
 
       this.e();

@@ -76,19 +76,19 @@ class an_HrPolarSensorListener implements e_PolarSensorListenerEx {
                break;
             }
 
-            var5 = TimeUnit.MILLISECONDS.toNanos(am_SessionCalculators.j(this.a).get(am_SessionCalculators.h(this.a)));
-            fi.polar.polarflow.c.b_PolarSensorEventBase var7 = fi.polar.polarflow.c.b_PolarSensorEventBase.a(var5, am_SessionCalculators.g(this.a), am_SessionCalculators.e());
+            var5 = TimeUnit.MILLISECONDS.toNanos(am_SessionCalculators.j_get_d_samplesTimeFromBoot(this.a).get(am_SessionCalculators.h(this.a)));
+            fi.polar.polarflow.c.b_PolarSensorEventBase var7 = fi.polar.polarflow.c.b_PolarSensorEventBase.a(var5, am_SessionCalculators.g(this.a), am_SessionCalculators.e_get500msInNanos());
             if (var7 != null) {
                am_SessionCalculators.a(this.a, var7);
             } else if (am_SessionCalculators.h(this.a) == 0) {
                var7 = am_SessionCalculators.d(this.a);
             } else {
-               if (var5 > ((fi.polar.polarflow.c.b_PolarSensorEventBase)am_SessionCalculators.g(this.a).get(am_SessionCalculators.g(this.a).size() - 1)).b_timestamp + am_SessionCalculators.e()) {
+               if (var5 > ((fi.polar.polarflow.c.b_PolarSensorEventBase)am_SessionCalculators.g(this.a).get(am_SessionCalculators.g(this.a).size() - 1)).b_timestamp + am_SessionCalculators.e_get500msInNanos()) {
                   break;
                }
 
                var7 = fi.polar.polarflow.c.b_PolarSensorEventBase.a(var5, am_SessionCalculators.g(this.a));
-               if (var7.b_timestamp > var5 + am_SessionCalculators.e()) {
+               if (var7.b_timestamp > var5 + am_SessionCalculators.e_get500msInNanos()) {
                   var7 = am_SessionCalculators.d(this.a);
                } else {
                   am_SessionCalculators.a(this.a, var7);

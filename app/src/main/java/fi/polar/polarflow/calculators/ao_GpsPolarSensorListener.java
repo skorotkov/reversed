@@ -41,8 +41,8 @@ class ao_GpsPolarSensorListener implements e_PolarSensorListenerEx {
                break;
             }
 
-            long var3_origGpsSearchTs = am_SessionCalculators.n(this.a_sessionCalculators).get(am_SessionCalculators.l(this.a_sessionCalculators));
-            long var5_searchedTs = am_SessionCalculators.n(this.a_sessionCalculators).get(am_SessionCalculators.l(this.a_sessionCalculators)) + am_SessionCalculators.o_getGpsSampleDifference(this.a_sessionCalculators);
+            long var3_origGpsSearchTs = am_SessionCalculators.n_get_e_samplesTimeFromBoot(this.a_sessionCalculators).get(am_SessionCalculators.l(this.a_sessionCalculators));
+            long var5_searchedTs = am_SessionCalculators.n_get_e_samplesTimeFromBoot(this.a_sessionCalculators).get(am_SessionCalculators.l(this.a_sessionCalculators)) + am_SessionCalculators.o_getGpsSampleDifference(this.a_sessionCalculators);
             fi.polar.polarflow.c.f_PolarSensorEvent var7 = (fi.polar.polarflow.c.f_PolarSensorEvent)fi.polar.polarflow.c.b_PolarSensorEventBase.a(var5_searchedTs, am_SessionCalculators.k_getEvents(this.a_sessionCalculators), 500L);
             if (var7 != null) {
                if (am_SessionCalculators.o_getGpsSampleDifference(this.a_sessionCalculators) == 0L) {

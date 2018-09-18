@@ -8,7 +8,7 @@ abstract class aj_CalcBase implements al_Calc, c {
    private final List b_sensorTypes;
    boolean c;
    private int d;
-   private ai_Event e;
+   private ai_Event e_currentEvent;
 
    aj_CalcBase(List var1) {
       if (var1 == null || ((List)var1).size() == 0) {
@@ -23,15 +23,15 @@ abstract class aj_CalcBase implements al_Calc, c {
       this.d = 0;
    }
 
-   final void a(ai_Event var1) {
-      this.e = var1;
+   final void a_setCurrentEvent(ai_Event var1) {
+      this.e_currentEvent = var1;
    }
 
-   final void b(ai_Event var1) {
-      if (this.e.n_isTrusted() != var1.n_isTrusted()) {
+   final void b_handleEvent(ai_Event var1) {
+      if (this.e_currentEvent.n_isTrusted() != var1.n_isTrusted()) {
          if (var1.n_isTrusted()) {
-            if (this instanceof ak) {
-               ((ak)this).a(this.d, this.e.l());
+            if (this instanceof ak) {  // true for q_ExerciseSampleHeartrateCalc and s_GpsDerivativesCalc
+               ((ak)this).a(this.d, this.e_currentEvent.l());
             }
 
             this.d = -1;
@@ -40,16 +40,16 @@ abstract class aj_CalcBase implements al_Calc, c {
          }
       }
 
-      this.e = var1;
-      this.a();
+      this.e_currentEvent = var1;
+      this.a_handleCurrentEvent();
    }
 
    final void b(boolean var1) {
       this.c = var1;
    }
 
-   final ai_Event o() {
-      return this.e;
+   final ai_Event o_getCurrentEvent() {
+      return this.e_currentEvent;
    }
 
    final int p() {

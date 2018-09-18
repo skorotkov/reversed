@@ -31,9 +31,9 @@ class k extends BroadcastReceiver {
       } else if ("fi.polar.polarflow.action.PHASE_FINISH_ALARM_TRIGGERED".equals(var3)) {
          j_ExercisePhaseCalc.d(this.a).post(j_ExercisePhaseCalc.c(this.a));
       } else if ("fi.polar.polarflow.action.PRE_PHASE_FINISH_ALARM_TRIGGERED".equals(var3)) {
-         this.a.a(false);
+         this.a.a_broadcastPhaseAboutToFinish(false);
       } else if ("fi.polar.polarflow.action.PHASE_END_COUNTDOWN_ALARM_TRIGGERED".equals(var3)) {
-         this.a.k();
+         this.a.k_broadcastPhaseEndCountdown();
       }
 
    }

@@ -1,7 +1,7 @@
 package fi.polar.polarflow.data;
 
 import fi.polar.polarflow.calculators.a;
-import fi.polar.polarflow.calculators.as;
+import fi.polar.polarflow.calculators.as_SpeedRangeStatistics;
 import fi.polar.polarflow.calculators.at_RangeStatistics;
 import fi.polar.polarflow.calculators.bd;
 import fi.polar.polarflow.calculators.a_package.c;
@@ -16,7 +16,7 @@ public class TrainingStatistics {
    private final c mCadenceStatistics = new c();
    private final ExerciseStatistics mExerciseStatistics = new ExerciseStatistics();
    private final at_RangeStatistics mHeartrateStatistics = new at_RangeStatistics(0.0F, 250.0F);
-   private final as mSpeedStatistics = new as();
+   private final as_SpeedRangeStatistics mSpeedStatistics = new as_SpeedRangeStatistics();
    private final bd mSwimmingSpeedStatistics = new bd();
    private SwimmingStatistics mSwimmingStatistics = null;
 

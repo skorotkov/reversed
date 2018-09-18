@@ -14,11 +14,11 @@ public class o_RunningCadenceCalc extends aj_CalcBase {
 
    public o_RunningCadenceCalc() {
       super(a);
-      this.a(new b());
+      this.a_setCurrentEvent(new b_RunningCadenceEvent());
    }
 
-   public void a() {
-      int var1 = ((b)this.o()).a();
+   public void a_handleCurrentEvent() {
+      int var1 = ((b_RunningCadenceEvent)this.o_getCurrentEvent()).a_getCadence();
       this.b.getSamples().addCadenceSample(var1);
    }
 }

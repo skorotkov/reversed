@@ -1,5 +1,5 @@
 package fi.polar.polarflow.calculators;
 
 interface c {
-   void a();
+   void a_handleCurrentEvent();
 }

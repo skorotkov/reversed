@@ -10,10 +10,10 @@ public class d_DistanceLapCalc extends h_ExerciseLapCalc {
    private boolean e;
 
    d_DistanceLapCalc(Context var1, float var2, long var3) {
-      this(var1, var2, var3, new as());
+      this(var1, var2, var3, new as_SpeedRangeStatistics());
    }
 
-   d_DistanceLapCalc(Context var1, float var2, long var3, as var5) {
+   d_DistanceLapCalc(Context var1, float var2, long var3, as_SpeedRangeStatistics var5) {
       super(var1, var3, (v_StickyLocalBroadcastManager)null, var5);
       float var6 = a_DataTypes.a_adjust(1, var2);
       var2 = var6;
@@ -25,8 +25,8 @@ public class d_DistanceLapCalc extends h_ExerciseLapCalc {
       this.d = var2;
    }
 
-   public void a() {
-      super.a();
+   public void a_handleCurrentEvent() {
+      super.a_handleCurrentEvent();
       if (this.k() >= this.d) {
          float var1 = this.d;
          if (this.e) {
@@ -37,7 +37,7 @@ public class d_DistanceLapCalc extends h_ExerciseLapCalc {
       }
 
       boolean var2;
-      if (!this.o().n_isTrusted()) {
+      if (!this.o_getCurrentEvent().n_isTrusted()) {
          var2 = true;
       } else {
          var2 = false;

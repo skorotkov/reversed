@@ -12,7 +12,7 @@ public class aw {
       return a_DataTypes.a_adjust(1, this.a);
    }
 
-   public void a(ag var1) {
+   public void a(ag_PoolSwimmingEvent var1) {
       this.a = var1.h();
       this.b = var1.e();
       this.c = var1.a();
