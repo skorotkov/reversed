@@ -6,7 +6,7 @@ import android.os.Handler;
 import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
 import fi.polar.polarmathsmart.swimming.poolswimming.SwimmingLapStatistics;
 
-class az extends ab {
+class az extends ab_ManualLapCalc {
    private final bb_SwimmingMetricsProvider d;
    private final Runnable e;
 

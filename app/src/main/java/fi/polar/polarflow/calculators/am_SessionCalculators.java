@@ -29,25 +29,25 @@ import java.util.concurrent.TimeUnit;
 import org.joda.time.DateTime;
 
 public class am_SessionCalculators {
-   private static final String a = am_SessionCalculators.class.getSimpleName();
+   private static final String a_TAG = am_SessionCalculators.class.getSimpleName();
    private static final long l;
    private int A;
    private int B;
    private int C;
-   private long D;
-   private long E;
+   private long D_trainingSamplingStartTimeFromBoot;
+   private long E_gpsSampleDifference;
    private final e_PolarSensorListenerEx F_heartRatePolarSensorListener;
    private final e_PolarSensorListenerEx G_gpsPolarSensorListener;
    private final l_PolarSensorListener H_runningCadencePolarSensorListener;
-   private final Runnable I;
+   private final Runnable I_samplerTask;
    private final af J;
-   private final List b;
+   private final List b_calcs;
    private final Context context;
    private final SparseLongArray d;
    private final SparseLongArray e;
    private final SparseLongArray f;
    private b_PolarSensorEventBase g;
-   private f_PolarSensorEvent h;
+   private f_PolarSensorEvent h_polarGpsSensorEvent;
    private int i;
    private long j;
    private int k;
@@ -55,16 +55,16 @@ public class am_SessionCalculators {
    private boolean n;
    private boolean o;
    private final List p;
-   private final List q;
+   private final List q_events;
    private final Handler r;
-   private final Training s;
-   private aa_TimeUtils t;
+   private final Training s_training;
+   private aa_TimeUtils t_timeUtils;
    private final int[] u;
    private a_GpsLocationProviderBase v_gpsSensor;
    private a_HeartRateSensor w_heartRateSensor;
    private e_RunningCadenceProvider x_runningCadenceProvider;
-   private bb_SwimmingMetricsProvider y;
-   private SwimmingSamples z;
+   private bb_SwimmingMetricsProvider y_swimmingMetricsProvider;
+   private SwimmingSamples z_swimmingSamples;
 
    static {
       l = TimeUnit.MILLISECONDS.toNanos(500L);
@@ -79,20 +79,20 @@ public class am_SessionCalculators {
       this.F_heartRatePolarSensorListener = new an_HrPolarSensorListener(this);
       this.G_gpsPolarSensorListener = new ao_GpsPolarSensorListener(this);
       this.H_runningCadencePolarSensorListener = new ap(this);
-      this.I = new aq(this);
+      this.I_samplerTask = new aq_SamplerTask(this);
       this.J = new ar(this);
       this.context = var1;
-      this.b = new ArrayList();
+      this.b_calcs = new ArrayList();
       this.d = new SparseLongArray();
       this.e = new SparseLongArray();
       this.f = new SparseLongArray();
       this.r = var3;
       this.u = new int[]{0};
-      this.s = var2;
-      this.t = new aa_TimeUtils();
-      this.E = 0L;
+      this.s_training = var2;
+      this.t_timeUtils = new aa_TimeUtils();
+      this.E_gpsSampleDifference = 0L;
       this.p = new ArrayList();
-      this.q = new ArrayList();
+      this.q_events = new ArrayList();
       this.i = -1;
       this.j = 0L;
       this.k = 0;
@@ -118,20 +118,31 @@ public class am_SessionCalculators {
 
    // $FF: synthetic method
    static f_PolarSensorEvent a(am_SessionCalculators var0, f_PolarSensorEvent var1) {
-      var0.h = var1;
+      var0.h_polarGpsSensorEvent = var1;
       return var1;
    }
 
    private void a(int param1) {
       // $FF: Couldn't be decompiled
+      for(int[] var2 = this.u; this.C < this.u[0] && this.C < Integer.MAX_VALUE; ++this.C) {
+         this.b(this.C, param1);
+      }
+
    }
 
    private void a(int var1, boolean var2) {
       this.a(var1, var2, Integer.MAX_VALUE);
    }
 
-   private void a(int param1, boolean param2, int param3) {
+   private void a(int var1, boolean var2, int var3) {
       // $FF: Couldn't be decompiled
+      for(int[] var4 = this.u; this.A < this.u[0] && this.A < var3; ++this.A) {
+         if (var2) {
+            this.a(this.A, var1);
+         } else {
+            this.a(this.A, Math.round(this.g.a_values[0]));
+         }
+      }
    }
 
    // $FF: synthetic method
@@ -149,8 +160,40 @@ public class am_SessionCalculators {
       var0.a(var1, var2);
    }
 
-   private void a(List param1, int param2) {
+   private void a(List var1, int var2) {
       // $FF: Couldn't be decompiled
+      boolean var3 = false;
+      int[] var4 = this.u;
+      boolean var5 = var3;
+      if (this.A < this.u[0]) {
+         var5 = var3;
+         if (this.A < var2) {
+            var5 = true;
+         }
+      }
+
+      if (var5 && var1.size() != 0) {
+         for(; this.A < this.u[0] && this.A < var2; ++this.A) {
+            long var6 = TimeUnit.MILLISECONDS.toNanos(this.d.get(this.A));
+            b_PolarSensorEventBase var8 = b_PolarSensorEventBase.a(var6, var1, l);
+            if (var8 != null) {
+               this.g = var8;
+            } else if (var6 < ((b_PolarSensorEventBase)var1.get(0)).b_timestamp) {
+               var8 = (b_PolarSensorEventBase)var1.get(0);
+            } else if (var6 > ((b_PolarSensorEventBase)var1.get(var1.size() - 1)).b_timestamp) {
+               var8 = (b_PolarSensorEventBase)var1.get(var1.size() - 1);
+            } else {
+               var8 = b_PolarSensorEventBase.a(var6, var1);
+            }
+
+            if (var8 != null) {
+               this.a(this.A, Math.round(var8.a_values[0]));
+            }
+         }
+
+         this.g = (b_PolarSensorEventBase)var1.get(var1.size() - 1);
+      }
+
    }
 
    // $FF: synthetic method
@@ -159,14 +202,14 @@ public class am_SessionCalculators {
    }
 
    // $FF: synthetic method
-   static long b(am_SessionCalculators var0, long var1) {
-      var0.E = var1;
+   static long b_setAndReturnGpsSampleDifference(am_SessionCalculators var0, long var1) {
+      var0.E_gpsSampleDifference = var1;
       return var1;
    }
 
    // $FF: synthetic method
-   static aa_TimeUtils b(am_SessionCalculators var0) {
-      return var0.t;
+   static aa_TimeUtils b_getTimeUtils(am_SessionCalculators var0) {
+      return var0.t_timeUtils;
    }
 
    // $FF: synthetic method
@@ -182,7 +225,7 @@ public class am_SessionCalculators {
 
    // $FF: synthetic method
    static long c(am_SessionCalculators var0, long var1) {
-      var0.D = var1;
+      var0.D_trainingSamplingStartTimeFromBoot = var1;
       return var1;
    }
 
@@ -198,7 +241,7 @@ public class am_SessionCalculators {
 
    // $FF: synthetic method
    static String d() {
-      return a;
+      return a_TAG;
    }
 
    // $FF: synthetic method
@@ -234,7 +277,7 @@ public class am_SessionCalculators {
 
    private void g() {
       this.i();
-      this.b.clear();
+      this.b_calcs.clear();
    }
 
    // $FF: synthetic method
@@ -244,8 +287,8 @@ public class am_SessionCalculators {
 
    private void h() {
       this.i();
-      this.D = this.s.getSamplingStartTimeFromBoot();
-      this.r.postDelayed(this.I, 1000L);
+      this.D_trainingSamplingStartTimeFromBoot = this.s_training.getSamplingStartTimeFromBoot();
+      this.r.postDelayed(this.I_samplerTask, 1000L);
    }
 
    // $FF: synthetic method
@@ -256,7 +299,7 @@ public class am_SessionCalculators {
    }
 
    private void i() {
-      this.r.removeCallbacks(this.I);
+      this.r.removeCallbacks(this.I_samplerTask);
    }
 
    // $FF: synthetic method
@@ -266,11 +309,17 @@ public class am_SessionCalculators {
 
    private void j() {
       // $FF: Couldn't be decompiled
+      fi.polar.polarflow.c.f_PolarSensorEvent var1 = this.v_gpsSensor.k_fillPolarGpsSensorEvent();
+
+      for(int[] var2 = this.u; this.B < this.u[0]; ++this.B) {
+         this.a(this.B, var1);
+      }
+
    }
 
    // $FF: synthetic method
-   static List k(am_SessionCalculators var0) {
-      return var0.q;
+   static List k_getEvents(am_SessionCalculators var0) {
+      return var0.q_events;
    }
 
    // $FF: synthetic method
@@ -291,13 +340,13 @@ public class am_SessionCalculators {
    }
 
    // $FF: synthetic method
-   static long o(am_SessionCalculators var0) {
-      return var0.E;
+   static long o_getGpsSampleDifference(am_SessionCalculators var0) {
+      return var0.E_gpsSampleDifference;
    }
 
    // $FF: synthetic method
-   static f_PolarSensorEvent p(am_SessionCalculators var0) {
-      return var0.h;
+   static f_PolarSensorEvent p_getPolarGpsSensorEvent(am_SessionCalculators var0) {
+      return var0.h_polarGpsSensorEvent;
    }
 
    // $FF: synthetic method
@@ -306,13 +355,13 @@ public class am_SessionCalculators {
    }
 
    // $FF: synthetic method
-   static Training r(am_SessionCalculators var0) {
-      return var0.s;
+   static Training r_getTraining(am_SessionCalculators var0) {
+      return var0.s_training;
    }
 
    // $FF: synthetic method
    static long s(am_SessionCalculators var0) {
-      return var0.D;
+      return var0.D_trainingSamplingStartTimeFromBoot;
    }
 
    // $FF: synthetic method
@@ -326,18 +375,18 @@ public class am_SessionCalculators {
    }
 
    // $FF: synthetic method
-   static List v(am_SessionCalculators var0) {
-      return var0.b;
+   static List v_getCalcs(am_SessionCalculators var0) {
+      return var0.b_calcs;
    }
 
    // $FF: synthetic method
-   static SwimmingSamples w(am_SessionCalculators var0) {
-      return var0.z;
+   static SwimmingSamples w_getSwimmingSamples(am_SessionCalculators var0) {
+      return var0.z_swimmingSamples;
    }
 
    public void a() {
       boolean var1 = false;
-      Iterator var2 = this.b.iterator();
+      Iterator var2 = this.b_calcs.iterator();
 
       while(var2.hasNext()) {
          al_Calc var3 = (al_Calc)var2.next();
@@ -373,15 +422,15 @@ public class am_SessionCalculators {
          this.a(this.k);
       }
 
-      if (this.y != null) {
-         SwimmingStatistics var5 = this.y.a();
+      if (this.y_swimmingMetricsProvider != null) {
+         SwimmingStatistics var5 = this.y_swimmingMetricsProvider.a();
          TrainingStatistics var7 = Training.getInstance().getStatistics();
          if (var7 != null) {
             var7.setSwimmingStatistics(new fi.polar.polarflow.data.orm.SwimmingStatistics(var5));
          }
       }
 
-      Iterator var8 = this.b.iterator();
+      Iterator var8 = this.b_calcs.iterator();
 
       while(var8.hasNext()) {
          al_Calc var6 = (al_Calc)var8.next();
@@ -406,7 +455,7 @@ public class am_SessionCalculators {
          var5 = false;
       }
 
-      Iterator var6 = this.b.iterator();
+      Iterator var6 = this.b_calcs.iterator();
 
       while(var6.hasNext()) {
          al_Calc var7 = (al_Calc)var6.next();
@@ -429,128 +478,131 @@ public class am_SessionCalculators {
          this.e.delete(this.B);
       }
 
-      Iterator var5 = this.b.iterator();
+      Iterator var5 = this.b_calcs.iterator();
 
       while(var5.hasNext()) {
          al_Calc var6 = (al_Calc)var5.next();
          if (var6 instanceof h_ExerciseLapCalc) {
-            ((h_ExerciseLapCalc)var6).b(new aa_GpsEvent(var1, var3, var2));
-         } else if (var6 instanceof s_GpsCalc) {
-            ((s_GpsCalc)var6).b(new aa_GpsEvent(var1, var3, var2));
-         } else if (var6 instanceof t) {
-            ((t)var6).b(new v(var1, var3, var2));
+            ((h_ExerciseLapCalc)var6).b(new aa_GpsDerivativesEvent(var1, var3, var2));
+         } else if (var6 instanceof s_GpsDerivativesCalc) {
+            ((s_GpsDerivativesCalc)var6).b(new aa_GpsDerivativesEvent(var1, var3, var2));
+         } else if (var6 instanceof t_GpsLocationCalc) {
+            ((t_GpsLocationCalc)var6).b(new v_GpsLocationEvent(var1, var3, var2));
          } else if (var6 instanceof j_ExercisePhaseCalc) {
-            ((j_ExercisePhaseCalc)var6).b(new aa_GpsEvent(var1, var3, var2));
+            ((j_ExercisePhaseCalc)var6).b(new aa_GpsDerivativesEvent(var1, var3, var2));
          }
       }
 
    }
 
-   public void a_startSessionCalculators(a_GpsLocationProviderBase var1, a_HeartRateSensor var2, e_RunningCadenceProvider var3, a_AccelerometerSensor var4) {
-      fi.polar.polarflow.util.d.c(a, "startSessionCalculators");
-      this.b.clear();
-      if (var1 != null) {
-         this.v_gpsSensor = var1;
-         this.b.add(new s_GpsCalc());
-         this.b.add(new t());
+   public void a_startSessionCalculators(a_GpsLocationProviderBase var1_gpsSensor,
+                                         a_HeartRateSensor var2_hearRateSensor,
+                                         e_RunningCadenceProvider var3_cadenceSensor,
+                                         a_AccelerometerSensor var4_accelerometerSensor) {
+      fi.polar.polarflow.util.d.c(a_TAG, "startSessionCalculators");
+      this.b_calcs.clear();
+      if (var1_gpsSensor != null) {
+         this.v_gpsSensor = var1_gpsSensor;
+         this.b_calcs.add(new s_GpsDerivativesCalc());
+         this.b_calcs.add(new t_GpsLocationCalc());
          if (this.v_gpsSensor.e_getState() == m_SENSOR_STATE.d_READY) {
-            this.s.getStatistics().getSpeedStatistics().b_setMostResentAltitude(this.v_gpsSensor.p_getSpeedInMetersPerSecond());
+            this.s_training.getStatistics().getSpeedStatistics().b_setMostRecentSample(this.v_gpsSensor.p_getSpeedInMetersPerSecond());
          }
 
          this.v_gpsSensor.a_setPolarSensorListener(this.G_gpsPolarSensorListener);
-         this.h = this.v_gpsSensor.k();
+         this.h_polarGpsSensorEvent = this.v_gpsSensor.k_fillPolarGpsSensorEvent();
       }
 
       float var5;
-      long var6;
-      if (var2 != null) {
-         this.w_heartRateSensor = var2;
-         this.b.add(new q_ExerciseSampleHeartrateCalc(this.context));
+      long var6_trainingStartTimeFromBoot;
+      if (var2_hearRateSensor != null) {
+         this.w_heartRateSensor = var2_hearRateSensor;
+         this.b_calcs.add(new q_ExerciseSampleHeartrateCalc(this.context));
          if (this.w_heartRateSensor.e_getState() == m_SENSOR_STATE.d_READY) {
-            this.s.getStatistics().getHeartrateStatistics().b_setMostResentAltitude((float)this.w_heartRateSensor.n());
+            this.s_training.getStatistics().getHeartrateStatistics().b_setMostRecentSample((float)this.w_heartRateSensor.n());
             var5 = (float)this.w_heartRateSensor.n();
-            var6 = this.t.c_elapsedRealtimeNanos();
-            this.g = new b_PolarSensorEventBase(new float[]{var5}, var6, 3);
+            var6_trainingStartTimeFromBoot = this.t_timeUtils.c_elapsedRealtimeNanos();
+            this.g = new b_PolarSensorEventBase(new float[]{var5}, var6_trainingStartTimeFromBoot, 3);
          } else {
-            var6 = this.t.c_elapsedRealtimeNanos();
-            this.g = new b_PolarSensorEventBase(new float[]{0.0F}, var6, -1);
+            var6_trainingStartTimeFromBoot = this.t_timeUtils.c_elapsedRealtimeNanos();
+            this.g = new b_PolarSensorEventBase(new float[]{0.0F}, var6_trainingStartTimeFromBoot, -1);
          }
 
          this.w_heartRateSensor.a_setPolarSensorListener(this.F_heartRatePolarSensorListener);
       }
 
-      SportProfile var8 = this.s.getSportProfile();
-      int var9 = -1;
-      if (var8 != null) {
-         var9 = var8.getSettings().getAutomaticLap();
+      SportProfile var8_sportProfile = this.s_training.getSportProfile();
+      int var9_automaticLap = -1;
+      if (var8_sportProfile != null) {
+         var9_automaticLap = var8_sportProfile.getSettings().getAutomaticLap();
       }
 
-      var6 = this.s.getStartTimeFromBoot();
-      if (var4 != null) {
-         if (Sport.isSwimmingSport(this.s.getSportId())) {
-            this.z = this.s.getSwimmingSamples();
-            this.z.setStart(new DateTime(this.s.getStartTime()));
-            this.y = new bb_SwimmingMetricsProvider(var2, var4, var6);
+      var6_trainingStartTimeFromBoot = this.s_training.getStartTimeFromBoot();
+      if (var4_accelerometerSensor != null) {
+         if (Sport.isSwimmingSport(this.s_training.getSportId())) {
+            this.z_swimmingSamples = this.s_training.getSwimmingSamples();
+            this.z_swimmingSamples.setStart(new DateTime(this.s_training.getStartTime()));
+            this.y_swimmingMetricsProvider = new bb_SwimmingMetricsProvider(var2_hearRateSensor, var4_accelerometerSensor, var6_trainingStartTimeFromBoot);
             var5 = -1.0F;
-            if (var8 != null) {
-               var5 = var8.getSettings().getAutomaticLapDistance();
+            if (var8_sportProfile != null) {
+               var5 = var8_sportProfile.getSettings().getAutomaticLapDistance();
             }
 
-            this.y.a(f(), UserDeviceSettings.getUsersDeviceLocation(), var5);
-            this.y.a(this.J);
-            this.b.add(new az(this.context, var6, this.y));
-            if (var9 == 2) {
-               this.b.add(new av(this.context, var6, this.y));
-            } else if (var9 == 3) {
-               this.b.add(new ax(this.context, var8.getSettings().getAutomaticLapDuration(), var6, this.y));
+            this.y_swimmingMetricsProvider.a(f(), UserDeviceSettings.getUsersDeviceLocation(), var5);
+            this.y_swimmingMetricsProvider.a(this.J);
+            this.b_calcs.add(new az(this.context, var6_trainingStartTimeFromBoot, this.y_swimmingMetricsProvider));
+            if (var9_automaticLap == 2) {
+               this.b_calcs.add(new av(this.context, var6_trainingStartTimeFromBoot, this.y_swimmingMetricsProvider));
+            } else if (var9_automaticLap == 3) {
+               this.b_calcs.add(new ax(this.context, var8_sportProfile.getSettings().getAutomaticLapDuration(), var6_trainingStartTimeFromBoot, this.y_swimmingMetricsProvider));
             }
          }
-      } else if (var2 != null || var1 != null) {
-         this.b.add(new ab(this.context, var6));
-         if (var9 == 2) {
-            this.b.add(new d_DistanceLapCalc(this.context, var8.getSettings().getAutomaticLapDistance(), var6));
-         } else if (var9 == 3) {
-            this.b.add(new e_DurationLapCalc(this.context, var8.getSettings().getAutomaticLapDuration(), var6));
+      } else if (var2_hearRateSensor != null || var1_gpsSensor != null) {
+         this.b_calcs.add(new ab_ManualLapCalc(this.context, var6_trainingStartTimeFromBoot));
+         if (var9_automaticLap == 2) {
+            this.b_calcs.add(new d_DistanceLapCalc(this.context, var8_sportProfile.getSettings().getAutomaticLapDistance(), var6_trainingStartTimeFromBoot));
+         } else if (var9_automaticLap == 3) {
+            this.b_calcs.add(new e_DurationLapCalc(this.context, var8_sportProfile.getSettings().getAutomaticLapDuration(), var6_trainingStartTimeFromBoot));
          }
       }
 
-      if (this.s.getTrainingSessionTarget() != null) {
-         if (this.s.getTrainingSessionTarget().getExerciseTarget().getTargetType() == 2) {
-            this.b.add(new j_ExercisePhaseCalc(this.context));
-         } else if (this.s.getTrainingSessionTarget().getExerciseTarget().getTargetType() == 1) {
-            this.b.add(new w_ExerciseVolumeTargetCalc(this.context));
+      if (this.s_training.getTrainingSessionTarget() != null) {
+         if (this.s_training.getTrainingSessionTarget().getExerciseTarget().getTargetType() == 2) {
+            this.b_calcs.add(new j_ExercisePhaseCalc(this.context));
+         } else if (this.s_training.getTrainingSessionTarget().getExerciseTarget().getTargetType() == 1) {
+            this.b_calcs.add(new w_ExerciseVolumeTargetCalc(this.context));
          }
       }
 
-      Sport var10;
-      if (var8 != null) {
-         var10 = var8.getSport();
+      Sport var10_sport;
+      if (var8_sportProfile != null) {
+         var10_sport = var8_sportProfile.getSport();
       } else {
-         var10 = null;
+         var10_sport = null;
       }
 
-      if (var1 != null && var2 != null && var10 != null && var10.getParentId() == 1L) {
-         this.b.add(new p_ExerciseRunningIndexCalc());
+      if (var1_gpsSensor != null && var2_hearRateSensor != null && var10_sport != null && var10_sport.getParentId() == 1L) {
+         this.b_calcs.add(new p_ExerciseRunningIndexCalc());
       }
 
-      if (var3 != null) {
-         this.b.add(new o());
-         this.x_runningCadenceProvider = var3;
+      if (var3_cadenceSensor != null) {
+         this.b_calcs.add(new o_RunningCadenceCalc());
+         this.x_runningCadenceProvider = var3_cadenceSensor;
          this.x_runningCadenceProvider.a_setPolarSensorListener(this.H_runningCadencePolarSensorListener);
       }
 
-      if (!this.b.isEmpty()) {
-         this.D = this.s.getSamplingStartTimeFromBoot();
-         this.r.post(this.I);
+      if (!this.b_calcs.isEmpty()) {
+         this.D_trainingSamplingStartTimeFromBoot = this.s_training.getSamplingStartTimeFromBoot();
+         this.r.post(this.I_samplerTask);
       }
 
    }
 
    public void b() {
-      fi.polar.polarflow.util.d.c(a, "pauseSessionCalculators");
+      fi.polar.polarflow.util.d.c(a_TAG, "pauseSessionCalculators");
       this.n = true;
       this.i();
-      Iterator var1 = this.b.iterator();
+      Iterator var1 = this.b_calcs.iterator();
 
       while(var1.hasNext()) {
          al_Calc var2 = (al_Calc)var1.next();
@@ -559,8 +611,8 @@ public class am_SessionCalculators {
          }
       }
 
-      if (this.y != null) {
-         this.y.b();
+      if (this.y_swimmingMetricsProvider != null) {
+         this.y_swimmingMetricsProvider.b();
       }
 
    }
@@ -574,12 +626,12 @@ public class am_SessionCalculators {
       }
 
       b var5 = new b(var1, var3, var2);
-      Iterator var6 = this.b.iterator();
+      Iterator var6 = this.b_calcs.iterator();
 
       while(var6.hasNext()) {
          al_Calc var7 = (al_Calc)var6.next();
-         if (var7 instanceof o) {
-            ((o)var7).b(var5);
+         if (var7 instanceof o_RunningCadenceCalc) {
+            ((o_RunningCadenceCalc)var7).b(var5);
          } else if (var7 instanceof h_ExerciseLapCalc) {
             ((h_ExerciseLapCalc)var7).b(var5);
          } else if (var7 instanceof j_ExercisePhaseCalc) {
@@ -590,9 +642,9 @@ public class am_SessionCalculators {
    }
 
    public void c() {
-      fi.polar.polarflow.util.d.c(a, "resumeSessionCalculators");
+      fi.polar.polarflow.util.d.c(a_TAG, "resumeSessionCalculators");
       this.n = false;
-      Iterator var1 = this.b.iterator();
+      Iterator var1 = this.b_calcs.iterator();
 
       while(var1.hasNext()) {
          al_Calc var2 = (al_Calc)var1.next();
@@ -601,8 +653,8 @@ public class am_SessionCalculators {
          }
       }
 
-      if (this.y != null) {
-         this.y.c();
+      if (this.y_swimmingMetricsProvider != null) {
+         this.y_swimmingMetricsProvider.c();
       }
 
       this.h();

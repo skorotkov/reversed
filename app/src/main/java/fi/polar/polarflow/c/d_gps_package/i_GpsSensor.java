@@ -120,7 +120,7 @@ class i_GpsSensor {
          }
 
          this.a_collectAndBroadcastLocationData();
-         b_GpsLocationProvider.e_getAndroidSensorEventListener(this.a_gpsLocationProvider).a((b_PolarSensorEventBase)this.a_gpsLocationProvider.k());
+         b_GpsLocationProvider.e_getAndroidSensorEventListener(this.a_gpsLocationProvider).a((b_PolarSensorEventBase)this.a_gpsLocationProvider.k_fillPolarGpsSensorEvent());
       }
 
    }

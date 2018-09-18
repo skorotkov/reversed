@@ -175,7 +175,7 @@ public class ae extends br {
    private void e() {
       if (this.Q.isRunning()) {
          a(this.i, this.Q);
-         this.a(Math.round(this.Q.getStatistics().getHeartrateStatistics().i_getMostResentAltitude()));
+         this.a(Math.round(this.Q.getStatistics().getHeartrateStatistics().i_getMostResentSample()));
       }
 
    }
@@ -270,7 +270,7 @@ public class ae extends br {
 
       a(this.i, this.Q);
       if (this.Q.isRunning()) {
-         this.g = Zones.getCurrentHrZone(Math.round(this.Q.getStatistics().getHeartrateStatistics().i_getMostResentAltitude()), this.f);
+         this.g = Zones.getCurrentHrZone(Math.round(this.Q.getStatistics().getHeartrateStatistics().i_getMostResentSample()), this.f);
          this.h = SystemClock.elapsedRealtime();
          this.f();
       }

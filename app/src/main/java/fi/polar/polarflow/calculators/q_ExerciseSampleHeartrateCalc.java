@@ -78,7 +78,7 @@ public class q_ExerciseSampleHeartrateCalc extends aj_CalcBase implements ak, y 
 
    public void a() {
       z var1 = (z)this.o();
-      this.e.getSamples().addHeartrateSample(var1.a(), var1.l(), var1.n());
+      this.e.getSamples().addHeartrateSample(var1.a(), var1.l(), var1.n_isTrusted());
       if ((var1.l() + 1) % 10 == 0) {
          float var2 = a(10, this.e);
          float var3 = a(30, this.e);

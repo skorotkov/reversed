@@ -55,20 +55,20 @@ public class TrainingStatistics {
    }
 
    public void save() {
-      if (this.mSpeedStatistics.g_areAnyAltitudeSamplesAdded()) {
+      if (this.mSpeedStatistics.g_areAnySamplesAdded()) {
          long var1 = this.mExerciseStatistics.getExercise().getDuration();
          float var3 = this.mExerciseStatistics.getExercise().getDistance();
          this.mExerciseStatistics.setAverageSpeed(this.mSpeedStatistics.b(var1, (double)var3));
          this.mExerciseStatistics.setMaximumSpeed(this.mSpeedStatistics.c(var1, (double)var3));
       }
 
-      this.mExerciseStatistics.setAverageHeartrate(Math.round(this.mHeartrateStatistics.c_getAverageAltitude()));
-      this.mExerciseStatistics.setMaximumHeartrate(Math.round(this.mHeartrateStatistics.e_getMaxAltitude()));
-      this.mExerciseStatistics.setMinimumHeartrate(Math.round(this.mHeartrateStatistics.d_getMinAltitude()));
-      if (this.mAltitudeStatistics.g_areAnyAltitudeSamplesAdded()) {
-         this.mExerciseStatistics.setMaximumAltitude(this.mAltitudeStatistics.e_getMaxAltitude());
-         this.mExerciseStatistics.setMinimumAltitude(this.mAltitudeStatistics.d_getMinAltitude());
-         this.mExerciseStatistics.setAverageAltitude(this.mAltitudeStatistics.c_getAverageAltitude());
+      this.mExerciseStatistics.setAverageHeartrate(Math.round(this.mHeartrateStatistics.c_getAverage()));
+      this.mExerciseStatistics.setMaximumHeartrate(Math.round(this.mHeartrateStatistics.e_getMax()));
+      this.mExerciseStatistics.setMinimumHeartrate(Math.round(this.mHeartrateStatistics.d_getMin()));
+      if (this.mAltitudeStatistics.g_areAnySamplesAdded()) {
+         this.mExerciseStatistics.setMaximumAltitude(this.mAltitudeStatistics.e_getMax());
+         this.mExerciseStatistics.setMinimumAltitude(this.mAltitudeStatistics.d_getMin());
+         this.mExerciseStatistics.setAverageAltitude(this.mAltitudeStatistics.c_getAverage());
       }
 
       if (this.mCadenceStatistics.b()) {

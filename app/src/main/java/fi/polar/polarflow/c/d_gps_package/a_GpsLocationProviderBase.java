@@ -46,7 +46,7 @@ public abstract class a_GpsLocationProviderBase extends a_Sensor implements i_Po
       this.u_fix = false;
    }
 
-   public f_PolarSensorEvent k() {
+   public f_PolarSensorEvent k_fillPolarGpsSensorEvent() {
       // $FF: Couldn't be decompiled
 
       // decompiled after remove of try ... catch

@@ -4,7 +4,7 @@ import fi.polar.polarflow.c.n_SENSOR_TYPE;
 import fi.polar.polarflow.data.Training;
 import java.util.ArrayList;
 
-public class o extends aj_CalcBase {
+public class o_RunningCadenceCalc extends aj_CalcBase {
    private static final ArrayList a = new ArrayList(1);
    private Training b = Training.getInstance();
 
@@ -12,7 +12,7 @@ public class o extends aj_CalcBase {
       a.add(n_SENSOR_TYPE.e_RUNNING_CADENCE);
    }
 
-   public o() {
+   public o_RunningCadenceCalc() {
       super(a);
       this.a(new b());
    }

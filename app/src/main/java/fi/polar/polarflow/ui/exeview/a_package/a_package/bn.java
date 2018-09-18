@@ -234,7 +234,7 @@ class bn extends br {
    public void a(Collection var1) {
       if (this.Q.isRunning()) {
          a(this.h, this.Q);
-         this.b(Math.round(this.Q.getStatistics().getHeartrateStatistics().i_getMostResentAltitude()));
+         this.b(Math.round(this.Q.getStatistics().getHeartrateStatistics().i_getMostResentSample()));
          this.a(this.j);
       }
 
@@ -243,14 +243,14 @@ class bn extends br {
    public void d() {
       if (this.Q.isRunning()) {
          a(this.h, this.Q);
-         this.b(Math.round(this.Q.getStatistics().getHeartrateStatistics().i_getMostResentAltitude()));
+         this.b(Math.round(this.Q.getStatistics().getHeartrateStatistics().i_getMostResentSample()));
          this.a(this.j);
       }
 
    }
 
    public void f() {
-      this.j = Zones.getCurrentHrZone(Math.round(this.Q.getStatistics().getHeartrateStatistics().i_getMostResentAltitude()), this.n);
+      this.j = Zones.getCurrentHrZone(Math.round(this.Q.getStatistics().getHeartrateStatistics().i_getMostResentSample()), this.n);
       this.i = SystemClock.elapsedRealtime();
       super.f();
    }

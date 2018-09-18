@@ -62,7 +62,7 @@ public class at_RangeStatistics {
       this.h_buffer.clear();
    }
 
-   public void a_addAltitude(float var1) {
+   public void a_addSample(float var1) {
       float var2 = var1;
       if (var1 < this.e_lowBound) {
          var2 = this.e_lowBound;
@@ -87,16 +87,16 @@ public class at_RangeStatistics {
       this.g_mostResentSample = var1;
    }
 
-   public void b_addEmptyAltitude() {
+   public void b_addEmptySample() {
       this.h_buffer.add((Object)null);
       this.g_mostResentSample = -1.0F;
    }
 
-   public void b_setMostResentAltitude(float var1) {
+   public void b_setMostRecentSample(float var1) {
       this.g_mostResentSample = var1;
    }
 
-   public float c_getAverageAltitude() {
+   public float c_getAverage() {
       float var1;
       if (this.d_numOfSamples == 0) {
          var1 = 0.0F;
@@ -107,7 +107,7 @@ public class at_RangeStatistics {
       return var1;
    }
 
-   public float d_getMinAltitude() {
+   public float d_getMin() {
       float var1;
       if (this.a_min == Float.MAX_VALUE) {
          var1 = 0.0F;
@@ -118,7 +118,7 @@ public class at_RangeStatistics {
       return var1;
    }
 
-   public float e_getMaxAltitude() {
+   public float e_getMax() {
       float var1;
       if (this.b_max == -3.4028235E38F) {
          var1 = 0.0F;
@@ -129,13 +129,13 @@ public class at_RangeStatistics {
       return var1;
    }
 
-   public int f_getNumOfAltitudeSamples() {
+   public int f_getNumOfSamples() {
       return this.d_numOfSamples;
    }
 
-   public boolean g_areAnyAltitudeSamplesAdded() {
+   public boolean g_areAnySamplesAdded() {
       boolean var1;
-      if (this.f_getNumOfAltitudeSamples() > 0) {
+      if (this.f_getNumOfSamples() > 0) {
          var1 = true;
       } else {
          var1 = false;
@@ -144,11 +144,11 @@ public class at_RangeStatistics {
       return var1;
    }
 
-   public double h_getSumOfAltitudeSamples() {
+   public double h_getSumOfSamples() {
       return this.c_sumOfSamples;
    }
 
-   public float i_getMostResentAltitude() {
+   public float i_getMostResentSample() {
       return this.g_mostResentSample;
    }
 }

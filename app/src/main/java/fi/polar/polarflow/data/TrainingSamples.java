@@ -40,14 +40,14 @@ public class TrainingSamples {
    public void addAltitudeSample(float var1, boolean var2) {
       if (var2) {
          if (Float.isNaN(var1)) {
-            this.mStatistics.getAltitudeStatistics().b_addEmptyAltitude();
+            this.mStatistics.getAltitudeStatistics().b_addEmptySample();
          } else {
-            this.mStatistics.getAltitudeStatistics().a_addAltitude(var1);
+            this.mStatistics.getAltitudeStatistics().a_addSample(var1);
          }
 
          this.mExerciseSamples.addAltitudeSample(var1);
       } else {
-         this.mStatistics.getAltitudeStatistics().b_addEmptyAltitude();
+         this.mStatistics.getAltitudeStatistics().b_addEmptySample();
          this.mExerciseSamples.addAltitudeSample(0.0F);
       }
 
@@ -98,13 +98,13 @@ public class TrainingSamples {
 
    public void addHeartrateSample(int var1, int var2, boolean var3) {
       if (var3) {
-         this.mStatistics.getHeartrateStatistics().a_addAltitude((float)var1);
+         this.mStatistics.getHeartrateStatistics().a_addSample((float)var1);
          this.mExerciseSamples.addHeartrateSample(var1);
          if (var2 > 0) {
             this.mRecordedZones.addHeartRateSample(var1);
          }
       } else {
-         this.mStatistics.getHeartrateStatistics().b_addEmptyAltitude();
+         this.mStatistics.getHeartrateStatistics().b_addEmptySample();
          this.mExerciseSamples.addHeartrateSample(0);
       }
 
@@ -125,10 +125,10 @@ public class TrainingSamples {
 
    public void addSpeedSample(float var1, boolean var2) {
       if (var2) {
-         this.mStatistics.getSpeedStatistics().a_addAltitude(var1);
+         this.mStatistics.getSpeedStatistics().a_addSample(var1);
          this.mExerciseSamples.addSpeedSample(var1);
       } else {
-         this.mStatistics.getSpeedStatistics().b_addEmptyAltitude();
+         this.mStatistics.getSpeedStatistics().b_addEmptySample();
          this.mExerciseSamples.addSpeedSample(0.0F);
       }
 

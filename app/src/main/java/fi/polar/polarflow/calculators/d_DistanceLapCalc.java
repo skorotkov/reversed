@@ -37,7 +37,7 @@ public class d_DistanceLapCalc extends h_ExerciseLapCalc {
       }
 
       boolean var2;
-      if (!this.o().n()) {
+      if (!this.o().n_isTrusted()) {
          var2 = true;
       } else {
          var2 = false;

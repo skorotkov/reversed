@@ -15,10 +15,10 @@ class ar implements af {
 
    public void a(PoolSwimmingOutput var1) {
       ag var2 = new ag(var1);
-      am_SessionCalculators.r(this.a).getStatistics().getSwimmingSpeedStatistics().a(var2);
-      am_SessionCalculators.r(this.a).setTotalDistance(var2.a(), true);
-      am_SessionCalculators.r(this.a).setCurrentSpeedInKmPerHour(var2.b());
-      Iterator var3 = am_SessionCalculators.v(this.a).iterator();
+      am_SessionCalculators.r_getTraining(this.a).getStatistics().getSwimmingSpeedStatistics().a(var2);
+      am_SessionCalculators.r_getTraining(this.a).setTotalDistance(var2.a(), true);
+      am_SessionCalculators.r_getTraining(this.a).setCurrentSpeedInKmPerHour(var2.b());
+      Iterator var3 = am_SessionCalculators.v_getCalcs(this.a).iterator();
 
       while(var3.hasNext()) {
          al_Calc var4 = (al_Calc)var3.next();
@@ -35,7 +35,7 @@ class ar implements af {
 
          while(var7.hasNext()) {
             PoolInformation var6 = (PoolInformation)var7.next();
-            am_SessionCalculators.w(this.a).addPoolMetric(var6);
+            am_SessionCalculators.w_getSwimmingSamples(this.a).addPoolMetric(var6);
          }
       }
 

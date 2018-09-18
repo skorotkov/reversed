@@ -106,8 +106,8 @@ public class o_DataSaver {
    public void b_save() {
       at_RangeStatistics var1 = this.c.getStatistics().getHeartrateStatistics();
       this.a.setTimeInHrZones(this.c.getZones().getTimeInZones());
-      this.a.setAverageHr((int)var1.c_getAverageAltitude());
-      this.a.setMaximumHr((int)var1.e_getMaxAltitude());
+      this.a.setAverageHr((int)var1.c_getAverage());
+      this.a.setMaximumHr((int)var1.e_getMax());
       this.a.save();
       this.b.save();
       this.c.save();

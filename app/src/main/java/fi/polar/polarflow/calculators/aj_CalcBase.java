@@ -28,8 +28,8 @@ abstract class aj_CalcBase implements al_Calc, c {
    }
 
    final void b(ai_Event var1) {
-      if (this.e.n() != var1.n()) {
-         if (var1.n()) {
+      if (this.e.n_isTrusted() != var1.n_isTrusted()) {
+         if (var1.n_isTrusted()) {
             if (this instanceof ak) {
                ((ak)this).a(this.d, this.e.l());
             }

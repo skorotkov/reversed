@@ -185,7 +185,7 @@ class g extends br {
       }
 
       if (this.Q.isRunning()) {
-         this.i = Zones.getCurrentHrZone(Math.round(this.Q.getStatistics().getHeartrateStatistics().i_getMostResentAltitude()), this.c);
+         this.i = Zones.getCurrentHrZone(Math.round(this.Q.getStatistics().getHeartrateStatistics().i_getMostResentSample()), this.c);
          if (this.Q.isPaused()) {
             this.r();
          } else {

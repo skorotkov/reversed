@@ -24,8 +24,8 @@ class a extends fi.polar.polarflow.ui.a_package.a {
    private static float b(Training var0) {
       fi.polar.polarflow.calculators.a var2 = (fi.polar.polarflow.calculators.a)var0.getStatistics().getAltitudeStatistics();
       float var1;
-      if (var2.g_areAnyAltitudeSamplesAdded()) {
-         var1 = var2.e_getMaxAltitude();
+      if (var2.g_areAnySamplesAdded()) {
+         var1 = var2.e_getMax();
       } else {
          var1 = Float.NaN;
       }

@@ -7,17 +7,17 @@ import android.os.Handler;
 
 import fi.polar.polarflow.util.v_StickyLocalBroadcastManager;
 
-class ab extends h_ExerciseLapCalc implements y {
+class ab_ManualLapCalc extends h_ExerciseLapCalc implements y {
    private final Handler d;
    private boolean e;
    private final BroadcastReceiver f;
    private final Runnable g;
 
-   ab(Context var1, long var2) {
+   ab_ManualLapCalc(Context var1, long var2) {
       this(var1, var2, (Handler)null, (v_StickyLocalBroadcastManager)null);
    }
 
-   ab(Context var1, long var2, Handler var4, v_StickyLocalBroadcastManager var5) {
+   ab_ManualLapCalc(Context var1, long var2, Handler var4, v_StickyLocalBroadcastManager var5) {
       super(var1, var2, var5);
       this.e = false;
       this.f = new ac(this);
@@ -32,7 +32,7 @@ class ab extends h_ExerciseLapCalc implements y {
    }
 
    // $FF: synthetic method
-   static Handler a(ab var0) {
+   static Handler a(ab_ManualLapCalc var0) {
       return var0.d;
    }
 

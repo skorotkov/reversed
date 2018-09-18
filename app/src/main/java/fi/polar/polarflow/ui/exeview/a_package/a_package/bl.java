@@ -14,10 +14,10 @@ public class bl extends fi.polar.polarflow.ui.a_package.z {
 
    public float a(fi.polar.polarflow.calculators.as var1) {
       float var2;
-      if (var1.g_areAnyAltitudeSamplesAdded()) {
+      if (var1.g_areAnySamplesAdded()) {
          var2 = var1.a(this.Q.getDurationMs(), (double)this.Q.getTotalDistance());
       } else {
-         var2 = var1.i_getMostResentAltitude();
+         var2 = var1.i_getMostResentSample();
       }
 
       return var2;

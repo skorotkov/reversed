@@ -3,18 +3,18 @@ package fi.polar.polarflow.calculators;
 abstract class ai_Event {
    private final int a;
    private final long b;
-   private final boolean c_mayBeIsFirstEvent;
+   private final boolean c_isTrusted;
 
    ai_Event(int var1, long var2) {
       this.a = var1;
       this.b = var2;
-      this.c_mayBeIsFirstEvent = false;
+      this.c_isTrusted = false;
    }
 
    ai_Event(int var1, long var2, boolean var4) {
       this.a = var1;
       this.b = var2;
-      this.c_mayBeIsFirstEvent = var4;
+      this.c_isTrusted = var4;
    }
 
    final int l() {
@@ -25,7 +25,7 @@ abstract class ai_Event {
       return this.b;
    }
 
-   final boolean n() {
-      return this.c_mayBeIsFirstEvent;
+   final boolean n_isTrusted() {
+      return this.c_isTrusted;
    }
 }

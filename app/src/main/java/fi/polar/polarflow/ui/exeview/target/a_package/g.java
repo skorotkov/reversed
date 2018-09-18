@@ -295,7 +295,7 @@ public class g extends ah {
    }
 
    public void d() {
-      this.c(Math.round(this.Q.getStatistics().getHeartrateStatistics().i_getMostResentAltitude()));
+      this.c(Math.round(this.Q.getStatistics().getHeartrateStatistics().i_getMostResentSample()));
       this.v();
       this.e();
    }

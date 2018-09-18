@@ -89,9 +89,9 @@ public abstract class h_ExerciseLapCalc extends aj_CalcBase implements ae, ah {
       }
 
       if (Float.isNaN(var2_speed)) {
-         this.m.b_addEmptyAltitude();
+         this.m.b_addEmptySample();
       } else {
-         this.m.a_addAltitude(3.6F * var2_speed); // m/s -> km/h
+         this.m.a_addSample(3.6F * var2_speed); // m/s -> km/h
       }
 
       if (!this.c) {
@@ -120,9 +120,9 @@ public abstract class h_ExerciseLapCalc extends aj_CalcBase implements ae, ah {
             }
          }
 
-         this.q.a_addAltitude((float)var3);
+         this.q.a_addSample((float)var3);
       } else {
-         this.q.b_addEmptyAltitude();
+         this.q.b_addEmptySample();
       }
 
       if (!this.c) {
@@ -168,9 +168,9 @@ public abstract class h_ExerciseLapCalc extends aj_CalcBase implements ae, ah {
    }
 
    private void e() {
-      if (this.q.g_areAnyAltitudeSamplesAdded()) {
+      if (this.q.g_areAnySamplesAdded()) {
          String var1;
-         if (this instanceof ab) {
+         if (this instanceof ab_ManualLapCalc) {
             var1 = "ExerciseLapCalc.ACTION_MANUAL_LAP_DATA_HR";
          } else {
             var1 = "ExerciseLapCalc.ACTION_AUTO_LAP_DATA_HR";
@@ -178,9 +178,9 @@ public abstract class h_ExerciseLapCalc extends aj_CalcBase implements ae, ah {
 
          Intent var2 = new Intent(var1);
          var2.putExtra("ExerciseLapCalc.KEY_LAP_NUMBER", this.a);
-         var2.putExtra("ExerciseLapCalc.KEY_AVG_HR", Math.round(this.q.c_getAverageAltitude()));
-         var2.putExtra("ExerciseLapCalc.KEY_MAX_HR", Math.round(this.q.e_getMaxAltitude()));
-         var2.putExtra("ExerciseLapCalc.KEY_MIN_HR", Math.round(this.q.d_getMinAltitude()));
+         var2.putExtra("ExerciseLapCalc.KEY_AVG_HR", Math.round(this.q.c_getAverage()));
+         var2.putExtra("ExerciseLapCalc.KEY_MAX_HR", Math.round(this.q.e_getMax()));
+         var2.putExtra("ExerciseLapCalc.KEY_MIN_HR", Math.round(this.q.d_getMin()));
          this.b.b_sendStickyBroadcast(var2);
       }
 
@@ -190,7 +190,7 @@ public abstract class h_ExerciseLapCalc extends aj_CalcBase implements ae, ah {
       float var1 = this.k();
       if (var1 != -1.0F) {
          String var2;
-         if (this instanceof ab) {
+         if (this instanceof ab_ManualLapCalc) {
             var2 = "ExerciseLapCalc.ACTION_MANUAL_LAP_DATA_GPS";
          } else {
             var2 = "ExerciseLapCalc.ACTION_AUTO_LAP_DATA_GPS";
@@ -201,9 +201,9 @@ public abstract class h_ExerciseLapCalc extends aj_CalcBase implements ae, ah {
          var4.putExtra("ExerciseLapCalc.KEY_DISTANCE", var1);
          var4.putExtra("ExerciseLapCalc.KEY_ASCENT", this.l());
          var4.putExtra("ExerciseLapCalc.KEY_DESCENT", this.m());
-         if (this.m.g_areAnyAltitudeSamplesAdded()) {
+         if (this.m.g_areAnySamplesAdded()) {
             var1 = this.m.a(this.i(), (double)var1);
-            float var3 = Math.max(this.m.e_getMaxAltitude(), var1);
+            float var3 = Math.max(this.m.e_getMax(), var1);
             var4.putExtra("ExerciseLapCalc.KEY_AVG_SPEED", var1);
             var4.putExtra("ExerciseLapCalc.KEY_MAX_SPEED", var3);
          }
@@ -216,7 +216,7 @@ public abstract class h_ExerciseLapCalc extends aj_CalcBase implements ae, ah {
    private void g() {
       if (this.p.b()) {
          String var1;
-         if (this instanceof ab) {
+         if (this instanceof ab_ManualLapCalc) {
             var1 = "ExerciseLapCalc.ACTION_MANUAL_LAP_DATA_RUNNING_CADENCE";
          } else {
             var1 = "ExerciseLapCalc.ACTION_AUTO_LAP_DATA_RUNNING_CADENCE";
@@ -234,9 +234,9 @@ public abstract class h_ExerciseLapCalc extends aj_CalcBase implements ae, ah {
    public void a() {
       ai_Event var1 = this.o();
       if (var1 instanceof z) {
-         this.a(((z)var1).a(), var1.n());
-      } else if (var1 instanceof aa_GpsEvent) {
-         this.a_handleLocationDataBroadcast(((aa_GpsEvent)var1).b_getDistance(), ((aa_GpsEvent)var1).a_getSpeed(), (double)((aa_GpsEvent)var1).c_getAltitude(), ((aa_GpsEvent)var1).d_getAscent(), ((aa_GpsEvent)var1).e_getDescent(), var1.n());
+         this.a(((z)var1).a(), var1.n_isTrusted());
+      } else if (var1 instanceof aa_GpsDerivativesEvent) {
+         this.a_handleLocationDataBroadcast(((aa_GpsDerivativesEvent)var1).b_getDistance(), ((aa_GpsDerivativesEvent)var1).a_getSpeed(), (double)((aa_GpsDerivativesEvent)var1).c_getAltitude(), ((aa_GpsDerivativesEvent)var1).d_getAscent(), ((aa_GpsDerivativesEvent)var1).e_getDescent(), var1.n_isTrusted());
       } else if (var1 instanceof b) {
          this.a(((b)var1).a());
       } else if (var1 instanceof ag) {
@@ -310,14 +310,14 @@ public abstract class h_ExerciseLapCalc extends aj_CalcBase implements ae, ah {
          this.k += var6;
       }
 
-      if (this.q.g_areAnyAltitudeSamplesAdded()) {
-         var7.setAvgHR(Math.round(this.q.c_getAverageAltitude()));
-         var7.setMaxHR(Math.round(this.q.e_getMaxAltitude()));
-         var7.setMinHR(Math.round(this.q.d_getMinAltitude()));
+      if (this.q.g_areAnySamplesAdded()) {
+         var7.setAvgHR(Math.round(this.q.c_getAverage()));
+         var7.setMaxHR(Math.round(this.q.e_getMax()));
+         var7.setMinHR(Math.round(this.q.d_getMin()));
          this.q.a_clear();
       }
 
-      if (this.m.g_areAnyAltitudeSamplesAdded()) {
+      if (this.m.g_areAnySamplesAdded()) {
          var7.setAvgSpeed(this.m.b(var2, (double)var4));
          var7.setMaxSpeed(this.m.c(var2, (double)var4));
          this.m.a_clear();
@@ -339,10 +339,10 @@ public abstract class h_ExerciseLapCalc extends aj_CalcBase implements ae, ah {
       var5.setDurationMillis(var2);
       this.l += var2;
       var5.setSplitTimeMillis(this.l);
-      if (this.q.g_areAnyAltitudeSamplesAdded()) {
-         var5.setAvgHR(Math.round(this.q.c_getAverageAltitude()));
-         var5.setMaxHR(Math.round(this.q.e_getMaxAltitude()));
-         var5.setMinHR(Math.round(this.q.d_getMinAltitude()));
+      if (this.q.g_areAnySamplesAdded()) {
+         var5.setAvgHR(Math.round(this.q.c_getAverage()));
+         var5.setMaxHR(Math.round(this.q.e_getMax()));
+         var5.setMinHR(Math.round(this.q.d_getMin()));
          this.q.a_clear();
       }
 
