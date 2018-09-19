@@ -1,5 +1,5 @@
 package fi.polar.polarflow.calculators;
 
 interface y {
-   void d();
+   void d_closeUntrustedRange();
 }

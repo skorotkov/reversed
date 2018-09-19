@@ -434,8 +434,9 @@ public class am_SessionCalculators {
 
       while(var8.hasNext()) {
          al_Calc var6 = (al_Calc)var8.next();
-         if (var6 instanceof y) {
-            ((y)var6).d();
+         if (var6 instanceof y) { //ManualLapCalc, DurationLapCalc, ExercisePhaseCalc, ExerciseRunningIndexCalc,
+                                  // ExerciseSampleHeartrateCalc, GpsDerivativesCalc, ExerciseVolumeTargetCalc
+            ((y)var6).d_closeUntrustedRange();
          }
       }
 
@@ -486,8 +487,8 @@ public class am_SessionCalculators {
             ((h_ExerciseLapCalc)var6).b_handleSample(new aa_GpsDerivativesSample(var1_sampleIndex, var3_sampleTimestamp, var2_event));
          } else if (var6 instanceof s_GpsDerivativesCalc) {
             ((s_GpsDerivativesCalc)var6).b_handleSample(new aa_GpsDerivativesSample(var1_sampleIndex, var3_sampleTimestamp, var2_event));
-         } else if (var6 instanceof t_GpsLocationCalc) {
-            ((t_GpsLocationCalc)var6).b_handleSample(new v_GpsLocationSample(var1_sampleIndex, var3_sampleTimestamp, var2_event));
+         } else if (var6 instanceof t_GpsRouteCalc) {
+            ((t_GpsRouteCalc)var6).b_handleSample(new v_GpsRouteSample(var1_sampleIndex, var3_sampleTimestamp, var2_event));
          } else if (var6 instanceof j_ExercisePhaseCalc) {
             ((j_ExercisePhaseCalc)var6).b_handleSample(new aa_GpsDerivativesSample(var1_sampleIndex, var3_sampleTimestamp, var2_event));
          }
@@ -504,7 +505,7 @@ public class am_SessionCalculators {
       if (var1_gpsSensor != null) {
          this.v_gpsSensor = var1_gpsSensor;
          this.b_calcs.add(new s_GpsDerivativesCalc());
-         this.b_calcs.add(new t_GpsLocationCalc());
+         this.b_calcs.add(new t_GpsRouteCalc());
          if (this.v_gpsSensor.e_getState() == m_SENSOR_STATE.d_READY) {
             this.s_training.getStatistics().getSpeedStatistics().b_setMostRecentSample(this.v_gpsSensor.p_getSpeedInMetersPerSecond());
          }

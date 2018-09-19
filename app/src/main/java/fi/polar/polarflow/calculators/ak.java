@@ -1,5 +1,5 @@
 package fi.polar.polarflow.calculators;
 
 interface ak {
-   void a(int var1, int var2);
+   void a_fillNotTrustedRange(int var1, int var2);
 }

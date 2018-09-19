@@ -7,7 +7,7 @@ abstract class aj_CalcBase implements al_Calc, c {
    private static final String a = aj_CalcBase.class.getSimpleName();
    private final List b_sensorTypes;
    boolean c;
-   private int d;
+   private int d_notTrustedRangeStartIndex;
    private ai_Sample e_currentSample;
 
    aj_CalcBase(List var1) {
@@ -20,7 +20,7 @@ abstract class aj_CalcBase implements al_Calc, c {
       }
 
       this.b_sensorTypes = (List)var1;
-      this.d = 0;
+      this.d_notTrustedRangeStartIndex = 0;
    }
 
    final void a_setCurrentSample(ai_Sample var1) {
@@ -31,12 +31,12 @@ abstract class aj_CalcBase implements al_Calc, c {
       if (this.e_currentSample.n_isTrusted() != var1.n_isTrusted()) {
          if (var1.n_isTrusted()) {
             if (this instanceof ak) {  // true for q_ExerciseSampleHeartrateCalc and s_GpsDerivativesCalc
-               ((ak)this).a(this.d, this.e_currentSample.l_getSampleIndex());
+               ((ak)this).a_fillNotTrustedRange(this.d_notTrustedRangeStartIndex, this.e_currentSample.l_getSampleIndex());
             }
 
-            this.d = -1;
+            this.d_notTrustedRangeStartIndex = -1;
          } else {
-            this.d = var1.l_getSampleIndex();
+            this.d_notTrustedRangeStartIndex = var1.l_getSampleIndex();
          }
       }
 
@@ -52,7 +52,7 @@ abstract class aj_CalcBase implements al_Calc, c {
       return this.e_currentSample;
    }
 
-   final int p() {
-      return this.d;
+   final int p_getNotTrustedRangeStartIndex() {
+      return this.d_notTrustedRangeStartIndex;
    }
 }

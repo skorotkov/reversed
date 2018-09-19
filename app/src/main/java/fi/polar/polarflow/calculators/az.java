@@ -25,7 +25,7 @@ class az extends ab_ManualLapCalc {
       return var0.d;
    }
 
-   public void d() {
+   public void d_closeUntrustedRange() {
       if (this.h()) {
          SwimmingLapStatistics var1 = this.d.d();
          this.b_addLastLap(-1, this.i(), var1);

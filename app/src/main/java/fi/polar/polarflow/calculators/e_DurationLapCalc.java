@@ -98,7 +98,7 @@ class e_DurationLapCalc extends h_ExerciseLapCalc implements y {
       this.f();
    }
 
-   public void d() {
+   public void d_closeUntrustedRange() {
       this.q();
       this.b.a_unregisterReceiver(this.h);
    }

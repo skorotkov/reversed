@@ -632,7 +632,7 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
 
    }
 
-   public void d() {
+   public void d_closeUntrustedRange() {
       if (this.l != null) {
          this.a_addPhaseData(false, true);
          this.d.removeCallbacks(this.H);

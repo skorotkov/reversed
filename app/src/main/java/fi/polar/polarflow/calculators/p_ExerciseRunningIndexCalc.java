@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 public class p_ExerciseRunningIndexCalc implements al_Calc, y {
    private static final int b;
-   private final Training a;
+   private final Training a_training;
 
    static {
       b = (int)(TimeUnit.MINUTES.toMillis(12L) / 1000L);
@@ -26,10 +26,10 @@ public class p_ExerciseRunningIndexCalc implements al_Calc, y {
          var1 = Training.getInstance();
       }
 
-      this.a = var1;
+      this.a_training = var1;
    }
 
-   private static boolean a(TrainingSamples var0) {
+   private static boolean a_enoughDataToCalculate(TrainingSamples var0) {
       boolean var1;
       if (var0.getHeartRateSamplesCount() >= b && var0.getSpeedSamplesCount() >= b && var0.getAltitudeSamplesCount() >= b) {
          var1 = true;
@@ -61,12 +61,12 @@ public class p_ExerciseRunningIndexCalc implements al_Calc, y {
       return var4;
    }
 
-   public void d() {
-      if (a(this.a.getSamples())) {
-         ExerciseRunningIndexResult var1 = b_calculateRunningIndex(this.a.getSamples());
+   public void d_closeUntrustedRange() {
+      if (a_enoughDataToCalculate(this.a_training.getSamples())) {
+         ExerciseRunningIndexResult var1 = b_calculateRunningIndex(this.a_training.getSamples());
          if (var1 != null) {
             fi.polar.polarflow.util.d.c("ExerciseRunningIndexCalc", "runningIndex=" + var1.getRunningIndex() + ", calculationTime=" + var1.getCalculationEndTime());
-            this.a.setRunningIndex(var1.getRunningIndex(), TimeUnit.MINUTES.toMillis((long)var1.getCalculationEndTime()));
+            this.a_training.setRunningIndex(var1.getRunningIndex(), TimeUnit.MINUTES.toMillis((long)var1.getCalculationEndTime()));
          }
       } else {
          fi.polar.polarflow.util.d.c("ExerciseRunningIndexCalc", "not calculating running index (too short training)");

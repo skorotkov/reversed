@@ -166,7 +166,7 @@ public class w_ExerciseVolumeTargetCalc implements ae, ah, al_Calc, y {
 
    }
 
-   public void d() {
+   public void d_closeUntrustedRange() {
       this.a();
       this.c.a(this.j);
    }

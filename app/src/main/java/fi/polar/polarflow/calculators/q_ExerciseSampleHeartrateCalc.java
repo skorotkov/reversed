@@ -87,15 +87,15 @@ public class q_ExerciseSampleHeartrateCalc extends aj_CalcBase implements ak, y 
 
    }
 
-   public void a(int var1, int var2) {
+   public void a_fillNotTrustedRange(int var1, int var2) {
       if (var1 < var2) {
          this.e.getSamples().addHeartRateOfflineRange(var1, var2);
       }
 
    }
 
-   public void d() {
-      int var1 = this.p();
+   public void d_closeUntrustedRange() {
+      int var1 = this.p_getNotTrustedRangeStartIndex();
       if (var1 != -1) {
          this.e.getSamples().addHeartRateOfflineRange(var1, ((z_HeartRateSample)this.o_getCurrentSample()).l_getSampleIndex());
       }

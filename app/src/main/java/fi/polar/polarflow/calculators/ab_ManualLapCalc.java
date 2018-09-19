@@ -36,7 +36,7 @@ class ab_ManualLapCalc extends h_ExerciseLapCalc implements y {
       return var0.d;
    }
 
-   public void d() {
+   public void d_closeUntrustedRange() {
       if (this.h()) {
          this.b_addLastLap(-1, this.i(), this.k());
       }
