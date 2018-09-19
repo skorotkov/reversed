@@ -37,7 +37,7 @@ public class q_ExerciseSampleHeartrateCalc extends aj_CalcBase implements ak, y 
 
       this.b = var2;
       this.e = Training.getInstance();
-      this.a_setCurrentEvent(new z_HeartRateEvent());
+      this.a_setCurrentSample(new z_HeartRateSample());
    }
 
    private static float a(int var0, Training var1) {
@@ -76,10 +76,10 @@ public class q_ExerciseSampleHeartrateCalc extends aj_CalcBase implements ak, y 
       return d.get(var1.ordinal());
    }
 
-   public void a_handleCurrentEvent() {
-      z_HeartRateEvent var1 = (z_HeartRateEvent)this.o_getCurrentEvent();
-      this.e.getSamples().addHeartrateSample(var1.a(), var1.l(), var1.n_isTrusted());
-      if ((var1.l() + 1) % 10 == 0) {
+   public void a_handleCurrentSample() {
+      z_HeartRateSample var1 = (z_HeartRateSample)this.o_getCurrentSample();
+      this.e.getSamples().addHeartrateSample(var1.a(), var1.l_getSampleIndex(), var1.n_isTrusted());
+      if ((var1.l_getSampleIndex() + 1) % 10 == 0) {
          float var2 = a(10, this.e);
          float var3 = a(30, this.e);
          this.b.a(a(var2, var3, var1.m_getSampleTimeFromBoot()));
@@ -97,7 +97,7 @@ public class q_ExerciseSampleHeartrateCalc extends aj_CalcBase implements ak, y 
    public void d() {
       int var1 = this.p();
       if (var1 != -1) {
-         this.e.getSamples().addHeartRateOfflineRange(var1, ((z_HeartRateEvent)this.o_getCurrentEvent()).l());
+         this.e.getSamples().addHeartRateOfflineRange(var1, ((z_HeartRateSample)this.o_getCurrentSample()).l_getSampleIndex());
       }
 
       this.e.setBenefit(this.b());

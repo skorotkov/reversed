@@ -90,7 +90,7 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
       this.G = new k(this);
       this.H = new m(this);
       this.I = new n(this);
-      this.a_setCurrentEvent((ai_Event)(new l(this, 0, 0L)));
+      this.a_setCurrentSample((ai_Sample)(new l(this, 0, 0L)));
       if (var2 == null) {
          var2 = Training.getInstance();
       }
@@ -143,7 +143,7 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
    }
 
    private void a_handleGpsDerivativesEvent(float var1, float var2, float var3, float var4) {
-      if (this.o_getCurrentEvent().n_isTrusted()) {
+      if (this.o_getCurrentSample().n_isTrusted()) {
          this.n = var1;
          this.p = var3;
          this.r = var4;
@@ -159,7 +159,7 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
    }
 
    private void a_handleHeartRateEvent(int var1) {
-      if (this.o_getCurrentEvent().n_isTrusted()) {
+      if (this.o_getCurrentSample().n_isTrusted()) {
          int var2;
          if (var1 < 0) {
             var2 = 0;
@@ -499,17 +499,17 @@ public class j_ExercisePhaseCalc extends aj_CalcBase implements ae, ah, y {
       return var1;
    }
 
-   public void a_handleCurrentEvent() {
+   public void a_handleCurrentSample() {
       if (this.l != null) {
-         ai_Event var1 = this.o_getCurrentEvent();
-         if (var1 instanceof z_HeartRateEvent) {
-            this.a_handleHeartRateEvent(((z_HeartRateEvent)var1).a());
-         } else if (var1 instanceof aa_GpsDerivativesEvent) {
-            this.a_handleGpsDerivativesEvent(((aa_GpsDerivativesEvent)var1).b_getDistance(), ((aa_GpsDerivativesEvent)var1).a_getSpeed(), ((aa_GpsDerivativesEvent)var1).d_getAscent(), ((aa_GpsDerivativesEvent)var1).e_getDescent());
-         } else if (var1 instanceof b_RunningCadenceEvent) {
-            this.b_handleRunningCadenceEvent(((b_RunningCadenceEvent)var1).a_getCadence());
-         } else if (var1 instanceof ag_PoolSwimmingEvent) {
-            this.a_handlePoolSwimmingEvent(((ag_PoolSwimmingEvent)var1).a(), ((ag_PoolSwimmingEvent)var1).b());
+         ai_Sample var1 = this.o_getCurrentSample();
+         if (var1 instanceof z_HeartRateSample) {
+            this.a_handleHeartRateEvent(((z_HeartRateSample)var1).a());
+         } else if (var1 instanceof aa_GpsDerivativesSample) {
+            this.a_handleGpsDerivativesEvent(((aa_GpsDerivativesSample)var1).b_getDistance(), ((aa_GpsDerivativesSample)var1).a_getSpeed(), ((aa_GpsDerivativesSample)var1).d_getAscent(), ((aa_GpsDerivativesSample)var1).e_getDescent());
+         } else if (var1 instanceof b_RunningCadenceSample) {
+            this.b_handleRunningCadenceEvent(((b_RunningCadenceSample)var1).a_getCadence());
+         } else if (var1 instanceof ag_PoolSwimmingSample) {
+            this.a_handlePoolSwimmingEvent(((ag_PoolSwimmingSample)var1).a(), ((ag_PoolSwimmingSample)var1).b());
          }
 
          if (this.l.getGoalType() == 2 && this.f() >= this.l.getGoalDistance()) {

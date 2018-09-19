@@ -32,7 +32,7 @@ public class am_SessionCalculators {
    private static final String a_TAG = am_SessionCalculators.class.getSimpleName();
    private static final long l_500msInNanos;
    private int A;
-   private int B;
+   private int B_freeGpsSampleIndex;
    private int C;
    private long D_currentSamplingTimeFromBoot;
    private long E_gpsSampleDifference;
@@ -47,19 +47,19 @@ public class am_SessionCalculators {
    private final SparseLongArray e_gpsSamplesTimeFromBoot;
    private final SparseLongArray f_cadenceSamplesTimeFromBoot;
    private b_PolarSensorEventBase g;
-   private f_PolarSensorEvent h_polarGpsSensorEvent;
+   private f_PolarSensorEvent h_recentPolarGpsSensorEvent;
    private int i;
    private long j;
    private int k;
    private final int m;
-   private boolean n;
+   private boolean n_isPaused;
    private boolean o_isStopped;
    private final List p;
    private final List q_events;
    private final Handler r_handler;
    private final Training s_training;
    private aa_TimeUtils t_timeUtils;
-   private final int[] u_samplesCounter;
+   private final int[] u_maxSampleIndex;
    private a_GpsLocationProviderBase v_gpsSensor;
    private a_HeartRateSensor w_heartRateSensor;
    private e_RunningCadenceProvider x_runningCadenceProvider;
@@ -87,7 +87,7 @@ public class am_SessionCalculators {
       this.e_gpsSamplesTimeFromBoot = new SparseLongArray();
       this.f_cadenceSamplesTimeFromBoot = new SparseLongArray();
       this.r_handler = var3;
-      this.u_samplesCounter = new int[]{0};
+      this.u_maxSampleIndex = new int[]{0};
       this.s_training = var2;
       this.t_timeUtils = new aa_TimeUtils();
       this.E_gpsSampleDifference = 0L;
@@ -117,15 +117,15 @@ public class am_SessionCalculators {
    }
 
    // $FF: synthetic method
-   static f_PolarSensorEvent a(am_SessionCalculators var0, f_PolarSensorEvent var1) {
-      var0.h_polarGpsSensorEvent = var1;
+   static f_PolarSensorEvent a_setRecentPolarGpsSensorEvent(am_SessionCalculators var0, f_PolarSensorEvent var1) {
+      var0.h_recentPolarGpsSensorEvent = var1;
       return var1;
    }
 
    private void a(int param1) {
       // $FF: Couldn't be decompiled
-      for(int[] var2 = this.u_samplesCounter; this.C < this.u_samplesCounter[0] && this.C < Integer.MAX_VALUE; ++this.C) {
-         this.b(this.C, param1);
+      for(int[] var2 = this.u_maxSampleIndex; this.C < this.u_maxSampleIndex[0] && this.C < Integer.MAX_VALUE; ++this.C) {
+         this.b_handleCadenceSensorEvent(this.C, param1);
       }
 
    }
@@ -136,11 +136,11 @@ public class am_SessionCalculators {
 
    private void a(int var1, boolean var2, int var3) {
       // $FF: Couldn't be decompiled
-      for(int[] var4 = this.u_samplesCounter; this.A < this.u_samplesCounter[0] && this.A < var3; ++this.A) {
+      for(int[] var4 = this.u_maxSampleIndex; this.A < this.u_maxSampleIndex[0] && this.A < var3; ++this.A) {
          if (var2) {
-            this.a(this.A, var1);
+            this.a_handleHeartRateSensorEvent(this.A, var1);
          } else {
-            this.a(this.A, Math.round(this.g.a_values[0]));
+            this.a_handleHeartRateSensorEvent(this.A, Math.round(this.g.a_values[0]));
          }
       }
    }
@@ -163,9 +163,9 @@ public class am_SessionCalculators {
    private void a(List var1, int var2) {
       // $FF: Couldn't be decompiled
       boolean var3 = false;
-      int[] var4 = this.u_samplesCounter;
+      int[] var4 = this.u_maxSampleIndex;
       boolean var5 = var3;
-      if (this.A < this.u_samplesCounter[0]) {
+      if (this.A < this.u_maxSampleIndex[0]) {
          var5 = var3;
          if (this.A < var2) {
             var5 = true;
@@ -173,9 +173,9 @@ public class am_SessionCalculators {
       }
 
       if (var5 && var1.size() != 0) {
-         for(; this.A < this.u_samplesCounter[0] && this.A < var2; ++this.A) {
+         for(; this.A < this.u_maxSampleIndex[0] && this.A < var2; ++this.A) {
             long var6 = TimeUnit.MILLISECONDS.toNanos(this.d_hrSamplesTimeFromBoot.get(this.A));
-            b_PolarSensorEventBase var8 = b_PolarSensorEventBase.a(var6, var1, l_500msInNanos);
+            b_PolarSensorEventBase var8 = b_PolarSensorEventBase.a_searchClosestAroundTimestamp(var6, var1, l_500msInNanos);
             if (var8 != null) {
                this.g = var8;
             } else if (var6 < ((b_PolarSensorEventBase)var1.get(0)).b_timestamp) {
@@ -183,11 +183,11 @@ public class am_SessionCalculators {
             } else if (var6 > ((b_PolarSensorEventBase)var1.get(var1.size() - 1)).b_timestamp) {
                var8 = (b_PolarSensorEventBase)var1.get(var1.size() - 1);
             } else {
-               var8 = b_PolarSensorEventBase.a(var6, var1);
+               var8 = b_PolarSensorEventBase.a_searchClosestBeforeTimestamp(var6, var1);
             }
 
             if (var8 != null) {
-               this.a(this.A, Math.round(var8.a_values[0]));
+               this.a_handleHeartRateSensorEvent(this.A, Math.round(var8.a_values[0]));
             }
          }
 
@@ -197,8 +197,8 @@ public class am_SessionCalculators {
    }
 
    // $FF: synthetic method
-   static boolean a(am_SessionCalculators var0) {
-      return var0.n;
+   static boolean a_getIsPaused(am_SessionCalculators var0) {
+      return var0.n_isPaused;
    }
 
    // $FF: synthetic method
@@ -230,8 +230,8 @@ public class am_SessionCalculators {
    }
 
    // $FF: synthetic method
-   static int[] c(am_SessionCalculators var0) {
-      return var0.u_samplesCounter;
+   static int[] c_getMaxSampleIndex(am_SessionCalculators var0) {
+      return var0.u_maxSampleIndex;
    }
 
    // $FF: synthetic method
@@ -303,16 +303,16 @@ public class am_SessionCalculators {
    }
 
    // $FF: synthetic method
-   static SparseLongArray j_get_d_samplesTimeFromBoot(am_SessionCalculators var0) {
+   static SparseLongArray j_getHrSamplesTimeFromBoot(am_SessionCalculators var0) {
       return var0.d_hrSamplesTimeFromBoot;
    }
 
-   private void j() {
+   private void j_fillRemainingGpsSamplesWithLastKnownData() {
       // $FF: Couldn't be decompiled
       fi.polar.polarflow.c.f_PolarSensorEvent var1 = this.v_gpsSensor.k_fillPolarGpsSensorEvent();
 
-      for(int[] var2 = this.u_samplesCounter; this.B < this.u_samplesCounter[0]; ++this.B) {
-         this.a(this.B, var1);
+      for(int[] var2 = this.u_maxSampleIndex; this.B_freeGpsSampleIndex < this.u_maxSampleIndex[0]; ++this.B_freeGpsSampleIndex) {
+         this.a_handleGpsSensorEvent(this.B_freeGpsSampleIndex, var1);
       }
 
    }
@@ -323,19 +323,19 @@ public class am_SessionCalculators {
    }
 
    // $FF: synthetic method
-   static int l(am_SessionCalculators var0) {
-      return var0.B;
+   static int l_getFreeGpsSampleIndex(am_SessionCalculators var0) {
+      return var0.B_freeGpsSampleIndex;
    }
 
    // $FF: synthetic method
-   static int m(am_SessionCalculators var0) {
-      int var1 = var0.B;
-      var0.B = var1 + 1;
+   static int m_postIncFreeGpsSampleIndex(am_SessionCalculators var0) {
+      int var1 = var0.B_freeGpsSampleIndex;
+      var0.B_freeGpsSampleIndex = var1 + 1;
       return var1;
    }
 
    // $FF: synthetic method
-   static SparseLongArray n_get_e_samplesTimeFromBoot(am_SessionCalculators var0) {
+   static SparseLongArray n_getGpsSamplesTimeFromBoot(am_SessionCalculators var0) {
       return var0.e_gpsSamplesTimeFromBoot;
    }
 
@@ -345,8 +345,8 @@ public class am_SessionCalculators {
    }
 
    // $FF: synthetic method
-   static f_PolarSensorEvent p_getPolarGpsSensorEvent(am_SessionCalculators var0) {
-      return var0.h_polarGpsSensorEvent;
+   static f_PolarSensorEvent p_getRecentPolarGpsSensorEvent(am_SessionCalculators var0) {
+      return var0.h_recentPolarGpsSensorEvent;
    }
 
    // $FF: synthetic method
@@ -414,7 +414,7 @@ public class am_SessionCalculators {
 
       if (this.v_gpsSensor != null) {
          this.v_gpsSensor.a_setPolarSensorListener((l_PolarSensorListener)null);
-         this.j();
+         this.j_fillRemainingGpsSamplesWithLastKnownData();
       }
 
       if (this.x_runningCadenceProvider != null) {
@@ -442,7 +442,7 @@ public class am_SessionCalculators {
       this.g();
    }
 
-   void a(int var1, int var2) {
+   void a_handleHeartRateSensorEvent(int var1, int var2) {
       long var3 = this.d_hrSamplesTimeFromBoot.get(this.A);
       if (this.o_isStopped) {
          this.d_hrSamplesTimeFromBoot.put(this.A, 0L);
@@ -460,22 +460,22 @@ public class am_SessionCalculators {
       while(var6.hasNext()) {
          al_Calc var7 = (al_Calc)var6.next();
          if (var7 instanceof h_ExerciseLapCalc) {
-            ((h_ExerciseLapCalc)var7).b_handleEvent(new z_HeartRateEvent(var1, var3, var5, var2));
+            ((h_ExerciseLapCalc)var7).b_handleSample(new z_HeartRateSample(var1, var3, var5, var2));
          } else if (var7 instanceof q_ExerciseSampleHeartrateCalc) {
-            ((q_ExerciseSampleHeartrateCalc)var7).b_handleEvent(new z_HeartRateEvent(var1, var3, var5, var2));
+            ((q_ExerciseSampleHeartrateCalc)var7).b_handleSample(new z_HeartRateSample(var1, var3, var5, var2));
          } else if (var7 instanceof j_ExercisePhaseCalc) {
-            ((j_ExercisePhaseCalc)var7).b_handleEvent(new z_HeartRateEvent(var1, var3, var5, var2));
+            ((j_ExercisePhaseCalc)var7).b_handleSample(new z_HeartRateSample(var1, var3, var5, var2));
          }
       }
 
    }
 
-   void a(int var1, f_PolarSensorEvent var2) {
-      long var3 = this.e_gpsSamplesTimeFromBoot.get(this.B);
+   void a_handleGpsSensorEvent(int var1_sampleIndex, f_PolarSensorEvent var2_event) {
+      long var3_sampleTimestamp = this.e_gpsSamplesTimeFromBoot.get(this.B_freeGpsSampleIndex);
       if (this.o_isStopped) {
-         this.e_gpsSamplesTimeFromBoot.put(this.B, 0L);
+         this.e_gpsSamplesTimeFromBoot.put(this.B_freeGpsSampleIndex, 0L);
       } else {
-         this.e_gpsSamplesTimeFromBoot.delete(this.B);
+         this.e_gpsSamplesTimeFromBoot.delete(this.B_freeGpsSampleIndex);
       }
 
       Iterator var5 = this.b_calcs.iterator();
@@ -483,13 +483,13 @@ public class am_SessionCalculators {
       while(var5.hasNext()) {
          al_Calc var6 = (al_Calc)var5.next();
          if (var6 instanceof h_ExerciseLapCalc) {
-            ((h_ExerciseLapCalc)var6).b_handleEvent(new aa_GpsDerivativesEvent(var1, var3, var2));
+            ((h_ExerciseLapCalc)var6).b_handleSample(new aa_GpsDerivativesSample(var1_sampleIndex, var3_sampleTimestamp, var2_event));
          } else if (var6 instanceof s_GpsDerivativesCalc) {
-            ((s_GpsDerivativesCalc)var6).b_handleEvent(new aa_GpsDerivativesEvent(var1, var3, var2));
+            ((s_GpsDerivativesCalc)var6).b_handleSample(new aa_GpsDerivativesSample(var1_sampleIndex, var3_sampleTimestamp, var2_event));
          } else if (var6 instanceof t_GpsLocationCalc) {
-            ((t_GpsLocationCalc)var6).b_handleEvent(new v_GpsLocationEvent(var1, var3, var2));
+            ((t_GpsLocationCalc)var6).b_handleSample(new v_GpsLocationSample(var1_sampleIndex, var3_sampleTimestamp, var2_event));
          } else if (var6 instanceof j_ExercisePhaseCalc) {
-            ((j_ExercisePhaseCalc)var6).b_handleEvent(new aa_GpsDerivativesEvent(var1, var3, var2));
+            ((j_ExercisePhaseCalc)var6).b_handleSample(new aa_GpsDerivativesSample(var1_sampleIndex, var3_sampleTimestamp, var2_event));
          }
       }
 
@@ -510,7 +510,7 @@ public class am_SessionCalculators {
          }
 
          this.v_gpsSensor.a_setPolarSensorListener(this.G_gpsPolarSensorListener);
-         this.h_polarGpsSensorEvent = this.v_gpsSensor.k_fillPolarGpsSensorEvent();
+         this.h_recentPolarGpsSensorEvent = this.v_gpsSensor.k_fillPolarGpsSensorEvent();
       }
 
       float var5;
@@ -598,9 +598,9 @@ public class am_SessionCalculators {
 
    }
 
-   public void b() {
+   public void b_pauseSessionCalculators() {
       fi.polar.polarflow.util.d.c(a_TAG, "pauseSessionCalculators");
-      this.n = true;
+      this.n_isPaused = true;
       this.i_stopSamplerTask();
       Iterator var1 = this.b_calcs.iterator();
 
@@ -617,7 +617,7 @@ public class am_SessionCalculators {
 
    }
 
-   void b(int var1, int var2_cadence) {
+   void b_handleCadenceSensorEvent(int var1, int var2_cadence) {
       long var3 = this.f_cadenceSamplesTimeFromBoot.get(this.C);
       if (this.o_isStopped) {
          this.f_cadenceSamplesTimeFromBoot.put(this.C, 0L);
@@ -625,17 +625,17 @@ public class am_SessionCalculators {
          this.f_cadenceSamplesTimeFromBoot.delete(this.C);
       }
 
-      b_RunningCadenceEvent var5 = new b_RunningCadenceEvent(var1, var3, var2_cadence);
+      b_RunningCadenceSample var5 = new b_RunningCadenceSample(var1, var3, var2_cadence);
       Iterator var6 = this.b_calcs.iterator();
 
       while(var6.hasNext()) {
          al_Calc var7 = (al_Calc)var6.next();
          if (var7 instanceof o_RunningCadenceCalc) {
-            ((o_RunningCadenceCalc)var7).b_handleEvent(var5);
+            ((o_RunningCadenceCalc)var7).b_handleSample(var5);
          } else if (var7 instanceof h_ExerciseLapCalc) {
-            ((h_ExerciseLapCalc)var7).b_handleEvent(var5);
+            ((h_ExerciseLapCalc)var7).b_handleSample(var5);
          } else if (var7 instanceof j_ExercisePhaseCalc) {
-            ((j_ExercisePhaseCalc)var7).b_handleEvent(var5);
+            ((j_ExercisePhaseCalc)var7).b_handleSample(var5);
          }
       }
 
@@ -643,7 +643,7 @@ public class am_SessionCalculators {
 
    public void c_resumeSessionCalculators() {
       fi.polar.polarflow.util.d.c(a_TAG, "resumeSessionCalculators");
-      this.n = false;
+      this.n_isPaused = false;
       Iterator var1 = this.b_calcs.iterator();
 
       while(var1.hasNext()) {

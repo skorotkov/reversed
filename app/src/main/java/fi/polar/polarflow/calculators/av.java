@@ -17,10 +17,10 @@ class av extends h_ExerciseLapCalc {
       this.d = var4;
    }
 
-   public void a_handleCurrentEvent() {
-      super.a_handleCurrentEvent();
-      ai_Event var1 = this.o_getCurrentEvent();
-      if (var1 instanceof ag_PoolSwimmingEvent && ((ag_PoolSwimmingEvent)var1).k()) {
+   public void a_handleCurrentSample() {
+      super.a_handleCurrentSample();
+      ai_Sample var1 = this.o_getCurrentSample();
+      if (var1 instanceof ag_PoolSwimmingSample && ((ag_PoolSwimmingSample)var1).k()) {
          SwimmingLapStatistics var2 = this.d.e();
          this.a(1, this.i(), var2);
       }

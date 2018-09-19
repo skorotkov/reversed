@@ -25,8 +25,8 @@ public class d_DistanceLapCalc extends h_ExerciseLapCalc {
       this.d = var2;
    }
 
-   public void a_handleCurrentEvent() {
-      super.a_handleCurrentEvent();
+   public void a_handleCurrentSample() {
+      super.a_handleCurrentSample();
       if (this.k() >= this.d) {
          float var1 = this.d;
          if (this.e) {
@@ -37,7 +37,7 @@ public class d_DistanceLapCalc extends h_ExerciseLapCalc {
       }
 
       boolean var2;
-      if (!this.o_getCurrentEvent().n_isTrusted()) {
+      if (!this.o_getCurrentSample().n_isTrusted()) {
          var2 = true;
       } else {
          var2 = false;

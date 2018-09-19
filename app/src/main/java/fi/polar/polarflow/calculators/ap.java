@@ -13,7 +13,7 @@ class ap implements l_PolarSensorListener {
 
    public void a(int var1) {
       // $FF: Couldn't be decompiled
-      am_SessionCalculators.c(this.a);
+      am_SessionCalculators.c_getMaxSampleIndex(this.a);
       am_SessionCalculators.b(this.a, am_SessionCalculators.q(this.a));
       am_SessionCalculators.c(this.a, var1);
    }

@@ -2,10 +2,10 @@ package fi.polar.polarflow.calculators;
 
 import fi.polar.polarmathsmart.swimming.poolswimming.PoolSwimmingOutput;
 
-class ag_PoolSwimmingEvent extends ai_Event {
+class ag_PoolSwimmingSample extends ai_Sample {
    private final PoolSwimmingOutput a;
 
-   ag_PoolSwimmingEvent(PoolSwimmingOutput var1) {
+   ag_PoolSwimmingSample(PoolSwimmingOutput var1) {
       super(-1, -1L);
       this.a = var1;
    }

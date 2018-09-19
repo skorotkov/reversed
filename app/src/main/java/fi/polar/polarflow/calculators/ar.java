@@ -14,7 +14,7 @@ class ar implements af {
    }
 
    public void a(PoolSwimmingOutput var1) {
-      ag_PoolSwimmingEvent var2 = new ag_PoolSwimmingEvent(var1);
+      ag_PoolSwimmingSample var2 = new ag_PoolSwimmingSample(var1);
       am_SessionCalculators.r_getTraining(this.a).getStatistics().getSwimmingSpeedStatistics().a(var2);
       am_SessionCalculators.r_getTraining(this.a).setTotalDistance(var2.a(), true);
       am_SessionCalculators.r_getTraining(this.a).setCurrentSpeedInKmPerHour(var2.b());
@@ -23,9 +23,9 @@ class ar implements af {
       while(var3.hasNext()) {
          al_Calc var4 = (al_Calc)var3.next();
          if (var4 instanceof h_ExerciseLapCalc) {
-            ((h_ExerciseLapCalc)var4).b_handleEvent(var2);
+            ((h_ExerciseLapCalc)var4).b_handleSample(var2);
          } else if (var4 instanceof j_ExercisePhaseCalc) {
-            ((j_ExercisePhaseCalc)var4).b_handleEvent(var2);
+            ((j_ExercisePhaseCalc)var4).b_handleSample(var2);
          }
       }
 

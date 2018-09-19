@@ -2,14 +2,14 @@ package fi.polar.polarflow.calculators;
 
 import fi.polar.polarflow.c.f_PolarSensorEvent;
 
-class aa_GpsDerivativesEvent extends ai_Event {
+class aa_GpsDerivativesSample extends ai_Sample {
    private final float a_distance;
    private final float b_speed;
    private final float c_altitude;
    private final float d_ascent;
    private final float e_descent;
 
-   aa_GpsDerivativesEvent() {
+   aa_GpsDerivativesSample() {
       super(0, 0L);
       this.a_distance = -1.0F;
       this.b_speed = Float.NaN;
@@ -18,7 +18,7 @@ class aa_GpsDerivativesEvent extends ai_Event {
       this.e_descent = -1.0F;
    }
 
-   aa_GpsDerivativesEvent(int var1, long var2, f_PolarSensorEvent var4) {
+   aa_GpsDerivativesSample(int var1, long var2, f_PolarSensorEvent var4) {
       super(var1, var2, (var4 != null && var4.n_fix));
       float var5 = Float.NaN;
       float var6 = -1.0F;

@@ -15,29 +15,29 @@ class s_GpsDerivativesCalc extends aj_CalcBase implements ak, y {
 
    s_GpsDerivativesCalc() {
       super(a_sensorTypes);
-      this.a_setCurrentEvent(new aa_GpsDerivativesEvent());
+      this.a_setCurrentSample(new aa_GpsDerivativesSample());
    }
 
-   public void a_handleCurrentEvent() {
+   public void a_handleCurrentSample() {
       byte var1 = 0;
-      boolean var2 = ((aa_GpsDerivativesEvent)this.o_getCurrentEvent()).n_isTrusted();
-      int var3 = ((aa_GpsDerivativesEvent)this.o_getCurrentEvent()).l();
-      float var4 = ((aa_GpsDerivativesEvent)this.o_getCurrentEvent()).c_getAltitude();
-      float var5_speed = ((aa_GpsDerivativesEvent)this.o_getCurrentEvent()).a_getSpeed();
-      Training.getInstance().setTotalDistance(((aa_GpsDerivativesEvent)this.o_getCurrentEvent()).b_getDistance(), var2);
-      Training.getInstance().setTotalAscent(((aa_GpsDerivativesEvent)this.o_getCurrentEvent()).d_getAscent());
-      Training.getInstance().setTotalDescent(((aa_GpsDerivativesEvent)this.o_getCurrentEvent()).e_getDescent());
+      boolean var2 = ((aa_GpsDerivativesSample)this.o_getCurrentSample()).n_isTrusted();
+      int var3_sampleIndex = ((aa_GpsDerivativesSample)this.o_getCurrentSample()).l_getSampleIndex();
+      float var4_altitude = ((aa_GpsDerivativesSample)this.o_getCurrentSample()).c_getAltitude();
+      float var5_speed = ((aa_GpsDerivativesSample)this.o_getCurrentSample()).a_getSpeed();
+      Training.getInstance().setTotalDistance(((aa_GpsDerivativesSample)this.o_getCurrentSample()).b_getDistance(), var2);
+      Training.getInstance().setTotalAscent(((aa_GpsDerivativesSample)this.o_getCurrentSample()).d_getAscent());
+      Training.getInstance().setTotalDescent(((aa_GpsDerivativesSample)this.o_getCurrentSample()).e_getDescent());
       int var6;
       if (Float.isNaN(var5_speed)) {
          Training.getInstance().setCurrentSpeedInMetersPerSecond(-1.0F, false);
          if (this.d == -1) {
-            this.d = var3;
+            this.d = var3_sampleIndex;
          }
       } else {
-         Training.getInstance().setCurrentSpeedInMetersPerSecond(((aa_GpsDerivativesEvent)this.o_getCurrentEvent()).a_getSpeed(), true);
+         Training.getInstance().setCurrentSpeedInMetersPerSecond(((aa_GpsDerivativesSample)this.o_getCurrentSample()).a_getSpeed(), true);
          if (this.d != -1) {
-            if (var3 > 0) {
-               var6 = var3 - 1;
+            if (var3_sampleIndex > 0) {
+               var6 = var3_sampleIndex - 1;
             } else {
                var6 = 0;
             }
@@ -47,21 +47,21 @@ class s_GpsDerivativesCalc extends aj_CalcBase implements ak, y {
          }
       }
 
-      if (var2 && !Float.isNaN(var4)) {
-         Training.getInstance().setCurrentAltitude(var4, true);
+      if (var2 && !Float.isNaN(var4_altitude)) {
+         Training.getInstance().setCurrentAltitude(var4_altitude, true);
          if (this.b != -1) {
             var6 = var1;
-            if (var3 > 0) {
-               var6 = var3 - 1;
+            if (var3_sampleIndex > 0) {
+               var6 = var3_sampleIndex - 1;
             }
 
             Training.getInstance().getSamples().addAltitudeOfflineRange(this.b, var6);
             this.b = -1;
          }
       } else {
-         Training.getInstance().setCurrentAltitude(var4, false);
+         Training.getInstance().setCurrentAltitude(var4_altitude, false);
          if (this.b == -1) {
-            this.b = var3;
+            this.b = var3_sampleIndex;
          }
       }
 
@@ -86,7 +86,7 @@ class s_GpsDerivativesCalc extends aj_CalcBase implements ak, y {
    public void d() {
       int var1 = this.p();
       if (var1 != -1) {
-         int var2 = ((aa_GpsDerivativesEvent)this.o_getCurrentEvent()).l();
+         int var2 = ((aa_GpsDerivativesSample)this.o_getCurrentSample()).l_getSampleIndex();
          if (var1 == 0) {
             Training.getInstance().getSamples().addDistanceOfflineRange(var1, var2);
          }
@@ -105,7 +105,7 @@ class s_GpsDerivativesCalc extends aj_CalcBase implements ak, y {
       }
 
       if (this.b != -1) {
-         Training.getInstance().getSamples().addAltitudeOfflineRange(this.b, ((aa_GpsDerivativesEvent)this.o_getCurrentEvent()).l());
+         Training.getInstance().getSamples().addAltitudeOfflineRange(this.b, ((aa_GpsDerivativesSample)this.o_getCurrentSample()).l_getSampleIndex());
          this.b = -1;
       }
 

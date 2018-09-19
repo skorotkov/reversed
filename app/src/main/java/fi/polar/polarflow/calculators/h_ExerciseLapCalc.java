@@ -65,7 +65,7 @@ public abstract class h_ExerciseLapCalc extends aj_CalcBase implements ae, ah {
       this.r = 0L;
       this.s = 0L;
       this.t = 0L;
-      this.a_setCurrentEvent((ai_Event)(new i(this, 0, 0L)));
+      this.a_setCurrentSample((ai_Sample)(new i(this, 0, 0L)));
       this.r = var2;
       if (var4 == null) {
          if (var1 != null) {
@@ -231,17 +231,17 @@ public abstract class h_ExerciseLapCalc extends aj_CalcBase implements ae, ah {
 
    }
 
-   public void a_handleCurrentEvent() {
-      ai_Event var1 = this.o_getCurrentEvent();
-      if (var1 instanceof z_HeartRateEvent) {
-         this.a(((z_HeartRateEvent)var1).a(), var1.n_isTrusted());
-      } else if (var1 instanceof aa_GpsDerivativesEvent) {
-         this.a_handleLocationDataBroadcast(((aa_GpsDerivativesEvent)var1).b_getDistance(), ((aa_GpsDerivativesEvent)var1).a_getSpeed(), (double)((aa_GpsDerivativesEvent)var1).c_getAltitude(), ((aa_GpsDerivativesEvent)var1).d_getAscent(), ((aa_GpsDerivativesEvent)var1).e_getDescent(), var1.n_isTrusted());
-      } else if (var1 instanceof b_RunningCadenceEvent) {
-         this.a(((b_RunningCadenceEvent)var1).a_getCadence());
-      } else if (var1 instanceof ag_PoolSwimmingEvent) {
-         this.n.a((ag_PoolSwimmingEvent)var1);
-         this.o.a((ag_PoolSwimmingEvent)var1);
+   public void a_handleCurrentSample() {
+      ai_Sample var1 = this.o_getCurrentSample();
+      if (var1 instanceof z_HeartRateSample) {
+         this.a(((z_HeartRateSample)var1).a(), var1.n_isTrusted());
+      } else if (var1 instanceof aa_GpsDerivativesSample) {
+         this.a_handleLocationDataBroadcast(((aa_GpsDerivativesSample)var1).b_getDistance(), ((aa_GpsDerivativesSample)var1).a_getSpeed(), (double)((aa_GpsDerivativesSample)var1).c_getAltitude(), ((aa_GpsDerivativesSample)var1).d_getAscent(), ((aa_GpsDerivativesSample)var1).e_getDescent(), var1.n_isTrusted());
+      } else if (var1 instanceof b_RunningCadenceSample) {
+         this.a(((b_RunningCadenceSample)var1).a_getCadence());
+      } else if (var1 instanceof ag_PoolSwimmingSample) {
+         this.n.a((ag_PoolSwimmingSample)var1);
+         this.o.a((ag_PoolSwimmingSample)var1);
       }
 
    }

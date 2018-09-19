@@ -30,7 +30,7 @@ public class bd {
       return this.a(this.a);
    }
 
-   public void a(ag_PoolSwimmingEvent var1) {
+   public void a(ag_PoolSwimmingSample var1) {
       this.a = var1.b();
       this.b = var1.i();
       this.c = var1.j();

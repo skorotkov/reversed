@@ -1,6 +1,6 @@
 package fi.polar.polarflow.calculators;
 
-class i extends ai_Event {
+class i extends ai_Sample {
    // $FF: synthetic field
    final h_ExerciseLapCalc a;
 

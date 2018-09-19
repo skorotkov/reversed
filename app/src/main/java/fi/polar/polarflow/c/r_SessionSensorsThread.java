@@ -195,7 +195,7 @@ class r_SessionSensorsThread extends HandlerThread implements Callback {
 
    private void g_pause() {
       if (this.g_isStarted) {
-         this.d_sessionCalculators.b();
+         this.d_sessionCalculators.b_pauseSessionCalculators();
          Iterator var1 = this.e_sensorsMap.entrySet().iterator();
 
          while(var1.hasNext()) {
