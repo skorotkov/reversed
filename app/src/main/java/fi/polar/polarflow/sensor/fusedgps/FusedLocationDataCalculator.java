@@ -64,7 +64,8 @@ class FusedLocationDataCalculator implements LocationDataCalculator {
         if (mPreviousLocation != null) {
             double distanceDelta = mPreviousLocation.distanceTo(location);
             mTotalDistance += distanceDelta;
-            mSpeed = distanceDelta / ((location.getElapsedRealtimeNanos() - mPreviousLocation.getElapsedRealtimeNanos()) / 1000000000D);
+            double speed = distanceDelta / ((location.getElapsedRealtimeNanos() - mPreviousLocation.getElapsedRealtimeNanos()) / 1000000000D);
+            mSpeed = speed < 0.2D ? 0.0D: speed;
             Log.i(TAG, String.format(Locale.US, "handleLocation: mTotalDistance = %.2f (m), speed = %.2f (m/s)", mTotalDistance, mSpeed));
         }
         mPreviousLocation = location;
