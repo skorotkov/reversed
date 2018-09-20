@@ -9,11 +9,6 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.support.v4.util.TimeUtils;
 
-import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
-import org.joda.time.format.ISODateTimeFormat;
-
 import java.util.List;
 import java.util.Locale;
 
@@ -34,7 +29,7 @@ public class FusedGpsLocationProvider extends Sensor {
     private long mEventTime;
     private long mLastFixElapsedRealtime;
 
-    private Handler mHandler;
+    private Handler mHandler = new Handler();;
     private BroadcastReceiver mPowerSaveModeBroadcastReceiver;
     private AndroidSensorEventListener mAndroidSensorEventListener;
 
@@ -63,6 +58,17 @@ public class FusedGpsLocationProvider extends Sensor {
     private float mTotalDescentDuringPause = 0.0F;
     private float mTotalDirtyAscent = 0.0F;
     private float mTotalDirtyDescent = 0.0F;
+
+    private Runnable mSamplerTask = new Runnable() {
+        @Override
+        public void run() {
+            if (isStarted()) {
+                // TODO
+
+                mHandler.postDelayed(mSamplerTask, 1000L);
+            }
+        }
+    };
 
     public FusedGpsLocationProvider(Context context) {
         super(context, SENSOR_TYPE.FUSED_GPS);
@@ -148,6 +154,7 @@ public class FusedGpsLocationProvider extends Sensor {
         } else {
             broadcastStateChanged();
         }
+        mHandler.post(mSamplerTask);
     }
 
     @Override
@@ -172,6 +179,7 @@ public class FusedGpsLocationProvider extends Sensor {
             broadcastStateChanged();
         }
 
+        mHandler.removeCallbacks(mSamplerTask);
         mHandler.removeCallbacksAndMessages(null);
         StickyLocalBroadcastManager.removeFromMap("fi.polar.polarflow.ACTION_LOCATION_DATA", "fi.polar.polarflow.SENSOR_LOCATION_STATE_CHANGED");
     }
@@ -206,6 +214,7 @@ public class FusedGpsLocationProvider extends Sensor {
         }
 
         setActive(true);
+        mHandler.postDelayed(mSamplerTask, 1000L);
     }
 
     @Override
@@ -221,24 +230,20 @@ public class FusedGpsLocationProvider extends Sensor {
         }
     }
 
-    private void handleLocation(Location location){
-        Log.i(TAG, "handleLocation: " + location.toString());
+    private void storeLocation(Location location) {
+        Log.i(TAG, "storeLocation: " + location.toString());
 
         long elapsedRealtime = SystemClock.elapsedRealtime();
 
-        mLocationDataCalculator.handleLocation(location);
-
         if (mLastFixElapsedRealtime == 0L) {
-            mLastFixElapsedRealtime = elapsedRealtime;
-            Log.i(TAG, "First location handled, diff to GPS start time(" + mLastFixElapsedRealtime + " - " + mProviderStartTime + ") :" + (mLastFixElapsedRealtime - mProviderStartTime));
-        } else {
-//            mLastFixElapsedRealtime = mLastFixElapsedRealtime + 1000L;
-            mLastFixElapsedRealtime = elapsedRealtime;
+            Log.i(TAG, "First location handled, diff to GPS start time(" + elapsedRealtime + " - " + mProviderStartTime + ") :" + (elapsedRealtime - mProviderStartTime));
         }
+        mLastFixElapsedRealtime = elapsedRealtime;
 
-        if (elapsedRealtime - mLastFixElapsedRealtime < 0L) {
-            mLastFixElapsedRealtime = elapsedRealtime;
-        }
+    }
+
+    private void handleLocation(Location location) {
+        mLocationDataCalculator.handleLocation(location);
 
         mEventTime = mLastFixElapsedRealtime;
         mFix = mLocationDataCalculator.getFix();
@@ -292,10 +297,10 @@ public class FusedGpsLocationProvider extends Sensor {
         return result;
     }
 
-    void handleLocationList(List<Location> locationList){
-        Log.i(TAG, "handleLocationList");
+    void storeLocationList(List<Location> locationList){
+        Log.i(TAG, "storeLocationList: size = " + locationList.size());
         for (Location location : locationList) {
-            handleLocation(location);
+            storeLocation(location);
         }
     }
 

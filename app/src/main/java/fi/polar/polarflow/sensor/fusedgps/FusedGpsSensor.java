@@ -48,7 +48,7 @@ public class FusedGpsSensor {
                     mWaitingForGpsSignal = false;
 //                    mGpsLocationProvider.setState(m_SENSOR_STATE.d_READY, true);
                 }
-                mGpsLocationProvider.handleLocationList(locationResult.getLocations());
+                mGpsLocationProvider.storeLocationList(locationResult.getLocations());
             }
             @Override
             public void onLocationAvailability(LocationAvailability locationAvailability) {
@@ -111,54 +111,6 @@ public class FusedGpsSensor {
         Log.d(TAG, "startListeningUpdates");
         mGoogleApiClient.connect();
     }
-
-//    private void requestLocationUpdates_settings() {
-//
-//        // does not work on device
-//        // 09-13 12:26:02.266  3603  3603 I FusedGpsSensor: checkLocationSettings task completed
-//        // 09-13 12:26:02.275  3603  3603 E FusedGpsSensor: Failed in checkLocationSettings
-//        // 09-13 12:26:02.275  3603  3603 E FusedGpsSensor: com.google.android.gms.common.api.ApiException: 10: Not implemented on this platform.
-//
-//        Log.d(TAG, "requestLocationUpdates");
-//        LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
-//                .addLocationRequest(mLocationRequest);
-////                .setNeedBle(true);
-//        SettingsClient client = LocationServices.getSettingsClient(mGpsLocationProvider.getContext());
-//        Task<LocationSettingsResponse> task = client.checkLocationSettings(builder.build());
-//
-//        task.addOnCompleteListener(new OnCompleteListener<LocationSettingsResponse>() {
-//            @Override
-//            public void onComplete(@NonNull Task<LocationSettingsResponse> task) {
-//                try {
-//                    Log.i(TAG, "checkLocationSettings task completed");
-//                    LocationSettingsResponse response = task.getResult(ApiException.class);
-//                    // All location settings are satisfied. The client can initialize location
-//                    // requests here.
-//                    try {
-//                        mFusedLocationClient.requestLocationUpdates(mLocationRequest, mLocationCallback, null /* Looper */)
-//                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                                @Override
-//                                public void onSuccess(Void aVoid) {
-//                                    Log.i(TAG, "Successfully requested location updates");
-//                                }
-//                            })
-//                            .addOnFailureListener(new OnFailureListener() {
-//                                @Override
-//                                public void onFailure(@NonNull Exception e) {
-//                                    Log.e(TAG, "Failed in requesting location updates", e);
-//                                }
-//                            });
-//                    } catch (SecurityException exception) {
-//                        Log.e(TAG, "Failed in requesting location updates", exception);
-//                        mGpsLocationProvider.setState(SENSOR_STATE.DISABLED, true);
-//                    }
-//                } catch (ApiException exception) {
-//                    Log.e(TAG, "Failed in checkLocationSettings", exception);
-//                    mGpsLocationProvider.setState(SENSOR_STATE.DISABLED, true);
-//                }
-//            }
-//        });
-//    }
 
     private void requestLocationUpdates() {
         Log.d(TAG, "requestLocationUpdates");
