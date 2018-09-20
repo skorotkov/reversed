@@ -23,16 +23,15 @@ class FusedGpsLog {
 
     private FileOutputStream mFs;
     private PrintWriter mWriter;
-    private String mFileName;
+    private String mGpsFileName;
 
     FusedGpsLog(Context context) {
         if (!fi.polar.polarflow.ui.o.d(context, "android.permission.WRITE_EXTERNAL_STORAGE"))
             return;
         String dirName = Environment.getExternalStorageDirectory().getPath();
-        mFileName = "gps-" + DateTime.now(DateTimeZone.UTC).toString(ISODateTimeFormat.basicDateTime()) + ".csv";
-//        String dirName = "/sdcard/";
-//        mFileName = "gps.csv";
-        File file = new File(dirName, mFileName);
+        String timeStamp = DateTime.now(DateTimeZone.UTC).toString(ISODateTimeFormat.basicDateTimeNoMillis());
+        mGpsFileName = "gps-" + timeStamp + ".csv";
+        File file = new File(dirName, mGpsFileName);
         try {
             mFs = new FileOutputStream(file);
             mWriter = new PrintWriter(mFs);
@@ -62,9 +61,9 @@ class FusedGpsLog {
                     "location:et;" +
                     "location:et_i;");
             mWriter.flush();
-            Log.i(TAG, "open file: " + mFileName);
+            Log.i(TAG, "open file: " + mGpsFileName);
         } catch (FileNotFoundException e) {
-            Log.e(TAG, "fail opening file: " + mFileName, e);
+            Log.e(TAG, "fail opening file: " + mGpsFileName, e);
         }
     }
 
@@ -105,7 +104,7 @@ class FusedGpsLog {
             try {
                 mFs.close();
             } catch (IOException e) {
-                Log.e(TAG, "fail closing file: " + mFileName, e);
+                Log.e(TAG, "fail closing file: " + mGpsFileName, e);
             }
         }
     }
