@@ -153,8 +153,10 @@ public class FusedGpsLocationProvider extends Sensor {
     @Override
     public void stop() {
         Log.i(TAG, "stop()");
-        mGpsLog.close();
-        mGpsLog = null;
+        if (mGpsLog != null) {
+            mGpsLog.close();
+            mGpsLog = null;
+        }
         if (isStarted()) {
             setStarted(false);
             getContext().unregisterReceiver(mPowerSaveModeBroadcastReceiver);
