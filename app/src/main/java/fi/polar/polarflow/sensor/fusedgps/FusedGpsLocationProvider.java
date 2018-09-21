@@ -9,8 +9,11 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.support.v4.util.TimeUtils;
 
+import java.util.Deque;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.ConcurrentLinkedDeque;
+import java.util.concurrent.TimeUnit;
 
 import fi.polar.polarflow.sensor.fusedgps.a_package.a_DataTypes;
 import fi.polar.polarflow.sensor.fusedgps.proxy.AndroidSensorEventListener;
@@ -29,7 +32,7 @@ public class FusedGpsLocationProvider extends Sensor {
     private long mEventTime;
     private long mLastFixElapsedRealtime;
 
-    private Handler mHandler = new Handler();;
+    private Handler mHandler = new Handler();
     private BroadcastReceiver mPowerSaveModeBroadcastReceiver;
     private AndroidSensorEventListener mAndroidSensorEventListener;
 
@@ -59,12 +62,19 @@ public class FusedGpsLocationProvider extends Sensor {
     private float mTotalDirtyAscent = 0.0F;
     private float mTotalDirtyDescent = 0.0F;
 
+    private Location mPreviousLocation = null;
+    private long mPreviousLocationTimestamp = 0L;
+    private Deque<Location> mLocationQueue = new ConcurrentLinkedDeque<>();
     private Runnable mSamplerTask = new Runnable() {
         @Override
         public void run() {
             if (isStarted()) {
-                // TODO
-
+                Location location = mLocationQueue.poll();
+                if (location != null) {
+                    handleLocation(location);
+                } else {
+                    Log.i(TAG, "mSamplerTask: location queue is empty");
+                }
                 mHandler.postDelayed(mSamplerTask, 1000L);
             }
         }
@@ -87,8 +97,10 @@ public class FusedGpsLocationProvider extends Sensor {
                     mEventTime = SystemClock.elapsedRealtime();
                     mFix = false;
                     mAndroidSensorEventListener.onEvent(createPolarSensorEvent());
+                    mHandler.removeCallbacks(mSamplerTask);
                     mSensor.stopListeningUpdates();
                 } else {
+                    mHandler.post(mSamplerTask);
                     mSensor.startListeningUpdates();
                 }
             }
@@ -149,12 +161,12 @@ public class FusedGpsLocationProvider extends Sensor {
                 setState(SENSOR_STATE.DISABLED, true);
             } else if (!mSensorStarted) {
                 mSensorStarted = true;
+                mHandler.post(mSamplerTask);
                 mSensor.startListeningUpdates();
             }
         } else {
             broadcastStateChanged();
         }
-        mHandler.post(mSamplerTask);
     }
 
     @Override
@@ -231,7 +243,7 @@ public class FusedGpsLocationProvider extends Sensor {
     }
 
     private void storeLocation(Location location) {
-        Log.i(TAG, "storeLocation: " + location.toString());
+//        Log.i(TAG, "storeLocation: " + location.toString());
 
         long elapsedRealtime = SystemClock.elapsedRealtime();
 
@@ -240,12 +252,36 @@ public class FusedGpsLocationProvider extends Sensor {
         }
         mLastFixElapsedRealtime = elapsedRealtime;
 
+        if (mPreviousLocation != null) {
+            long timeDifference = location.getElapsedRealtimeNanos() - mPreviousLocation.getElapsedRealtimeNanos();
+            if (timeDifference > TimeUnit.MILLISECONDS.toNanos(1200)) {
+                int numberOfExtraPoints = (int)(timeDifference / TimeUnit.SECONDS.toNanos(1));
+                float extraAccuracy = (mPreviousLocation.getAccuracy()   + location.getAccuracy())  / 2;
+                double latDifference = location.getLatitude() - mPreviousLocation.getLatitude();
+                double lonDifference = location.getLongitude() - mPreviousLocation.getLongitude();
+                double altDifference = location.getAltitude() - mPreviousLocation.getAltitude();
+                for (int i = 1; i <= numberOfExtraPoints; i++) {
+                    Location extraLocation = new Location("fused");
+                    extraLocation.setAccuracy(extraAccuracy);
+                    extraLocation.setLatitude(mPreviousLocation.getLatitude() + latDifference / (double)timeDifference);
+                    extraLocation.setLongitude(mPreviousLocation.getLongitude() + lonDifference / (double)timeDifference);
+                    extraLocation.setAltitude(mPreviousLocation.getAltitude()   + altDifference / (double)timeDifference);
+                    extraLocation.setElapsedRealtimeNanos(mPreviousLocation.getElapsedRealtimeNanos() + i * TimeUnit.SECONDS.toNanos(1));
+                    mLocationQueue.add(extraLocation);
+                    Log.i(TAG, "storeLocation: extraLocation added to queue " + extraLocation);
+                }
+            }
+        }
+        mLocationQueue.add(location);
+        Log.i(TAG, "storeLocation: location added to queue " + location);
+        mPreviousLocation = location;
     }
 
     private void handleLocation(Location location) {
+        Log.i(TAG, "handleLocation: " + location);
         mLocationDataCalculator.handleLocation(location);
 
-        mEventTime = mLastFixElapsedRealtime;
+        mEventTime = SystemClock.elapsedRealtime();//mLastFixElapsedRealtime;
         mFix = mLocationDataCalculator.getFix();
         mNumberOfSatellites = mLocationDataCalculator.getNumberOfSatellites();
         mAltitudeInMetersChecked = a_DataTypes.b_adjust(a_DataTypes.ALTITUDE_INDEX, mLocationDataCalculator.getAltitudeInMeters(true));
