@@ -63,8 +63,7 @@ public class FusedGpsLocationProvider extends Sensor {
     private float mTotalDirtyDescent = 0.0F;
 
     private Location mPreviousLocation = null;
-    private long mPreviousLocationTimestamp = 0L;
-    private Deque<Location> mLocationQueue = new ConcurrentLinkedDeque<>();
+    private BoundedQueue<Location> mLocationQueue = new BoundedQueue<>(3);
     private Runnable mSamplerTask = new Runnable() {
         @Override
         public void run() {
@@ -266,15 +265,23 @@ public class FusedGpsLocationProvider extends Sensor {
                     extraLocation.setLatitude(mPreviousLocation.getLatitude() + latDifference / (double)timeDifference);
                     extraLocation.setLongitude(mPreviousLocation.getLongitude() + lonDifference / (double)timeDifference);
                     extraLocation.setAltitude(mPreviousLocation.getAltitude()   + altDifference / (double)timeDifference);
-                    extraLocation.setElapsedRealtimeNanos(mPreviousLocation.getElapsedRealtimeNanos() + i * TimeUnit.SECONDS.toNanos(1));
+                    extraLocation.setElapsedRealtimeNanos(mPreviousLocation.getElapsedRealtimeNanos() + TimeUnit.SECONDS.toNanos(1));
                     mLocationQueue.add(extraLocation);
                     Log.i(TAG, "storeLocation: extraLocation added to queue " + extraLocation);
+                    mPreviousLocation = extraLocation;
                 }
             }
+            if (location.getElapsedRealtimeNanos() - mPreviousLocation.getElapsedRealtimeNanos() > TimeUnit.MILLISECONDS.toNanos(501)) {
+                location.setElapsedRealtimeNanos(mPreviousLocation.getElapsedRealtimeNanos() + TimeUnit.SECONDS.toNanos(1));
+                mLocationQueue.add(location);
+                mPreviousLocation = location;
+                Log.i(TAG, "storeLocation: location added to queue " + location);
+            }
+        } else {
+            mLocationQueue.add(location);
+            Log.i(TAG, "storeLocation: location added to queue " + location);
+            mPreviousLocation = location;
         }
-        mLocationQueue.add(location);
-        Log.i(TAG, "storeLocation: location added to queue " + location);
-        mPreviousLocation = location;
     }
 
     private void handleLocation(Location location) {
